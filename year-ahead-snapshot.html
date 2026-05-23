@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your Year Ahead Snapshot — Limitless Yeehaw</title>
+<link rel="stylesheet" href="css/snapshot.css">
+</head>
+<body>
+
+<nav class="nav">
+  <a class="nav-brand" href="index.html">Limitless Yeehaw</a>
+  <a class="nav-back" href="index.html">← Back</a>
+</nav>
+
+<div class="tool-wrap">
+
+  <p class="tool-eyebrow">Your Year Ahead · Snapshot Tool</p>
+  <h1 class="tool-heading">Cast your moment.<br>Keep your map.</h1>
+  <div class="tool-divider"></div>
+  <p class="tool-sub">
+    Enter your three key placements from your solar return chart.
+    Get a personalized reading you can print and return to all year.
+  </p>
+
+  <!-- FORM -->
+  <div class="form-section">
+    <div class="form-grid">
+      <div class="field">
+        <label for="rising">Solar Return Rising Sign</label>
+        <select id="rising">
+          <option value="">— choose —</option>
+          <option>Aries</option><option>Taurus</option><option>Gemini</option>
+          <option>Cancer</option><option>Leo</option><option>Virgo</option>
+          <option>Libra</option><option>Scorpio</option><option>Sagittarius</option>
+          <option>Capricorn</option><option>Aquarius</option><option>Pisces</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="sun">Solar Return Sun Sign</label>
+        <select id="sun">
+          <option value="">— choose —</option>
+          <option>Aries</option><option>Taurus</option><option>Gemini</option>
+          <option>Cancer</option><option>Leo</option><option>Virgo</option>
+          <option>Libra</option><option>Scorpio</option><option>Sagittarius</option>
+          <option>Capricorn</option><option>Aquarius</option><option>Pisces</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="moon">Solar Return Moon Sign</label>
+        <select id="moon">
+          <option value="">— choose —</option>
+          <option>Aries</option><option>Taurus</option><option>Gemini</option>
+          <option>Cancer</option><option>Leo</option><option>Virgo</option>
+          <option>Libra</option><option>Scorpio</option><option>Sagittarius</option>
+          <option>Capricorn</option><option>Aquarius</option><option>Pisces</option>
+        </select>
+      </div>
+    </div>
+    <button class="generate-btn" onclick="generate()">Generate My Snapshot →</button>
+  </div>
+
+  <!-- SNAPSHOT -->
+  <div class="snapshot" id="snapshot">
+    <p class="snap-title">Your Year Ahead Snapshot</p>
+    <h2 class="snap-name" id="snapName"></h2>
+
+    <div class="snap-body">
+
+      <!-- Left: orb + chart -->
+      <div class="orb-col">
+        <div class="aura-wrap">
+          <canvas id="auraCanvas" width="300" height="300" aria-label="Your aura for this reading"></canvas>
+          <p class="aura-label" id="auraLabel">generated</p>
+        </div>
+        <div class="chart-wrap">
+          <svg id="chartSVG" viewBox="0 0 230 230" xmlns="http://www.w3.org/2000/svg" aria-label="Solar return chart wheel"></svg>
+          <p class="chart-label">chart wheel</p>
+        </div>
+      </div>
+
+      <!-- Right: readings -->
+      <div class="readings">
+        <div class="r-block">
+          <p class="r-label">Rising Sign · Your year's lens</p>
+          <p class="r-sign" id="risingSign"></p>
+          <p class="r-text" id="risingText"></p>
+        </div>
+        <div class="r-block">
+          <p class="r-label">Sun · Your identity theme</p>
+          <p class="r-sign" id="sunSign"></p>
+          <p class="r-text" id="sunText"></p>
+        </div>
+        <div class="r-block">
+          <p class="r-label">Moon · Your emotional needs</p>
+          <p class="r-sign" id="moonSign"></p>
+          <p class="r-text" id="moonText"></p>
+        </div>
+      </div>
+
+    </div>
+
+    <p class="snap-footer">limitlessyeehaw.com · your year ahead</p>
+  </div>
+
+  <button class="print-btn" id="printBtn" style="display:none" onclick="window.print()">Print / Save as PDF</button>
+
+</div>
+
+<script>
+// ── COPY ──────────────────────────────────────────────────────────────────
+
+const risingCopy = {
+  Aries: "This year opens with war paint on. Your whole lens is Aries — you're being asked to lead, initiate, and act before you feel ready. Mars rules your chart this year: find where Mars sits, and that house is your engine. The year belongs to the bold.",
+  Taurus: "This year asks you to slow down and root. Your lens is Taurus — sensory, steady, patient. Venus rules your chart this year: find where she sits, and that's where beauty and abundance are being cultivated. The year belongs to those who tend.",
+  Gemini: "This year puts you in conversation with everything. Your lens is Gemini — curious, quick, connective. Mercury rules your chart this year: find where Mercury sits, and that's where ideas catch fire. The year belongs to the learner.",
+  Cancer: "This year turns you inward before it turns you outward. Your lens is Cancer — intuitive, protective, nourishing. The Moon rules your chart this year: find where she sits, and that's where your emotional home is being built. The year belongs to the one who tends the hearth.",
+  Leo: "This year asks you to be seen. Your lens is Leo — radiant, creative, magnetic. The Sun rules your chart this year: find where the Sun sits, and that's where your light is being directed. Stop shrinking. The year belongs to the one willing to take the stage.",
+  Virgo: "This year is about refinement. Your lens is Virgo — discerning, skilled, purposeful. Mercury rules your chart this year: find where Mercury sits, and that's where your mind is being put to meaningful work. The year belongs to the craftsperson.",
+  Libra: "This year is about balance, beauty, and becoming. Your lens is Libra — relational, aesthetic, seeking harmony. Venus rules your chart this year: find where she sits, and that's where you're learning to give and receive in equal measure. The year belongs to the peacemaker who doesn't lose themselves.",
+  Scorpio: "This year takes you into the deep. Your lens is Scorpio — penetrating, transformative, unafraid of shadow. Mars rules your chart this year: find where Mars sits, and that's where your power is being forged. The year belongs to the one who walks into the dark and comes back changed.",
+  Sagittarius: "This year expands your entire world. Your lens is Sagittarius — philosophical, adventurous, truth-seeking. Jupiter rules your chart this year: find where Jupiter sits, and that's where wisdom and growth are waiting. The year belongs to the seeker.",
+  Capricorn: "This year is about building something that lasts. Your lens is Capricorn — disciplined, ambitious, strategic. Saturn rules your chart this year: find where Saturn sits, and that's where the real work is happening. The year belongs to the architect.",
+  Aquarius: "This year breaks the mold. Your lens is Aquarius — innovative, collective, ahead of its time. Saturn rules your chart this year: find where it sits, and that's where quiet revolution is brewing. The year belongs to the visionary.",
+  Pisces: "This year dissolves old boundaries. Your lens is Pisces — dreaming, mystical, deeply feeling. Neptune rules your chart this year: find where Neptune sits, and that's where magic and surrender meet. The year belongs to the dreamer who acts."
+};
+
+const sunCopy = {
+  Aries: "Your ego this year wants to pioneer. You're being called to start things, claim space, and trust your instincts without waiting for permission. Identity grows through action.",
+  Taurus: "Your ego this year wants to build. You're being called to invest in what's real, cultivate your resources, and let yourself be fully, unapologetically present. Identity grows through presence.",
+  Gemini: "Your ego this year wants to learn and connect. You're being called to collect perspectives, ask questions, and let your mind lead you somewhere new. Identity grows through curiosity.",
+  Cancer: "Your ego this year wants to nurture and be nurtured. You're being called to honor your emotional intelligence as a superpower, not a softness. Identity grows through belonging.",
+  Leo: "Your ego this year wants to create and be seen. You're being called to stop dimming yourself and let your authentic radiance be the gift it actually is. Identity grows through self-expression.",
+  Virgo: "Your ego this year wants to refine and serve. You're being called to apply your gifts with precision, release perfectionism, and trust that your work matters. Identity grows through devotion.",
+  Libra: "Your ego this year wants connection and harmony. You're being called to balance your own needs alongside others' without losing yourself in the equation. Identity grows through relationship.",
+  Scorpio: "Your ego this year wants to go deep. You're being called to shed what no longer serves you and trust that what lives underneath is worth uncovering. Identity grows through transformation.",
+  Sagittarius: "Your ego this year wants to expand. You're being called to follow the thread of meaning wherever it leads — even past the edge of what's familiar. Identity grows through exploration.",
+  Capricorn: "Your ego this year wants to achieve. You're being called to build with intention, play the long game, and trust that consistent effort compounds into something real. Identity grows through mastery.",
+  Aquarius: "Your ego this year wants to innovate. You're being called to stand in your uniqueness, challenge the status quo, and contribute to something larger than yourself. Identity grows through community.",
+  Pisces: "Your ego this year wants to dream and dissolve. You're being called to soften your grip, trust the unseen, and let your intuition be your compass. Identity grows through surrender."
+};
+
+const moonCopy = {
+  Aries: "Emotionally this year, you need movement. Your feelings arrive fast and fierce — honor them, don't suppress them. You're nourished by independence, action, and the freedom to follow your fire.",
+  Taurus: "Emotionally this year, you need stability. Your feelings deepen slowly and stay long — give them space to settle. You're nourished by comfort, beauty, and anything that grounds you in your body.",
+  Gemini: "Emotionally this year, you need variety. Your feelings are quick and changeable — curiosity is your self-care. You're nourished by conversation, learning, and keeping your mind stimulated.",
+  Cancer: "Emotionally this year, you need to feel at home. Your feelings run deep and intuitive — tend to them like a garden. You're nourished by close connection, safety, and time to turn inward.",
+  Leo: "Emotionally this year, you need to feel celebrated. Your feelings want to be witnessed — let yourself be held. You're nourished by warmth, creative expression, and spaces where you can be fully yourself.",
+  Virgo: "Emotionally this year, you need order. Your feelings settle when your environment is in alignment — small rituals make a big difference. You're nourished by usefulness, routine, and quiet competence.",
+  Libra: "Emotionally this year, you need harmony. Your feelings are stirred by dissonance and soothed by beauty — create more of the latter. You're nourished by partnership, aesthetics, and peaceful environments.",
+  Scorpio: "Emotionally this year, you need depth. Your feelings don't live on the surface — give them permission to take up space. You're nourished by intimacy, truth-telling, and transformative experiences.",
+  Sagittarius: "Emotionally this year, you need freedom. Your feelings expand when you're moving, learning, or dreaming big — don't cage them. You're nourished by adventure, philosophy, and open horizons.",
+  Capricorn: "Emotionally this year, you need purpose. Your feelings are most present when you're working toward something meaningful — let your goals be your anchor. You're nourished by achievement, structure, and quiet solitude.",
+  Aquarius: "Emotionally this year, you need space to be different. Your feelings are unconventional — don't try to fit them into expected shapes. You're nourished by community, intellectual stimulation, and honoring your uniqueness.",
+  Pisces: "Emotionally this year, you need to dream. Your feelings are vast and porous — healthy boundaries will protect you. You're nourished by creativity, spiritual practice, and time spent near water."
+};
+
+// Sign order for wheel (index 0 = Aries)
+const SIGNS = ['Aries','Taurus','Gemini','Cancer','Leo','Virgo','Libra','Scorpio','Sagittarius','Capricorn','Aquarius','Pisces'];
+const SIGN_GLYPHS = ['♈','♉','♊','♋','♌','♍','♎','♏','♐','♑','♒','♓'];
+
+// ── AURA CANVAS ───────────────────────────────────────────────────────────
+
+let auraRaf = null;
+
+function drawAura(canvas, hue, t) {
+  const ctx = canvas.getContext('2d');
+  const W = canvas.width, H = canvas.height;
+  const cx = W / 2, cy = H / 2;
+  ctx.clearRect(0, 0, W, H);
+
+  function ring(innerR, outerR, stops) {
+    const g = ctx.createRadialGradient(cx, cy, innerR, cx, cy, outerR);
+    stops.forEach(([pos, color]) => g.addColorStop(pos, color));
+    ctx.fillStyle = g;
+    ctx.beginPath();
+    ctx.arc(cx, cy, outerR, 0, Math.PI * 2);
+    ctx.fill();
+  }
+
+  const p1 = 0.12 + 0.06 * Math.sin(t * 0.73);
+  const p2 = 0.10 + 0.06 * Math.sin(t * 1.13 + 1.2);
+  const p3 = 0.08 + 0.06 * Math.sin(t * 1.71 + 2.6);
+
+  ring(W * 0.18, W * 0.52, [
+    [0, `hsla(${hue},0%,0%,0)`],
+    [0.42, `hsla(${hue},82%,68%,${0.38 + p1})`],
+    [0.68, `hsla(${(hue + 55) % 360},72%,72%,${0.18 + p1 * 0.4})`],
+    [1, `hsla(${hue},0%,0%,0)`]
+  ]);
+  ring(W * 0.08, W * 0.37, [
+    [0, `hsla(${hue},0%,0%,0)`],
+    [0.35, `hsla(${(hue + 160) % 360},80%,72%,${0.52 + p2})`],
+    [0.62, `hsla(${(hue + 200) % 360},68%,74%,${0.22 + p2 * 0.3})`],
+    [1, `hsla(${hue},0%,0%,0)`]
+  ]);
+  ring(0, W * 0.26, [
+    [0, `hsla(${(hue + 280) % 360},58%,80%,${0.82 + p3})`],
+    [0.45, `hsla(${hue},76%,68%,${0.50 + p3 * 0.5})`],
+    [1, `hsla(${hue},0%,0%,0)`]
+  ]);
+  ring(0, W * 0.13, [
+    [0, 'rgba(255,255,255,1)'],
+    [0.55, `hsla(${(hue + 270) % 360},50%,90%,0.75)`],
+    [1, 'rgba(255,255,255,0)']
+  ]);
+}
+
+function startAura() {
+  const canvas = document.getElementById('auraCanvas');
+  if (!canvas) return;
+  if (auraRaf) cancelAnimationFrame(auraRaf);
+  function frame(ts) {
+    const t = ts / 1000;
+    const hue = (t * 360 / 8.3) % 360;
+    drawAura(canvas, hue, t);
+    auraRaf = requestAnimationFrame(frame);
+  }
+  auraRaf = requestAnimationFrame(frame);
+}
+
+// ── CHART WHEEL ───────────────────────────────────────────────────────────
+
+// Rising at 9 o'clock (180°), counter-clockwise
+function orbXY(signName, risingName, r) {
+  const ri = SIGNS.indexOf(risingName);
+  const s = SIGNS.indexOf(signName);
+  const steps = (s - ri + 12) % 12;
+  const a = (180 + steps * 30) * Math.PI / 180;
+  return { x: 115 + r * Math.cos(a), y: 115 + r * Math.sin(a) };
+}
+
+function drawChart(risingSign, sunSign, moonSign) {
+  const svg = document.getElementById('chartSVG');
+  const ns = 'http://www.w3.org/2000/svg';
+  svg.innerHTML = '';
+
+  const cx = 115, cy = 115, R = 105, Ri = 72;
+
+  // Background circle
+  const bg = document.createElementNS(ns, 'circle');
+  bg.setAttribute('cx', cx); bg.setAttribute('cy', cy); bg.setAttribute('r', R);
+  bg.setAttribute('fill', '#0E0530'); bg.setAttribute('stroke', 'rgba(152,120,232,0.3)'); bg.setAttribute('stroke-width', '1');
+  svg.appendChild(bg);
+
+  // Inner circle
+  const inner = document.createElementNS(ns, 'circle');
+  inner.setAttribute('cx', cx); inner.setAttribute('cy', cy); inner.setAttribute('r', Ri);
+  inner.setAttribute('fill', 'none'); inner.setAttribute('stroke', 'rgba(152,120,232,0.15)'); inner.setAttribute('stroke-width', '1');
+  svg.appendChild(inner);
+
+  // House lines (12 spokes)
+  for (let i = 0; i < 12; i++) {
+    const a = (180 + i * 30) * Math.PI / 180;
+    const x1 = cx + Ri * Math.cos(a), y1 = cy + Ri * Math.sin(a);
+    const x2 = cx + R * Math.cos(a), y2 = cy + R * Math.sin(a);
+    const line = document.createElementNS(ns, 'line');
+    line.setAttribute('x1', x1); line.setAttribute('y1', y1);
+    line.setAttribute('x2', x2); line.setAttribute('y2', y2);
+    line.setAttribute('stroke', 'rgba(152,120,232,0.18)'); line.setAttribute('stroke-width', '0.75');
+    svg.appendChild(line);
+  }
+
+  // Sign glyphs in outer ring
+  const ri = SIGNS.indexOf(risingSign);
+  for (let i = 0; i < 12; i++) {
+    const s = (ri + i) % 12;
+    const steps = i;
+    const a = (180 + steps * 30 + 15) * Math.PI / 180;
+    const r = (Ri + R) / 2;
+    const x = cx + r * Math.cos(a);
+    const y = cy + r * Math.sin(a);
+    const text = document.createElementNS(ns, 'text');
+    text.setAttribute('x', x); text.setAttribute('y', y);
+    text.setAttribute('text-anchor', 'middle'); text.setAttribute('dominant-baseline', 'central');
+    text.setAttribute('font-size', '11'); text.setAttribute('fill', 'rgba(192,168,248,0.7)');
+    text.textContent = SIGN_GLYPHS[s];
+    svg.appendChild(text);
+  }
+
+  // Rising line (ASC)
+  const ascLine = document.createElementNS(ns, 'line');
+  ascLine.setAttribute('x1', cx - R); ascLine.setAttribute('y1', cy);
+  ascLine.setAttribute('x2', cx + R); ascLine.setAttribute('y2', cy);
+  ascLine.setAttribute('stroke', '#E040A8'); ascLine.setAttribute('stroke-width', '1'); ascLine.setAttribute('opacity', '0.5');
+  svg.appendChild(ascLine);
+
+  // Planet dots: Sun and Moon
+  function planetDot(signName, color, label) {
+    const pos = orbXY(signName, risingSign, (Ri + R) / 2);
+    const dot = document.createElementNS(ns, 'circle');
+    dot.setAttribute('cx', pos.x); dot.setAttribute('cy', pos.y); dot.setAttribute('r', '5');
+    dot.setAttribute('fill', color); dot.setAttribute('opacity', '0.9');
+    svg.appendChild(dot);
+    const t = document.createElementNS(ns, 'text');
+    t.setAttribute('x', pos.x); t.setAttribute('y', pos.y - 8);
+    t.setAttribute('text-anchor', 'middle'); t.setAttribute('font-size', '7');
+    t.setAttribute('fill', color); t.setAttribute('opacity', '0.85');
+    t.textContent = label;
+    svg.appendChild(t);
+  }
+
+  planetDot(sunSign, '#F8D060', '☉');
+  planetDot(moonSign, '#A8D8F8', '☽');
+
+  // ASC label
+  const ascLabel = document.createElementNS(ns, 'text');
+  ascLabel.setAttribute('x', cx - R + 4); ascLabel.setAttribute('y', cy - 5);
+  ascLabel.setAttribute('font-size', '7'); ascLabel.setAttribute('fill', '#E040A8'); ascLabel.setAttribute('opacity', '0.7');
+  ascLabel.textContent = 'ASC';
+  svg.appendChild(ascLabel);
+}
+
+// ── GENERATE ──────────────────────────────────────────────────────────────
+
+function generate() {
+  const rising = document.getElementById('rising').value;
+  const sun = document.getElementById('sun').value;
+  const moon = document.getElementById('moon').value;
+
+  if (!rising || !sun || !moon) {
+    alert('Please select all three placements to generate your snapshot.');
+    return;
+  }
+
+  // Populate text
+  document.getElementById('snapName').textContent = rising + ' Rising · ' + sun + ' Sun · ' + moon + ' Moon';
+  document.getElementById('risingSign').textContent = rising + ' Rising';
+  document.getElementById('risingText').textContent = risingCopy[rising];
+  document.getElementById('sunSign').textContent = sun + ' Sun';
+  document.getElementById('sunText').textContent = sunCopy[sun];
+  document.getElementById('moonSign').textContent = moon + ' Moon';
+  document.getElementById('moonText').textContent = moonCopy[moon];
+
+  // Aura timestamp
+  const now = new Date();
+  const ts = now.toLocaleString('en-US', { month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit', hour12: true });
+  document.getElementById('auraLabel').textContent = 'generated · ' + ts;
+
+  // Draw chart
+  drawChart(rising, sun, moon);
+
+  // Show snapshot + print btn
+  const snap = document.getElementById('snapshot');
+  snap.classList.add('visible');
+  document.getElementById('printBtn').style.display = 'block';
+
+  // Start aura
+  startAura();
+
+  // Scroll to snapshot
+  snap.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+</script>
+
+</body>
+</html>

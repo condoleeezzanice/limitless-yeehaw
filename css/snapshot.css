@@ -1,0 +1,338 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: #060120;
+  font-family: Georgia, serif;
+  color: #FFF0F8;
+  min-height: 100vh;
+}
+
+/* ── NAV ── */
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 2rem;
+  border-bottom: 1px solid rgba(152,120,232,0.15);
+}
+
+.nav-brand {
+  font-family: 'Palatino Linotype', Palatino, 'Book Antiqua', Georgia, serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.nav-back {
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #C0A8F8;
+  text-decoration: none;
+}
+
+.nav-back:hover { color: #9878E8; }
+
+/* ── TOOL WRAPPER ── */
+.tool-wrap {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 4rem 2rem 6rem;
+}
+
+/* ── HEADER ── */
+.tool-eyebrow {
+  font-size: 10px;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: #E040A8;
+  text-align: center;
+  margin-bottom: 0.8rem;
+}
+
+.tool-heading {
+  font-family: 'Palatino Linotype', Palatino, 'Book Antiqua', Georgia, serif;
+  font-size: clamp(28px, 4vw, 42px);
+  font-weight: 700;
+  color: #fff;
+  text-align: center;
+  line-height: 1.15;
+  margin-bottom: 0.8rem;
+}
+
+.tool-divider {
+  width: 36px;
+  height: 1px;
+  background: #E040A8;
+  opacity: .5;
+  margin: 0 auto 1rem;
+}
+
+.tool-sub {
+  font-size: 15px;
+  line-height: 1.8;
+  color: #F8D8F0;
+  text-align: center;
+  max-width: 520px;
+  margin: 0 auto 3rem;
+}
+
+/* ── FORM ── */
+.form-section {
+  background: rgba(14,5,48,0.7);
+  border: 1px solid rgba(152,120,232,0.2);
+  border-radius: 4px;
+  padding: 2.5rem 2rem;
+  margin-bottom: 3rem;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1.4rem;
+  margin-bottom: 1.8rem;
+}
+
+@media (max-width: 640px) {
+  .form-grid { grid-template-columns: 1fr; }
+}
+
+.field label {
+  display: block;
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #C0A8F8;
+  margin-bottom: 0.5rem;
+}
+
+.field select {
+  width: 100%;
+  background: rgba(14,5,48,0.9);
+  border: 1px solid rgba(152,120,232,0.3);
+  border-radius: 2px;
+  color: #FFF0F8;
+  font-family: Georgia, serif;
+  font-size: 14px;
+  padding: 0.7rem 1rem;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%239878E8'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+}
+
+.field select:focus {
+  outline: none;
+  border-color: rgba(152,120,232,0.7);
+}
+
+.field select option {
+  background: #0E0530;
+}
+
+.generate-btn {
+  display: block;
+  width: 100%;
+  background: #FFF0F8;
+  color: #0E0530;
+  font-family: 'Palatino Linotype', Palatino, Georgia, serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.generate-btn:hover { background: #9878E8; color: #fff; }
+
+/* ── SNAPSHOT ── */
+.snapshot {
+  display: none;
+  background: rgba(6,1,32,0.95);
+  border: 1px solid rgba(152,120,232,0.25);
+  border-radius: 4px;
+  padding: 3rem 2.5rem;
+}
+
+.snapshot.visible { display: block; }
+
+.snap-title {
+  font-family: 'Palatino Linotype', Palatino, 'Book Antiqua', Georgia, serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: #C0A8F8;
+  text-align: center;
+  margin-bottom: 0.4rem;
+}
+
+.snap-name {
+  font-family: 'Palatino Linotype', Palatino, 'Book Antiqua', Georgia, serif;
+  font-size: clamp(22px, 3vw, 32px);
+  font-weight: 700;
+  color: #fff;
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+/* ── SNAP BODY (two columns) ── */
+.snap-body {
+  display: flex;
+  gap: 2.5rem;
+  align-items: stretch;
+  margin-bottom: 2.5rem;
+}
+
+@media (max-width: 640px) {
+  .snap-body { flex-direction: column; }
+}
+
+/* Left column: orb + chart */
+.orb-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  flex: 0 0 240px;
+  gap: 1.8rem;
+}
+
+/* Aura orb */
+.aura-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+#auraCanvas {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  display: block;
+}
+
+.aura-label {
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #C0A8F8;
+}
+
+/* Chart wheel */
+.chart-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+#chartSVG {
+  width: 150px;
+  height: 150px;
+  display: block;
+}
+
+.chart-label {
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #C0A8F8;
+}
+
+/* Right column: three readings */
+.readings {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 0;
+}
+
+.r-block {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1.2rem 0;
+  border-bottom: 1px solid rgba(152,120,232,0.12);
+}
+
+.r-block:last-child {
+  border-bottom: none;
+}
+
+.r-label {
+  font-size: 9px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: #9878E8;
+  margin-bottom: 0.3rem;
+}
+
+.r-sign {
+  font-family: 'Palatino Linotype', Palatino, 'Book Antiqua', Georgia, serif;
+  font-size: 17px;
+  font-weight: 700;
+  color: #F880C0;
+  margin-bottom: 0.5rem;
+}
+
+.r-text {
+  font-size: 14px;
+  line-height: 1.75;
+  color: #F8D8F0;
+}
+
+/* ── FOOTER NOTE ── */
+.snap-footer {
+  text-align: center;
+  margin-top: 0.5rem;
+  font-size: 11px;
+  letter-spacing: 1px;
+  color: #9878E8;
+}
+
+/* ── PRINT BTN ── */
+.print-btn {
+  display: block;
+  margin: 2rem auto 0;
+  background: transparent;
+  border: 1px solid rgba(152,120,232,0.4);
+  color: #C0A8F8;
+  font-family: Georgia, serif;
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  padding: 0.7rem 2rem;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: border-color 0.2s, color 0.2s;
+}
+
+.print-btn:hover { border-color: #9878E8; color: #9878E8; }
+
+/* ── PRINT STYLES ── */
+@media print {
+  body { background: #fff !important; color: #111 !important; }
+  .nav, .form-section, .tool-eyebrow, .tool-heading, .tool-divider, .tool-sub, .print-btn { display: none !important; }
+  .snapshot { display: block !important; border: none !important; background: #fff !important; padding: 0 !important; }
+  .snap-name { color: #111 !important; }
+  .snap-title { color: #555 !important; }
+  .r-label { color: #7A5EC8 !important; }
+  .r-sign { color: #B01870 !important; }
+  .r-text { color: #222 !important; }
+  .snap-footer { color: #9878E8 !important; }
+  .aura-label, .chart-label { color: #7A5EC8 !important; }
+  #auraCanvas { border-radius: 50%; }
+}
