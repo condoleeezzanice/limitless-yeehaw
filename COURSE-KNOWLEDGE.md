@@ -19,7 +19,7 @@
 | # | Title | Status |
 |---|---|---|
 | 01 | The Beginner Primer (incl. What Is a Solar Return?) | BUILT (course/01-primer.html) |
-| 02 | Cast Your Chart | not built |
+| 02 | Cast Your Chart | BUILT (course/02-cast-your-chart.html) |
 | 03 | Your Rising Sign & Ruling Planet | not built |
 | 04 | Sun & Moon | not built |
 | 05 | Reading the Houses | not built |
@@ -138,6 +138,8 @@
 - Do NOT write "You're not reading your fate. You're reading your materials." — Staley's version: "You're not reading your fate. You're reviewing the available ingredients before you create with them."
 - DO use Staley's exact language as given above
 - Each module: written lesson + companion audio script (same content, conversational register for audio)
+- Audio scripts live in `course/scripts/` — naming convention: `##-module-slug-audio-script.md` (e.g. `01-primer-audio-script.md`)
+- Always create the audio script alongside the HTML — every module gets both deliverables
 - Herbal correspondences: include a brief, grounded note about each herb alongside the sign — not a medical claim, just a correspondence
 
 ---
@@ -150,3 +152,5 @@
 | 2026-05 | Snapshot tool built and live |
 | 2026-05 | Module order locked, astrological framework defined |
 | 2026-05 | Module 01 complete and pushed to GitHub |
+| 2026-05 | Module 02 complete (course/02-cast-your-chart.html + script) |
+| 2026-05 | course/scripts/ folder established — 01 and 02 scripts in repo |

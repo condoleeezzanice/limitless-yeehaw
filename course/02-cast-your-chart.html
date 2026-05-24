@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Module 02: Cast Your Chart — Limitless Yeehaw</title>
+<link rel="stylesheet" href="../css/course.css">
+<style>
+  /* ── Module 02 extras ── */
+
+  /* Numbered walkthrough steps */
+  .steps-list {
+    margin: 1.75rem 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    counter-reset: steps;
+  }
+  .steps-list li {
+    display: flex;
+    gap: 1.25rem;
+    align-items: flex-start;
+    counter-increment: steps;
+  }
+  .steps-list li::before {
+    content: counter(steps);
+    flex-shrink: 0;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    background: rgba(152, 120, 232, 0.18);
+    border: 1px solid rgba(152, 120, 232, 0.45);
+    color: var(--violet);
+    font-family: system-ui, sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 0.2rem;
+  }
+  .steps-list li .step-body {
+    flex: 1;
+    font-family: var(--body);
+    font-size: 1rem;
+    line-height: 1.75;
+    color: rgba(255, 240, 248, 0.88);
+  }
+  .steps-list li .step-body strong {
+    color: var(--violet);
+    font-weight: 700;
+  }
+  .steps-list li .step-note {
+    display: block;
+    margin-top: 0.5rem;
+    font-style: italic;
+    opacity: 0.7;
+    font-size: 0.92rem;
+  }
+
+  /* Blue aside for birth-time note */
+  .aside-note {
+    background: rgba(90, 188, 240, 0.07);
+    border-left: 3px solid var(--sky);
+    border-radius: 0 8px 8px 0;
+    padding: 1.25rem 1.5rem;
+    margin: 1.75rem 0;
+  }
+  .aside-note p {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: rgba(255, 240, 248, 0.8) !important;
+    margin: 0 !important;
+  }
+  .aside-note strong {
+    color: var(--sky);
+  }
+
+  /* Three landmark cards (SR Rising / Sun / Moon) */
+  .landmark-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    gap: 1.25rem;
+    margin: 2rem 0;
+  }
+  .landmark-card {
+    background: var(--mid);
+    border: 1px solid rgba(152, 120, 232, 0.22);
+    border-radius: 10px;
+    padding: 1.5rem 1.25rem;
+  }
+  .landmark-glyph {
+    font-size: 1.5rem;
+    display: block;
+    margin-bottom: 0.6rem;
+    line-height: 1;
+    color: var(--violet);
+  }
+  .landmark-card-label {
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--violet);
+    margin-bottom: 0.4rem;
+  }
+  .landmark-card-title {
+    font-family: var(--serif);
+    font-size: 1.1rem;
+    color: var(--blush);
+    margin-bottom: 0.5rem;
+  }
+  .landmark-card p {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: rgba(255, 240, 248, 0.72) !important;
+    margin: 0 !important;
+  }
+
+  @media (max-width: 600px) {
+    .landmark-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a class="nav-brand" href="../index.html">Limitless Yeehaw</a>
+  <div class="nav-right">
+    <span class="nav-module-label">Module 02 of 06</span>
+    <a class="nav-back" href="../index.html">← Back to course</a>
+  </div>
+</nav>
+
+<!-- ── MODULE HEADER ── -->
+<header class="module-header">
+  <p class="module-eyebrow">Module 02 · Cast Your Chart</p>
+  <h1 class="module-title">Let's pull your chart.<br>I'm going to walk you<br>through every step.</h1>
+  <div class="module-divider"></div>
+  <p class="module-sub">
+    By the end of this module, you'll have your solar return chart
+    in front of you — and you'll know the three things to look for first.
+  </p>
+</header>
+
+<!-- ── AUDIO ── -->
+<div class="audio-block">
+  <div class="audio-inner">
+    <span class="audio-glyph">🎧</span>
+    <div>
+      <p class="audio-label">Listen to this module</p>
+      <p class="audio-title">Cast Your Chart</p>
+    </div>
+    <span class="audio-placeholder">audio coming soon</span>
+  </div>
+</div>
+
+<!-- ── CONTENT ── -->
+<main class="module-content">
+
+  <!-- SECTION 1: What you need -->
+  <section class="module-section">
+    <h2 class="section-heading">Before we start: four things you need</h2>
+    <p>
+      Casting a solar return chart is easier than it sounds. You don't need any software —
+      just a browser, a free account on one website, and four pieces of information.
+    </p>
+
+    <div class="concept-grid">
+      <div class="concept-card">
+        <p class="concept-card-label">The first</p>
+        <p class="concept-card-title">Your birth date</p>
+        <p>The day, month, and year you were born. This one's easy.</p>
+      </div>
+      <div class="concept-card">
+        <p class="concept-card-label">The second</p>
+        <p class="concept-card-title">Your birth time</p>
+        <p>
+          As exact as possible. The most reliable source is your birth certificate.
+          If you don't have that, a parent's memory, a baby book, or hospital records
+          can work. Even a rough hour is better than nothing.
+        </p>
+      </div>
+      <div class="concept-card">
+        <p class="concept-card-label">The third</p>
+        <p class="concept-card-title">Your birth city</p>
+        <p>
+          The city or town where you were born — not where you grew up,
+          where you were actually born.
+        </p>
+      </div>
+      <div class="concept-card">
+        <p class="concept-card-label">The fourth</p>
+        <p class="concept-card-title">Your birthday location</p>
+        <p>
+          Where you'll be — or where you were — on your birthday this year.
+          This one surprises people. We'll talk about why it matters in a moment.
+        </p>
+      </div>
+    </div>
+
+    <div class="aside-note">
+      <p>
+        <strong>If you don't know your birth time:</strong> use noon as a placeholder.
+        The chart will still generate and most of it will be readable —
+        your SR Sun, SR Moon, and house placements will be useful.
+        The SR Rising sign specifically requires an accurate birth time,
+        so we'll note where to take that with a grain of salt if you're working from noon.
+        An unknown birth time is not a reason to skip this course. Work with what you have.
+      </p>
+    </div>
+  </section>
+
+  <!-- SECTION 2: Birthday location -->
+  <section class="module-section">
+    <h2 class="section-heading">Why your birthday location matters</h2>
+    <p>
+      Remember from Module 01: your solar return chart is cast for the moment the sun
+      returns to its exact natal position. That moment in time is fixed — it happens
+      when it happens.
+    </p>
+    <p>
+      But where you are on earth when it happens? That changes the chart.
+    </p>
+    <p>
+      Because the chart is a snapshot of the sky from a specific location.
+      Change the location, change the chart. The planets will be in the same signs,
+      but the houses — the areas of life they fall into — will shift depending on
+      where you're standing when the sun comes home.
+    </p>
+
+    <div class="pullquote">
+      <p>
+        The solar return chart is cast for where you are on your birthday,
+        not where you were born.
+      </p>
+    </div>
+
+    <p>
+      So if you spend your birthday in your hometown, use your hometown.
+      If you're traveling, use wherever you'll be. If your birthday has already
+      passed this year and you stayed home, use home.
+    </p>
+    <p>
+      Some people intentionally travel on their birthday to shift the chart —
+      to move a planet into a more favorable house, or out of a difficult one.
+      That's a real technique called solar return relocation. It's fascinating and
+      we won't go deep on it here, but I want you to know it exists so you understand
+      why the location field on astro.com is not optional.
+    </p>
+  </section>
+
+  <!-- SECTION 3: The tool -->
+  <section class="module-section">
+    <h2 class="section-heading">The tool we're using: astro.com</h2>
+    <p>
+      There are several free chart websites, and most of them will generate a solar return.
+      I use astro.com. It's the industry standard for professional astrologers — not the
+      prettiest interface, but it's accurate, it's free, and it's been around long enough
+      that it's not going anywhere.
+    </p>
+    <p>
+      You can use it as a guest without making an account. But if you create a free account,
+      it saves your birth data so you don't have to re-enter it every time. That's worth
+      the two minutes it takes to sign up.
+    </p>
+    <p>
+      Okay. Let's go pull your chart.
+    </p>
+  </section>
+
+  <!-- SECTION 4: Walkthrough -->
+  <section class="module-section">
+    <h2 class="section-heading">The walkthrough</h2>
+    <p>
+      Follow these steps in order. The astro.com interface can look overwhelming at first,
+      but you only need to touch a few things.
+    </p>
+
+    <ol class="steps-list">
+      <li>
+        <div class="step-body">
+          <strong>Go to astro.com.</strong>
+          <span class="step-note">Type it in directly: astro.com. You're looking for the Astrodienst homepage.</span>
+        </div>
+      </li>
+      <li>
+        <div class="step-body">
+          <strong>Find "Free Horoscopes" in the top navigation</strong> and hover over it.
+          From the dropdown, click <strong>"Extended Chart Selection."</strong>
+          <span class="step-note">
+            If you're on a mobile device, the nav may collapse into a menu icon — tap that first,
+            then look for Extended Chart Selection.
+          </span>
+        </div>
+      </li>
+      <li>
+        <div class="step-body">
+          <strong>Enter your birth data.</strong> You'll see a form with fields for name,
+          date, time, and place of birth. Fill everything in. For the city field,
+          start typing and use the autocomplete — make sure you select the right city
+          from the list rather than just leaving the typed text.
+          <span class="step-note">
+            If you have a saved account, your birth data may already be filled in.
+            Just verify it looks correct.
+          </span>
+        </div>
+      </li>
+      <li>
+        <div class="step-body">
+          <strong>Scroll down to the chart options.</strong> Look for a dropdown or section
+          labeled <strong>"Chart type"</strong> or <strong>"Method."</strong>
+          Click it and select <strong>"Solar Return."</strong>
+        </div>
+      </li>
+      <li>
+        <div class="step-body">
+          <strong>Set the year.</strong> After you select Solar Return,
+          a field for the year should appear. Choose the year you want to cast for.
+          <span class="step-note">
+            If your birthday hasn't happened yet this calendar year, use the current year.
+            If your birthday has already passed, use next year — that's your upcoming solar return.
+          </span>
+        </div>
+      </li>
+      <li>
+        <div class="step-body">
+          <strong>Set your solar return location.</strong> This is the "where you'll be
+          on your birthday" field. Enter that city — not your birth city.
+          Use the autocomplete to select the correct match.
+          <span class="step-note">
+            This field is easy to overlook. Make sure it's not still showing your birth location
+            before you generate the chart.
+          </span>
+        </div>
+      </li>
+      <li>
+        <div class="step-body">
+          <strong>Click the button to generate the chart.</strong>
+          It's usually orange, labeled something like "Click here to show the chart."
+          Go ahead and click it.
+        </div>
+      </li>
+    </ol>
+
+    <p>
+      Your chart will load. It's going to look like a circle divided into sections,
+      with symbols scattered throughout and lines crossing through the middle.
+      That's exactly what it should look like. You did it.
+    </p>
+  </section>
+
+  <!-- SECTION 5: What you're looking at -->
+  <section class="module-section">
+    <h2 class="section-heading">What you're looking at</h2>
+    <p>
+      Let's do a quick orientation before we dive in.
+    </p>
+    <p>
+      The large circle is your chart wheel. It's divided into twelve sections —
+      those are the houses, the areas of life. The symbols placed within those
+      sections are the planets and points. The lines running through the center
+      of the wheel are the aspects — the relationships between planets that we
+      talked about in Module 01.
+    </p>
+    <p>
+      Along the outer edge of the wheel, you'll see small glyphs marking where
+      one sign ends and another begins. The symbols inside each wedge
+      show which planets have landed in that slice of the chart.
+    </p>
+    <p>
+      It's a lot to take in all at once. And you don't need to read all of it today.
+    </p>
+
+    <div class="pullquote">
+      <p>We're going to move through this chart piece by piece. You only need to find three things right now.</p>
+    </div>
+  </section>
+
+  <!-- SECTION 6: Three landmarks -->
+  <section class="module-section">
+    <h2 class="section-heading">Your three landmarks</h2>
+    <p>
+      Everything else we do in this course is going to orbit around these three.
+      Find them on your chart and just notice where they are. You don't need to
+      interpret anything yet.
+    </p>
+
+    <div class="landmark-grid">
+      <div class="landmark-card">
+        <span class="landmark-glyph">↑</span>
+        <p class="landmark-card-label">Look for "AC" or "ASC"</p>
+        <p class="landmark-card-title">SR Rising Sign</p>
+        <p>
+          On the left side of the chart wheel, look for a horizontal line extending
+          outward — that's the Ascendant axis. The letters "AC" or "ASC" mark it.
+          The sign sitting right there is your SR Rising sign. It sets the tone for
+          the whole year ahead.
+        </p>
+      </div>
+      <div class="landmark-card">
+        <span class="landmark-glyph">☉</span>
+        <p class="landmark-card-label">Look for the circle with a dot</p>
+        <p class="landmark-card-title">SR Sun</p>
+        <p>
+          The Sun glyph is a circle with a dot in the center — ☉.
+          Find it on the chart. Note what section (house) it's sitting in,
+          and what sign it's in. The SR Sun is the most important placement
+          in the whole chart. It tells you where your core energy is going this year.
+        </p>
+      </div>
+      <div class="landmark-card">
+        <span class="landmark-glyph">☽</span>
+        <p class="landmark-card-label">Look for the crescent</p>
+        <p class="landmark-card-title">SR Moon</p>
+        <p>
+          The Moon is a crescent — ☽. Find it and note its house and sign.
+          The SR Moon points to your area of emotional focus and growth for the year.
+          It's where the work is, and where the evolution is.
+        </p>
+      </div>
+    </div>
+
+    <p>
+      Got those three? AC/ASC for your Rising, ☉ for your Sun, ☽ for your Moon.
+      Write them down if you want — sign and house number for each. That's your
+      starting material.
+    </p>
+    <p>
+      In Module 03, we go deep on the Rising sign: what it means, what role it's
+      asking you to step into, and how to read it for your year ahead.
+    </p>
+  </section>
+
+  <!-- SECTION 7: Herbs -->
+  <section class="module-section">
+    <h2 class="section-heading">The Sun's herbal allies</h2>
+    <p>
+      This module is all about the Sun — its return, its homecoming, the moment
+      the whole chart gets born. So it feels right to introduce the Sun's plant allies here.
+    </p>
+    <p>
+      The Sun corresponds to warmth, vitality, radiance, and core self-expression.
+      The plants associated with the Sun carry those same qualities.
+    </p>
+
+    <div class="herb-callout">
+      <span class="herb-glyph">🌿</span>
+      <div>
+        <p class="herb-label">Sun herbs — your energetic allies for this work</p>
+        <p>
+          Ash tree, angelica, almond, bay tree, burnet, butterbur, chamomile, frankincense.
+          As you begin working with your solar return chart — casting it, sitting with it,
+          getting curious about it — these are friends you can keep close.
+          A cup of chamomile while you study. Frankincense burning while you read.
+          A bay leaf on your altar as an anchor. Use what resonates. Leave the rest.
+        </p>
+      </div>
+    </div>
+
+    <p>
+      These are correspondences — energetic resonances, not prescriptions.
+      Work with them however feels true to you, or don't work with them at all.
+      The chart is the potion. The herbs are just good company while you brew it.
+    </p>
+  </section>
+
+  <!-- NEXT MODULE -->
+  <div class="module-nav">
+    <a class="next-module-btn" href="03-rising-sign.html">
+      <span class="next-label">Next up · Module 03</span>
+      <span class="next-title">Your Rising Sign & Ruling Planet →</span>
+    </a>
+  </div>
+
+</main>
+
+</body>
+</html>
