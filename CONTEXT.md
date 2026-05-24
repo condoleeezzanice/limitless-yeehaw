@@ -98,12 +98,15 @@ Interactive solar return reading tool.
 3. **Notion template links** — Add actual URLs once templates are published
 4. **HTTPS enforcement** — Enable "Enforce HTTPS" in GitHub Pages settings (may already be available)
 
-## Course Knowledge File
+## Context Files — Feed These at the Start of Every Session
 
-All astrological definitions (in Staley's words), herbal correspondences, writing guidelines, and module status live in:
-`/Users/staleystidhamlusk/limitless-yeehaw/COURSE-KNOWLEDGE.md`
+| File | When to include |
+|---|---|
+| `CONTEXT.md` | Always |
+| `COURSE-KNOWLEDGE.md` | Any course-writing session |
+| `Personal_Woo_Context.md` | Any session involving voice, tone, astrology philosophy, or Staley's personal chart/worldview |
 
-**Feed both CONTEXT.md and COURSE-KNOWLEDGE.md at the start of any course-writing session.**
+All three live in `/Users/staleystidhamlusk/limitless-yeehaw/`.
 
 ---
 
