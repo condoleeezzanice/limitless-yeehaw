@@ -30,6 +30,8 @@
 
 ## Astrological Framework (Staley's Language)
 
+> **Rulership system**: This course uses **modern rulerships** — Pluto for Scorpio, Uranus for Aquarius, Neptune for Pisces. Traditional rulerships are not mentioned. When referencing rulerships in course content, always note explicitly that modern assignments are being used.
+
 ### What Is a Solar Return Chart?
 *(Staley's words — use this language in the course)*
 
