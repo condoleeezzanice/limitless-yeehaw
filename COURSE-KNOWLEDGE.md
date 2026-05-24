@@ -102,6 +102,14 @@
 
 **Herb callout language (Staley's)**: "your friends for the year — energetic allies you can keep close, work with in tea, burn as incense, keep on an altar or simply hold as a reference point. Use what resonates."
 
+**Where herbs are introduced by module:**
+- Module 01: herbs explained (what they are, how to work with them) — no specific herbs listed
+- Module 02: Sun herbs introduced (ash tree, angelica, almond, bay tree, burnet, butterbur, chamomile, frankincense)
+- Module 03: Sign herbs introduced inline, one per sign entry
+- Module 04: Moon herbs introduced (anise seed, cabbage, chickweed, clary, cleavers, cucumbers, ginger, jasmine)
+- Modules 05–06: introduce planet herbs as relevant (Mercury, Venus, Mars, Jupiter, Saturn, Uranus, Neptune, Pluto — see By Planet list below)
+- Do NOT re-introduce Sun or Moon herbs in full after their debut module — reference them briefly if needed
+
 ### By Sign
 - **Aries**: betony (wood), blackberry, blessed thistle, chili powder, cowslips, juniper, loosestrife, marjoram, mushrooms
 - **Taurus**: apple blossom, cumin, fig-wort, lovage
