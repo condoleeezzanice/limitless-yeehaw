@@ -87,7 +87,7 @@ Interactive solar return reading tool.
 ## What's Next (priority order)
 
 1. **Course content** — Build out modules 01–06 as HTML pages
-   - Module 01: The Beginner Primer (incl. what is a solar return vs natal chart)
+   - ~~Module 01: The Beginner Primer~~ ✓ DONE (course/01-primer.html)
    - Module 02: Cast Your Chart (astro.com walkthrough)
    - Module 03: Your Rising Sign & Ruling Planet
    - Module 04: Sun & Moon

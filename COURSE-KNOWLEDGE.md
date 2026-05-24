@@ -18,7 +18,7 @@
 
 | # | Title | Status |
 |---|---|---|
-| 01 | The Beginner Primer (incl. What Is a Solar Return?) | not built |
+| 01 | The Beginner Primer (incl. What Is a Solar Return?) | BUILT (course/01-primer.html) |
 | 02 | Cast Your Chart | not built |
 | 03 | Your Rising Sign & Ruling Planet | not built |
 | 04 | Sun & Moon | not built |
@@ -149,4 +149,4 @@
 | 2026-05 | Site launched at limitlessyeehaw.com |
 | 2026-05 | Snapshot tool built and live |
 | 2026-05 | Module order locked, astrological framework defined |
-| — | Module 01 writing: not started |
+| 2026-05 | Module 01 complete and pushed to GitHub |
