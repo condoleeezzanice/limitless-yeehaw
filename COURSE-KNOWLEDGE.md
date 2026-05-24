@@ -22,7 +22,7 @@
 | 02 | Cast Your Chart | BUILT (course/02-cast-your-chart.html) |
 | 03 | Your Rising Sign & Ruling Planet | BUILT (course/03-rising-sign.html) |
 | 04 | Sun & Moon | BUILT (course/04-sun-and-moon.html) |
-| 05 | Reading the Houses | not built |
+| 05 | Reading the Houses | BUILT (course/05-houses.html) |
 | 06 | Aspects: Lines on the Chart | not built |
 | ✦ | Capstone: Your Year Ahead Snapshot | BUILT (year-ahead-snapshot.html) |
 
@@ -107,8 +107,9 @@
 - Module 02: Sun herbs introduced (ash tree, angelica, almond, bay tree, burnet, butterbur, chamomile, frankincense)
 - Module 03: Sign herbs introduced inline, one per sign entry
 - Module 04: Moon herbs introduced (anise seed, cabbage, chickweed, clary, cleavers, cucumbers, ginger, jasmine)
-- Modules 05–06: introduce planet herbs as relevant (Mercury, Venus, Mars, Jupiter, Saturn, Uranus, Neptune, Pluto — see By Planet list below)
-- Do NOT re-introduce Sun or Moon herbs in full after their debut module — reference them briefly if needed
+- Module 05: Mercury herbs introduced (alstonia, azaleas, buckwheat, carrots, cedar, fennel, fenugreek, flax, hazel nut)
+- Module 06: introduce remaining planet herbs as relevant (Venus, Mars, Jupiter, Saturn, Uranus, Neptune, Pluto — see By Planet list below)
+- Do NOT re-introduce Sun, Moon, or Mercury herbs in full after their debut module — reference them briefly if needed
 
 ### By Sign
 - **Aries**: betony (wood), blackberry, blessed thistle, chili powder, cowslips, juniper, loosestrife, marjoram, mushrooms
@@ -166,3 +167,4 @@
 | 2026-05 | course/scripts/ folder established — 01 and 02 scripts in repo |
 | 2026-05 | Module 03 complete (course/03-rising-sign.html + script) |
 | 2026-05 | Module 04 complete (course/04-sun-and-moon.html + script) |
+| 2026-05 | Module 05 complete (course/05-houses.html + script) |

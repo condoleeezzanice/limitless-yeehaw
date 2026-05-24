@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Module 05: Reading the Houses — Limitless Yeehaw</title>
+<link rel="stylesheet" href="../css/course.css">
+<style>
+  /* ── Module 05 extras ── */
+
+  /* House reference entries — broader than Mod 04, no planet number circles */
+  .house-ref-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+    margin: 2rem 0;
+  }
+  .house-ref-entry {
+    border-left: 3px solid rgba(152, 120, 232, 0.3);
+    padding-left: 1.5rem;
+    transition: border-color 0.2s;
+  }
+  .house-ref-entry:hover {
+    border-left-color: var(--violet);
+  }
+  .house-ref-header {
+    display: flex;
+    align-items: baseline;
+    gap: 0.75rem;
+    margin-bottom: 0.6rem;
+    flex-wrap: wrap;
+  }
+  .house-ref-number {
+    font-family: var(--serif);
+    font-size: 1.1rem;
+    color: var(--violet);
+    flex-shrink: 0;
+  }
+  .house-ref-name {
+    font-family: var(--serif);
+    font-size: 1.15rem;
+    font-weight: normal;
+    color: var(--blush);
+    margin: 0;
+  }
+  .house-ref-keywords {
+    font-family: system-ui, sans-serif;
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: rgba(255, 240, 248, 0.35);
+  }
+  .house-ref-entry p {
+    font-size: 0.97rem;
+    line-height: 1.75;
+    color: rgba(255, 240, 248, 0.85) !important;
+    margin: 0 0 0.65rem !important;
+  }
+  .house-ref-entry p:last-child {
+    margin-bottom: 0 !important;
+  }
+  .house-any-planet {
+    margin-top: 0.75rem;
+    padding: 0.7rem 1rem;
+    background: rgba(152, 120, 232, 0.07);
+    border-radius: 6px;
+    font-size: 0.88rem !important;
+    color: rgba(255, 240, 248, 0.65) !important;
+    font-style: italic;
+    line-height: 1.6 !important;
+  }
+  .house-any-planet strong {
+    color: var(--violet);
+    font-style: normal;
+  }
+
+  /* Axis pair grid */
+  .axis-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin: 1.75rem 0;
+  }
+  .axis-card {
+    background: var(--mid);
+    border: 1px solid rgba(152, 120, 232, 0.18);
+    border-radius: 10px;
+    padding: 1.1rem 1.25rem;
+  }
+  .axis-pair {
+    font-family: var(--serif);
+    font-size: 1.05rem;
+    color: var(--violet);
+    margin: 0 0 0.35rem;
+  }
+  .axis-label {
+    font-family: system-ui, sans-serif;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: rgba(255, 240, 248, 0.4);
+    margin: 0 0 0.5rem;
+  }
+  .axis-card p {
+    font-size: 0.88rem;
+    line-height: 1.6;
+    color: rgba(255, 240, 248, 0.72) !important;
+    margin: 0 !important;
+  }
+
+  @media (max-width: 600px) {
+    .axis-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a class="nav-brand" href="../index.html">Limitless Yeehaw</a>
+  <div class="nav-right">
+    <span class="nav-module-label">Module 05 of 06</span>
+    <a class="nav-back" href="../index.html">← Back to course</a>
+  </div>
+</nav>
+
+<!-- ── MODULE HEADER ── -->
+<header class="module-header">
+  <p class="module-eyebrow">Module 05 · Reading the Houses</p>
+  <h1 class="module-title">Twelve rooms.<br>Every planet finds one.<br>Here's what they mean.</h1>
+  <div class="module-divider"></div>
+  <p class="module-sub">
+    The houses are the areas of life your chart is activating this year.
+    This module teaches you how to read any planet in any house —
+    and how to see the whole chart as one connected picture.
+  </p>
+</header>
+
+<!-- ── AUDIO ── -->
+<div class="audio-block">
+  <div class="audio-inner">
+    <span class="audio-glyph">🎧</span>
+    <div>
+      <p class="audio-label">Listen to this module</p>
+      <p class="audio-title">Reading the Houses</p>
+    </div>
+    <span class="audio-placeholder">audio coming soon</span>
+  </div>
+</div>
+
+<!-- ── CONTENT ── -->
+<main class="module-content">
+
+  <!-- SECTION 1: The houses revisited -->
+  <section class="module-section">
+    <h2 class="section-heading">The houses, revisited</h2>
+    <p>
+      In Module 01, we introduced the four pieces of the chart: signs, planets,
+      houses, and aspects. In Modules 03 and 04, you used the houses to read your
+      SR Rising, SR Sun, and SR Moon.
+    </p>
+    <p>
+      Now we go deeper. Because the houses aren't just a backdrop — they're active.
+      Every planet in your solar return chart has landed somewhere, and where it
+      landed tells you where that planet's energy is showing up in your actual life
+      this year.
+    </p>
+    <p>
+      Think of the twelve houses as twelve rooms in a house. The planets are the
+      people in those rooms — each one bringing their particular energy into that
+      particular space. The Sun in the 10th is doing something different than
+      the Sun in the 4th. Mars in the 2nd is doing something different than
+      Mars in the 7th. Same planet, different arena.
+    </p>
+
+    <div class="pullquote">
+      <p>
+        The house tells you where. The planet tells you what.
+        The sign tells you how. All three together give you the full sentence.
+      </p>
+    </div>
+
+    <p>
+      You've already been reading houses. In this module, we get into the full meaning
+      of each one — so you can apply that reading to every planet on your chart,
+      not just the Sun and Moon.
+    </p>
+  </section>
+
+  <!-- SECTION 2: How to read any planet in a house -->
+  <section class="module-section">
+    <h2 class="section-heading">How to read any planet in any house</h2>
+    <p>
+      The principle is simple, even if the combinations are endless.
+      Each planet represents a facet of life and experience. Each house represents
+      an area of life. When a planet lands in a house, that facet of life is
+      activated in that area of life.
+    </p>
+    <p>
+      A few examples to make this concrete:
+    </p>
+
+    <div class="concept-grid">
+      <div class="concept-card">
+        <p class="concept-card-label">Example one</p>
+        <p class="concept-card-title">Venus in the 6th</p>
+        <p>
+          Venus governs love, pleasure, beauty, and connection.
+          The 6th house is daily routines, health, and work.
+          Put them together: love of the work itself, finding pleasure
+          in the everyday, beauty as part of the health routine.
+          Relationships with coworkers may be warm and significant.
+        </p>
+      </div>
+      <div class="concept-card">
+        <p class="concept-card-label">Example two</p>
+        <p class="concept-card-title">Mars in the 3rd</p>
+        <p>
+          Mars governs drive, action, and conflict.
+          The 3rd house is communication, learning, and the local world.
+          Put them together: assertive communication, passionate ideas,
+          debates that sharpen your thinking. Possibly friction with
+          siblings or neighbors. The mind is on fire this year.
+        </p>
+      </div>
+      <div class="concept-card">
+        <p class="concept-card-label">Example three</p>
+        <p class="concept-card-title">Jupiter in the 2nd</p>
+        <p>
+          Jupiter governs expansion, luck, and abundance.
+          The 2nd house is money, resources, and self-worth.
+          Put them together: financial growth, an expanding sense of
+          what you're worth, opportunities that improve your material
+          situation. A year where generosity — given and received —
+          comes back around.
+        </p>
+      </div>
+      <div class="concept-card">
+        <p class="concept-card-label">Example four</p>
+        <p class="concept-card-title">Saturn in the 5th</p>
+        <p>
+          Saturn governs discipline, limits, and long-term building.
+          The 5th house is creativity, romance, and pleasure.
+          Put them together: creative work that requires serious effort
+          and commitment, a disciplined approach to making things,
+          or lessons that come through love and self-expression.
+          Not effortless — but deeply worthwhile.
+        </p>
+      </div>
+    </div>
+
+    <p>
+      Every planet has its own energy and domain. Every house has its own arena.
+      The reading is always: what does this planet bring, and where is it bringing it?
+      Layer in the sign for the how, and you have the full sentence.
+    </p>
+  </section>
+
+  <!-- SECTION 3: Empty houses -->
+  <section class="module-section">
+    <h2 class="section-heading">What about empty houses?</h2>
+    <p>
+      Most houses in your solar return chart will have no planets in them at all.
+      That's normal — there are ten planets and twelve houses, so at minimum two will
+      always be empty. Often six or seven are.
+    </p>
+    <p>
+      An empty house doesn't mean that area of life is shut down or irrelevant.
+      It means it's not a primary site of activation this year. Life continues
+      in those areas — it just isn't where the year's main energy is concentrated.
+    </p>
+
+    <div class="pullquote">
+      <p>
+        Where the planets are is where the year is happening.
+        Empty houses are simply where it isn't — not where something is wrong.
+      </p>
+    </div>
+
+    <p>
+      Focus on the houses that are occupied. Those are the rooms where the year
+      is actually unfolding.
+    </p>
+  </section>
+
+  <!-- SECTION 4: The 12 houses in depth -->
+  <section class="module-section">
+    <h2 class="section-heading">The 12 houses in depth</h2>
+    <p>
+      Here is each house — what it governs, what it means for your year,
+      and what it looks like when planets land there.
+    </p>
+
+    <div class="house-ref-list">
+
+      <div class="house-ref-entry">
+        <div class="house-ref-header">
+          <span class="house-ref-number">1st</span>
+          <h3 class="house-ref-name">The House of Self</h3>
+          <span class="house-ref-keywords">identity · beginnings · how you present</span>
+        </div>
+        <p>
+          The 1st house is the most personal point in the chart. It's where you live —
+          your body, your personality, your instinctive way of moving through the world.
+          In the solar return, the 1st house shows where you're reinventing yourself,
+          starting fresh, or bringing your attention back to who you actually are.
+        </p>
+        <p>
+          Any planet here is front-facing and energized. It's visible. It's expressing
+          itself through you, in your appearance, your attitude, the way others
+          experience you before you've said anything.
+        </p>
+        <p class="house-any-planet">
+          <strong>Any planet here:</strong> brings its energy into your personal identity
+          and how you present to the world. This is a year where that planet's themes
+          feel personal and immediate — you embody them, whether you intend to or not.
+        </p>
+      </div>
+
+      <div class="house-ref-entry">
+        <div class="house-ref-header">
+          <span class="house-ref-number">2nd</span>
+          <h3 class="house-ref-name">The House of Resources</h3>
+          <span class="house-ref-keywords">money · worth · values · what you own</span>
+        </div>
+        <p>
+          The 2nd house is everything you have — and everything you think you're worth.
+          Money, possessions, and material security are here. So is self-worth, which
+          tends to be the more interesting story.
+        </p>
+        <p>
+          In the solar return, planets in the 2nd are doing their work in the arena
+          of resources and value — yours, your sense of it, your relationship to acquiring
+          and holding it. This is also the house of what you truly value, beyond money.
+          What matters enough to protect?
+        </p>
+        <p class="house-any-planet">
+          <strong>Any planet here:</strong> activates your financial life and your
+          self-worth story. Expect the themes of that planet to show up in how you
+          earn, spend, or feel about what you have and what you deserve.
+        </p>
+      </div>
+
+      <div class="house-ref-entry">
+        <div class="house-ref-header">
+          <span class="house-ref-number">3rd</span>
+          <h3 class="house-ref-name">The House of Mind & Movement</h3>
+          <span class="house-ref-keywords">communication · learning · siblings · local world</span>
+        </div>
+        <p>
+          The 3rd house is where the mind lives — how you think, how you communicate,
+          how you make sense of your immediate world. It covers writing, speaking,
+          teaching, short trips, siblings, neighbors, and the daily flow of information
+          through your life.
+        </p>
+        <p>
+          Planets here are working through the medium of words and ideas. Whatever
+          they're doing, they're doing it through how you think and how you express it.
+        </p>
+        <p class="house-any-planet">
+          <strong>Any planet here:</strong> influences your mental life and communication
+          style this year. Your words carry that planet's energy. So do your learning
+          pursuits, your close exchanges, your relationship with siblings or the people
+          you see every day.
+        </p>
+      </div>
+
+      <div class="house-ref-entry">
+        <div class="house-ref-header">
+          <span class="house-ref-number">4th</span>
+          <h3 class="house-ref-name">The House of Roots</h3>
+          <span class="house-ref-keywords">home · family · foundations · private life</span>
+        </div>
+        <p>
+          The 4th house is the bottom of the chart and the bottom of the self —
+          your private foundation. Home, family, ancestry, and the emotional bedrock
+          you stand on. It's what you go home to, and what lives inside you that you
+          didn't choose.
+        </p>
+        <p>
+          Planets in the 4th are working in the private sphere — behind closed doors,
+          in the family system, in the internal emotional architecture of your life.
+          Things here tend not to be visible to the world. They're real nonetheless.
+        </p>
+        <p class="house-any-planet">
+          <strong>Any planet here:</strong> brings its themes into your home, family life,
+          or emotional foundations. The work is intimate and often invisible. Family
+          relationships, living situations, and what you privately need to feel safe
+          are all in play.
+        </p>
+      </div>
+
+      <div class="house-ref-entry">
+        <div class="house-ref-header">
+          <span class="house-ref-number">5th</span>
+          <h3 class="house-ref-name">The House of Creation & Joy</h3>
+          <span class="house-ref-keywords">creativity · romance · pleasure · self-expression</span>
+        </div>
+        <p>
+          The 5th house is where you come alive. Creativity, play, romance, children,
+          performance, and the sheer pleasure of being in a body that can make things
+          and fall in love — all of it lives here. This is the house of the things you
+          do for their own sake.
+        </p>
+        <p>
+          Planets in the 5th are doing their work through expression and enjoyment.
+          Whatever the planet's themes, they're coming through in how you create,
+          how you love, how you play.
+        </p>
+        <p class="house-any-planet">
+          <strong>Any planet here:</strong> energizes your creative life, romantic life,
+          or capacity for pleasure. The themes of that planet show up in what you make,
+          who you're drawn to, and how freely you're able to enjoy yourself this year.
+        </p>
+      </div>
+
+      <div class="house-ref-entry">
+        <div class="house-ref-header">
+          <span class="house-ref-number">6th</span>
+          <h3 class="house-ref-name">The House of Daily Life</h3>
+          <span class="house-ref-keywords">health · routines · work · service · craft</span>
+        </div>
+        <p>
+          The 6th house is the machinery of the everyday — your health, your routines,
+          the quality of your work, and how you show up in service to something larger
+          than yourself. It's unglamorous and essential. It's where discipline becomes
+          craft and where the body keeps score.
+        </p>
+        <p>
+          Planets in the 6th are working through the daily — through habit, through
+          the body, through the ordinary acts that add up to a life.
+        </p>
+        <p class="house-any-planet">
+          <strong>Any planet here:</strong> influences your health, routines, and work
+          habits. The themes of that planet will make themselves known in how your body
+          feels, how your days run, and the quality and nature of the work you're doing.
+        </p>
+      </div>
+
+      <div class="house-ref-entry">
+        <div class="house-ref-header">
+          <span class="house-ref-number">7th</span>
+          <h3 class="house-ref-name">The House of Partnership</h3>
+          <span class="house-ref-keywords">relationships · contracts · one-on-one · the other</span>
+        </div>
+        <p>
+          The 7th house is the house of the other — who you're in significant relationship
+          with, what you're building together, what you're legally or personally bound to.
+          Romantic partners, business partners, close collaborators, and contracts all live here.
+          So does the concept of open opposition — people who actively challenge you.
+        </p>
+        <p>
+          Planets in the 7th are doing their work through relationship. You'll meet the
+          themes of those planets in the people who come into your life or intensify in it.
+        </p>
+        <p class="house-any-planet">
+          <strong>Any planet here:</strong> activates your significant relationships.
+          The themes of that planet will show up in who you're partnering with, what
+          those partnerships are asking of you, and what you're learning about yourself
+          through the mirror of the other.
+        </p>
+      </div>
+
+      <div class="house-ref-entry">
+        <div class="house-ref-header">
+          <span class="house-ref-number">8th</span>
+          <h3 class="house-ref-name">The House of Transformation</h3>
+          <span class="house-ref-keywords">depth · shared resources · power · death &amp; rebirth</span>
+        </div>
+        <p>
+          The 8th house is where things get real. Transformation, shared resources,
+          debt, inheritance, sexuality, power, the unconscious, and everything that
+          involves merging your life with someone else's — all of it is here.
+          So is death and rebirth, not always literally. This is the house of the
+          things you can't fully control and can't look away from.
+        </p>
+        <p>
+          Planets in the 8th are working in territory that demands depth and honesty.
+          The themes of those planets are being metabolized at a deep level — not
+          processed on the surface, but transformed.
+        </p>
+        <p class="house-any-planet">
+          <strong>Any planet here:</strong> invites that planet's themes into your
+          deepest, most transformative experiences this year. Shared finances, power
+          dynamics, psychological depth, and intimacy are all possible arenas.
+          The work is real and the change is lasting.
+        </p>
+      </div>
+
+      <div class="house-ref-entry">
+        <div class="house-ref-header">
+          <span class="house-ref-number">9th</span>
+          <h3 class="house-ref-name">The House of Expansion</h3>
+          <span class="house-ref-keywords">philosophy · travel · belief · higher learning</span>
+        </div>
+        <p>
+          The 9th house is where you reach beyond what you already know. Higher education,
+          philosophy, long-distance travel, publishing, belief systems, and the endless
+          question of what things mean — all of it lives in the 9th. This is the house
+          of the horizon.
+        </p>
+        <p>
+          Planets in the 9th are working through expansion and the search for meaning.
+          They're doing their thing at a distance — geographically, intellectually,
+          philosophically. The 9th is where you go when you outgrow your current container.
+        </p>
+        <p class="house-any-planet">
+          <strong>Any planet here:</strong> expands its themes outward and upward.
+          Travel, study, publishing, or a significant shift in your worldview may
+          bring that planet's energy to the surface. The themes go big this year.
+        </p>
+      </div>
+
+      <div class="house-ref-entry">
+        <div class="house-ref-header">
+          <span class="house-ref-number">10th</span>
+          <h3 class="house-ref-name">The House of Public Life</h3>
+          <span class="house-ref-keywords">career · reputation · legacy · authority</span>
+        </div>
+        <p>
+          The 10th house is the most public point in the chart — the midheaven,
+          the peak. Career, reputation, achievement, authority figures, and what
+          you're building that the world can see all live here. This is the house
+          of what you're known for and what you want to be known for.
+        </p>
+        <p>
+          Planets in the 10th are working in public — their themes are visible,
+          professional, and carrying some weight of consequence. What you do here
+          tends to be seen.
+        </p>
+        <p class="house-any-planet">
+          <strong>Any planet here:</strong> brings that planet's energy into your
+          public life and professional sphere. Career moves, reputation shifts, and
+          encounters with authority are all possible. What this planet is doing,
+          the world may notice.
+        </p>
+      </div>
+
+      <div class="house-ref-entry">
+        <div class="house-ref-header">
+          <span class="house-ref-number">11th</span>
+          <h3 class="house-ref-name">The House of Community</h3>
+          <span class="house-ref-keywords">friends · groups · collective causes · hopes</span>
+        </div>
+        <p>
+          The 11th house is where the individual meets the collective. Friends,
+          social networks, groups, community organizations, collective causes,
+          and the larger vision of what could be — all here. So are your hopes
+          and long-term wishes. This is the house of what you're reaching toward
+          that's bigger than just you.
+        </p>
+        <p>
+          Planets in the 11th are working through the social and the collective.
+          Their themes show up in your friendships, your communities, your sense
+          of shared purpose.
+        </p>
+        <p class="house-any-planet">
+          <strong>Any planet here:</strong> activates your social world and collective
+          connections. The themes of that planet will show up in who you're building
+          with, what causes are calling you, and whether you feel like you belong
+          somewhere real.
+        </p>
+      </div>
+
+      <div class="house-ref-entry">
+        <div class="house-ref-header">
+          <span class="house-ref-number">12th</span>
+          <h3 class="house-ref-name">The House of the Unseen</h3>
+          <span class="house-ref-keywords">the unconscious · solitude · hidden things · endings</span>
+        </div>
+        <p>
+          The 12th house is everything that happens below or behind — the unconscious,
+          the hidden, the private, the spiritual. Solitude, retreat, dreams, what's
+          not yet ready to be named. Endings that make space for what comes next.
+          The things you carry that you haven't fully looked at.
+        </p>
+        <p>
+          Planets in the 12th are working quietly, often invisibly. Their themes are
+          moving in the background of the year — in the inner world, in the spaces
+          between, in what's being processed without conscious effort.
+        </p>
+        <p class="house-any-planet">
+          <strong>Any planet here:</strong> moves its themes into the interior.
+          The work is subtle, slow, and often more significant than it appears.
+          What that planet is doing may not be visible from the outside —
+          but it's shaping something real.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SECTION 5: The six axes -->
+  <section class="module-section">
+    <h2 class="section-heading">The six house axes</h2>
+    <p>
+      The twelve houses aren't twelve isolated rooms — they're six pairs of opposites.
+      Each house sits across the wheel from another, and they're in conversation.
+      When one house is active, the house opposite it is also involved, whether or not
+      it has planets in it.
+    </p>
+    <p>
+      This is where the push and pull quality of a solar return shows up.
+      Focus on one side of an axis and you may feel the pull of the other.
+      The tension is built in — and it's informative.
+    </p>
+
+    <div class="axis-grid">
+      <div class="axis-card">
+        <p class="axis-pair">1st ↔ 7th</p>
+        <p class="axis-label">Self vs. Other</p>
+        <p>Who I am versus who I am in relation to you. The self and the mirror. What you bring to relationship and what you lose in it — or find in it.</p>
+      </div>
+      <div class="axis-card">
+        <p class="axis-pair">2nd ↔ 8th</p>
+        <p class="axis-label">Mine vs. Ours</p>
+        <p>What I own versus what we share. My resources versus shared or others' resources. Individual security versus the intimacy of entanglement.</p>
+      </div>
+      <div class="axis-card">
+        <p class="axis-pair">3rd ↔ 9th</p>
+        <p class="axis-label">Local vs. Distant</p>
+        <p>The immediate world versus the horizon. Everyday learning versus philosophy. What's close and familiar versus what you have to travel to find.</p>
+      </div>
+      <div class="axis-card">
+        <p class="axis-pair">4th ↔ 10th</p>
+        <p class="axis-label">Private vs. Public</p>
+        <p>Home versus career. The roots versus the branches. What you tend in private versus what the world sees. The pull between the two is one of the most common tensions in a solar return.</p>
+      </div>
+      <div class="axis-card">
+        <p class="axis-pair">5th ↔ 11th</p>
+        <p class="axis-label">Personal Joy vs. Collective Hope</p>
+        <p>What I create for myself versus what I create for us. Personal pleasure versus shared vision. Self-expression versus contribution to something larger.</p>
+      </div>
+      <div class="axis-card">
+        <p class="axis-pair">6th ↔ 12th</p>
+        <p class="axis-label">Visible vs. Invisible Work</p>
+        <p>The daily, practical, measurable work versus the inner, unconscious, unmeasurable work. The seen versus the unseen. Both are necessary. Neither is more real.</p>
+      </div>
+    </div>
+
+    <p>
+      When you have planets clustered on one side of an axis, look to the opposite house
+      for the counterweight — the area of life that's quietly demanding attention even if
+      nothing is explicitly landing there.
+    </p>
+  </section>
+
+  <!-- SECTION 6: Mercury herbs -->
+  <section class="module-section">
+    <h2 class="section-heading">Mercury's herbal allies</h2>
+    <p>
+      Reading a chart is a Mercury activity — making connections, interpreting symbols,
+      moving between pieces of information to find the pattern underneath.
+      Mercury is the planet of the mind: how we think, how we communicate, how we learn.
+    </p>
+    <p>
+      As you work your way through your solar return chart — finding the planets,
+      reading the houses, noticing what the year is asking of you — these are the
+      plants that carry Mercury's energy. Good company for the intellectual work.
+    </p>
+
+    <div class="herb-callout">
+      <span class="herb-glyph">🌿</span>
+      <div>
+        <p class="herb-label">Mercury herbs — allies for thinking and interpreting</p>
+        <p>
+          Alstonia, azaleas, buckwheat, carrots, cedar, fennel, fenugreek, flax, hazel nut.
+          Fennel tea while you study. Cedar burning while you write. Hazel — the wood of
+          wisdom and divination — nearby while you work with your chart.
+          These are plants for clarity, connection, and the kind of focused attention
+          that good interpretation requires.
+        </p>
+      </div>
+    </div>
+
+    <p>
+      And a note: every planet has its own herbal allies. As you identify which planets
+      are most activated in your solar return chart — sitting in prominent houses,
+      making strong aspects, ruling your SR Rising — those planets' herbs become
+      relevant for your year. The full list by planet is in your course knowledge base.
+    </p>
+  </section>
+
+  <!-- SECTION 7: Seeing the whole chart -->
+  <section class="module-section">
+    <h2 class="section-heading">Starting to see the whole picture</h2>
+    <p>
+      By now you've identified your SR Rising, SR Sun, SR Moon, and your ruling planet.
+      You've read each placement in its house. You've started to feel the texture of
+      the year taking shape.
+    </p>
+    <p>
+      This is a good moment to step back and look at the chart as a whole.
+      Where are the planets clustered? Are they mostly in the upper half of the chart
+      (houses 7–12) — suggesting a year that's more public, outward-facing, engaged
+      with the world? Or are they mostly in the lower half (houses 1–6) — suggesting
+      a year that's more personal, private, inward?
+    </p>
+    <p>
+      Are they mostly on the left side (houses 1, 2, 3, 10, 11, 12) — suggesting a
+      year driven more by personal initiative? Or the right side (houses 4–9) —
+      suggesting a year shaped more by circumstances and other people?
+    </p>
+    <p>
+      These are loose patterns, not rigid rules. But they give you a sense of the
+      year's overall orientation — which direction life is pulling you, and where
+      most of the action is concentrated.
+    </p>
+
+    <div class="pullquote">
+      <p>
+        The chart is a whole sentence, not a collection of separate words.
+        The planets, signs, and houses all speak to each other.
+        You're learning to hear the conversation.
+      </p>
+    </div>
+
+    <p>
+      In Module 06 — the last module before the capstone — we look at aspects:
+      the lines drawn between planets, and what they mean for how those energies
+      relate to each other. That's where the chart really comes alive as a story.
+    </p>
+  </section>
+
+  <!-- NEXT MODULE -->
+  <div class="module-nav">
+    <a class="next-module-btn" href="06-aspects.html">
+      <span class="next-label">Next up · Module 06</span>
+      <span class="next-title">Aspects: Lines on the Chart →</span>
+    </a>
+  </div>
+
+</main>
+
+</body>
+</html>
