@@ -20,7 +20,7 @@
 |---|---|---|
 | 01 | The Beginner Primer (incl. What Is a Solar Return?) | BUILT (course/01-primer.html) |
 | 02 | Cast Your Chart | BUILT (course/02-cast-your-chart.html) |
-| 03 | Your Rising Sign & Ruling Planet | not built |
+| 03 | Your Rising Sign & Ruling Planet | BUILT (course/03-rising-sign.html) |
 | 04 | Sun & Moon | not built |
 | 05 | Reading the Houses | not built |
 | 06 | Aspects: Lines on the Chart | not built |
@@ -154,3 +154,4 @@
 | 2026-05 | Module 01 complete and pushed to GitHub |
 | 2026-05 | Module 02 complete (course/02-cast-your-chart.html + script) |
 | 2026-05 | course/scripts/ folder established — 01 and 02 scripts in repo |
+| 2026-05 | Module 03 complete (course/03-rising-sign.html + script) |

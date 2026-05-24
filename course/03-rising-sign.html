@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Module 03: Your Rising Sign & Ruling Planet — Limitless Yeehaw</title>
+<link rel="stylesheet" href="../css/course.css">
+<style>
+  /* ── Module 03 extras ── */
+
+  /* Individual sign entries */
+  .sign-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+    margin: 2rem 0;
+  }
+  .sign-entry {
+    border-left: 3px solid rgba(152, 120, 232, 0.35);
+    padding-left: 1.5rem;
+  }
+  .sign-entry:hover {
+    border-left-color: var(--violet);
+  }
+  .sign-header {
+    display: flex;
+    align-items: baseline;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+  }
+  .sign-glyph {
+    font-size: 1.4rem;
+    line-height: 1;
+    color: var(--violet);
+    flex-shrink: 0;
+  }
+  .sign-name {
+    font-family: var(--serif);
+    font-size: 1.3rem;
+    font-weight: normal;
+    color: var(--blush);
+    margin: 0;
+  }
+  .sign-entry p {
+    font-size: 0.97rem;
+    line-height: 1.75;
+    color: rgba(255, 240, 248, 0.85) !important;
+    margin: 0 0 0.75rem !important;
+  }
+  .sign-entry p:last-child {
+    margin-bottom: 0 !important;
+  }
+  .sign-herbs {
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+    margin-top: 0.75rem;
+    flex-wrap: wrap;
+  }
+  .sign-herbs-label {
+    font-family: system-ui, sans-serif;
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--sky);
+    flex-shrink: 0;
+  }
+  .sign-herbs-list {
+    font-size: 0.88rem;
+    color: rgba(90, 188, 240, 0.75);
+    font-style: italic;
+    line-height: 1.5;
+  }
+
+  /* Ruling planet table */
+  .rulership-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 0.75rem;
+    margin: 1.75rem 0;
+  }
+  .rulership-card {
+    background: var(--mid);
+    border: 1px solid rgba(152, 120, 232, 0.18);
+    border-radius: 8px;
+    padding: 0.85rem 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+  .rulership-sign {
+    font-size: 1.1rem;
+    line-height: 1;
+    flex-shrink: 0;
+  }
+  .rulership-text {
+    display: flex;
+    flex-direction: column;
+  }
+  .rulership-sign-name {
+    font-family: system-ui, sans-serif;
+    font-size: 0.78rem;
+    color: rgba(255, 240, 248, 0.6);
+    letter-spacing: 0.04em;
+  }
+  .rulership-planet {
+    font-family: var(--serif);
+    font-size: 0.97rem;
+    color: var(--blush);
+  }
+
+  @media (max-width: 600px) {
+    .rulership-grid { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a class="nav-brand" href="../index.html">Limitless Yeehaw</a>
+  <div class="nav-right">
+    <span class="nav-module-label">Module 03 of 06</span>
+    <a class="nav-back" href="../index.html">← Back to course</a>
+  </div>
+</nav>
+
+<!-- ── MODULE HEADER ── -->
+<header class="module-header">
+  <p class="module-eyebrow">Module 03 · Your Rising Sign & Ruling Planet</p>
+  <h1 class="module-title">The role you're stepping into.<br>The tone the whole year is set in.</h1>
+  <div class="module-divider"></div>
+  <p class="module-sub">
+    Your SR Rising sign is the atmosphere of your year. This module tells you
+    what yours means — and introduces the planet behind it.
+  </p>
+</header>
+
+<!-- ── AUDIO ── -->
+<div class="audio-block">
+  <div class="audio-inner">
+    <span class="audio-glyph">🎧</span>
+    <div>
+      <p class="audio-label">Listen to this module</p>
+      <p class="audio-title">Your Rising Sign & Ruling Planet</p>
+    </div>
+    <span class="audio-placeholder">audio coming soon</span>
+  </div>
+</div>
+
+<!-- ── CONTENT ── -->
+<main class="module-content">
+
+  <!-- SECTION 1: What the SR Rising tells you -->
+  <section class="module-section">
+    <h2 class="section-heading">What your SR Rising sign tells you</h2>
+    <p>
+      In Module 02 you found the letters "AC" or "ASC" on the left side of your chart wheel.
+      The sign sitting at that point is your SR Rising — your solar return Ascendant.
+    </p>
+    <p>
+      In astrology, the Ascendant is always about how something presents itself.
+      In your natal chart, it's how <em>you</em> present yourself — your instinctive
+      style, your first impression, the mask you wear before people get to know you.
+    </p>
+    <p>
+      In your solar return chart, the Ascendant does the same thing — but for the year
+      instead of for your life. It sets the tone. It describes the role you're stepping into,
+      the energy or attitude you'll be embodying, the general theme or mood of the next
+      twelve months. It's what others will start to notice about you. It's how you'll
+      tend to initiate new experiences.
+    </p>
+
+    <div class="pullquote">
+      <p>The SR Rising is the costume the year is wearing. It shapes everything you encounter while you're in it.</p>
+    </div>
+
+    <p>
+      It's not the most important placement in the solar return chart — that's the SR Sun,
+      which we cover in Module 04. But it's the frame. And knowing the frame changes
+      how you read everything inside it.
+    </p>
+  </section>
+
+  <!-- SECTION 2: Birth time note -->
+  <section class="module-section">
+    <h2 class="section-heading">A note if you're working without a birth time</h2>
+    <p>
+      The SR Rising sign is the placement most affected by an uncertain birth time.
+      Because the Ascendant moves through all twelve signs in a single day, even an
+      hour's difference can shift it into a different sign entirely.
+    </p>
+    <p>
+      If you're working from an estimated or unknown birth time, read the sign that
+      appeared on your chart — but hold it lightly. Notice if it resonates. If it
+      doesn't feel right at all, the adjacent signs are worth looking at too.
+    </p>
+    <p>
+      Everything else in this module — the ruling planet, its house placement —
+      still applies and is still worth exploring. An uncertain Ascendant doesn't
+      cancel the rest of the work.
+    </p>
+  </section>
+
+  <!-- SECTION 3: The 12 signs -->
+  <section class="module-section">
+    <h2 class="section-heading">The 12 SR Rising signs</h2>
+    <p>
+      Find your SR Rising sign below. Read it as the year's theme — not as a personality
+      type, and not as a prediction. Read it as: <em>this is the territory I'm moving through.</em>
+    </p>
+    <p>
+      The herbs listed under each sign are that sign's plant allies for the year.
+      Work with them however resonates — in tea, as incense, on an altar, or just
+      as a reference point. Use what calls to you. Leave the rest.
+    </p>
+
+    <div class="sign-list">
+
+      <!-- ARIES -->
+      <div class="sign-entry">
+        <div class="sign-header">
+          <span class="sign-glyph">♈</span>
+          <h3 class="sign-name">Aries Rising</h3>
+        </div>
+        <p>
+          You're stepping into a year of bold initiation. Aries rising sets an energized,
+          action-forward tone — you're showing up first, moving fast, willing to start things
+          without a roadmap. There's a sharpness to you this year, a readiness to lead or go
+          first when no one else will.
+        </p>
+        <p>
+          The theme is beginnings. New territory. Courage as something you practice, not just
+          feel. This is a year to move toward what you want without waiting for the conditions
+          to be perfect. They won't be. Move anyway.
+        </p>
+        <div class="sign-herbs">
+          <span class="sign-herbs-label">Herbs ✦</span>
+          <span class="sign-herbs-list">betony (wood), blackberry, blessed thistle, chili powder, cowslips, juniper, loosestrife, marjoram, mushrooms</span>
+        </div>
+      </div>
+
+      <!-- TAURUS -->
+      <div class="sign-entry">
+        <div class="sign-header">
+          <span class="sign-glyph">♉</span>
+          <h3 class="sign-name">Taurus Rising</h3>
+        </div>
+        <p>
+          The year slows down into something deliberate. Taurus rising brings a grounded,
+          sensory, accumulating quality to everything — you're building, settling in, paying
+          attention to what you actually have. Others notice a steadiness to you, a new
+          attentiveness to comfort and beauty and what's worth keeping.
+        </p>
+        <p>
+          The theme is patience as a practice, pleasure as a valid tool. What are you
+          cultivating this year? What do you actually value? This is a year to move at
+          your own pace and mean it — and to notice that slow and solid is its own kind of power.
+        </p>
+        <div class="sign-herbs">
+          <span class="sign-herbs-label">Herbs ✦</span>
+          <span class="sign-herbs-list">apple blossom, cumin, fig-wort, lovage</span>
+        </div>
+      </div>
+
+      <!-- GEMINI -->
+      <div class="sign-entry">
+        <div class="sign-header">
+          <span class="sign-glyph">♊</span>
+          <h3 class="sign-name">Gemini Rising</h3>
+        </div>
+        <p>
+          Quick, curious, communicative. Gemini rising sets a year of information-gathering,
+          connection-making, and moving fluidly between worlds. You're showing up as someone
+          who asks good questions, notices patterns, adapts fast. Others notice your words,
+          your wit, your ability to be genuinely interested in almost anything.
+        </p>
+        <p>
+          The theme is learning and expressing — thinking out loud as part of the work,
+          being okay with not having the final answer yet. This is a year where the conversation
+          itself is the destination.
+        </p>
+        <div class="sign-herbs">
+          <span class="sign-herbs-label">Herbs ✦</span>
+          <span class="sign-herbs-list">dragon's blood reeds, meadowsweet</span>
+        </div>
+      </div>
+
+      <!-- CANCER -->
+      <div class="sign-entry">
+        <div class="sign-header">
+          <span class="sign-glyph">♋</span>
+          <h3 class="sign-name">Cancer Rising</h3>
+        </div>
+        <p>
+          The year turns inward and tender. Cancer rising brings a protective, emotionally
+          attuned quality to how you're showing up — you're leading with feeling this year,
+          with care, with an instinct to safeguard what matters. Home, belonging, roots,
+          and the people who feel like family are all front and center.
+        </p>
+        <p>
+          Others may notice a softer edge to you, or a stronger impulse to protect your
+          inner world. The theme is nourishment — of yourself, of the relationships and
+          places you love, of whatever you're quietly tending to.
+        </p>
+        <div class="sign-herbs">
+          <span class="sign-herbs-label">Herbs ✦</span>
+          <span class="sign-herbs-list">adder's tongue, alder (black), agrimony, balm, betony (water), daisies, duckweed, honeysuckle, hyssop, liverwort</span>
+        </div>
+      </div>
+
+      <!-- LEO -->
+      <div class="sign-entry">
+        <div class="sign-header">
+          <span class="sign-glyph">♌</span>
+          <h3 class="sign-name">Leo Rising</h3>
+        </div>
+        <p>
+          You're being called forward — into visibility, into warmth, into full self-expression.
+          Leo rising sets a year where showing up fully is the assignment. Others notice your
+          presence, your generosity, your creative spark. There's a brightness to you this year
+          that's hard to miss.
+        </p>
+        <p>
+          The theme is radiance — not performance, not seeking approval, but authentic shine.
+          This is a year to take up space without apology, to lead from the heart, to let
+          yourself be seen doing the thing you love. The world benefits when you stop dimming.
+        </p>
+        <div class="sign-herbs">
+          <span class="sign-herbs-label">Herbs ✦</span>
+          <span class="sign-herbs-list">agaric, angelica, bay tree, borage, goat's rue, oats, peony, rue, rye, saffron, sage, st. john's wort, wheat</span>
+        </div>
+      </div>
+
+      <!-- VIRGO -->
+      <div class="sign-entry">
+        <div class="sign-header">
+          <span class="sign-glyph">♍</span>
+          <h3 class="sign-name">Virgo Rising</h3>
+        </div>
+        <p>
+          The year asks for discernment, craft, and care. Virgo rising brings a focused,
+          analytical, service-oriented quality to how you move through the world. You're
+          attending to the details — what's working, what needs refinement, what you're called
+          to improve. Others notice your precision, your reliability, your high standards.
+        </p>
+        <p>
+          The theme is skill — doing the thing well, not just doing it. This is a year
+          where the quality of your attention becomes the quality of your output. Small
+          adjustments compound. The work repays the care you put into it.
+        </p>
+        <div class="sign-herbs">
+          <span class="sign-herbs-label">Herbs ✦</span>
+          <span class="sign-herbs-list">lavender, maidenhair</span>
+        </div>
+      </div>
+
+      <!-- LIBRA -->
+      <div class="sign-entry">
+        <div class="sign-header">
+          <span class="sign-glyph">♎</span>
+          <h3 class="sign-name">Libra Rising</h3>
+        </div>
+        <p>
+          Partnership, beauty, and balance move to the foreground. Libra rising sets a year
+          where relationship — with others, with aesthetics, with fairness — is the operating
+          system. You're showing up as a collaborator, a connector, someone who cares how
+          things look and feel and whether they're working for everyone involved.
+        </p>
+        <p>
+          Others notice your grace, your consideration, your eye for what's beautiful.
+          The theme is relating — what you're creating alongside other people, and what
+          it costs you to keep the peace versus what it costs you to stop.
+        </p>
+        <div class="sign-herbs">
+          <span class="sign-herbs-label">Herbs ✦</span>
+          <span class="sign-herbs-list">geranium (rose), horse-tongue, verbena, vervain</span>
+        </div>
+      </div>
+
+      <!-- SCORPIO -->
+      <div class="sign-entry">
+        <div class="sign-header">
+          <span class="sign-glyph">♏</span>
+          <h3 class="sign-name">Scorpio Rising</h3>
+        </div>
+        <p>
+          Depth, intensity, and transformation. Scorpio rising sets a year where the surface
+          isn't the point — you're going underneath things, asking harder questions, refusing
+          easy answers and comfortable half-truths. Others notice a magnetic quality to you
+          this year, a seriousness, a sense of power held close.
+        </p>
+        <p>
+          The theme is excavation — what's hidden, what's real, what can't be avoided
+          any longer. This is a year of meaningful change. Not dramatic for its own sake,
+          but honest in a way that rearranges things. You'll emerge knowing something
+          you can't unknow.
+        </p>
+        <div class="sign-herbs">
+          <span class="sign-herbs-label">Herbs ✦</span>
+          <span class="sign-herbs-list">basil, bloodroot, dwarf elder</span>
+        </div>
+      </div>
+
+      <!-- SAGITTARIUS -->
+      <div class="sign-entry">
+        <div class="sign-header">
+          <span class="sign-glyph">♐</span>
+          <h3 class="sign-name">Sagittarius Rising</h3>
+        </div>
+        <p>
+          The year opens wide. Sagittarius rising brings an expansive, philosophical,
+          freedom-seeking energy to how you're showing up. You're oriented toward the horizon —
+          toward learning, travel (physical or intellectual), and the bigger picture behind
+          the everyday details. Others notice your enthusiasm, your vision, your need for room to roam.
+        </p>
+        <p>
+          The theme is belief — what you're reaching toward and why, what framework you're
+          building for how the world works, what it means to live according to something larger
+          than your own comfort. This is a year to go further than you planned.
+        </p>
+        <div class="sign-herbs">
+          <span class="sign-herbs-label">Herbs ✦</span>
+          <span class="sign-herbs-list">alexander, dandelion</span>
+        </div>
+      </div>
+
+      <!-- CAPRICORN -->
+      <div class="sign-entry">
+        <div class="sign-header">
+          <span class="sign-glyph">♑</span>
+          <h3 class="sign-name">Capricorn Rising</h3>
+        </div>
+        <p>
+          A year of building with intention. Capricorn rising sets a serious, ambitious,
+          long-game tone. You're showing up as someone who's working toward something —
+          disciplined, strategic, committed to the result. Others notice your focus,
+          your reliability, a quiet authority that wasn't quite there before.
+        </p>
+        <p>
+          The theme is legacy — what you're constructing that will last, what you're
+          willing to do the unglamorous work for, what success actually looks like when
+          you define it yourself. This is a year where patience and structure pay off.
+        </p>
+        <div class="sign-herbs">
+          <span class="sign-herbs-label">Herbs ✦</span>
+          <span class="sign-herbs-list">comfrey, moss</span>
+        </div>
+      </div>
+
+      <!-- AQUARIUS -->
+      <div class="sign-entry">
+        <div class="sign-header">
+          <span class="sign-glyph">♒</span>
+          <h3 class="sign-name">Aquarius Rising</h3>
+        </div>
+        <p>
+          The year breaks from convention. Aquarius rising brings an independent,
+          forward-thinking, collective-minded quality to how you move through the world.
+          You're showing up as someone with their own angle — original, community-oriented,
+          maybe a little detached from the personal in favor of the broader picture.
+          Others notice your distinctness, your ideas, your refusal to follow scripts.
+        </p>
+        <p>
+          The theme is innovation — what's possible when you stop doing it the expected way,
+          what you can contribute when you're willing to be a little strange, what it means
+          to belong to something larger than yourself without losing your own frequency.
+        </p>
+        <div class="sign-herbs">
+          <span class="sign-herbs-label">Herbs ✦</span>
+          <span class="sign-herbs-list">anise (star), curry, spikenard, wisteria</span>
+        </div>
+      </div>
+
+      <!-- PISCES -->
+      <div class="sign-entry">
+        <div class="sign-header">
+          <span class="sign-glyph">♓</span>
+          <h3 class="sign-name">Pisces Rising</h3>
+        </div>
+        <p>
+          The year becomes porous and intuitive. Pisces rising sets a dreamy, spiritually
+          attuned, deeply feeling quality to everything. You're showing up with less armor
+          and more permeability — sensing things before you can name them, moving by feel,
+          dissolving the line between what's yours and what belongs to the room.
+          Others notice a softness, a creativity, something a little otherworldly.
+        </p>
+        <p>
+          The theme is surrender — trusting what you can't see, following the current
+          instead of fighting it, letting go of the need to control the outcome in order
+          to be fully inside the experience. This is a year for the invisible work.
+          It counts even when it can't be measured.
+        </p>
+        <div class="sign-herbs">
+          <span class="sign-herbs-label">Herbs ✦</span>
+          <span class="sign-herbs-list">alder (common), hemp, moss, sphagnum</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SECTION 4: Ruling planet -->
+  <section class="module-section">
+    <h2 class="section-heading">Your ruling planet</h2>
+    <p>
+      Every sign has a ruling planet — a planet that carries that sign's energy most
+      naturally, that feels most at home in it. When a sign becomes your SR Rising,
+      its ruling planet becomes what astrologers call the <em>chart ruler</em> for
+      the year: a second key for reading the year's theme.
+    </p>
+    <p>
+      Think of it this way: the SR Rising sets the overall tone, and the chart ruler
+      adds texture and direction to that tone. Where the ruling planet lands in your
+      chart — which house, which sign — tells you something about how the year's
+      theme will actually play out in your life.
+    </p>
+    <p>
+      Here are the rulerships — using modern astrology's assignments.
+      Find your SR Rising sign and note the planet next to it.
+    </p>
+
+    <div class="rulership-grid">
+      <div class="rulership-card">
+        <span class="rulership-sign">♈</span>
+        <div class="rulership-text">
+          <span class="rulership-sign-name">Aries</span>
+          <span class="rulership-planet">Mars</span>
+        </div>
+      </div>
+      <div class="rulership-card">
+        <span class="rulership-sign">♉</span>
+        <div class="rulership-text">
+          <span class="rulership-sign-name">Taurus</span>
+          <span class="rulership-planet">Venus</span>
+        </div>
+      </div>
+      <div class="rulership-card">
+        <span class="rulership-sign">♊</span>
+        <div class="rulership-text">
+          <span class="rulership-sign-name">Gemini</span>
+          <span class="rulership-planet">Mercury</span>
+        </div>
+      </div>
+      <div class="rulership-card">
+        <span class="rulership-sign">♋</span>
+        <div class="rulership-text">
+          <span class="rulership-sign-name">Cancer</span>
+          <span class="rulership-planet">Moon</span>
+        </div>
+      </div>
+      <div class="rulership-card">
+        <span class="rulership-sign">♌</span>
+        <div class="rulership-text">
+          <span class="rulership-sign-name">Leo</span>
+          <span class="rulership-planet">Sun</span>
+        </div>
+      </div>
+      <div class="rulership-card">
+        <span class="rulership-sign">♍</span>
+        <div class="rulership-text">
+          <span class="rulership-sign-name">Virgo</span>
+          <span class="rulership-planet">Mercury</span>
+        </div>
+      </div>
+      <div class="rulership-card">
+        <span class="rulership-sign">♎</span>
+        <div class="rulership-text">
+          <span class="rulership-sign-name">Libra</span>
+          <span class="rulership-planet">Venus</span>
+        </div>
+      </div>
+      <div class="rulership-card">
+        <span class="rulership-sign">♏</span>
+        <div class="rulership-text">
+          <span class="rulership-sign-name">Scorpio</span>
+          <span class="rulership-planet">Pluto</span>
+        </div>
+      </div>
+      <div class="rulership-card">
+        <span class="rulership-sign">♐</span>
+        <div class="rulership-text">
+          <span class="rulership-sign-name">Sagittarius</span>
+          <span class="rulership-planet">Jupiter</span>
+        </div>
+      </div>
+      <div class="rulership-card">
+        <span class="rulership-sign">♑</span>
+        <div class="rulership-text">
+          <span class="rulership-sign-name">Capricorn</span>
+          <span class="rulership-planet">Saturn</span>
+        </div>
+      </div>
+      <div class="rulership-card">
+        <span class="rulership-sign">♒</span>
+        <div class="rulership-text">
+          <span class="rulership-sign-name">Aquarius</span>
+          <span class="rulership-planet">Uranus</span>
+        </div>
+      </div>
+      <div class="rulership-card">
+        <span class="rulership-sign">♓</span>
+        <div class="rulership-text">
+          <span class="rulership-sign-name">Pisces</span>
+          <span class="rulership-planet">Neptune</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 5: Finding your ruling planet -->
+  <section class="module-section">
+    <h2 class="section-heading">Finding your ruling planet in the chart</h2>
+    <p>
+      Now go back to your solar return chart and find the glyph for your ruling planet.
+      Each planet has a symbol — here are the most common ones to look for:
+    </p>
+
+    <div class="concept-grid">
+      <div class="concept-card">
+        <p class="concept-card-label">Personal planets</p>
+        <p class="concept-card-title">The inner ones</p>
+        <p>
+          ☉ Sun · ☽ Moon · ☿ Mercury · ♀ Venus · ♂ Mars.
+          These move faster, so they're more personal in their effects.
+        </p>
+      </div>
+      <div class="concept-card">
+        <p class="concept-card-label">Social &amp; outer planets</p>
+        <p class="concept-card-title">The slower ones</p>
+        <p>
+          ♃ Jupiter · ♄ Saturn · ♅ Uranus · ♆ Neptune · ♇ Pluto.
+          These move slowly and shape longer cycles. Uranus, Neptune, and Pluto are
+          often small and close together on the chart — look carefully.
+        </p>
+      </div>
+    </div>
+
+    <p>
+      Once you've found your ruling planet, note two things: which house it's in,
+      and which sign it's in.
+    </p>
+
+    <div class="pullquote">
+      <p>
+        The house your ruling planet occupies is where the year's central theme
+        is playing out. The sign it's in tells you how.
+      </p>
+    </div>
+
+    <p>
+      For example: Gemini rising with Mercury in the 10th house in Capricorn.
+      The year's theme is communication and learning — and it's happening in the arena
+      of career and public reputation, with a serious, disciplined, results-oriented flavor.
+      That's a year where how you speak and what you say at work could shift your trajectory.
+    </p>
+    <p>
+      You don't need to know every nuance of every planet in every sign right now.
+      Just locate your ruling planet, note where it is, and sit with what that might mean
+      given what you already know. We'll build on this as we go.
+    </p>
+    <p>
+      In Module 04, we turn to the two most important placements in the solar return chart:
+      the SR Sun and the SR Moon. That's where the real depth begins.
+    </p>
+  </section>
+
+  <!-- NEXT MODULE -->
+  <div class="module-nav">
+    <a class="next-module-btn" href="04-sun-and-moon.html">
+      <span class="next-label">Next up · Module 04</span>
+      <span class="next-title">Sun & Moon →</span>
+    </a>
+  </div>
+
+</main>
+
+</body>
+</html>
