@@ -429,19 +429,42 @@ body {
 
 .waitlist-wrap { text-align: center; }
 
-.waitlist-heading {
-  font-family: 'Palatino Linotype', Palatino, 'Book Antiqua', Georgia, serif;
-  font-size: 24px;
+.course-cta-btn {
+  display: inline-block;
+  background: #FFF0F8;
+  color: #0E0530;
+  font-family: 'Palatino Linotype', Palatino, Georgia, serif;
+  font-size: 14px;
   font-weight: 700;
-  color: #fff;
-  margin-bottom: 0.6rem;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 1.1rem 3rem;
+  border-radius: 2px;
+  transition: background 0.2s, color 0.2s;
+  margin-bottom: 0.9rem;
 }
 
-.waitlist-sub {
-  font-size: 14px;
-  color: #F8D8F0;
-  margin-bottom: 1.8rem;
-  line-height: 1.7;
+.course-cta-btn:hover { background: #9878E8; color: #fff; }
+
+.course-cta-note {
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(192,168,248,0.6);
+  margin-bottom: 3rem;
+}
+
+.kit-form-divider {
+  border-top: 1px solid rgba(152,120,232,0.15);
+  padding-top: 2rem;
+}
+
+.kit-form-label {
+  font-size: 13px;
+  color: rgba(248,216,240,0.6);
+  margin-bottom: 1.2rem;
+  letter-spacing: 0.5px;
 }
 
 .kit-form-wrap { max-width: 420px; margin: 0 auto; }
