@@ -80,7 +80,7 @@ Free offerings listed:
 2. **The Clear Eyes, Full Hearts Ritual** → `https://limitless-yeehaw.notion.site/the-clear-eyes-full-hearts-ritual`
 3. **The Self-Care Priority Map** → `https://limitless-yeehaw.notion.site/self-care-priority-map`
 
-Course section: "Your Year Ahead" — $27 course, waitlist form via Kit (collects email). No payment system yet.
+Course section: "Your Year Ahead" — $27 course. Buy Now CTA links to live Stripe Payment Link. Kit email form kept as secondary "stay in the loop" element below CTA.
 
 ### Snapshot Tool (`year-ahead-snapshot.html`)
 Interactive solar return reading tool — also serves as the course capstone. Free, no login required.
@@ -109,11 +109,23 @@ The full "Your Year Ahead" course is built and in the repo. All modules link to 
 
 ## What's Next (priority order)
 
-1. **Payment integration** — Stripe or Gumroad for the $27 course when ready to launch
-2. **Audio recording** — Staley records from scripts in `course/scripts/` and embeds in each module (audio blocks are already stubbed as "audio coming soon")
+1. **Audio recording** — Staley records from scripts in `course/scripts/` and embeds in each module (audio blocks are already stubbed as "audio coming soon")
+2. **Notion template blurbs** — add a Limitless Yeehaw brand blurb + link to limitlessyeehaw.com at the bottom of both free Notion templates (Clear Eyes Full Hearts Ritual + Self-Care Priority Map). ~50 downloads so far, good conversion opportunity.
 3. **Snapshot: additional features brainstormed** — ideas discussed: (a) a question to carry all year (Sun-house, one open question to hold, not answer); (b) a release phrase (what to put down, 12th-house-based); (c) "this year asks you to trust..." (rising or Sun-house, one-line completion); (d) a color/element/texture for the year (rising or Sun sign based, tangible correspondence); (e) an archetype for the year (named role + one line, rising-based); (f) a body invitation (sign body correspondence, one gentle line). All deferred — implement in future session.
 4. **Snapshot: Sun/Moon interplay note** — the `getInterplayPrompt()` "other" case is generic; a richer version would be more specific. Deferred.
 5. **Copy nitpicking across course modules** — Staley noted wanting to review and edit copy; no specific modules flagged yet.
+
+## Stripe Setup (completed 2026-05-25)
+
+- **Stripe account**: live, verified, bank account linked for payouts
+- **Product**: "Your Year Ahead" — $27, one-time, live mode
+- **Live Payment Link**: `https://buy.stripe.com/9B68wP5Ps3B20wNeZe2wU00`
+- **After-payment redirect**: `https://limitlessyeehaw.com/thank-you.html`
+- **Stripe brand settings**: button color `#E040A8` (magenta), background `#ffffff`
+- **Statement descriptor**: LIMITLESS YEEHAW
+- **Tax collection**: skipped for now (revisit when revenue warrants)
+- **Stripe Climate**: skipped
+- **Product image**: `stripe-card.png` in repo root — 800×800 branded PNG (purple/magenta gradient, four-pointed star, "Your Year Ahead" serif title)
 
 ## Completed
 
@@ -129,6 +141,8 @@ The full "Your Year Ahead" course is built and in the repo. All modules link to 
 - ✓ **Landing page copy fixed** — removed all "no astrologer" framing across `index.html` (×2) and `course/index.html` (×2); hero subhead replaced with Option D ("personal cosmic intelligence...permanent access to your own map"); feature list item updated to "A skill you can use every year, starting now"
 - ✓ **Landing page module list corrected** — fixed order (Primer is 01, Cast Your Chart is 02) and rewrote all descriptions to match actual module content; capstone description updated to reflect current snapshot features
 - ✓ **Favicon** — `favicon.svg` created (✦ glyph, magenta-to-pink gradient, deep plum background); wired into all HTML files across root and `course/`
+- ✓ **Stripe payment integration** — live Stripe account, $27 product, Payment Link wired into `index.html` CTA, thank-you page built at `/thank-you.html` (post-purchase access page with course link + next steps), course URL removed from public nav
+- ✓ **File structure update** — `thank-you.html` and `stripe-card.png` added to repo root
 
 ## Context Files — Feed These at the Start of Every Session
 

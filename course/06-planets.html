@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Module 06: The Planets — Limitless Yeehaw</title>
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<link rel="stylesheet" href="../css/course.css">
+<style>
+  /* ── Module 06: Planets extras ── */
+
+  .planet-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+    margin: 2rem 0;
+  }
+
+  .planet-card {
+    border: 1px solid rgba(152, 120, 232, 0.2);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  .planet-card-header {
+    display: flex;
+    align-items: center;
+    gap: 1.1rem;
+    padding: 1.25rem 1.5rem;
+    background: rgba(14, 5, 48, 0.6);
+    border-bottom: 1px solid rgba(152, 120, 232, 0.15);
+  }
+
+  .planet-symbol {
+    font-size: 1.8rem;
+    line-height: 1;
+    flex-shrink: 0;
+    width: 2.4rem;
+    text-align: center;
+  }
+
+  .planet-header-text { flex: 1; }
+
+  .planet-name {
+    font-family: var(--serif);
+    font-size: 1.2rem;
+    font-weight: normal;
+    color: var(--blush);
+    margin: 0 0 0.15rem;
+    line-height: 1.2;
+  }
+
+  .planet-tagline {
+    font-family: system-ui, sans-serif;
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.13em;
+    color: rgba(255, 240, 248, 0.45);
+    margin: 0;
+  }
+
+  .planet-card-body {
+    padding: 1.4rem 1.5rem;
+    background: rgba(14, 5, 48, 0.3);
+  }
+
+  .planet-card-body p {
+    font-size: 0.97rem;
+    line-height: 1.78;
+    color: rgba(255, 240, 248, 0.85);
+    margin: 0 0 0.85rem;
+  }
+
+  .planet-card-body p:last-child { margin-bottom: 0; }
+
+  .planet-sr-note {
+    margin-top: 1.1rem;
+    padding: 0.9rem 1.1rem;
+    background: rgba(90, 188, 240, 0.06);
+    border-left: 2px solid rgba(90, 188, 240, 0.35);
+    border-radius: 0 6px 6px 0;
+  }
+
+  .planet-sr-note-label {
+    font-family: system-ui, sans-serif;
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.13em;
+    color: var(--sky);
+    display: block;
+    margin-bottom: 0.35rem;
+  }
+
+  .planet-sr-note p {
+    font-size: 0.9rem !important;
+    color: rgba(90, 188, 240, 0.82) !important;
+    margin: 0 !important;
+    line-height: 1.65 !important;
+  }
+
+  /* Color accents per planet */
+  .planet-card.sun .planet-symbol { color: #F0C040; }
+  .planet-card.sun .planet-card-header { border-bottom-color: rgba(240, 192, 64, 0.15); }
+  .planet-card.moon .planet-symbol { color: #D0D8F0; }
+  .planet-card.mercury .planet-symbol { color: #A0C8E8; }
+  .planet-card.venus .planet-symbol { color: #F880C0; }
+  .planet-card.mars .planet-symbol { color: #E05040; }
+  .planet-card.jupiter .planet-symbol { color: #C8A050; }
+  .planet-card.saturn .planet-symbol { color: #9878E8; }
+  .planet-card.uranus .planet-symbol { color: #5ABCF0; }
+  .planet-card.neptune .planet-symbol { color: #7890F0; }
+  .planet-card.pluto .planet-symbol { color: #E040A8; }
+
+  /* Group dividers */
+  .planet-group-label {
+    font-family: system-ui, sans-serif;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: rgba(255, 240, 248, 0.3);
+    margin: 3rem 0 1.25rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid rgba(152, 120, 232, 0.1);
+  }
+
+  .planet-group-label:first-of-type { margin-top: 1rem; }
+
+  @media (max-width: 600px) {
+    .planet-card-header { padding: 1rem 1.1rem; }
+    .planet-card-body { padding: 1.1rem; }
+    .planet-symbol { font-size: 1.5rem; width: 2rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a class="nav-brand" href="../index.html">Limitless Yeehaw</a>
+  <div class="nav-right">
+    <span class="nav-module-label">Module 06 of 07</span>
+    <a class="nav-back" href="../index.html">← Back to course</a>
+  </div>
+</nav>
+
+<!-- ── MODULE HEADER ── -->
+<header class="module-header">
+  <p class="module-eyebrow">Module 06 · The Planets</p>
+  <h1 class="module-title">You've seen them on the chart.<br>Now let's talk about<br>who they actually are.</h1>
+  <div class="module-divider"></div>
+  <p class="module-sub">
+    Ten planets. Ten kinds of energy. Each one asking something different from your year.
+    This is your field guide.
+  </p>
+</header>
+
+<!-- ── AUDIO ── -->
+<div class="audio-block">
+  <div class="audio-inner">
+    <span class="audio-glyph">🎧</span>
+    <div>
+      <p class="audio-label">Listen to this module</p>
+      <p class="audio-title">The Planets</p>
+    </div>
+    <span class="audio-placeholder">audio coming soon</span>
+  </div>
+</div>
+
+<!-- ── CONTENT ── -->
+<main class="module-content">
+
+  <!-- SECTION 1: Why this matters -->
+  <section class="module-section">
+    <h2 class="section-heading">Why you need to know this</h2>
+    <p>
+      You've spent the last several modules reading your chart by placement — your Rising sign,
+      your Sun, your Moon, which houses are activated. But the chart doesn't just tell you
+      <em>where</em> things are landing. It tells you <em>who</em> is landing there.
+    </p>
+    <p>
+      When you see a line connecting two planets in your chart, you need to know what
+      both of those planets want. When a planet is sitting in your 7th house,
+      you need to know what that planet's energy means for your relationships.
+      When you notice that Saturn is sitting right on top of your Sun — conjunct,
+      merged, unavoidable — you need to know what that actually means for your year.
+    </p>
+
+    <div class="pullquote">
+      <p>
+        The planets are the characters. The signs are their costumes.
+        The houses are the rooms they're standing in.
+        You can't read the story without knowing the characters.
+      </p>
+    </div>
+
+    <p>
+      This module is your field guide. We'll go through all ten planets — what each one
+      represents, what it's asking for, and what it means when it shows up prominently
+      in your solar return. By the end, you'll be able to look at any planet on your chart
+      and know exactly what it brings to the year.
+    </p>
+  </section>
+
+  <!-- SECTION 2: The Luminaries -->
+  <section class="module-section">
+    <h2 class="section-heading">The planets, one by one</h2>
+
+    <p class="planet-group-label">The Luminaries — already covered in Module 04</p>
+
+    <div class="planet-grid">
+
+      <!-- SUN -->
+      <div class="planet-card sun">
+        <div class="planet-card-header">
+          <span class="planet-symbol">☉</span>
+          <div class="planet-header-text">
+            <p class="planet-name">The Sun</p>
+            <p class="planet-tagline">Vitality · Identity · Core Focus · Rulership: Leo</p>
+          </div>
+        </div>
+        <div class="planet-card-body">
+          <p>
+            The Sun is where you're most alive. It's your core vitality, your essential self,
+            the part of you that has to express itself or you start to feel hollow.
+            In a natal chart, it's who you are at your center. In a solar return,
+            it's the main event of the year — the house the Sun falls in is where
+            your life force is most concentrated and where the year's central story is being written.
+          </p>
+          <p>
+            The Sun doesn't ask. It needs. Feed it, and the year has a backbone.
+            Ignore it, and even good things can feel strangely flat.
+          </p>
+          <div class="planet-sr-note">
+            <span class="planet-sr-note-label">In your solar return</span>
+            <p>The SR Sun's house is your year's main theme. That area of life is where
+            your focus, energy, and identity are most alive. We covered this in depth in Module 04.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- MOON -->
+      <div class="planet-card moon">
+        <div class="planet-card-header">
+          <span class="planet-symbol">☽</span>
+          <div class="planet-header-text">
+            <p class="planet-name">The Moon</p>
+            <p class="planet-tagline">Emotion · Instinct · Nourishment · Rulership: Cancer</p>
+          </div>
+        </div>
+        <div class="planet-card-body">
+          <p>
+            The Moon is your inner world — your emotional body, your instincts,
+            the parts of yourself that don't think before they feel.
+            It governs what nourishes you, what you need to feel safe,
+            and the rhythms you move through. It's not always rational. It doesn't need to be.
+          </p>
+          <p>
+            In a solar return, the Moon tells you where your emotional growth is happening —
+            which area of life is asking you to feel your way through it rather than think your way through it.
+            The Moon's house is where you're tender this year. Honor it.
+          </p>
+          <div class="planet-sr-note">
+            <span class="planet-sr-note-label">In your solar return</span>
+            <p>The SR Moon's house is where your emotional focus lives this year —
+            where you'll feel things most deeply. We covered this in depth in Module 04.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- PERSONAL PLANETS -->
+    <p class="planet-group-label">The Personal Planets — move quickly, highly individual</p>
+
+    <div class="planet-grid">
+
+      <!-- MERCURY -->
+      <div class="planet-card mercury">
+        <div class="planet-card-header">
+          <span class="planet-symbol">☿</span>
+          <div class="planet-header-text">
+            <p class="planet-name">Mercury</p>
+            <p class="planet-tagline">Mind · Communication · Information · Rulership: Gemini & Virgo</p>
+          </div>
+        </div>
+        <div class="planet-card-body">
+          <p>
+            Mercury is how you think and how you talk. It rules the mind — not the big sweeping
+            philosophical mind of Jupiter, but the quick, practical, everyday mind that processes
+            information, forms words, makes connections, writes the text, reads the room.
+            Mercury is your internal wiring.
+          </p>
+          <p>
+            It also rules everything connected to information and movement: conversations,
+            agreements, short travel, contracts, learning, data. Where Mercury lands is where
+            your mind is most active and where communication becomes most significant.
+          </p>
+          <div class="planet-sr-note">
+            <span class="planet-sr-note-label">In your solar return</span>
+            <p>Mercury's house shows where your mental energy is concentrated this year —
+            where you'll be thinking hardest, learning most, or doing your most significant communicating.
+            If Mercury is conjunct your SR Sun, your mind is deeply fused with your year's central theme.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- VENUS -->
+      <div class="planet-card venus">
+        <div class="planet-card-header">
+          <span class="planet-symbol">♀</span>
+          <div class="planet-header-text">
+            <p class="planet-name">Venus</p>
+            <p class="planet-tagline">Love · Beauty · Pleasure · Values · Rulership: Taurus & Libra</p>
+          </div>
+        </div>
+        <div class="planet-card-body">
+          <p>
+            Venus is what you love and what you're drawn to. It rules attraction — not just romantic
+            attraction, but the magnetic pull toward beauty, pleasure, comfort, and connection.
+            It's also your values: what you consider worth having, worth building, worth keeping.
+          </p>
+          <p>
+            Venus doesn't force or fight. It magnetizes. Where Venus is placed,
+            things tend to soften. Relationships improve. Beauty shows up.
+            There's a quality of ease and grace in that area of life.
+            The shadow: Venus can also indicate where you're avoiding discomfort in favor of keeping things pleasant.
+          </p>
+          <div class="planet-sr-note">
+            <span class="planet-sr-note-label">In your solar return</span>
+            <p>Venus's house is where love, beauty, and pleasure are most alive for you this year.
+            It's often where relationships flourish, where creative work feels most satisfying,
+            or where you're learning what you actually value.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- MARS -->
+      <div class="planet-card mars">
+        <div class="planet-card-header">
+          <span class="planet-symbol">♂</span>
+          <div class="planet-header-text">
+            <p class="planet-name">Mars</p>
+            <p class="planet-tagline">Drive · Desire · Action · Conflict · Rulership: Aries</p>
+          </div>
+        </div>
+        <div class="planet-card-body">
+          <p>
+            Mars is your engine. It's the part of you that wants, that acts, that goes after things.
+            Raw desire, physical energy, ambition, anger — all Mars. It's not subtle, and it doesn't
+            apologize for existing. When Mars is well-directed, it's how things actually get done.
+            When it's unfocused, it turns into friction, impatience, or conflict looking for a target.
+          </p>
+          <p>
+            Mars isn't a problem to solve. It's a force to work with. The house it occupies
+            in your solar return is where that force is most concentrated — and most in need of a channel.
+          </p>
+          <div class="planet-sr-note">
+            <span class="planet-sr-note-label">In your solar return</span>
+            <p>Mars's house is where you're most driven, most assertive, and potentially most
+            prone to conflict this year. It's also where you have the most energy to actually make
+            things happen. Give it a direction. Undirected Mars doesn't rest — it just finds its own outlet.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- SOCIAL PLANETS -->
+    <p class="planet-group-label">The Social Planets — bridge between the personal and the collective</p>
+
+    <div class="planet-grid">
+
+      <!-- JUPITER -->
+      <div class="planet-card jupiter">
+        <div class="planet-card-header">
+          <span class="planet-symbol">♃</span>
+          <div class="planet-header-text">
+            <p class="planet-name">Jupiter</p>
+            <p class="planet-tagline">Expansion · Abundance · Growth · Luck · Rulership: Sagittarius</p>
+          </div>
+        </div>
+        <div class="planet-card-body">
+          <p>
+            Jupiter is the great expander. Wherever it goes, it makes things bigger —
+            more, larger, abundant. It brings luck in the truest sense: not random fortune,
+            but the kind of open-skies feeling where opportunities multiply and things seem to
+            go your way with less effort than usual. Jupiter is generous. It wants to give.
+          </p>
+          <p>
+            The other side of Jupiter: it also expands what's already there, including what you
+            don't want. Too much of a good thing is still Jupiter. Overconfidence, excess, spreading
+            too thin — these are Jupiter's shadow. The house it occupies is not just a blessing,
+            it's an area of life that's asking you to grow — which means it may also feel like it's asking a lot.
+          </p>
+          <div class="planet-sr-note">
+            <span class="planet-sr-note-label">In your solar return</span>
+            <p>Jupiter's house is one of the most welcome placements in a solar return. That area of
+            life is opening up this year — more opportunity, more abundance, more ease. Lean into it,
+            but stay grounded. Jupiter's gifts are real. They also require you to know when enough is enough.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- SATURN -->
+      <div class="planet-card saturn">
+        <div class="planet-card-header">
+          <span class="planet-symbol">♄</span>
+          <div class="planet-header-text">
+            <p class="planet-name">Saturn</p>
+            <p class="planet-tagline">Discipline · Structure · Mastery · Time · Rulership: Capricorn</p>
+          </div>
+        </div>
+        <div class="planet-card-body">
+          <p>
+            Saturn is the taskmaster of the solar system — and the most misunderstood.
+            It rules discipline, structure, limitation, and the kind of slow-earned mastery
+            that can't be faked or rushed. Saturn doesn't hand things to you. It makes you
+            build them properly, with the right foundation, in the right order.
+            What you build under Saturn's eye actually holds.
+          </p>
+          <p>
+            The house Saturn occupies in your solar return is where the year is asking you to
+            do the real work. It may feel heavier there, slower, more demanding. That's not a sign
+            something is wrong — it's a sign that something is being built to last.
+            Saturn's lessons are the ones you carry for decades.
+          </p>
+          <div class="planet-sr-note">
+            <span class="planet-sr-note-label">In your solar return</span>
+            <p>Where Saturn sits this year is where you're being asked to grow up in some respect —
+            to take something seriously, to be more disciplined, to stop avoiding the structural work.
+            It's not punishment. It's an invitation to build something real.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- OUTER PLANETS -->
+    <p class="planet-group-label">The Outer Planets — generational, slow-moving, transformative</p>
+
+    <div class="planet-grid">
+
+      <div class="aside-note" style="margin-bottom: 1.5rem;">
+        <p>
+          Uranus, Neptune, and Pluto move so slowly through the zodiac that they spend years —
+          sometimes decades — in the same sign. Their sign placement in a solar return
+          is largely generational rather than personal. What matters is their <em>house</em> placement
+          and their <em>aspects</em> to your personal planets. That's where their energy becomes
+          specifically yours for the year.
+        </p>
+      </div>
+
+      <!-- URANUS -->
+      <div class="planet-card uranus">
+        <div class="planet-card-header">
+          <span class="planet-symbol">♅</span>
+          <div class="planet-header-text">
+            <p class="planet-name">Uranus</p>
+            <p class="planet-tagline">Disruption · Liberation · Innovation · Awakening · Rulership: Aquarius</p>
+          </div>
+        </div>
+        <div class="planet-card-body">
+          <p>
+            Uranus is the planet of sudden change. It disrupts, breaks down, and breaks open —
+            often in ways you didn't see coming and wouldn't have chosen. But Uranus doesn't
+            break things randomly. It breaks what was keeping you small. It breaks what had become
+            a cage you'd gotten comfortable in. Uranus is the great liberator, even when it
+            doesn't feel like one in the moment.
+          </p>
+          <p>
+            It rules innovation, rebellion, and anything that departs from the expected path.
+            Where Uranus lands, expect the unexpected. The house it occupies in your solar return
+            is where the rug might get pulled — and where, if you're paying attention,
+            something more alive is underneath.
+          </p>
+          <div class="planet-sr-note">
+            <span class="planet-sr-note-label">In your solar return</span>
+            <p>Uranus's house is where this year brings sudden shifts, surprises, or a strong pull
+            toward something radically different from the status quo. Resist the urge to immediately
+            stabilize everything. Some of what Uranus breaks open is supposed to stay open.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- NEPTUNE -->
+      <div class="planet-card neptune">
+        <div class="planet-card-header">
+          <span class="planet-symbol">♆</span>
+          <div class="planet-header-text">
+            <p class="planet-name">Neptune</p>
+            <p class="planet-tagline">Dreams · Spirituality · Dissolution · Illusion · Rulership: Pisces</p>
+          </div>
+        </div>
+        <div class="planet-card-body">
+          <p>
+            Neptune dissolves. That's its primary function — breaking down the hard edges
+            between things, between people, between you and something larger than yourself.
+            In its highest expression, Neptune is transcendence: spiritual connection,
+            creative inspiration, mystical experience, compassion without boundaries.
+            In its more difficult expression, Neptune is confusion, escapism, and idealization
+            that leads to disappointment.
+          </p>
+          <p>
+            Neptune doesn't lie outright. It blurs. It makes things shimmer and seem more
+            beautiful or more frightening than they are. The house it occupies in your
+            solar return is where clarity may be harder to come by this year —
+            and where something sacred might be asking to be felt rather than figured out.
+          </p>
+          <div class="planet-sr-note">
+            <span class="planet-sr-note-label">In your solar return</span>
+            <p>Neptune's house is where this year is asking for softness, intuition, and a willingness
+            to not have it all pinned down. It's also where you're most susceptible to seeing
+            what you want to see. Dream here — and verify what matters.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- PLUTO -->
+      <div class="planet-card pluto">
+        <div class="planet-card-header">
+          <span class="planet-symbol">♇</span>
+          <div class="planet-header-text">
+            <p class="planet-name">Pluto</p>
+            <p class="planet-tagline">Transformation · Power · Death & Rebirth · Depth · Rulership: Scorpio</p>
+          </div>
+        </div>
+        <div class="planet-card-body">
+          <p>
+            Pluto is the planet of irreversible change. Not the quick disruption of Uranus —
+            Pluto is the deep, slow dismantling and rebuilding of entire structures.
+            It rules power, transformation, the unconscious, and everything that lives
+            in the shadows waiting to be brought into the light. Death and rebirth —
+            literal or metaphorical — are Pluto's domain.
+          </p>
+          <p>
+            Pluto doesn't negotiate. When it activates an area of your life, that area
+            is being fundamentally changed. What can't hold will go. What can hold will be
+            tested until it proves itself. The person you are on the other side of a Pluto
+            transit is not the same person you were going in. That's the point.
+          </p>
+          <div class="planet-sr-note">
+            <span class="planet-sr-note-label">In your solar return</span>
+            <p>Pluto's house is where the deepest transformation of the year is happening.
+            This isn't surface-level change — it's excavation. Something is being fundamentally
+            remade in that area of your life. Trust the process, even when you can't see the shape
+            of what's being built yet.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SECTION 3: How to use this in your chart -->
+  <section class="module-section">
+    <h2 class="section-heading">How to use this in your chart</h2>
+    <p>
+      You don't need to track every planet in your solar return equally. Some will be
+      doing significant work this year — sitting in important houses, forming strong aspects,
+      ruling your SR Ascendant. Others will be quieter. Focus your attention on the planets
+      that are most active.
+    </p>
+
+    <div class="concept-grid">
+      <div class="concept-card">
+        <p class="concept-card-label">Look for</p>
+        <p class="concept-card-title">Prominent placements</p>
+        <p>
+          A planet in your 1st, 4th, 7th, or 10th house (the angular houses) is making
+          its presence felt loudly this year. Planets in the 1st are especially significant —
+          they color the whole year's experience.
+        </p>
+      </div>
+      <div class="concept-card">
+        <p class="concept-card-label">Look for</p>
+        <p class="concept-card-title">Conjunctions with the Sun or Moon</p>
+        <p>
+          When any planet is sitting directly on your SR Sun or SR Moon, their energies
+          are merged for the year. That planet's themes are woven into your core focus
+          and your emotional experience. We go deep on this in the next module.
+        </p>
+      </div>
+      <div class="concept-card">
+        <p class="concept-card-label">Look for</p>
+        <p class="concept-card-title">Your chart ruler</p>
+        <p>
+          The planet that rules your SR Rising sign is the second key to your year.
+          Wherever that planet is sitting — whatever house, whatever aspects — it's
+          co-piloting the year alongside your SR Rising. You already know this from Module 03.
+        </p>
+      </div>
+      <div class="concept-card">
+        <p class="concept-card-label">Look for</p>
+        <p class="concept-card-title">Stelliums</p>
+        <p>
+          Three or more planets in the same house form a stellium — a concentration of
+          energy in one area of life so dense it becomes impossible to ignore. If you have
+          a stellium, that house is the year's center of gravity, full stop.
+        </p>
+      </div>
+    </div>
+
+    <div class="pullquote">
+      <p>
+        The chart is showing you where the energy is. The planets tell you
+        what kind of energy it is. Together, they give you the full picture.
+      </p>
+    </div>
+
+    <p>
+      In the next module, we'll look at aspects — the lines between planets —
+      and you'll see how knowing each planet's energy lets you read those
+      relationships with real depth. A trine between Jupiter and Venus means
+      something very different than a trine between Saturn and Mars.
+      The aspect type tells you the quality. The planets tell you the story.
+    </p>
+  </section>
+
+  <!-- NEXT MODULE -->
+  <div class="module-nav">
+    <a class="next-module-btn" href="07-aspects.html">
+      <span class="next-label">Next up · Module 07</span>
+      <span class="next-title">Aspects: Lines on the Chart →</span>
+    </a>
+  </div>
+
+</main>
+
+</body>
+</html>
