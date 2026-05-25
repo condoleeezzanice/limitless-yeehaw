@@ -468,7 +468,7 @@ function orbXY(signName, risingName, r) {
   const ri = SIGNS.indexOf(risingName);
   const s  = SIGNS.indexOf(signName);
   const steps = (s - ri + 12) % 12;
-  const a = (180 + steps * 30) * Math.PI / 180;
+  const a = (180 - steps * 30) * Math.PI / 180;
   return { x: 115 + r * Math.cos(a), y: 115 + r * Math.sin(a) };
 }
 
@@ -493,7 +493,7 @@ function drawChart(risingSign, sunSign, moonSign) {
 
   // House lines (12 spokes)
   for (let i = 0; i < 12; i++) {
-    const a = (180 + i * 30) * Math.PI / 180;
+    const a = (180 - i * 30) * Math.PI / 180;
     const x1 = cx + Ri * Math.cos(a), y1 = cy + Ri * Math.sin(a);
     const x2 = cx + R  * Math.cos(a), y2 = cy + R  * Math.sin(a);
     const line = document.createElementNS(ns, 'line');
@@ -507,7 +507,7 @@ function drawChart(risingSign, sunSign, moonSign) {
   const ri = SIGNS.indexOf(risingSign);
   for (let i = 0; i < 12; i++) {
     const s = (ri + i) % 12;
-    const a = (180 + i * 30 + 15) * Math.PI / 180;
+    const a = (180 - i * 30 - 15) * Math.PI / 180;
     const r = (Ri + R) / 2;
     const x = cx + r * Math.cos(a);
     const y = cy + r * Math.sin(a);
@@ -517,6 +517,22 @@ function drawChart(risingSign, sunSign, moonSign) {
     text.setAttribute('font-size', '11'); text.setAttribute('fill', 'rgba(192,168,248,0.7)');
     text.textContent = SIGN_GLYPHS[s];
     svg.appendChild(text);
+  }
+
+  // House number labels (inside inner circle)
+  for (let i = 0; i < 12; i++) {
+    const houseNum = i + 1;
+    const a = (180 - i * 30 - 15) * Math.PI / 180;
+    const r = Ri * 0.58;
+    const hx = cx + r * Math.cos(a);
+    const hy = cy + r * Math.sin(a);
+    const ht = document.createElementNS(ns, 'text');
+    ht.setAttribute('x', hx); ht.setAttribute('y', hy);
+    ht.setAttribute('text-anchor', 'middle'); ht.setAttribute('dominant-baseline', 'central');
+    ht.setAttribute('font-size', '7.5'); ht.setAttribute('fill', 'rgba(192,168,248,0.35)');
+    ht.setAttribute('font-family', 'system-ui, sans-serif');
+    ht.textContent = houseNum;
+    svg.appendChild(ht);
   }
 
   // ASC axis line
