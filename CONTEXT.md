@@ -56,8 +56,7 @@ limitless-yeehaw/
     ├── 01-primer.html            ← Module 01: The Beginner Primer ✓
     ├── 02-cast-your-chart.html   ← Module 02: Cast Your Chart ✓
     ├── 03-rising-sign.html       ← Module 03: Your Rising Sign & Ruling Planet ✓
-    ← Module 04: Sun & Moon ✓
-    ├── 04-sun-and-moon.html
+    ├── 04-sun-and-moon.html      ← Module 04: Sun & Moon ✓
     ├── 05-houses.html            ← Module 05: Reading the Houses ✓
     ├── 06-aspects.html           ← Module 06: Aspects: Lines on the Chart ✓
     └── scripts/                  ← Audio scripts (Staley records from these)
@@ -78,19 +77,26 @@ Sections: Hero → Free Offerings → Course Waitlist → About → Footer
 
 Free offerings listed:
 1. **Year Ahead Snapshot Tool** → `year-ahead-snapshot.html`
-2. **Notion Template: Birth Chart Tracker** (link TBD — Notion)
-3. **Notion Template: Moon Journal** (link TBD — Notion)
+2. **The Clear Eyes, Full Hearts Ritual** → `https://limitless-yeehaw.notion.site/the-clear-eyes-full-hearts-ritual`
+3. **The Self-Care Priority Map** → `https://limitless-yeehaw.notion.site/self-care-priority-map`
 
-Course section: "Astrology for the Rest of Us" — $27 course, waitlist form (collects email). No payment system yet.
+Course section: "Your Year Ahead" — $27 course, waitlist form via Kit (collects email). No payment system yet.
 
 ### Snapshot Tool (`year-ahead-snapshot.html`)
 Interactive solar return reading tool — also serves as the course capstone.
-- User selects Solar Return Rising, Sun, Moon signs (dropdowns)
-- Generates: animated rainbow aura orb (HTML5 Canvas), SVG chart wheel, three personalized text readings
-- Print/Save as PDF button
-- All 12 signs × 3 placements = 36 copy entries baked into JS
-- Canvas aura: full rainbow hue cycle in 8.3s, `requestAnimationFrame` loop
-- Chart wheel: rising at 9 o'clock, signs flow counter-clockwise, `orbXY()` function handles placement
+- User selects SR Rising, Sun, Moon signs (3 dropdowns — no house input needed)
+- **House calculation**: whole sign system, derived automatically (`(SIGNS.indexOf(planet) - SIGNS.indexOf(rising) + 12) % 12 + 1`)
+- **Generates**:
+  - Theme word for the year (by rising sign)
+  - Animated rainbow aura orb (HTML5 Canvas, 8.3s hue cycle)
+  - SVG chart wheel: rising at 9 o'clock, signs flow clockwise on clock face (counter-clockwise zodiacally), house number labels in inner ring
+  - Three reading blocks: Rising (sign + copy), Sun (sign + house number + short house description + sign flavor copy), Moon (sign + house number + short house description + sign flavor copy)
+  - Ruling planet section: planet name + actionable "find it on your chart" note per rising sign
+  - Herbal allies block: rising sign herbs (personalized) + Sun planet herbs + Moon planet herbs
+  - Three dynamic journal prompts: Sun-house prompt, Moon-house prompt, interplay prompt (detects same-house / opposite-house / other)
+- Print/Save as PDF button (full print styles for all sections)
+- Moon label reads "emotional focus" — NOT "emotional needs" (Staley's preference)
+- All copy lives in JS data objects: `risingCopy`, `sunCopy`, `moonCopy`, `sunHouseShort`, `moonHouseShort`, `rulingPlanet`, `themeWord`, `signHerbs`, `sunJournalPrompts`, `moonJournalPrompts`, `getInterplayPrompt()`
 
 ### Course — All Six Modules Complete
 The full "Your Year Ahead" course is built and in the repo. All modules link to each other sequentially. The capstone (`year-ahead-snapshot.html`) is already live. See COURSE-KNOWLEDGE.md for full course details.
@@ -102,12 +108,17 @@ The full "Your Year Ahead" course is built and in the repo. All modules link to 
 1. **Payment integration** — Stripe or Gumroad for the $27 course when ready to launch
 2. **Audio recording** — Staley records from scripts in `course/scripts/` and embeds in each module (audio blocks are already stubbed as "audio coming soon")
 3. **Wire up landing page course section** — update the "Coming Soon" eyebrow on `index.html` and point the CTA to `course/index.html` once payment is live
+4. **Snapshot: Sun/Moon interplay note** — deferred from 2026-05 session; would be a dynamic paragraph describing how the Sun house and Moon house are talking to each other. Discussed 144-combo approach vs. dynamic templating from house keywords. The `getInterplayPrompt()` function already handles same-house, opposite-house, and other — an upgrade would make the "other" case richer.
+5. **Copy nitpicking across course modules** — Staley noted wanting to review and edit copy; no specific modules flagged yet.
 
 ## Completed
 
 - ✓ **Course index page** — `course/index.html` — built 2026-05; sales/intro page linking into Module 01
 - ✓ **Notion template links** — both live in `index.html`: Self-Care Priority Map + Clear Eyes, Full Hearts Ritual
 - ✓ **HTTPS enforcement** — enabled in GitHub Pages settings
+- ✓ **Module 02 edit** — added whole sign house system explanation (aside-note style, after the three landmarks section)
+- ✓ **Module 04 edit** — added Sun herb reminder callout between the Sun and Moon halves, so each planet section has its own herb moment
+- ✓ **Snapshot major rebuild** — theme word, house calculation, house descriptions, ruling planet, herbal allies, journal prompts, chart wheel direction fix, house number labels
 
 ## Context Files — Feed These at the Start of Every Session
 

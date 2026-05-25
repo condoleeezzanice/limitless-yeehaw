@@ -32,6 +32,8 @@
 
 > **Rulership system**: This course uses **modern rulerships** — Pluto for Scorpio, Uranus for Aquarius, Neptune for Pisces. Traditional rulerships are not mentioned. When referencing rulerships in course content, always note explicitly that modern assignments are being used.
 
+> **House system**: This course uses **whole sign houses**. This is now explicitly stated in Module 02 (aside-note after the three landmarks section). In whole sign houses, the rising sign = the entire 1st house, the next sign = the entire 2nd house, etc. The natural zodiac order follows house order: Aries→1st, Taurus→2nd, Gemini→3rd, Cancer→4th, Leo→5th, Virgo→6th, Libra→7th, Scorpio→8th, Sagittarius→9th, Capricorn→10th, Aquarius→11th, Pisces→12th. Astro.com defaults to Placidus — Module 02 notes that students can switch to whole signs in Extended Chart Selection settings.
+
 ### What Is a Solar Return Chart?
 *(Staley's words — use this language in the course)*
 
@@ -180,3 +182,7 @@
 | 2026-05 | Module 04 complete (course/04-sun-and-moon.html + script) |
 | 2026-05 | Module 05 complete (course/05-houses.html + script) |
 | 2026-05 | Module 06 complete (course/06-aspects.html + script) — all six modules done |
+| 2026-05 | course/index.html built — sales/intro page for the course, links into Module 01 |
+| 2026-05 | Module 02 edited — added whole sign house system callout (aside-note after three landmarks section) |
+| 2026-05 | Module 04 edited — added Sun herb reminder callout between the Sun and Moon halves |
+| 2026-05 | Snapshot tool major rebuild — house calculation (whole sign, auto-derived), theme word, house descriptions in Sun/Moon blocks, ruling planet section, herbal allies block, 3 dynamic journal prompts, chart wheel direction corrected, house number labels added |
