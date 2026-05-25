@@ -310,10 +310,13 @@ body {
 }
 .snap-theme-word {
   font-family: 'Palatino Linotype', Palatino, 'Book Antiqua', Georgia, serif;
-  font-size: clamp(26px, 4vw, 36px);
+  font-size: clamp(17px, 2.4vw, 22px);
   color: #F880C0;
-  letter-spacing: 0.06em;
   font-weight: 700;
+  font-style: italic;
+  line-height: 1.45;
+  max-width: 560px;
+  margin: 0 auto;
 }
 
 /* ── HOUSE TEXT in reading blocks ── */
@@ -455,7 +458,7 @@ body {
   .aura-label, .chart-label { color: #7A5EC8 !important; }
   #auraCanvas { border-radius: 50%; }
   .snap-theme-label { color: #888 !important; }
-  .snap-theme-word { color: #B01870 !important; }
+  .snap-theme-word { color: #B01870 !important; font-style: italic; }
   .snap-section-label { color: #7A5EC8 !important; }
   .ruler-planet { color: #B01870 !important; }
   .ruler-note { color: #222 !important; }

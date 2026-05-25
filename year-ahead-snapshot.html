@@ -67,7 +67,7 @@
 
     <!-- Theme word -->
     <div class="snap-theme-wrap">
-      <p class="snap-theme-label">Your word for this year</p>
+      <p class="snap-theme-label">Your mantra for this year</p>
       <p class="snap-theme-word" id="snapTheme"></p>
     </div>
 
@@ -276,14 +276,39 @@ const rulingPlanet = {
 };
 
 // ═══════════════════════════════════════════════════════
-// THEME WORD (by rising sign)
+// MANTRA — built from Sun house + Moon house interplay
 // ═══════════════════════════════════════════════════════
 
-const themeWord = {
-  Aries: "Initiative", Taurus: "Cultivation", Gemini: "Discovery",
-  Cancer: "Belonging", Leo: "Radiance", Virgo: "Refinement",
-  Libra: "Harmony", Scorpio: "Transformation", Sagittarius: "Expansion",
-  Capricorn: "Foundation", Aquarius: "Revolution", Pisces: "Surrender"
+// First half: what the Sun house is calling you toward (the doing)
+const sunHouseMantra = {
+  1:  "I show up for myself",
+  2:  "I build what I'm worth",
+  3:  "I speak what I know",
+  4:  "I tend to what holds me",
+  5:  "I create what brings me alive",
+  6:  "I make the daily into something that matters",
+  7:  "I meet the people who matter",
+  8:  "I go where it gets real",
+  9:  "I follow the thread wherever it leads",
+  10: "I do the work I want to be known for",
+  11: "I find my people and build something with them",
+  12: "I trust what's growing in the dark"
+};
+
+// Second half: what the Moon house is asking of you emotionally (the becoming)
+const moonHouseMantra = {
+  1:  "and let my becoming be visible",
+  2:  "and learn what I truly believe I deserve",
+  3:  "and speak from feeling, not around it",
+  4:  "and heal what lives at the root",
+  5:  "and let my heart stay open",
+  6:  "and listen to what my body is telling me",
+  7:  "and let relationship teach me",
+  8:  "and bring what's buried into the light",
+  9:  "and release what I've outgrown believing",
+  10: "and make peace with how I feel about my work",
+  11: "and let belonging be real",
+  12: "and trust the quiet to do its work"
 };
 
 // ═══════════════════════════════════════════════════════
@@ -590,7 +615,8 @@ function generate() {
 
   // Header
   document.getElementById('snapName').textContent = rising + ' Rising · ' + sun + ' Sun · ' + moon + ' Moon';
-  document.getElementById('snapTheme').textContent = themeWord[rising];
+  const mantra = sunHouseMantra[sunHouse] + ' ' + moonHouseMantra[moonHouse] + '.';
+  document.getElementById('snapTheme').textContent = mantra;
 
   // Rising
   document.getElementById('risingSign').textContent = rising + ' Rising';
