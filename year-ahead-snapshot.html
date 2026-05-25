@@ -153,7 +153,24 @@
       </div>
     </div>
 
-    <p class="snap-footer">limitlessyeehaw.com · your year ahead</p>
+    <!-- 7th & 12th House Context -->
+    <div class="snap-section">
+      <p class="snap-section-label">The Wider Picture</p>
+      <div class="house-pair-grid">
+        <div class="house-pair-item">
+          <p class="house-pair-label">7th House · Relationship Theme</p>
+          <p class="house-pair-sign" id="house7Sign"></p>
+          <p class="house-pair-text" id="house7Text"></p>
+        </div>
+        <div class="house-pair-item">
+          <p class="house-pair-label">12th House · In the Background</p>
+          <p class="house-pair-sign" id="house12Sign"></p>
+          <p class="house-pair-text" id="house12Text"></p>
+        </div>
+      </div>
+    </div>
+
+    <p class="snap-footer" id="snapFooter">limitlessyeehaw.com · your year ahead</p>
   </div>
 
   <button class="print-btn" id="printBtn" style="display:none" onclick="window.print()">Print / Save as PDF</button>
@@ -309,6 +326,44 @@ const moonHouseMantra = {
   10: "and make peace with how I feel about my work",
   11: "and let belonging be real",
   12: "and trust the quiet to do its work"
+};
+
+// ═══════════════════════════════════════════════════════
+// 7TH HOUSE — relationship theme (sign opposite rising, auto-computed)
+// ═══════════════════════════════════════════════════════
+
+const house7Copy = {
+  Aries:       "Relationships this year have urgency and spark. The people you partner with bring drive and directness. The invitation is to lead alongside someone rather than in front of them — and to let the energy of close relationship move you into action.",
+  Taurus:      "Partnerships this year are slow-building and grounding. The people who matter are the ones who show up steadily, not dramatically. This is a year for deepening what's already real and trusting that reliability is its own kind of romance.",
+  Gemini:      "Relationships are lively, communicative, and mentally alive this year. Conversations are the connective tissue. You're drawn to people who make you think — and the best partnerships are ones where both people are always learning something from the other.",
+  Cancer:      "Partnerships carry emotional depth and a nurturing quality this year. The relationships that matter most are the ones that feel like home. Vulnerability is the key that unlocks the best of what's available — and what's available is real tenderness.",
+  Leo:         "Relationships have warmth, creativity, and magnetism this year. You're drawn to people who are fully themselves — and who see you clearly. Romance or creative collaboration carries extra charge, and being witnessed in your partnerships matters more than usual.",
+  Virgo:       "Partnerships this year are grounded in care, detail, and genuine devotion. The people you work closest with are discerning and quietly dedicated. Service is a love language this year — both the giving and the graceful receiving of it.",
+  Libra:       "Relationships carry beauty and a seeking-of-balance this year. The people who matter are attuned, fair-minded, and relational. The ongoing work is staying connected to your own wants inside the pull toward harmony — peace that includes you.",
+  Scorpio:     "Partnerships this year have depth, intensity, and real transformative potential. The key relationships aren't casual — they go somewhere. Trust is the whole point, built slowly and protected carefully, and what's built through it can change you.",
+  Sagittarius: "Relationships this year are expansive and oriented toward growth. The people in your life push you to think bigger and go further. A spirit of shared adventure and mutual freedom defines the best of what's available — find people who make the world feel larger.",
+  Capricorn:   "Partnerships are built on reliability and shared purpose this year. The relationships that hold are ones where both people are invested in building something together. Commitment is a form of care, and longevity is its own kind of intimacy.",
+  Aquarius:    "Relationships have an unconventional, independent quality this year. The people you're drawn to are ahead of the curve, idealistic, and deeply themselves. The best partnerships give each other real room to be different — and celebrate it.",
+  Pisces:      "Relationships carry a soft, intuitive, and deeply feeling quality this year. The connections that matter are ones where the unsaid is understood. Compassion and imagination are the foundation — and the invitation is to let yourself be truly known."
+};
+
+// ═══════════════════════════════════════════════════════
+// 12TH HOUSE — what's in the background (sign before rising, auto-computed)
+// ═══════════════════════════════════════════════════════
+
+const house12Copy = {
+  Aries:       "In the background, something is urgent and initiating — but it's not quite time yet. There's an impulse toward beginning that hasn't fully formed. Let it simmer. What's being released this year is the rush — the habit of moving before you're ready.",
+  Taurus:      "Something is slowly and quietly rooting in the background this year. You may not see the growth yet, but it's happening at the foundation. What's releasing is the need to have something to show for it immediately. The tending is enough.",
+  Gemini:      "Thoughts and ideas are circulating beneath the surface that haven't found their voice yet. Let them percolate — the clarity is coming. What's releasing is the chatter, the noise that's been running in the background. Stillness is doing something useful.",
+  Cancer:      "Something tender and protected lives in the background this year — a feeling, a longing, something that hasn't been examined directly. It doesn't need to be solved. What's releasing is the armor around it, slowly and on its own terms.",
+  Leo:         "In the background, a creative self is preparing — rehearsing for a kind of visibility that's coming. It's not ready to be seen yet, and that's right. What's releasing is the fear of being too much. The stage will be there when you're ready for it.",
+  Virgo:       "A quiet discernment is operating beneath the surface, sorting through what's working and what isn't. You may not be able to articulate it yet. What's releasing is the pressure to have it all figured out — the understanding will arrive on its own schedule.",
+  Libra:       "In the background, there's a longing for beauty, ease, and genuine harmony that hasn't been given enough space. Something in you is seeking balance it hasn't quite found. What's releasing is the conflict you've been carrying alone — it doesn't all belong to you.",
+  Scorpio:     "Deep transformative energy is operating quietly in the background — subterranean and real. Something is being excavated that you may not fully see yet. What's releasing is whatever you've been holding below the surface for too long. The surfacing is the medicine.",
+  Sagittarius: "In the background, there's a seeking quality — a question about meaning and what's actually true for you. You may not be ready to follow it publicly yet. What's releasing is the version of your belief system that no longer fits. Something truer is forming.",
+  Capricorn:   "Something is being built in the background, slowly and without fanfare — an ambition, a structure, a long-term investment not yet ready to show. What's releasing is the urgency to arrive somewhere before you've built the foundation. The work is real.",
+  Aquarius:    "An unconventional vision lives in the background this year, not yet ready for the world. Let it stay in the dark for now — it's not hiding, it's incubating. What's releasing is the need to be understood by everyone. Some things are for you first.",
+  Pisces:      "In the background, something is gently dissolving — old dreams, old ways of being, something that served you and is now releasing its grip. This is purposeful. What's being cleared is making room for what's next, and the clearing itself is the work."
 };
 
 // ═══════════════════════════════════════════════════════
@@ -645,6 +700,18 @@ function generate() {
   document.getElementById('prompt1').textContent = sunJournalPrompts[sunHouse];
   document.getElementById('prompt2').textContent = moonJournalPrompts[moonHouse];
   document.getElementById('prompt3').textContent = getInterplayPrompt(sunHouse, moonHouse);
+
+  // 7th house (opposite rising) and 12th house (sign before rising)
+  const house7Sign  = SIGNS[(SIGNS.indexOf(rising) + 6)  % 12];
+  const house12Sign = SIGNS[(SIGNS.indexOf(rising) + 11) % 12];
+  document.getElementById('house7Sign').textContent  = house7Sign  + ' · 7th House';
+  document.getElementById('house7Text').textContent  = house7Copy[house7Sign];
+  document.getElementById('house12Sign').textContent = house12Sign + ' · 12th House';
+  document.getElementById('house12Text').textContent = house12Copy[house12Sign];
+
+  // Footer year label
+  const srYear = new Date().getFullYear();
+  document.getElementById('snapFooter').textContent = 'limitlessyeehaw.com · solar return ' + srYear;
 
   // Aura timestamp
   const now = new Date();

@@ -425,6 +425,44 @@ body {
   color: #9878E8;
 }
 
+/* ── HOUSE PAIR GRID (7th / 12th house) ── */
+.house-pair-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.4rem;
+}
+
+@media (max-width: 640px) { .house-pair-grid { grid-template-columns: 1fr; } }
+
+.house-pair-item {
+  background: rgba(14,5,48,0.5);
+  border: 1px solid rgba(152,120,232,0.15);
+  border-radius: 3px;
+  padding: 1.2rem 1.3rem;
+}
+
+.house-pair-label {
+  font-size: 9px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #9878E8;
+  margin-bottom: 0.4rem;
+}
+
+.house-pair-sign {
+  font-family: 'Palatino Linotype', Palatino, 'Book Antiqua', Georgia, serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: #F880C0;
+  margin-bottom: 0.5rem;
+}
+
+.house-pair-text {
+  font-size: 13px;
+  line-height: 1.75;
+  color: rgba(248,216,240,0.8);
+}
+
 /* ── PRINT BTN ── */
 .print-btn {
   display: block;
@@ -470,4 +508,8 @@ body {
   .r-house-text { color: #444 !important; }
   .snap-section { border-top-color: #ddd !important; }
   .snap-theme-wrap { border-bottom-color: #ddd !important; }
+  .house-pair-item { border-color: #ddd !important; background: #f9f7ff !important; }
+  .house-pair-label { color: #7A5EC8 !important; }
+  .house-pair-sign { color: #B01870 !important; }
+  .house-pair-text { color: #333 !important; }
 }
