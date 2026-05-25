@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your Year Ahead — A Course by Limitless Yeehaw</title>
+<link rel="stylesheet" href="../css/course.css">
+<style>
+
+/* ══════════════════════════════
+   COURSE INDEX — page-specific styles
+   ══════════════════════════════ */
+
+/* ── NAV overrides for index ── */
+.nav-cta {
+  font-size: 0.82rem;
+  color: var(--magenta);
+  text-decoration: none;
+  letter-spacing: 0.05em;
+  transition: opacity 0.2s;
+}
+.nav-cta:hover { opacity: 0.75; }
+
+/* ── HERO ── */
+.course-hero {
+  max-width: 760px;
+  margin: 5rem auto 4rem;
+  padding: 0 2rem;
+  text-align: center;
+}
+.course-hero-eyebrow {
+  font-size: 0.75rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--violet);
+  margin-bottom: 1.25rem;
+}
+.course-hero-title {
+  font-family: var(--serif);
+  font-size: clamp(2.4rem, 6vw, 3.8rem);
+  font-weight: normal;
+  line-height: 1.15;
+  color: var(--blush);
+  margin-bottom: 1.5rem;
+}
+.course-hero-divider {
+  width: 56px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--violet), var(--magenta));
+  border-radius: 2px;
+  margin: 0 auto 1.5rem;
+}
+.course-hero-sub {
+  font-size: 1.1rem;
+  color: rgba(255,240,248,0.75);
+  line-height: 1.75;
+  max-width: 580px;
+  margin: 0 auto 2.25rem;
+}
+.course-hero-cta {
+  display: inline-block;
+  background: linear-gradient(135deg, var(--violet), var(--magenta));
+  color: var(--blush);
+  text-decoration: none;
+  font-size: 1rem;
+  letter-spacing: 0.04em;
+  padding: 0.9rem 2.25rem;
+  border-radius: 8px;
+  transition: opacity 0.2s, transform 0.2s;
+}
+.course-hero-cta:hover { opacity: 0.88; transform: translateY(-1px); }
+.course-hero-micro {
+  margin-top: 0.85rem;
+  font-size: 0.8rem;
+  color: rgba(255,240,248,0.35);
+  letter-spacing: 0.05em;
+}
+
+/* ── INTRO SECTION ── */
+.course-intro {
+  max-width: 660px;
+  margin: 0 auto 5rem;
+  padding: 0 2rem;
+}
+.course-intro p {
+  font-size: 1.05rem;
+  color: rgba(255,240,248,0.82);
+  line-height: 1.8;
+  margin-bottom: 1.25rem;
+}
+.course-intro p:last-child { margin-bottom: 0; }
+.course-intro em { color: var(--pink); font-style: italic; }
+.course-intro .pullquote {
+  border-left: 3px solid var(--violet);
+  margin: 2rem 0;
+  padding: 0.75rem 1.5rem;
+  background: rgba(152,120,232,0.08);
+  border-radius: 0 8px 8px 0;
+}
+.course-intro .pullquote p {
+  font-family: var(--serif);
+  font-size: 1.2rem;
+  line-height: 1.55;
+  color: var(--blush) !important;
+  margin: 0 !important;
+}
+
+/* ── WHAT'S INSIDE ── */
+.inside-section {
+  max-width: 720px;
+  margin: 0 auto 5rem;
+  padding: 0 2rem;
+}
+.inside-eyebrow {
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--violet);
+  margin-bottom: 1rem;
+}
+.inside-heading {
+  font-family: var(--serif);
+  font-size: clamp(1.6rem, 4vw, 2.25rem);
+  font-weight: normal;
+  color: var(--blush);
+  margin-bottom: 0.75rem;
+}
+.inside-sub {
+  font-size: 0.95rem;
+  color: rgba(255,240,248,0.6);
+  line-height: 1.7;
+  margin-bottom: 2.5rem;
+  max-width: 520px;
+}
+
+.module-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border: 1px solid rgba(152,120,232,0.2);
+  border-radius: 12px;
+  overflow: hidden;
+}
+.module-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.25rem;
+  padding: 1.5rem;
+  border-bottom: 1px solid rgba(255,240,248,0.07);
+  transition: background 0.15s;
+}
+.module-item:last-child { border-bottom: none; }
+.module-item:hover { background: rgba(152,120,232,0.06); }
+.module-item.capstone-item {
+  background: rgba(224,64,168,0.06);
+  border-top: 1px solid rgba(224,64,168,0.2);
+}
+.module-item.capstone-item:hover { background: rgba(224,64,168,0.1); }
+
+.module-item-num {
+  font-family: var(--serif);
+  font-size: 1.1rem;
+  color: var(--violet);
+  min-width: 2rem;
+  text-align: center;
+  padding-top: 0.1rem;
+  flex-shrink: 0;
+}
+.capstone-item .module-item-num { color: var(--magenta); font-size: 1.2rem; }
+
+.module-item-body { flex: 1; }
+.module-item-title {
+  font-family: var(--serif);
+  font-size: 1.1rem;
+  color: var(--blush);
+  margin-bottom: 0.35rem;
+}
+.module-item-desc {
+  font-size: 0.88rem;
+  color: rgba(255,240,248,0.6);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ── WHAT YOU GET ── */
+.gets-section {
+  max-width: 720px;
+  margin: 0 auto 5rem;
+  padding: 0 2rem;
+}
+.gets-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+@media (max-width: 640px) { .gets-grid { grid-template-columns: 1fr; } }
+.get-card {
+  background: var(--mid);
+  border: 1px solid rgba(152,120,232,0.2);
+  border-radius: 10px;
+  padding: 1.5rem;
+  text-align: center;
+}
+.get-value {
+  font-family: var(--serif);
+  font-size: 1.5rem;
+  color: var(--blush);
+  margin-bottom: 0.35rem;
+}
+.get-label {
+  font-size: 0.8rem;
+  color: rgba(255,240,248,0.5);
+  letter-spacing: 0.06em;
+  line-height: 1.5;
+}
+
+/* ── PRICE + CTA BLOCK ── */
+.price-block {
+  max-width: 560px;
+  margin: 0 auto 5rem;
+  padding: 0 2rem;
+  text-align: center;
+}
+.price-card {
+  background: var(--mid);
+  border: 1px solid rgba(152,120,232,0.3);
+  border-radius: 14px;
+  padding: 2.5rem 2rem;
+}
+.price-eyebrow {
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--violet);
+  margin-bottom: 1rem;
+}
+.price-amount {
+  font-family: var(--serif);
+  font-size: 3.5rem;
+  color: var(--blush);
+  line-height: 1;
+  margin-bottom: 0.35rem;
+}
+.price-qualifier {
+  font-size: 0.82rem;
+  color: rgba(255,240,248,0.4);
+  letter-spacing: 0.06em;
+  margin-bottom: 1.75rem;
+}
+.price-features {
+  list-style: none;
+  margin: 0 0 2rem;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+.price-features li {
+  font-size: 0.9rem;
+  color: rgba(255,240,248,0.75);
+  padding-left: 1.5rem;
+  position: relative;
+  line-height: 1.5;
+}
+.price-features li::before {
+  content: '✦';
+  position: absolute;
+  left: 0;
+  color: var(--violet);
+  font-size: 0.65rem;
+  top: 0.35rem;
+}
+.price-cta {
+  display: block;
+  background: linear-gradient(135deg, var(--violet), var(--magenta));
+  color: var(--blush);
+  text-decoration: none;
+  font-size: 1rem;
+  letter-spacing: 0.04em;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  transition: opacity 0.2s, transform 0.2s;
+  text-align: center;
+}
+.price-cta:hover { opacity: 0.88; transform: translateY(-1px); }
+.price-note {
+  margin-top: 1rem;
+  font-size: 0.78rem;
+  color: rgba(255,240,248,0.3);
+  font-style: italic;
+}
+
+/* ── ABOUT ── */
+.about-strip {
+  max-width: 660px;
+  margin: 0 auto 5rem;
+  padding: 2rem;
+  border-top: 1px solid rgba(255,240,248,0.08);
+  border-bottom: 1px solid rgba(255,240,248,0.08);
+  text-align: center;
+}
+.about-strip-eyebrow {
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--violet);
+  margin-bottom: 1rem;
+}
+.about-strip p {
+  font-size: 0.95rem;
+  color: rgba(255,240,248,0.72);
+  line-height: 1.8;
+  margin-bottom: 0.75rem;
+}
+.about-strip p:last-child { margin-bottom: 0; }
+.about-strip em { color: var(--pink); font-style: italic; }
+
+/* ── FOOTER ── */
+.course-footer {
+  text-align: center;
+  padding: 2.5rem 2rem 3.5rem;
+  border-top: 1px solid rgba(255,240,248,0.08);
+}
+.course-footer-brand {
+  font-family: var(--serif);
+  font-size: 1rem;
+  color: rgba(255,240,248,0.5);
+  text-decoration: none;
+  letter-spacing: 0.04em;
+  display: block;
+  margin-bottom: 0.5rem;
+  transition: color 0.2s;
+}
+.course-footer-brand:hover { color: var(--blush); }
+.course-footer-copy {
+  font-size: 0.75rem;
+  color: rgba(255,240,248,0.25);
+  letter-spacing: 0.05em;
+}
+
+</style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav class="nav">
+  <a class="nav-brand" href="../index.html">Limitless Yeehaw</a>
+  <div class="nav-right">
+    <a class="nav-cta" href="01-primer.html">Begin the course →</a>
+  </div>
+</nav>
+
+<!-- ── HERO ── -->
+<div class="course-hero">
+  <p class="course-hero-eyebrow">Your Year Ahead &nbsp;·&nbsp; A Self-Paced Course</p>
+  <h1 class="course-hero-title">Your birthday gives you<br>a new map every year.<br>Learn to read it.</h1>
+  <div class="course-hero-divider"></div>
+  <p class="course-hero-sub">
+    A solar return chart resets on your birthday — a snapshot of the sky that maps
+    the year ahead. This course teaches you to cast it yourself, read the three
+    placements that matter most, and walk away with a real picture of what's coming.
+    No astrologer required.
+  </p>
+  <a class="course-hero-cta" href="01-primer.html">Start Module 01 →</a>
+  <p class="course-hero-micro">Self-paced · Written & audio · Return every birthday</p>
+</div>
+
+<!-- ── INTRO ── -->
+<div class="course-intro">
+  <p>
+    You've probably had your chart read by someone else — or Googled a placement and gotten
+    a paragraph that felt close but not quite right. That's because no one knows your life
+    like you do.
+  </p>
+
+  <div class="pullquote">
+    <p>This course is going to show you the ingredients you have.
+    You're the one who makes the potion.</p>
+  </div>
+
+  <p>
+    The solar return chart isn't a prediction. It's a map of available energy —
+    which areas of your life are lit up, where the ease is, where the friction is,
+    what themes are likely to shape the year. <em>What you do with that is yours.</em>
+  </p>
+  <p>
+    This course gives you the framework to read that map for yourself, every year,
+    for the rest of your life.
+  </p>
+</div>
+
+<!-- ── WHAT'S INSIDE ── -->
+<div class="inside-section">
+  <p class="inside-eyebrow">What's inside</p>
+  <h2 class="inside-heading">Six modules + a capstone tool.</h2>
+  <p class="inside-sub">Written lessons and companion audio. Work through them in order —
+  each one builds on the last.</p>
+
+  <div class="module-list">
+    <div class="module-item">
+      <span class="module-item-num">01</span>
+      <div class="module-item-body">
+        <p class="module-item-title">The Beginner Primer</p>
+        <p class="module-item-desc">Signs, planets, houses, aspects — the four pieces of the chart. Plain-language foundation, no prior astrology knowledge assumed.</p>
+      </div>
+    </div>
+    <div class="module-item">
+      <span class="module-item-num">02</span>
+      <div class="module-item-body">
+        <p class="module-item-title">Cast Your Chart</p>
+        <p class="module-item-desc">Step-by-step walkthrough on astro.com. No math, no guesswork — just your birth data, your birthday location, and fifteen minutes.</p>
+      </div>
+    </div>
+    <div class="module-item">
+      <span class="module-item-num">03</span>
+      <div class="module-item-body">
+        <p class="module-item-title">Your Rising Sign & Ruling Planet</p>
+        <p class="module-item-desc">The solar return rising sets the tone for the entire year. Find yours, find its ruling planet, understand what they're saying together.</p>
+      </div>
+    </div>
+    <div class="module-item">
+      <span class="module-item-num">04</span>
+      <div class="module-item-body">
+        <p class="module-item-title">Sun & Moon</p>
+        <p class="module-item-desc">Where your energy wants to go and where your emotional world will live this year. Two placements that tell you how the year will feel from the inside.</p>
+      </div>
+    </div>
+    <div class="module-item">
+      <span class="module-item-num">05</span>
+      <div class="module-item-body">
+        <p class="module-item-title">Reading the Houses</p>
+        <p class="module-item-desc">Which areas of life are activated — and which are asking for rest. Crowded houses and empty ones both mean something. We cover both.</p>
+      </div>
+    </div>
+    <div class="module-item">
+      <span class="module-item-num">06</span>
+      <div class="module-item-body">
+        <p class="module-item-title">Aspects: Lines on the Chart</p>
+        <p class="module-item-desc">Blue lines are ease. Red lines are friction. Neither is bad — both are useful. This module shows you how to read what's happening between the planets.</p>
+      </div>
+    </div>
+    <div class="module-item capstone-item">
+      <span class="module-item-num">✦</span>
+      <div class="module-item-body">
+        <p class="module-item-title">Your Year Ahead Snapshot</p>
+        <p class="module-item-desc">The capstone. An interactive tool that generates a personalized reading from your three key placements. Print it, save it, return to it all year long. You've got your map — now use it.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── WHAT YOU GET ── -->
+<div class="gets-section">
+  <div class="gets-grid">
+    <div class="get-card">
+      <p class="get-value">$27</p>
+      <p class="get-label">One-time · yours forever</p>
+    </div>
+    <div class="get-card">
+      <p class="get-value">Self-paced</p>
+      <p class="get-label">Written lessons + audio</p>
+    </div>
+    <div class="get-card">
+      <p class="get-value">Every year</p>
+      <p class="get-label">Return on your birthday</p>
+    </div>
+  </div>
+</div>
+
+<!-- ── PRICE + CTA ── -->
+<div class="price-block">
+  <div class="price-card">
+    <p class="price-eyebrow">Your Year Ahead · Full Course</p>
+    <p class="price-amount">$27</p>
+    <p class="price-qualifier">one-time · yours forever</p>
+    <ul class="price-features">
+      <li>Six written modules with companion audio</li>
+      <li>A framework you can use every year, starting now</li>
+      <li>Herbal correspondences woven into each lesson</li>
+      <li>The Year Ahead Snapshot interactive capstone tool</li>
+      <li>No astrologer, no subscription, no ongoing cost</li>
+    </ul>
+    <a class="price-cta" href="01-primer.html">Begin the Course →</a>
+    <p class="price-note">Start with Module 01 — no purchase required to preview.</p>
+  </div>
+</div>
+
+<!-- ── ABOUT ── -->
+<div class="about-strip">
+  <p class="about-strip-eyebrow">About Staley</p>
+  <p>
+    Thirteen years of astrology. Some psychic adventures.
+    Several very illuminating conversations with animals.
+  </p>
+  <p>
+    I create intuitive systems for people who want to understand themselves better —
+    with curiosity, amusement, and the deep belief that knowledge is the least scary
+    thing in the world. My goal is to give you tools that take the mystical and make it
+    <em>usable in the mundane.</em>
+  </p>
+  <p>I'm glad you're here. ♡</p>
+</div>
+
+<!-- ── FOOTER ── -->
+<footer class="course-footer">
+  <a class="course-footer-brand" href="../index.html">Limitless Yeehaw</a>
+  <p class="course-footer-copy">© 2026 Limitless Yeehaw · All rights reserved</p>
+</footer>
+
+</body>
+</html>

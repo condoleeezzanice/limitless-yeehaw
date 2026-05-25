@@ -52,6 +52,7 @@ limitless-yeehaw/
 │   ├── snapshot.css              ← Snapshot tool styles
 │   └── course.css                ← All course module styles (shared)
 └── course/
+    ├── index.html                ← Course sales/intro page ✓
     ├── 01-primer.html            ← Module 01: The Beginner Primer ✓
     ├── 02-cast-your-chart.html   ← Module 02: Cast Your Chart ✓
     ├── 03-rising-sign.html       ← Module 03: Your Rising Sign & Ruling Planet ✓
@@ -98,11 +99,15 @@ The full "Your Year Ahead" course is built and in the repo. All modules link to 
 
 ## What's Next (priority order)
 
-1. **Course index page** — `course/index.html` — a sales/intro page for the course itself, linking into Module 01
-2. **Payment integration** — Stripe or Gumroad for the $27 course when ready to launch
-3. **Notion template links** — Add actual URLs to `index.html` once templates are published
-4. **HTTPS enforcement** — Enable "Enforce HTTPS" in GitHub Pages settings (may already be available)
-5. **Audio recording** — Staley records from scripts in `course/scripts/` and embeds in each module (audio blocks are already stubbed as "audio coming soon")
+1. **Payment integration** — Stripe or Gumroad for the $27 course when ready to launch
+2. **Audio recording** — Staley records from scripts in `course/scripts/` and embeds in each module (audio blocks are already stubbed as "audio coming soon")
+3. **Wire up landing page course section** — update the "Coming Soon" eyebrow on `index.html` and point the CTA to `course/index.html` once payment is live
+
+## Completed
+
+- ✓ **Course index page** — `course/index.html` — built 2026-05; sales/intro page linking into Module 01
+- ✓ **Notion template links** — both live in `index.html`: Self-Care Priority Map + Clear Eyes, Full Hearts Ritual
+- ✓ **HTTPS enforcement** — enabled in GitHub Pages settings
 
 ## Context Files — Feed These at the Start of Every Session
 
