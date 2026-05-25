@@ -153,6 +153,13 @@
       </div>
     </div>
 
+    <!-- Anchor Phrase -->
+    <div class="snap-section">
+      <p class="snap-section-label">When Things Get Hard</p>
+      <p class="anchor-phrase" id="anchorPhrase"></p>
+      <p class="permission-line">Give yourself permission to <span id="permissionPhrase"></span>.</p>
+    </div>
+
     <!-- 7th & 12th House Context -->
     <div class="snap-section">
       <p class="snap-section-label">The Wider Picture</p>
@@ -467,6 +474,41 @@ function getInterplayPrompt(sunHouse, moonHouse) {
 }
 
 // ═══════════════════════════════════════════════════════
+// ANCHOR PHRASE — Moon house (when things get hard)
+// Blend of "remember" framing + "reframe" framing
+// ═══════════════════════════════════════════════════════
+
+const anchorPhrase = {
+  1:  "What feels raw right now is the growth. This becoming is supposed to feel this personal.",
+  2:  "What feels scarce right now is showing you what you actually value. That fear about worth is pointing at something real.",
+  3:  "What hasn't been said yet is still true. The words will come when you're ready.",
+  4:  "This tenderness is the root asking to be tended. The depth of what you're feeling is the depth of what you care about.",
+  5:  "This vulnerability means your heart is open. That's not a problem — that's the point.",
+  6:  "What your body is carrying right now is information, not failure. Rest is part of the work.",
+  7:  "This is what real connection asks of you. The friction in relationship right now is the invitation, not the sign to leave.",
+  8:  "What's surfacing is supposed to surface. The intensity is the transformation — not a detour from it.",
+  9:  "This uncertainty means something is being outgrown. You don't have to know what comes next to know that something is.",
+  10: "What you feel about your work right now is data, not verdict. The feeling is telling you something worth listening to.",
+  11: "This longing to belong is pointing you somewhere true. The ache means you know what you're looking for.",
+  12: "The quiet is not emptiness. Something is completing in the background, and the completing is real."
+};
+
+const permissionPhrase = {
+  1:  "be a work in progress right now",
+  2:  "need more than you think you should",
+  3:  "say what you actually mean",
+  4:  "go back to the beginning",
+  5:  "want what you want without justifying it",
+  6:  "rest before you're depleted",
+  7:  "ask for what you need in this relationship",
+  8:  "feel all of it",
+  9:  "not know what you believe right now",
+  10: "have complicated feelings about your work",
+  11: "be choosy about where you belong",
+  12: "disappear for a while"
+};
+
+// ═══════════════════════════════════════════════════════
 // SIGN ORDER + GLYPHS
 // ═══════════════════════════════════════════════════════
 
@@ -700,6 +742,10 @@ function generate() {
   document.getElementById('prompt1').textContent = sunJournalPrompts[sunHouse];
   document.getElementById('prompt2').textContent = moonJournalPrompts[moonHouse];
   document.getElementById('prompt3').textContent = getInterplayPrompt(sunHouse, moonHouse);
+
+  // Anchor phrase (Moon-house based)
+  document.getElementById('anchorPhrase').textContent  = anchorPhrase[moonHouse];
+  document.getElementById('permissionPhrase').textContent = permissionPhrase[moonHouse];
 
   // 7th house (opposite rising) and 12th house (sign before rising)
   const house7Sign  = SIGNS[(SIGNS.indexOf(rising) + 6)  % 12];

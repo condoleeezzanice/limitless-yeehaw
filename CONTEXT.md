@@ -94,9 +94,13 @@ Interactive solar return reading tool — also serves as the course capstone.
   - Ruling planet section: planet name + actionable "find it on your chart" note per rising sign
   - Herbal allies block: rising sign herbs (personalized) + Sun planet herbs + Moon planet herbs
   - Three dynamic journal prompts: Sun-house prompt, Moon-house prompt, interplay prompt (detects same-house / opposite-house / other)
+  - 7th house relationship theme: auto-computed (opposite rising), sign-keyed copy in `house7Copy`
+  - 12th house background note: auto-computed (sign before rising), sign-keyed copy in `house12Copy`
+  - Solar return year label in footer (dynamic, pulls current year)
+  - Anchor phrase section (Moon-house-based, two parts): a grounding sentence (blend of "remember" + "reframe" framing) + a "give yourself permission to..." line. JS objects: `anchorPhrase`, `permissionPhrase`
 - Print/Save as PDF button (full print styles for all sections)
 - Moon label reads "emotional focus" — NOT "emotional needs" (Staley's preference)
-- All copy lives in JS data objects: `risingCopy`, `sunCopy`, `moonCopy`, `sunHouseShort`, `moonHouseShort`, `rulingPlanet`, `themeWord`, `signHerbs`, `sunJournalPrompts`, `moonJournalPrompts`, `getInterplayPrompt()`
+- All copy lives in JS data objects: `risingCopy`, `sunCopy`, `moonCopy`, `sunHouseShort`, `moonHouseShort`, `rulingPlanet`, `sunHouseMantra`, `moonHouseMantra`, `signHerbs`, `sunJournalPrompts`, `moonJournalPrompts`, `getInterplayPrompt()`, `house7Copy`, `house12Copy`, `anchorPhrase`, `permissionPhrase`
 
 ### Course — All Six Modules Complete
 The full "Your Year Ahead" course is built and in the repo. All modules link to each other sequentially. The capstone (`year-ahead-snapshot.html`) is already live. See COURSE-KNOWLEDGE.md for full course details.
@@ -108,8 +112,9 @@ The full "Your Year Ahead" course is built and in the repo. All modules link to 
 1. **Payment integration** — Stripe or Gumroad for the $27 course when ready to launch
 2. **Audio recording** — Staley records from scripts in `course/scripts/` and embeds in each module (audio blocks are already stubbed as "audio coming soon")
 3. **Wire up landing page course section** — update the "Coming Soon" eyebrow on `index.html` and point the CTA to `course/index.html` once payment is live
-4. **Snapshot: Sun/Moon interplay note** — deferred from 2026-05 session; would be a dynamic paragraph describing how the Sun house and Moon house are talking to each other. Discussed 144-combo approach vs. dynamic templating from house keywords. The `getInterplayPrompt()` function already handles same-house, opposite-house, and other — an upgrade would make the "other" case richer.
-5. **Copy nitpicking across course modules** — Staley noted wanting to review and edit copy; no specific modules flagged yet.
+4. **Snapshot: additional features brainstormed** — ideas discussed: (a) a question to carry all year (Sun-house, one open question to hold, not answer); (b) a release phrase (what to put down, 12th-house-based); (c) "this year asks you to trust..." (rising or Sun-house, one-line completion); (d) a color/element/texture for the year (rising or Sun sign based, tangible correspondence); (e) an archetype for the year (named role + one line, rising-based); (f) a body invitation (sign body correspondence, one gentle line). All deferred — implement in future session.
+5. **Snapshot: Sun/Moon interplay note** — the `getInterplayPrompt()` "other" case is generic; a richer version would be more specific. Deferred.
+6. **Copy nitpicking across course modules** — Staley noted wanting to review and edit copy; no specific modules flagged yet.
 
 ## Completed
 
@@ -119,6 +124,8 @@ The full "Your Year Ahead" course is built and in the repo. All modules link to 
 - ✓ **Module 02 edit** — added whole sign house system explanation (aside-note style, after the three landmarks section)
 - ✓ **Module 04 edit** — added Sun herb reminder callout between the Sun and Moon halves, so each planet section has its own herb moment
 - ✓ **Snapshot major rebuild** — theme word, house calculation, house descriptions, ruling planet, herbal allies, journal prompts, chart wheel direction fix, house number labels
+- ✓ **Snapshot: 7th house, 12th house, year label** — relationship theme (7th, sign-keyed), background note (12th, sign-keyed), solar return year in footer
+- ✓ **Snapshot: anchor phrase** — Moon-house-based grounding section with two parts: anchor sentence (remember + reframe blend) + "give yourself permission to..." line
 
 ## Context Files — Feed These at the Start of Every Session
 

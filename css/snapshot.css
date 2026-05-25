@@ -425,6 +425,28 @@ body {
   color: #9878E8;
 }
 
+/* ── ANCHOR PHRASE ── */
+.anchor-phrase {
+  font-family: 'Palatino Linotype', Palatino, 'Book Antiqua', Georgia, serif;
+  font-size: clamp(15px, 2vw, 18px);
+  font-style: italic;
+  line-height: 1.7;
+  color: #FFF0F8;
+  margin-bottom: 1rem;
+}
+
+.permission-line {
+  font-size: 13px;
+  letter-spacing: 0.5px;
+  color: rgba(192,168,248,0.75);
+  line-height: 1.6;
+}
+
+.permission-line span {
+  color: #C0A8F8;
+  font-style: italic;
+}
+
 /* ── HOUSE PAIR GRID (7th / 12th house) ── */
 .house-pair-grid {
   display: grid;
@@ -508,6 +530,9 @@ body {
   .r-house-text { color: #444 !important; }
   .snap-section { border-top-color: #ddd !important; }
   .snap-theme-wrap { border-bottom-color: #ddd !important; }
+  .anchor-phrase { color: #111 !important; }
+  .permission-line { color: #555 !important; }
+  .permission-line span { color: #7A5EC8 !important; }
   .house-pair-item { border-color: #ddd !important; background: #f9f7ff !important; }
   .house-pair-label { color: #7A5EC8 !important; }
   .house-pair-sign { color: #B01870 !important; }
