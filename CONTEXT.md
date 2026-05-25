@@ -83,7 +83,7 @@ Free offerings listed:
 Course section: "Your Year Ahead" — $27 course, waitlist form via Kit (collects email). No payment system yet.
 
 ### Snapshot Tool (`year-ahead-snapshot.html`)
-Interactive solar return reading tool — also serves as the course capstone.
+Interactive solar return reading tool — also serves as the course capstone. Free, no login required.
 - User selects SR Rising, Sun, Moon signs (3 dropdowns — no house input needed)
 - **House calculation**: whole sign system, derived automatically (`(SIGNS.indexOf(planet) - SIGNS.indexOf(rising) + 12) % 12 + 1`)
 - **Generates**:
@@ -111,10 +111,9 @@ The full "Your Year Ahead" course is built and in the repo. All modules link to 
 
 1. **Payment integration** — Stripe or Gumroad for the $27 course when ready to launch
 2. **Audio recording** — Staley records from scripts in `course/scripts/` and embeds in each module (audio blocks are already stubbed as "audio coming soon")
-3. **Wire up landing page course section** — update the "Coming Soon" eyebrow on `index.html` and point the CTA to `course/index.html` once payment is live
-4. **Snapshot: additional features brainstormed** — ideas discussed: (a) a question to carry all year (Sun-house, one open question to hold, not answer); (b) a release phrase (what to put down, 12th-house-based); (c) "this year asks you to trust..." (rising or Sun-house, one-line completion); (d) a color/element/texture for the year (rising or Sun sign based, tangible correspondence); (e) an archetype for the year (named role + one line, rising-based); (f) a body invitation (sign body correspondence, one gentle line). All deferred — implement in future session.
-5. **Snapshot: Sun/Moon interplay note** — the `getInterplayPrompt()` "other" case is generic; a richer version would be more specific. Deferred.
-6. **Copy nitpicking across course modules** — Staley noted wanting to review and edit copy; no specific modules flagged yet.
+3. **Snapshot: additional features brainstormed** — ideas discussed: (a) a question to carry all year (Sun-house, one open question to hold, not answer); (b) a release phrase (what to put down, 12th-house-based); (c) "this year asks you to trust..." (rising or Sun-house, one-line completion); (d) a color/element/texture for the year (rising or Sun sign based, tangible correspondence); (e) an archetype for the year (named role + one line, rising-based); (f) a body invitation (sign body correspondence, one gentle line). All deferred — implement in future session.
+4. **Snapshot: Sun/Moon interplay note** — the `getInterplayPrompt()` "other" case is generic; a richer version would be more specific. Deferred.
+5. **Copy nitpicking across course modules** — Staley noted wanting to review and edit copy; no specific modules flagged yet.
 
 ## Completed
 
@@ -126,6 +125,10 @@ The full "Your Year Ahead" course is built and in the repo. All modules link to 
 - ✓ **Snapshot major rebuild** — theme word, house calculation, house descriptions, ruling planet, herbal allies, journal prompts, chart wheel direction fix, house number labels
 - ✓ **Snapshot: 7th house, 12th house, year label** — relationship theme (7th, sign-keyed), background note (12th, sign-keyed), solar return year in footer
 - ✓ **Snapshot: anchor phrase** — Moon-house-based grounding section with two parts: anchor sentence (remember + reframe blend) + "give yourself permission to..." line
+- ✓ **Landing page linked to course** — "Coming Soon" eyebrow removed; primary CTA button ("Start the Course →") added linking to `course/index.html`; Kit email form kept as secondary "stay in the loop" element; eyebrow updated to "$27 · Yours Forever"
+- ✓ **Landing page copy fixed** — removed all "no astrologer" framing across `index.html` (×2) and `course/index.html` (×2); hero subhead replaced with Option D ("personal cosmic intelligence...permanent access to your own map"); feature list item updated to "A skill you can use every year, starting now"
+- ✓ **Landing page module list corrected** — fixed order (Primer is 01, Cast Your Chart is 02) and rewrote all descriptions to match actual module content; capstone description updated to reflect current snapshot features
+- ✓ **Favicon** — `favicon.svg` created (✦ glyph, magenta-to-pink gradient, deep plum background); wired into all HTML files across root and `course/`
 
 ## Context Files — Feed These at the Start of Every Session
 
