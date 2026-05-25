@@ -65,6 +65,12 @@
     <p class="snap-title">Your Year Ahead Snapshot</p>
     <h2 class="snap-name" id="snapName"></h2>
 
+    <!-- Theme word -->
+    <div class="snap-theme-wrap">
+      <p class="snap-theme-label">Your word for this year</p>
+      <p class="snap-theme-word" id="snapTheme"></p>
+    </div>
+
     <div class="snap-body">
 
       <!-- Left: orb + chart -->
@@ -75,7 +81,7 @@
         </div>
         <div class="chart-wrap">
           <svg id="chartSVG" viewBox="0 0 230 230" xmlns="http://www.w3.org/2000/svg" aria-label="Solar return chart wheel"></svg>
-          <p class="chart-label">chart wheel</p>
+          <p class="chart-label">chart wheel · whole sign houses</p>
         </div>
       </div>
 
@@ -87,17 +93,64 @@
           <p class="r-text" id="risingText"></p>
         </div>
         <div class="r-block">
-          <p class="r-label">Sun · Your identity theme</p>
+          <p class="r-label">Sun · Your energy theme</p>
           <p class="r-sign" id="sunSign"></p>
+          <p class="r-house-text" id="sunHouseText"></p>
           <p class="r-text" id="sunText"></p>
         </div>
         <div class="r-block">
-          <p class="r-label">Moon · Your emotional needs</p>
+          <p class="r-label">Moon · Your emotional focus</p>
           <p class="r-sign" id="moonSign"></p>
+          <p class="r-house-text" id="moonHouseText"></p>
           <p class="r-text" id="moonText"></p>
         </div>
       </div>
 
+    </div>
+
+    <!-- Ruling Planet -->
+    <div class="snap-section">
+      <p class="snap-section-label">Ruling Planet</p>
+      <p class="ruler-planet" id="rulerPlanet"></p>
+      <p class="ruler-note" id="rulerNote"></p>
+    </div>
+
+    <!-- Herbal Allies -->
+    <div class="snap-section">
+      <p class="snap-section-label">Herbal Allies</p>
+      <div class="herb-grid-snap">
+        <div class="herb-item-snap">
+          <p class="herb-item-label" id="risingHerbLabel"></p>
+          <p class="herb-item-text" id="risingHerbs"></p>
+        </div>
+        <div class="herb-item-snap">
+          <p class="herb-item-label">Sun herbs</p>
+          <p class="herb-item-text">Ash tree, angelica, almond, bay tree, burnet, butterbur, chamomile, frankincense.</p>
+        </div>
+        <div class="herb-item-snap">
+          <p class="herb-item-label">Moon herbs</p>
+          <p class="herb-item-text">Anise seed, cabbage, chickweed, clary, cleavers, cucumbers, ginger, jasmine.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Journal Prompts -->
+    <div class="snap-section">
+      <p class="snap-section-label">Journal Prompts for This Year</p>
+      <div class="journal-prompts">
+        <div class="journal-prompt">
+          <span class="prompt-num">1</span>
+          <p class="prompt-text" id="prompt1"></p>
+        </div>
+        <div class="journal-prompt">
+          <span class="prompt-num">2</span>
+          <p class="prompt-text" id="prompt2"></p>
+        </div>
+        <div class="journal-prompt">
+          <span class="prompt-num">3</span>
+          <p class="prompt-text" id="prompt3"></p>
+        </div>
+      </div>
     </div>
 
     <p class="snap-footer">limitlessyeehaw.com · your year ahead</p>
@@ -108,7 +161,9 @@
 </div>
 
 <script>
-// ── COPY ──────────────────────────────────────────────────────────────────
+// ═══════════════════════════════════════════════════════
+// COPY — RISING SIGN
+// ═══════════════════════════════════════════════════════
 
 const risingCopy = {
   Aries: "This year opens with war paint on. Your whole lens is Aries — you're being asked to lead, initiate, and act before you feel ready. Mars rules your chart this year: find where Mars sits, and that house is your engine. The year belongs to the bold.",
@@ -125,6 +180,10 @@ const risingCopy = {
   Pisces: "This year dissolves old boundaries. Your lens is Pisces — dreaming, mystical, deeply feeling. Neptune rules your chart this year: find where Neptune sits, and that's where magic and surrender meet. The year belongs to the dreamer who acts."
 };
 
+// ═══════════════════════════════════════════════════════
+// COPY — SUN SIGN (flavor / how the energy moves)
+// ═══════════════════════════════════════════════════════
+
 const sunCopy = {
   Aries: "Your ego this year wants to pioneer. You're being called to start things, claim space, and trust your instincts without waiting for permission. Identity grows through action.",
   Taurus: "Your ego this year wants to build. You're being called to invest in what's real, cultivate your resources, and let yourself be fully, unapologetically present. Identity grows through presence.",
@@ -139,6 +198,10 @@ const sunCopy = {
   Aquarius: "Your ego this year wants to innovate. You're being called to stand in your uniqueness, challenge the status quo, and contribute to something larger than yourself. Identity grows through community.",
   Pisces: "Your ego this year wants to dream and dissolve. You're being called to soften your grip, trust the unseen, and let your intuition be your compass. Identity grows through surrender."
 };
+
+// ═══════════════════════════════════════════════════════
+// COPY — MOON SIGN
+// ═══════════════════════════════════════════════════════
 
 const moonCopy = {
   Aries: "Emotionally this year, you need movement. Your feelings arrive fast and fierce — honor them, don't suppress them. You're nourished by independence, action, and the freedom to follow your fire.",
@@ -155,11 +218,189 @@ const moonCopy = {
   Pisces: "Emotionally this year, you need to dream. Your feelings are vast and porous — healthy boundaries will protect you. You're nourished by creativity, spiritual practice, and time spent near water."
 };
 
-// Sign order for wheel (index 0 = Aries)
+// ═══════════════════════════════════════════════════════
+// SUN HOUSE — short descriptions (whole sign, from rising)
+// ═══════════════════════════════════════════════════════
+
+const sunHouseShort = {
+  1: "A year of heightened self-focus and personal reinvention — you are the central project.",
+  2: "Your energy goes into building — money, resources, and the deeper question of what you believe you're worth.",
+  3: "The Sun lights up communication, ideas, and your immediate environment — a year for putting your thoughts into the world.",
+  4: "The year turns inward and domestic — your energy goes into home, family, and the private foundations of your life.",
+  5: "Creativity, self-expression, romance, and play are front and center — joy is not a detour this year, it's the assignment.",
+  6: "Your energy goes into the daily — systems, habits, the quality of your work, and the state of your body.",
+  7: "Partnership is the focus — one-on-one relationships take center stage and teach you the most about yourself.",
+  8: "A year of depth and transformation — what gets examined this year tends to change you in lasting ways.",
+  9: "The Sun wants to go further — through travel, study, or a fundamental rethinking of your belief system.",
+  10: "Your work and reputation are front and center — this is the year to do what you want to be known for.",
+  11: "The Sun lights up your social world and your sense of purpose within something larger than yourself.",
+  12: "A year of retreat and invisible preparation — something is being gestated beneath the surface. Trust the quiet."
+};
+
+// ═══════════════════════════════════════════════════════
+// MOON HOUSE — short descriptions
+// ═══════════════════════════════════════════════════════
+
+const moonHouseShort = {
+  1: "Emotional growth centers on your identity and how you feel about yourself — who you're becoming emotionally is becoming visible.",
+  2: "Security — what you have, what you fear losing, what you believe you deserve — is the emotional work of this year.",
+  3: "Emotional processing runs through words — journaling, conversation, and speaking what's felt become important outlets.",
+  4: "Family, home, and roots are emotionally activated — old things surface, and the growth is at the foundation level.",
+  5: "Your heart is more open and more exposed — creative expression and love bring both delight and real vulnerability.",
+  6: "The body becomes an emotional messenger this year — stress shows up physically, and physical care becomes emotional care.",
+  7: "Relationships carry emotional intensity — partnerships become mirrors, and what you feel in close relation tells you something about yourself.",
+  8: "Deep emotional territory — what's been buried is surfacing, and the growth is in bringing it up into the light.",
+  9: "Emotional growth comes through expansion — a shift in your beliefs, your horizons, or what you allow yourself to hope for.",
+  10: "Emotion meets ambition — how you actually feel about your work, and whether it aligns with who you're becoming, is a live question.",
+  11: "Your sense of belonging — whether you have it, whether you want it, where you find it — is the emotional theme of the year.",
+  12: "The emotional work is mostly invisible this year — happening in solitude, in dreams, in the gaps. Trust the slow, quiet process."
+};
+
+// ═══════════════════════════════════════════════════════
+// RULING PLANET
+// ═══════════════════════════════════════════════════════
+
+const rulingPlanet = {
+  Aries:       { planet: "Mars",    note: "Find Mars on your chart. The house it occupies is your engine for the year — where your drive is most concentrated and most alive." },
+  Taurus:      { planet: "Venus",   note: "Find Venus on your chart. The house she occupies is where beauty and abundance are being cultivated this year." },
+  Gemini:      { planet: "Mercury", note: "Find Mercury on your chart. The house it occupies is where your mind is most engaged and your ideas are most active." },
+  Cancer:      { planet: "The Moon",note: "The Moon rules your chart this year — she's already in your snapshot. Her house is the emotional center of your year." },
+  Leo:         { planet: "The Sun", note: "The Sun rules your chart this year — he's already in your snapshot. His house is where your light is being most directly directed." },
+  Virgo:       { planet: "Mercury", note: "Find Mercury on your chart. The house it occupies is where your analytical gifts are most needed and most productive." },
+  Libra:       { planet: "Venus",   note: "Find Venus on your chart. The house she occupies is where balance, beauty, and relationship are the year's active work." },
+  Scorpio:     { planet: "Mars",    note: "Find Mars on your chart. The house it occupies is where your power is being forged — and tested." },
+  Sagittarius: { planet: "Jupiter", note: "Find Jupiter on your chart. The house it occupies is where the biggest opportunities and lessons of the year are waiting." },
+  Capricorn:   { planet: "Saturn",  note: "Find Saturn on your chart. The house it occupies is where the serious work is happening — and where the most lasting growth will come from." },
+  Aquarius:    { planet: "Saturn",  note: "Find Saturn on your chart. The house it occupies is where you're building something new — likely in unconventional ways." },
+  Pisces:      { planet: "Neptune", note: "Find Neptune on your chart. The house it occupies is where the boundaries are thinning — and where surrender may be the most powerful move." }
+};
+
+// ═══════════════════════════════════════════════════════
+// THEME WORD (by rising sign)
+// ═══════════════════════════════════════════════════════
+
+const themeWord = {
+  Aries: "Initiative", Taurus: "Cultivation", Gemini: "Discovery",
+  Cancer: "Belonging", Leo: "Radiance", Virgo: "Refinement",
+  Libra: "Harmony", Scorpio: "Transformation", Sagittarius: "Expansion",
+  Capricorn: "Foundation", Aquarius: "Revolution", Pisces: "Surrender"
+};
+
+// ═══════════════════════════════════════════════════════
+// HERBAL ALLIES — by rising sign
+// ═══════════════════════════════════════════════════════
+
+const signHerbs = {
+  Aries:       "Betony, blackberry, blessed thistle, chili powder, cowslips, juniper, loosestrife, marjoram, mushrooms.",
+  Taurus:      "Apple blossom, cumin, fig-wort, lovage.",
+  Gemini:      "Dragon's blood reeds, meadowsweet.",
+  Cancer:      "Adder's tongue, alder, agrimony, balm, betony, daisies, duckweed, honeysuckle, hyssop, liverwort.",
+  Leo:         "Agaric, angelica, bay tree, borage, goat's rue, oats, peony, rue, saffron, sage, st. john's wort, wheat.",
+  Virgo:       "Lavender, maidenhair.",
+  Libra:       "Geranium, horse-tongue, verbena, vervain.",
+  Scorpio:     "Basil, bloodroot, dwarf elder.",
+  Sagittarius: "Alexander, dandelion.",
+  Capricorn:   "Comfrey, moss.",
+  Aquarius:    "Star anise, curry, spikenard, wisteria.",
+  Pisces:      "Alder, hemp, moss, sphagnum."
+};
+
+// ═══════════════════════════════════════════════════════
+// JOURNAL PROMPTS — Sun house (prompt 1)
+// ═══════════════════════════════════════════════════════
+
+const sunJournalPrompts = {
+  1:  "This is a year of personal reinvention. What version of yourself is trying to emerge — and what old identity are you being asked to let go of to make room for it?",
+  2:  "Your energy is going toward building — financially and in terms of self-worth. What do you actually believe you deserve this year, and where did that belief come from?",
+  3:  "Your mind is your engine this year. What idea, project, or conversation has been circling that you haven't given enough space to?",
+  4:  "This is a year of tending the foundations. What in your home life or family history is asking for your attention right now — and what's ready to be healed or released?",
+  5:  "Joy is your assignment this year. What lights you up that you've been treating as optional — and how would your year look different if you treated it as essential?",
+  6:  "Your daily systems are the real work. What one habit or routine, if you actually maintained it, would change the most about how you feel by this time next year?",
+  7:  "Relationship is your mirror this year. What is the most important one-on-one relationship in your life currently teaching you about yourself?",
+  8:  "You're in a year of deep excavation. What have you been circling around — in your mind, your finances, your emotions — that's ready to be looked at directly?",
+  9:  "Expansion is your calling this year. What belief about yourself or the world are you quietly outgrowing — and what's the bigger framework trying to replace it?",
+  10: "Your work and reputation are front and center. What do you want to be known for — and are your current actions actually building toward that?",
+  11: "Community is calling. Where in your life do you feel most like yourself — and what's the thing you bring to a group that only you bring?",
+  12: "This is a year of invisible preparation. What's being gestated beneath the surface of your life that you're not ready to name yet — and can you trust the quiet long enough to let it complete?"
+};
+
+// ═══════════════════════════════════════════════════════
+// JOURNAL PROMPTS — Moon house (prompt 2)
+// ═══════════════════════════════════════════════════════
+
+const moonJournalPrompts = {
+  1:  "Your emotional growth this year is tied to how you see yourself. What feeling about your own identity has been most present lately — and what's it trying to tell you?",
+  2:  "Security is the emotional work this year. Where do you feel most financially or emotionally unsafe — and is that fear telling you something true, or something inherited?",
+  3:  "Your emotional processing runs through words this year. What have you been feeling that you haven't said out loud yet — and who, or what, needs to hear it?",
+  4:  "The roots are asking for attention. What from your family of origin or your past is surfacing right now — and what's it asking you to finally put down or heal?",
+  5:  "Your heart is more open and more exposed this year. What creative risk or emotional leap are you quietly longing for that you've been protecting yourself from?",
+  6:  "The body is your emotional messenger this year. Where are you carrying tension or exhaustion right now — and what is it telling you that you haven't slowed down enough to hear?",
+  7:  "Relationship is the emotional work. In your closest partnership or collaboration, what do you actually need that you haven't asked for?",
+  8:  "Depth is the assignment. What emotional territory have you been avoiding — and what do you think you'd find there if you stopped?",
+  9:  "Your emotional growth is tied to what you believe. What story about yourself or about what's possible are you ready to stop accepting as true?",
+  10: "Emotion and ambition are entangled this year. What do you actually feel about your work — beneath the productivity, beneath the goals — and does that feeling have something useful to say?",
+  11: "Belonging is the emotional theme. Where in your social world do you feel most like yourself — and where are you performing a version of yourself for acceptance?",
+  12: "The quiet is the work. What surfaces for you when you stop filling the silence — and can you stay with it long enough to understand what it's showing you?"
+};
+
+// ═══════════════════════════════════════════════════════
+// INTERPLAY PROMPT — Sun + Moon house relationship (prompt 3)
+// ═══════════════════════════════════════════════════════
+
+const sunHouseArea = {
+  1: "self and identity", 2: "resources and worth", 3: "communication and learning",
+  4: "home and family", 5: "creativity and joy", 6: "health and daily routine",
+  7: "partnership and relationship", 8: "transformation and depth",
+  9: "expansion and belief", 10: "career and reputation",
+  11: "community and purpose", 12: "retreat and the hidden"
+};
+
+const moonHouseArea = {
+  1: "identity and self-perception", 2: "security and worth",
+  3: "communication and expression", 4: "home, roots, and the past",
+  5: "creativity, love, and vulnerability", 6: "health, routine, and the body",
+  7: "partnership and relationship", 8: "depth and transformation",
+  9: "belief and expansion", 10: "career and emotional ambition",
+  11: "belonging and community", 12: "the unconscious and the quiet"
+};
+
+const houseOrdinal = {
+  1:"1st", 2:"2nd", 3:"3rd", 4:"4th", 5:"5th", 6:"6th",
+  7:"7th", 8:"8th", 9:"9th", 10:"10th", 11:"11th", 12:"12th"
+};
+
+const oppositeHouse = {1:7,2:8,3:9,4:10,5:11,6:12,7:1,8:2,9:3,10:4,11:5,12:6};
+
+function getInterplayPrompt(sunHouse, moonHouse) {
+  const sArea = sunHouseArea[sunHouse];
+  const mArea = moonHouseArea[moonHouse];
+  const sOrd  = houseOrdinal[sunHouse];
+  const mOrd  = houseOrdinal[moonHouse];
+
+  if (sunHouse === moonHouse) {
+    return `Your Sun and Moon are both in the ${sOrd} house — your energy and your emotional growth are pointed at the same territory. That's a concentrated year. What does it mean to go all-in on the area of ${sArea}? And what might you need to watch for when so much of your attention lands in one place?`;
+  }
+  if (oppositeHouse[sunHouse] === moonHouse) {
+    return `Your Sun in the ${sOrd} house and Moon in the ${mOrd} house sit directly across an axis — a natural push and pull between ${sArea} and ${mArea}. Your conscious energy and your emotional growth are in direct conversation this year. Where do they need each other — and what does integration actually look like for you?`;
+  }
+  return `Your Sun in the ${sOrd} house is focused on ${sArea}, while your Moon in the ${mOrd} house is doing the emotional work in the territory of ${mArea}. Two different arenas, both active. Where do they overlap or support each other — and where do they seem to want different things from you this year?`;
+}
+
+// ═══════════════════════════════════════════════════════
+// SIGN ORDER + GLYPHS
+// ═══════════════════════════════════════════════════════
+
 const SIGNS = ['Aries','Taurus','Gemini','Cancer','Leo','Virgo','Libra','Scorpio','Sagittarius','Capricorn','Aquarius','Pisces'];
 const SIGN_GLYPHS = ['♈','♉','♊','♋','♌','♍','♎','♏','♐','♑','♒','♓'];
 
-// ── AURA CANVAS ───────────────────────────────────────────────────────────
+// Whole sign house calculation
+function getHouse(planetSign, risingSign) {
+  return (SIGNS.indexOf(planetSign) - SIGNS.indexOf(risingSign) + 12) % 12 + 1;
+}
+
+// ═══════════════════════════════════════════════════════
+// AURA CANVAS
+// ═══════════════════════════════════════════════════════
 
 let auraRaf = null;
 
@@ -219,12 +460,13 @@ function startAura() {
   auraRaf = requestAnimationFrame(frame);
 }
 
-// ── CHART WHEEL ───────────────────────────────────────────────────────────
+// ═══════════════════════════════════════════════════════
+// CHART WHEEL
+// ═══════════════════════════════════════════════════════
 
-// Rising at 9 o'clock (180°), counter-clockwise
 function orbXY(signName, risingName, r) {
   const ri = SIGNS.indexOf(risingName);
-  const s = SIGNS.indexOf(signName);
+  const s  = SIGNS.indexOf(signName);
   const steps = (s - ri + 12) % 12;
   const a = (180 + steps * 30) * Math.PI / 180;
   return { x: 115 + r * Math.cos(a), y: 115 + r * Math.sin(a) };
@@ -232,7 +474,7 @@ function orbXY(signName, risingName, r) {
 
 function drawChart(risingSign, sunSign, moonSign) {
   const svg = document.getElementById('chartSVG');
-  const ns = 'http://www.w3.org/2000/svg';
+  const ns  = 'http://www.w3.org/2000/svg';
   svg.innerHTML = '';
 
   const cx = 115, cy = 115, R = 105, Ri = 72;
@@ -253,7 +495,7 @@ function drawChart(risingSign, sunSign, moonSign) {
   for (let i = 0; i < 12; i++) {
     const a = (180 + i * 30) * Math.PI / 180;
     const x1 = cx + Ri * Math.cos(a), y1 = cy + Ri * Math.sin(a);
-    const x2 = cx + R * Math.cos(a), y2 = cy + R * Math.sin(a);
+    const x2 = cx + R  * Math.cos(a), y2 = cy + R  * Math.sin(a);
     const line = document.createElementNS(ns, 'line');
     line.setAttribute('x1', x1); line.setAttribute('y1', y1);
     line.setAttribute('x2', x2); line.setAttribute('y2', y2);
@@ -265,8 +507,7 @@ function drawChart(risingSign, sunSign, moonSign) {
   const ri = SIGNS.indexOf(risingSign);
   for (let i = 0; i < 12; i++) {
     const s = (ri + i) % 12;
-    const steps = i;
-    const a = (180 + steps * 30 + 15) * Math.PI / 180;
+    const a = (180 + i * 30 + 15) * Math.PI / 180;
     const r = (Ri + R) / 2;
     const x = cx + r * Math.cos(a);
     const y = cy + r * Math.sin(a);
@@ -278,14 +519,14 @@ function drawChart(risingSign, sunSign, moonSign) {
     svg.appendChild(text);
   }
 
-  // Rising line (ASC)
+  // ASC axis line
   const ascLine = document.createElementNS(ns, 'line');
   ascLine.setAttribute('x1', cx - R); ascLine.setAttribute('y1', cy);
   ascLine.setAttribute('x2', cx + R); ascLine.setAttribute('y2', cy);
   ascLine.setAttribute('stroke', '#E040A8'); ascLine.setAttribute('stroke-width', '1'); ascLine.setAttribute('opacity', '0.5');
   svg.appendChild(ascLine);
 
-  // Planet dots: Sun and Moon
+  // Planet dots
   function planetDot(signName, color, label) {
     const pos = orbXY(signName, risingSign, (Ri + R) / 2);
     const dot = document.createElementNS(ns, 'circle');
@@ -300,7 +541,7 @@ function drawChart(risingSign, sunSign, moonSign) {
     svg.appendChild(t);
   }
 
-  planetDot(sunSign, '#F8D060', '☉');
+  planetDot(sunSign,  '#F8D060', '☉');
   planetDot(moonSign, '#A8D8F8', '☽');
 
   // ASC label
@@ -311,44 +552,69 @@ function drawChart(risingSign, sunSign, moonSign) {
   svg.appendChild(ascLabel);
 }
 
-// ── GENERATE ──────────────────────────────────────────────────────────────
+// ═══════════════════════════════════════════════════════
+// GENERATE
+// ═══════════════════════════════════════════════════════
 
 function generate() {
   const rising = document.getElementById('rising').value;
-  const sun = document.getElementById('sun').value;
-  const moon = document.getElementById('moon').value;
+  const sun    = document.getElementById('sun').value;
+  const moon   = document.getElementById('moon').value;
 
   if (!rising || !sun || !moon) {
     alert('Please select all three placements to generate your snapshot.');
     return;
   }
 
-  // Populate text
+  // Whole sign house calculation
+  const sunHouse  = getHouse(sun,  rising);
+  const moonHouse = getHouse(moon, rising);
+  const sunOrd    = houseOrdinal[sunHouse];
+  const moonOrd   = houseOrdinal[moonHouse];
+
+  // Header
   document.getElementById('snapName').textContent = rising + ' Rising · ' + sun + ' Sun · ' + moon + ' Moon';
+  document.getElementById('snapTheme').textContent = themeWord[rising];
+
+  // Rising
   document.getElementById('risingSign').textContent = rising + ' Rising';
-  document.getElementById('risingText').textContent = risingCopy[rising];
-  document.getElementById('sunSign').textContent = sun + ' Sun';
-  document.getElementById('sunText').textContent = sunCopy[sun];
-  document.getElementById('moonSign').textContent = moon + ' Moon';
-  document.getElementById('moonText').textContent = moonCopy[moon];
+  document.getElementById('risingText').textContent  = risingCopy[rising];
+
+  // Sun
+  document.getElementById('sunSign').textContent      = sun + ' Sun · ' + sunOrd + ' House';
+  document.getElementById('sunHouseText').textContent  = sunHouseShort[sunHouse];
+  document.getElementById('sunText').textContent       = sunCopy[sun];
+
+  // Moon
+  document.getElementById('moonSign').textContent      = moon + ' Moon · ' + moonOrd + ' House';
+  document.getElementById('moonHouseText').textContent  = moonHouseShort[moonHouse];
+  document.getElementById('moonText').textContent       = moonCopy[moon];
+
+  // Ruling planet
+  const ruler = rulingPlanet[rising];
+  document.getElementById('rulerPlanet').textContent = ruler.planet;
+  document.getElementById('rulerNote').textContent   = ruler.note;
+
+  // Herbal allies
+  document.getElementById('risingHerbLabel').textContent = rising + ' sign herbs';
+  document.getElementById('risingHerbs').textContent     = signHerbs[rising];
+
+  // Journal prompts
+  document.getElementById('prompt1').textContent = sunJournalPrompts[sunHouse];
+  document.getElementById('prompt2').textContent = moonJournalPrompts[moonHouse];
+  document.getElementById('prompt3').textContent = getInterplayPrompt(sunHouse, moonHouse);
 
   // Aura timestamp
   const now = new Date();
   const ts = now.toLocaleString('en-US', { month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit', hour12: true });
   document.getElementById('auraLabel').textContent = 'generated · ' + ts;
 
-  // Draw chart
+  // Draw chart + show snapshot
   drawChart(rising, sun, moon);
-
-  // Show snapshot + print btn
   const snap = document.getElementById('snapshot');
   snap.classList.add('visible');
   document.getElementById('printBtn').style.display = 'block';
-
-  // Start aura
   startAura();
-
-  // Scroll to snapshot
   snap.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 </script>
