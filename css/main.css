@@ -536,6 +536,21 @@ body {
 }
 
 /* ══════════════════════════════
+   EMAIL LIST
+══════════════════════════════ */
+.email-section {
+  background: #060120;
+  padding: 5rem 2rem;
+  border-top: 1px solid rgba(152, 120, 232, 0.12);
+}
+
+.email-inner {
+  max-width: 480px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* ══════════════════════════════
    FOOTER
 ══════════════════════════════ */
 .footer {
