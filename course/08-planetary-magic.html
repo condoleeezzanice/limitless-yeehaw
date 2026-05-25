@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Module 08: Planetary Magic — Limitless Yeehaw</title>
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<link rel="stylesheet" href="../css/course.css">
+<style>
+  /* ── Module 08: Planetary Magic extras ── */
+
+  /* Day ruler grid */
+  .day-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 0.6rem;
+    margin: 2rem 0;
+  }
+
+  .day-card {
+    background: rgba(14, 5, 48, 0.6);
+    border: 1px solid rgba(152, 120, 232, 0.2);
+    border-radius: 8px;
+    padding: 0.9rem 0.5rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .day-name {
+    font-family: system-ui, sans-serif;
+    font-size: 0.62rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: rgba(255, 240, 248, 0.4);
+  }
+
+  .day-symbol {
+    font-size: 1.3rem;
+    line-height: 1;
+  }
+
+  .day-planet {
+    font-family: var(--serif);
+    font-size: 0.78rem;
+    color: var(--blush);
+    line-height: 1.2;
+  }
+
+  /* Color per planet day */
+  .day-card.sun .day-symbol { color: #F0C040; }
+  .day-card.moon .day-symbol { color: #D0D8F0; }
+  .day-card.mars .day-symbol { color: #E05040; }
+  .day-card.mercury .day-symbol { color: #A0C8E8; }
+  .day-card.jupiter .day-symbol { color: #C8A050; }
+  .day-card.venus .day-symbol { color: #F880C0; }
+  .day-card.saturn .day-symbol { color: #9878E8; }
+
+  /* Example callout */
+  .magic-example {
+    background: rgba(224, 64, 168, 0.07);
+    border: 1px solid rgba(224, 64, 168, 0.25);
+    border-radius: 10px;
+    padding: 1.5rem 1.6rem;
+    margin: 1.75rem 0;
+  }
+
+  .magic-example-label {
+    font-family: system-ui, sans-serif;
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--magenta);
+    display: block;
+    margin-bottom: 0.6rem;
+  }
+
+  .magic-example p {
+    font-size: 0.97rem;
+    line-height: 1.75;
+    color: rgba(255, 240, 248, 0.88);
+    margin: 0 0 0.6rem;
+  }
+
+  .magic-example p:last-child { margin-bottom: 0; }
+
+  /* App callout */
+  .app-callout {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: rgba(90, 188, 240, 0.07);
+    border: 1px solid rgba(90, 188, 240, 0.2);
+    border-radius: 8px;
+    padding: 0.85rem 1.2rem;
+    margin: 1.25rem 0;
+  }
+
+  .app-callout-glyph {
+    font-size: 1.4rem;
+    flex-shrink: 0;
+  }
+
+  .app-callout-text {
+    font-size: 0.9rem;
+    color: rgba(90, 188, 240, 0.85);
+    line-height: 1.5;
+  }
+
+  .app-callout-text strong {
+    color: var(--sky);
+    font-family: var(--serif);
+  }
+
+  /* Body association list */
+  .body-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin: 1.75rem 0;
+    border: 1px solid rgba(152, 120, 232, 0.15);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .body-item {
+    display: flex;
+    gap: 1rem;
+    align-items: baseline;
+    padding: 0.85rem 1.25rem;
+    border-bottom: 1px solid rgba(152, 120, 232, 0.1);
+    background: rgba(14, 5, 48, 0.3);
+  }
+
+  .body-item:last-child { border-bottom: none; }
+  .body-item:nth-child(even) { background: rgba(14, 5, 48, 0.5); }
+
+  .body-planet {
+    font-family: var(--serif);
+    font-size: 0.95rem;
+    color: var(--blush);
+    flex-shrink: 0;
+    min-width: 5.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .body-planet-symbol {
+    font-size: 0.9rem;
+    opacity: 0.6;
+  }
+
+  .body-desc {
+    font-size: 0.88rem;
+    color: rgba(255, 240, 248, 0.65);
+    line-height: 1.55;
+  }
+
+  /* Plant correspondence grid */
+  .plant-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin: 1.75rem 0;
+  }
+
+  .plant-card {
+    border-radius: 8px;
+    padding: 1rem 1.15rem;
+    border: 1px solid rgba(152, 120, 232, 0.18);
+    background: rgba(14, 5, 48, 0.4);
+  }
+
+  .plant-card-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.45rem;
+  }
+
+  .plant-symbol {
+    font-size: 1rem;
+    line-height: 1;
+  }
+
+  .plant-planet-name {
+    font-family: var(--serif);
+    font-size: 0.97rem;
+    color: var(--blush);
+    margin: 0;
+  }
+
+  .plant-list {
+    font-size: 0.83rem;
+    color: rgba(90, 188, 240, 0.72);
+    font-style: italic;
+    line-height: 1.6;
+  }
+
+  /* Planet symbol colors */
+  .plant-card.sun .plant-symbol { color: #F0C040; }
+  .plant-card.moon .plant-symbol { color: #D0D8F0; }
+  .plant-card.mercury .plant-symbol { color: #A0C8E8; }
+  .plant-card.venus .plant-symbol { color: #F880C0; }
+  .plant-card.mars .plant-symbol { color: #E05040; }
+  .plant-card.jupiter .plant-symbol { color: #C8A050; }
+  .plant-card.saturn .plant-symbol { color: #9878E8; }
+  .plant-card.uranus .plant-symbol { color: #5ABCF0; }
+  .plant-card.neptune .plant-symbol { color: #7890F0; }
+
+  /* Welcome to witchcraft closing */
+  .witchcraft-closing {
+    text-align: center;
+    padding: 2.5rem 1rem;
+    margin: 2rem 0 0;
+  }
+
+  .witchcraft-closing p {
+    font-family: var(--serif);
+    font-size: 1.3rem;
+    font-style: italic;
+    color: var(--blush);
+    line-height: 1.7;
+    margin: 0;
+  }
+
+  .witchcraft-closing .wc-accent {
+    display: block;
+    font-size: 1.05rem;
+    color: var(--magenta);
+    margin-top: 0.5rem;
+    font-style: normal;
+    letter-spacing: 0.05em;
+  }
+
+  @media (max-width: 600px) {
+    .day-grid { grid-template-columns: repeat(4, 1fr); }
+    .plant-grid { grid-template-columns: 1fr; }
+    .body-planet { min-width: 4.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a class="nav-brand" href="../index.html">Limitless Yeehaw</a>
+  <div class="nav-right">
+    <span class="nav-module-label">Module 08 of 08</span>
+    <a class="nav-back" href="../index.html">← Back to course</a>
+  </div>
+</nav>
+
+<!-- ── MODULE HEADER ── -->
+<header class="module-header">
+  <p class="module-eyebrow">Module 08 · Planetary Magic</p>
+  <h1 class="module-title">Reading the chart is one thing.<br>Working with it is another.<br>This is where it becomes alchemy.</h1>
+  <div class="module-divider"></div>
+  <p class="module-sub">
+    Day rulers. Hour rulers. The body. The plants.
+    This is where the chart stops being a map and starts being a practice.
+  </p>
+</header>
+
+<!-- ── AUDIO ── -->
+<div class="audio-block">
+  <div class="audio-inner">
+    <span class="audio-glyph">🎧</span>
+    <div>
+      <p class="audio-label">Listen to this module</p>
+      <p class="audio-title">Planetary Magic</p>
+    </div>
+    <span class="audio-placeholder">audio coming soon</span>
+  </div>
+</div>
+
+<!-- ── CONTENT ── -->
+<main class="module-content">
+
+  <!-- SECTION 1: The alchemy connection -->
+  <section class="module-section">
+    <h2 class="section-heading">The chart as a living tool</h2>
+    <p>
+      There's a quote I keep coming back to. It's from <em>Herbal Alchemy</em> by Phillip Hurley:
+    </p>
+
+    <div class="pullquote">
+      <p>
+        "The key to the secrets of alchemy lies in the language and science of astrology."
+      </p>
+    </div>
+
+    <p>
+      Not many people realize this, but the base language of alchemy — the whole tradition of
+      transformation, of turning one thing into another, of working with elemental forces —
+      is written in astrological terms. The planets aren't just symbols on a wheel.
+      They're active forces. And people have been working <em>with</em> those forces for centuries.
+    </p>
+    <p>
+      Everything you've learned in this course so far has been about reading. Observing.
+      Understanding the energies at play in your solar return year.
+      This module is about the next step: working with those energies intentionally.
+      Not just knowing what's in the atmosphere — but actively using it.
+    </p>
+    <p>
+      The chart is already telling you which planetary energies are most alive for you right now.
+      Here's how to meet them where they are.
+    </p>
+  </section>
+
+  <!-- SECTION 2: The planetary week -->
+  <section class="module-section">
+    <h2 class="section-heading">The planetary week</h2>
+    <p>
+      You already know this system — you just don't know you know it.
+      The days of the week are named for the planets. This isn't coincidence.
+      It's a remnant of a time when planetary timing was woven into daily life.
+    </p>
+
+    <div class="day-grid">
+      <div class="day-card sun">
+        <span class="day-name">Sunday</span>
+        <span class="day-symbol">☉</span>
+        <span class="day-planet">Sun</span>
+      </div>
+      <div class="day-card moon">
+        <span class="day-name">Monday</span>
+        <span class="day-symbol">☽</span>
+        <span class="day-planet">Moon</span>
+      </div>
+      <div class="day-card mars">
+        <span class="day-name">Tuesday</span>
+        <span class="day-symbol">♂</span>
+        <span class="day-planet">Mars</span>
+      </div>
+      <div class="day-card mercury">
+        <span class="day-name">Wednesday</span>
+        <span class="day-symbol">☿</span>
+        <span class="day-planet">Mercury</span>
+      </div>
+      <div class="day-card jupiter">
+        <span class="day-name">Thursday</span>
+        <span class="day-symbol">♃</span>
+        <span class="day-planet">Jupiter</span>
+      </div>
+      <div class="day-card venus">
+        <span class="day-name">Friday</span>
+        <span class="day-symbol">♀</span>
+        <span class="day-planet">Venus</span>
+      </div>
+      <div class="day-card saturn">
+        <span class="day-name">Saturday</span>
+        <span class="day-symbol">♄</span>
+        <span class="day-planet">Saturn</span>
+      </div>
+    </div>
+
+    <p>
+      Each day of the week carries that planet's energy. When you start something on a Thursday —
+      Jupiter's day — you're initiating under an energy of expansion and abundance.
+      Friday is Venus's day: good for creative work, connection, things of beauty.
+      Tuesday is Mars's day: good for taking action, confronting something that needs to be confronted,
+      getting things done. Saturday is Saturn's day: good for structure, discipline, laying groundwork.
+    </p>
+    <p>
+      This isn't superstition. It's timing. And timing is one of the most underused tools in any practice.
+    </p>
+  </section>
+
+  <!-- SECTION 3: The planetary hour -->
+  <section class="module-section">
+    <h2 class="section-heading">The planetary hour</h2>
+    <p>
+      It goes deeper than the day. Each day is also divided into planetary hours —
+      every hour has its own ruler, cycling through all seven classical planets in a specific order.
+      The first hour of the day always belongs to that day's ruling planet. From there, the cycle continues.
+    </p>
+    <p>
+      This means you can get incredibly specific with your timing. You don't just choose the right day —
+      you choose the right hour within that day for what you're trying to do.
+    </p>
+
+    <div class="magic-example">
+      <span class="magic-example-label">Example — timing for expanded communication</span>
+      <p>
+        Say you want to start something aimed at expanding your reach — a new project,
+        a pitch, a creative endeavor that involves getting your ideas out into the world.
+      </p>
+      <p>
+        You'd start on a <strong>Thursday</strong> (Jupiter's day — expansion, abundance, growth)
+        during the <strong>hour of Mercury</strong> (the planet of communication, ideas, and connection).
+        Jupiter gives it room to grow. Mercury gives it a voice.
+      </p>
+      <p>
+        That's astrological magic. Two layers of timing, working together intentionally.
+      </p>
+    </div>
+
+    <p>
+      Calculating planetary hours manually is tedious. You don't have to.
+      There's an app that does it for you:
+    </p>
+
+    <div class="app-callout">
+      <span class="app-callout-glyph">📱</span>
+      <span class="app-callout-text">
+        <strong>Planetaro</strong> — tells you the planetary ruler of the current day and each
+        hour within it, in real time. It's the tool I use for planetary timing.
+      </span>
+    </div>
+
+    <p>
+      Open it before you start something important. Notice what hour you're in.
+      Notice what day it is. You don't have to restructure your whole life around it —
+      but when you have the choice of when to begin something, let the planets help you choose.
+    </p>
+  </section>
+
+  <!-- SECTION 4: The body -->
+  <section class="module-section">
+    <h2 class="section-heading">The planets and the body</h2>
+    <p>
+      For as long as people have been reading the stars, they've also been mapping them
+      onto the human body. Each planet corresponds to specific physical systems —
+      organs, glands, structures that carry that same quality of energy.
+    </p>
+    <p>
+      This is one of the foundations of medical astrology and herbal healing traditions.
+      It's not a replacement for medical care — please work with your doctors and practitioners.
+      But as a layer of awareness, it's remarkable. When a planet is strongly activated in
+      your solar return, the body system it rules may need extra attention, support, or nourishment
+      that year.
+    </p>
+
+    <div class="body-list">
+      <div class="body-item">
+        <span class="body-planet"><span class="body-planet-symbol">☉</span>Sun</span>
+        <span class="body-desc">Anterior pituitary gland, heart and arteries, blood circulation</span>
+      </div>
+      <div class="body-item">
+        <span class="body-planet"><span class="body-planet-symbol">☽</span>Moon</span>
+        <span class="body-desc">Alimentary canal, female reproductive organs, lymph glands, cerebellum, sympathetic nervous system</span>
+      </div>
+      <div class="body-item">
+        <span class="body-planet"><span class="body-planet-symbol">☿</span>Mercury</span>
+        <span class="body-desc">Brain, cerebrospinal nervous system</span>
+      </div>
+      <div class="body-item">
+        <span class="body-planet"><span class="body-planet-symbol">♀</span>Venus</span>
+        <span class="body-desc">Thymus gland, kidneys</span>
+      </div>
+      <div class="body-item">
+        <span class="body-planet"><span class="body-planet-symbol">♂</span>Mars</span>
+        <span class="body-desc">Cortical portion of adrenal glands, muscles</span>
+      </div>
+      <div class="body-item">
+        <span class="body-planet"><span class="body-planet-symbol">♃</span>Jupiter</span>
+        <span class="body-desc">Posterior pituitary gland, liver and blood plasma</span>
+      </div>
+      <div class="body-item">
+        <span class="body-planet"><span class="body-planet-symbol">♄</span>Saturn</span>
+        <span class="body-desc">Parts of the adrenal glands, bones, teeth, joints, tendons, spleen</span>
+      </div>
+      <div class="body-item">
+        <span class="body-planet"><span class="body-planet-symbol">♅</span>Uranus</span>
+        <span class="body-desc">Parathyroid gland, brain and cerebrospinal system</span>
+      </div>
+      <div class="body-item">
+        <span class="body-planet"><span class="body-planet-symbol">♆</span>Neptune</span>
+        <span class="body-desc">Pineal gland</span>
+      </div>
+      <div class="body-item">
+        <span class="body-planet"><span class="body-planet-symbol">♇</span>Pluto</span>
+        <span class="body-desc">Pancreas, digestive glands, sexual organs</span>
+      </div>
+    </div>
+
+    <p>
+      Look at your solar return chart. Which planets are most active this year — sitting in
+      angular houses, making strong aspects, conjunct your Sun or Moon? The body systems
+      those planets rule are worth paying attention to. Not with fear — with care.
+      Nourish what the year is working hard.
+    </p>
+  </section>
+
+  <!-- SECTION 5: The plants -->
+  <section class="module-section">
+    <h2 class="section-heading">The plants</h2>
+    <p>
+      Throughout this course, you've been introduced to herbal allies for each sign and planet —
+      plants that carry the same energetic frequency and can support you in understanding your year.
+    </p>
+    <p>
+      This is a different layer. These plants are specifically for working <em>with</em>
+      planetary energy — for use in intention-setting, ritual, and the kind of active magical
+      practice that turns knowing into doing. Each planet has a botanical tradition connected to it.
+      These are the plants you reach for when you want to consciously align with a planetary force.
+    </p>
+    <p>
+      If Jupiter is your year's dominant energy, you keep sage on your altar.
+      If you're doing work during Mercury's hour on a Wednesday, you brew rosemary tea first.
+      If your solar return has a prominent Mars and you want to work with that fire constructively,
+      you use mugwort or nettles in your practice.
+    </p>
+
+    <div class="plant-grid">
+      <div class="plant-card sun">
+        <div class="plant-card-header">
+          <span class="plant-symbol">☉</span>
+          <p class="plant-planet-name">Sun</p>
+        </div>
+        <p class="plant-list">bay tree, calendula, chamomile, dandelion, eyebright, marigold, sunflower, St. John's wort</p>
+      </div>
+      <div class="plant-card moon">
+        <div class="plant-card-header">
+          <span class="plant-symbol">☽</span>
+          <p class="plant-planet-name">Moon</p>
+        </div>
+        <p class="plant-list">cabbage, chickweed, clary sage, cucumber, lettuce, white roses, willow tree</p>
+      </div>
+      <div class="plant-card mercury">
+        <div class="plant-card-header">
+          <span class="plant-symbol">☿</span>
+          <p class="plant-planet-name">Mercury</p>
+        </div>
+        <p class="plant-list">caraway, carrots, celery, dill, fennel, fenugreek, hazelnut, licorice, parsley, rosemary</p>
+      </div>
+      <div class="plant-card venus">
+        <div class="plant-card-header">
+          <span class="plant-symbol">♀</span>
+          <p class="plant-planet-name">Venus</p>
+        </div>
+        <p class="plant-list">pink carnations, alfalfa, apples, daisy, pears, peas, primrose, spearmint</p>
+      </div>
+      <div class="plant-card mars">
+        <div class="plant-card-header">
+          <span class="plant-symbol">♂</span>
+          <p class="plant-planet-name">Mars</p>
+        </div>
+        <p class="plant-list">aloes, black pepper, cumin, coriander, garlic, hawthorn, leeks, mugwort, nettles, hot pepper, onion</p>
+      </div>
+      <div class="plant-card jupiter">
+        <div class="plant-card-header">
+          <span class="plant-symbol">♃</span>
+          <p class="plant-planet-name">Jupiter</p>
+        </div>
+        <p class="plant-list">asparagus, chick peas, eggplant, hyssop, lemon balm, olive, plum, sage, walnut</p>
+      </div>
+      <div class="plant-card saturn">
+        <div class="plant-card-header">
+          <span class="plant-symbol">♄</span>
+          <p class="plant-planet-name">Saturn</p>
+        </div>
+        <p class="plant-list">amaranth, parsnip, potato, plantain, rye, spinach, wheat, yarrow</p>
+      </div>
+      <div class="plant-card uranus">
+        <div class="plant-card-header">
+          <span class="plant-symbol">♅</span>
+          <p class="plant-planet-name">Uranus</p>
+        </div>
+        <p class="plant-list">chia, ginger, ginseng, ginkgo biloba, kava kava, sea holly, pineapple, yerba mate</p>
+      </div>
+      <div class="plant-card neptune">
+        <div class="plant-card-header">
+          <span class="plant-symbol">♆</span>
+          <p class="plant-planet-name">Neptune</p>
+        </div>
+        <p class="plant-list">flax, Irish moss, kelp, slippery elm, spirulina</p>
+      </div>
+    </div>
+
+    <div class="herb-callout">
+      <span class="herb-glyph">🌿</span>
+      <div>
+        <p class="herb-label">How to work with these plants</p>
+        <p>
+          You don't need a formal ritual. You need an intention. Brew the plant as a tea,
+          burn it as incense, keep it on your desk, add it to your food, hold it on your altar —
+          whatever form feels accessible and real to you. The method matters less than
+          the intention behind it. You're working with the planet's energy. The plant is your bridge.
+        </p>
+        <p>
+          These are correspondences, not prescriptions. They are not medical advice.
+          Use what resonates. Leave what doesn't.
+        </p>
+      </div>
+    </div>
+
+    <div class="witchcraft-closing">
+      <p>
+        You may use any of these plants with the intention of harnessing
+        that planet's energy to aid in your endeavors.
+        <span class="wc-accent">Welcome to witchcraft, baby.</span>
+      </p>
+    </div>
+  </section>
+
+  <!-- SECTION 6: Putting it together -->
+  <section class="module-section">
+    <h2 class="section-heading">Putting it all together</h2>
+    <p>
+      Here's the thing about your solar return: it doesn't just tell you what the year holds.
+      It tells you what energy is most available to you. And energy you're aware of is energy
+      you can work with.
+    </p>
+    <p>
+      If Jupiter is prominent in your chart this year, you start things on Thursdays.
+      You reach for sage, olive, or walnut. You tend to your liver. You set intentions
+      during Jupiter's hour. You don't fight the expansion — you consciously direct it.
+    </p>
+    <p>
+      If Saturn is sitting heavy in an important house, you work on Saturdays.
+      You use yarrow and wheat. You pay attention to your bones and joints.
+      You do the slow, structural work that Saturn rewards —
+      and you do it in Saturn's timing, because Saturn respects people who show up prepared.
+    </p>
+
+    <div class="pullquote">
+      <p>
+        The chart is showing you the weather. Planetary magic is knowing how to dress for it —
+        and how to make the most of whatever's in the forecast.
+      </p>
+    </div>
+
+    <p>
+      You've now completed all eight modules. You know how to cast your solar return chart,
+      read its key placements, understand the planetary energies at work, interpret the
+      relationships between them — and actively align with what the year is offering.
+    </p>
+    <p>
+      There's one thing left. The capstone brings it all together — your personal Year Ahead Snapshot.
+      Take everything you've learned and apply it to your own chart. That's what it's for.
+      That's where all of this lands.
+    </p>
+  </section>
+
+  <!-- CAPSTONE NAV -->
+  <div class="module-nav">
+    <a class="next-module-btn" href="../year-ahead-snapshot.html">
+      <span class="next-label">Capstone · Your Year Ahead</span>
+      <span class="next-title">Year Ahead Snapshot ✦</span>
+    </a>
+  </div>
+
+</main>
+
+</body>
+</html>

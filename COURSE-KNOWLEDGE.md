@@ -23,7 +23,9 @@
 | 03 | Your Rising Sign & Ruling Planet | BUILT (course/03-rising-sign.html) |
 | 04 | Sun & Moon | BUILT (course/04-sun-and-moon.html) |
 | 05 | Reading the Houses | BUILT (course/05-houses.html) |
-| 06 | Aspects: Lines on the Chart | BUILT (course/06-aspects.html) |
+| 06 | The Planets | BUILT (course/06-planets.html) |
+| 07 | Aspects: Lines on the Chart | BUILT (course/07-aspects.html) |
+| 08 | Planetary Magic | BUILT (course/08-planetary-magic.html) |
 | ✦ | Capstone: Your Year Ahead Snapshot | BUILT (year-ahead-snapshot.html) |
 
 ---
@@ -152,6 +154,63 @@
 
 ---
 
+---
+
+## Astrological Magic & Planetary Timing (for Module 08)
+
+### The Alchemy Connection
+Key quote (from *Herbal Alchemy* by Phillip Hurley):
+> "The key to the secrets of alchemy lies in the language and science of astrology."
+
+The base language of alchemy is often encompassed in astrological terms. This is the gateway framing for Module 08 — the chart isn't just for reading, it's for working with.
+
+### Planetary Day & Hour Rulers
+Every day of the week has a planetary ruler. Every hour within that day has its own ruler too. You can use this to time your intentions and actions for maximum alignment.
+
+**Day rulers:**
+- Sunday: Sun
+- Monday: Moon
+- Tuesday: Mars
+- Wednesday: Mercury
+- Thursday: Jupiter
+- Friday: Venus
+- Saturday: Saturn
+
+**Practical example (Staley's):** If you wanted to expand communication, start something on Thursday (Jupiter, expansion) in the hour of Mercury (communication). Use the app **Planetaro** to find the planetary rulers of the day and each hour within it.
+
+### Planetary Body Associations
+*(For healing context — always caveat: not medical advice, not a replacement for professional medical care)*
+
+- **Sun**: anterior pituitary gland, blood circulation, heart and arteries
+- **Moon**: alimentary canal, female reproductive organs, lymph glands, cerebellum, lower ganglia and sympathetic nervous system
+- **Mercury & Uranus**: brain, cerebrospinal nervous system
+- **Venus**: thymus gland, kidneys
+- **Mars**: cortical portion of adrenal glands, muscles
+- **Jupiter**: posterior pituitary gland, liver and blood plasma
+- **Saturn**: parts of adrenal glands, bones, teeth, joints, tendons, spleen
+- **Uranus**: parathyroid gland, brain and cerebrospinal system
+- **Neptune**: pineal gland
+- **Pluto**: pancreas, digestive glands, sexual organs
+
+### Plant Correspondences by Planet (Staley's Magical Tradition)
+*(These supplement the herbal correspondence lists already in the course — these are specifically for magical/intentional working with planetary energy)*
+
+- **Moon**: cabbage, chickweed, clary sage, cucumber, lettuce, white roses, willow tree
+- **Sun**: bay tree, calendula, chamomile, dandelion, eyebright, marigold, sunflower, St. John's wort
+- **Mercury**: caraway, carrots, celery, dill, fennel, fenugreek, hazelnut, licorice, parsley, rosemary
+- **Venus**: pink carnations, alfalfa, apples, daisy, pears, peas, primrose, spearmint
+- **Mars**: aloes, black pepper, cumin, coriander, garlic, hawthorn, leeks, mugwort, nettles, hot pepper, onion
+- **Jupiter**: asparagus, chick peas, eggplant, hyssop, lemon balm, olive, plum, sage, walnut
+- **Saturn**: amaranth, parsnip, potato, plantain, rye, spinach, wheat, yarrow
+- **Uranus**: chia, ginger, ginseng, ginkgo biloba, kava kava, sea holly, pineapple, yerba mate
+- **Neptune**: flax, Irish moss, kelp, slippery elm, spirulina
+*(Note: no Pluto plant list provided yet — ask Staley or research)*
+
+### Staley's Closing Line for This Content
+"You may use any of these plants with the intention of harnessing that planet's energy to aid in your endeavors. Welcome to witchcraft, baby."
+
+---
+
 ## Writing Guidelines
 
 - Explain astrology terms the first time they appear, every time (don't assume the reader remembered from an earlier module)
@@ -186,3 +245,13 @@
 | 2026-05 | Module 02 edited — added whole sign house system callout (aside-note after three landmarks section) |
 | 2026-05 | Module 04 edited — added Sun herb reminder callout between the Sun and Moon halves |
 | 2026-05 | Snapshot tool major rebuild — house calculation (whole sign, auto-derived), theme word, house descriptions in Sun/Moon blocks, ruling planet section, herbal allies block, 3 dynamic journal prompts, chart wheel direction corrected, house number labels added |
+| 2026-05 | Module 06 (The Planets) added — 10 planet overviews with SR context notes |
+| 2026-05 | Aspects renumbered to Module 07 — all nav labels updated to "of 07" |
+| 2026-05 | Module 08 (Planetary Magic) planned — content briefed, knowledge base updated, not yet built |
+| 2026-05 | Module 08 complete (course/08-planetary-magic.html + course/scripts/08-planetary-magic-audio-script.md) |
+| 2026-05 | All module nav labels updated to "of 08" — modules 01–07 |
+| 2026-05 | Module 07 next link updated → 08-planetary-magic.html; closing text updated |
+| 2026-05 | index.html updated — Module 08 entry added to course grid |
+| 2026-05 | Stripe live, Payment Link wired to index.html, thank-you.html built |
+| 2026-05 | About section rewritten (18 years astrology, 10 years witchcraft, BPI, whimsy line) |
+| 2026-05 | Kit form moved from below course CTA to below About section |
