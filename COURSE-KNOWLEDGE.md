@@ -23,7 +23,7 @@
 | 03 | Your Rising Sign & Ruling Planet | BUILT (course/03-rising-sign.html) |
 | 04 | Sun & Moon | BUILT (course/04-sun-and-moon.html) |
 | 05 | Reading the Houses | BUILT (course/05-houses.html) |
-| 06 | Aspects: Lines on the Chart | not built |
+| 06 | Aspects: Lines on the Chart | BUILT (course/06-aspects.html) |
 | ✦ | Capstone: Your Year Ahead Snapshot | BUILT (year-ahead-snapshot.html) |
 
 ---
@@ -83,14 +83,25 @@
   - 10th: career, public reputation, legacy, authority
   - 11th: community, friends, hopes, collective causes
   - 12th: the hidden, the unconscious, solitude, endings, spirituality
-  *(Staley to refine these descriptions in her own words)*
+  *(Full house descriptions written in Staley's voice across Modules 04 and 05)*
 
 ### Aspects
 **Ease / Flow:**
 - Sextiles, trines — the energies work together well and have access to support from each other
 
 **Friction / Challenge (for growth):**
-- Squares, oppositions (sometimes conjunctions with a malefic) — challenge for the goal of growth; forcing you to find workarounds or to master the energy
+- Squares, oppositions — challenge for the goal of growth; forcing you to find workarounds or to master the energy
+
+**Conjunctions — special rules:**
+- Conjunctions are a blending or merging of the two planets' energies — they operate as one
+- If a planet is conjunct the Sun, it is **combust**: the Sun's rays outshine it, the planet's energy is absorbed into solar themes and harder to access independently
+- When the **Sun, Moon, or ruler of the Ascendant** is conjunct a **malefic** (Mars, Saturn, Pluto), it signals a **highly transformative year** — full of hard work, drive, and growth depending on which malefic:
+  - Mars conjunction: urgency, drive, ambition, possible conflict — a year of intense action
+  - Saturn conjunction: discipline, hard work, restriction, lessons — a year of maturity through limitation
+  - Pluto conjunction: profound transformation, power dynamics, deep excavation — nothing stays the same
+
+**The malefics**: Mars, Saturn, Pluto
+**The benefics**: Venus, Jupiter
 
 *"Ease vs. friction" is a good framing for beginners.*
 
@@ -108,8 +119,8 @@
 - Module 03: Sign herbs introduced inline, one per sign entry
 - Module 04: Moon herbs introduced (anise seed, cabbage, chickweed, clary, cleavers, cucumbers, ginger, jasmine)
 - Module 05: Mercury herbs introduced (alstonia, azaleas, buckwheat, carrots, cedar, fennel, fenugreek, flax, hazel nut)
-- Module 06: introduce remaining planet herbs as relevant (Venus, Mars, Jupiter, Saturn, Uranus, Neptune, Pluto — see By Planet list below)
-- Do NOT re-introduce Sun, Moon, or Mercury herbs in full after their debut module — reference them briefly if needed
+- Module 06: all remaining planet herbs introduced (Venus, Mars, Jupiter, Saturn, Uranus, Neptune, Pluto)
+- All planet and sign herbs are now fully introduced across the course — do not re-introduce any in full
 
 ### By Sign
 - **Aries**: betony (wood), blackberry, blessed thistle, chili powder, cowslips, juniper, loosestrife, marjoram, mushrooms
@@ -168,3 +179,4 @@
 | 2026-05 | Module 03 complete (course/03-rising-sign.html + script) |
 | 2026-05 | Module 04 complete (course/04-sun-and-moon.html + script) |
 | 2026-05 | Module 05 complete (course/05-houses.html + script) |
+| 2026-05 | Module 06 complete (course/06-aspects.html + script) — all six modules done |

@@ -27,9 +27,11 @@
 | Sky Blue (accent) | `#5ABCF0` |
 | Blush White (text/bg) | `#FFF0F8` |
 
+CSS variables: `--plum`, `--violet`, `--magenta`, `--pink`, `--sky`, `--blush`, `--mid` (rgba(255,240,248,0.12)), `--serif`, `--body`
+
 ### Typography
-- **Headings**: Palatino Linotype (brand serif), fallback Georgia
-- **Body**: Georgia, serif
+- **Headings**: Palatino Linotype (brand serif), fallback Georgia — CSS var `--serif`
+- **Body**: Georgia, serif — CSS var `--body`
 - **UI/Labels**: system-ui, sans-serif
 
 ### Voice
@@ -37,26 +39,33 @@ Warm, mystical, Oklahoma-rooted. Not overly precious — grounded woo. Second-pe
 
 ---
 
-## File Structure
+## File Structure (current state)
 
 ```
 limitless-yeehaw/
-├── index.html               ← Landing page (live, complete)
-├── year-ahead-snapshot.html ← Free interactive tool (live, complete)
+├── index.html                    ← Landing page (live, complete)
+├── year-ahead-snapshot.html      ← Free interactive tool / course capstone (live, complete)
+├── CONTEXT.md                    ← This file
+├── COURSE-KNOWLEDGE.md           ← Course content knowledge base
 ├── css/
-│   ├── main.css             ← Landing page styles
-│   └── snapshot.css         ← Snapshot tool styles (externalized by Staley)
-└── CONTEXT.md               ← This file
-```
-
-### Planned (not yet built)
-```
-course/
-├── index.html               ← Course sales/intro page
-├── 01-foundations.html      ← Module 1
-├── 02-solar-return.html     ← Module 2
-├── 03-[tbd].html            ← Modules 3–6
-└── ...
+│   ├── main.css                  ← Landing page styles
+│   ├── snapshot.css              ← Snapshot tool styles
+│   └── course.css                ← All course module styles (shared)
+└── course/
+    ├── 01-primer.html            ← Module 01: The Beginner Primer ✓
+    ├── 02-cast-your-chart.html   ← Module 02: Cast Your Chart ✓
+    ├── 03-rising-sign.html       ← Module 03: Your Rising Sign & Ruling Planet ✓
+    ← Module 04: Sun & Moon ✓
+    ├── 04-sun-and-moon.html
+    ├── 05-houses.html            ← Module 05: Reading the Houses ✓
+    ├── 06-aspects.html           ← Module 06: Aspects: Lines on the Chart ✓
+    └── scripts/                  ← Audio scripts (Staley records from these)
+        ├── 01-primer-audio-script.md
+        ├── 02-cast-your-chart-audio-script.md
+        ├── 03-rising-sign-audio-script.md
+        ├── 04-sun-and-moon-audio-script.md
+        ├── 05-houses-audio-script.md
+        └── 06-aspects-audio-script.md
 ```
 
 ---
@@ -74,7 +83,7 @@ Free offerings listed:
 Course section: "Astrology for the Rest of Us" — $27 course, waitlist form (collects email). No payment system yet.
 
 ### Snapshot Tool (`year-ahead-snapshot.html`)
-Interactive solar return reading tool.
+Interactive solar return reading tool — also serves as the course capstone.
 - User selects Solar Return Rising, Sun, Moon signs (dropdowns)
 - Generates: animated rainbow aura orb (HTML5 Canvas), SVG chart wheel, three personalized text readings
 - Print/Save as PDF button
@@ -82,28 +91,25 @@ Interactive solar return reading tool.
 - Canvas aura: full rainbow hue cycle in 8.3s, `requestAnimationFrame` loop
 - Chart wheel: rising at 9 o'clock, signs flow counter-clockwise, `orbXY()` function handles placement
 
+### Course — All Six Modules Complete
+The full "Your Year Ahead" course is built and in the repo. All modules link to each other sequentially. The capstone (`year-ahead-snapshot.html`) is already live. See COURSE-KNOWLEDGE.md for full course details.
+
 ---
 
 ## What's Next (priority order)
 
-1. **Course content** — Build out modules 01–06 as HTML pages
-   - ~~Module 01: The Beginner Primer~~ ✓ DONE (course/01-primer.html)
-   - Module 02: Cast Your Chart (astro.com walkthrough)
-   - Module 03: Your Rising Sign & Ruling Planet
-   - Module 04: Sun & Moon
-   - Module 05: Reading the Houses
-   - Module 06: Aspects: Lines on the Chart
-   - ✦ Capstone: Year Ahead Snapshot (already built)
+1. **Course index page** — `course/index.html` — a sales/intro page for the course itself, linking into Module 01
 2. **Payment integration** — Stripe or Gumroad for the $27 course when ready to launch
-3. **Notion template links** — Add actual URLs once templates are published
+3. **Notion template links** — Add actual URLs to `index.html` once templates are published
 4. **HTTPS enforcement** — Enable "Enforce HTTPS" in GitHub Pages settings (may already be available)
+5. **Audio recording** — Staley records from scripts in `course/scripts/` and embeds in each module (audio blocks are already stubbed as "audio coming soon")
 
 ## Context Files — Feed These at the Start of Every Session
 
 | File | When to include |
 |---|---|
 | `CONTEXT.md` | Always |
-| `COURSE-KNOWLEDGE.md` | Any course-writing session |
+| `COURSE-KNOWLEDGE.md` | Any course-writing or course-editing session |
 | `Personal_Woo_Context.md` | Any session involving voice, tone, astrology philosophy, or Staley's personal chart/worldview |
 
 All three live in `/Users/staleystidhamlusk/limitless-yeehaw/`.
@@ -128,7 +134,7 @@ All three live in `/Users/staleystidhamlusk/limitless-yeehaw/`.
 
 ## Session Workflow Tips
 
-- Start a new session, paste this file's contents, then say what you want to build
-- Scope each session to one module or one focused task
+- Start a new session, upload CONTEXT.md (and COURSE-KNOWLEDGE.md if course work), then say what you want to build
+- Claude has access to the `/Users/staleystidhamlusk/limitless-yeehaw/` folder — files can be written directly there
 - Run `/compact` mid-session if things get long
-- All files save to `/Users/staleystidhamlusk/limitless-yeehaw/` — push to GitHub when done
+- Always update context files at the end of a session so the next one picks up cleanly
