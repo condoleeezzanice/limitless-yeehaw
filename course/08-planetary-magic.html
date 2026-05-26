@@ -215,6 +215,72 @@
   .plant-card.uranus .plant-symbol { color: #5ABCF0; }
   .plant-card.neptune .plant-symbol { color: #7890F0; }
 
+  /* Planetary nourishment section */
+  .planet-nourish-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin: 2rem 0;
+  }
+  .planet-nourish-entry {
+    border-left: 3px solid rgba(152, 120, 232, 0.35);
+    padding-left: 1.5rem;
+  }
+  .planet-nourish-entry:hover {
+    border-left-color: var(--violet);
+  }
+  .planet-nourish-header {
+    display: flex;
+    align-items: baseline;
+    gap: 0.75rem;
+    margin-bottom: 0.6rem;
+  }
+  .planet-nourish-symbol {
+    font-size: 1.15rem;
+    line-height: 1;
+    color: var(--violet);
+    flex-shrink: 0;
+  }
+  .planet-nourish-name {
+    font-family: var(--serif);
+    font-size: 1.15rem;
+    font-weight: normal;
+    color: var(--blush);
+    margin: 0;
+  }
+  .planet-nourish-row {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 0.4rem;
+    flex-wrap: wrap;
+    align-items: baseline;
+  }
+  .planet-nourish-row-label {
+    font-family: system-ui, sans-serif;
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    flex-shrink: 0;
+  }
+  .planet-nourish-row-label.foods { color: var(--sky); }
+  .planet-nourish-row-label.balance { color: var(--magenta); }
+  .planet-nourish-row-text {
+    font-size: 0.88rem;
+    font-style: italic;
+    line-height: 1.6;
+  }
+  .planet-nourish-row-text.foods { color: rgba(90, 188, 240, 0.75); }
+  .planet-nourish-row-text.balance { color: rgba(248, 128, 192, 0.75); }
+  .planet-nourish-row-text ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .planet-nourish-row-text ul li::before {
+    content: "— ";
+    opacity: 0.5;
+  }
+
   /* Welcome to witchcraft closing */
   .witchcraft-closing {
     text-align: center;
@@ -263,7 +329,7 @@
   <h1 class="module-title">Reading the chart is one thing.<br>Working with it is another.<br>This is where it becomes alchemy.</h1>
   <div class="module-divider"></div>
   <p class="module-sub">
-    Day rulers. Hour rulers. The body. The plants.
+    Day rulers. Hour rulers. The body. The plants. The table.
     This is where the chart stops being a map and starts being a practice.
   </p>
 </header>
@@ -602,7 +668,248 @@
     </div>
   </section>
 
-  <!-- SECTION 6: Putting it together -->
+  <!-- SECTION 6: Planetary nourishment -->
+  <section class="module-section">
+    <h2 class="section-heading">Planetary nourishment & balancing</h2>
+    <p>
+      Each planet has a food tradition — specific foods that carry that planet's energy
+      and support the body systems it rules. This is distinct from the plant correspondences
+      above, which are for ritual and intention. These are for the table.
+    </p>
+    <p>
+      The balancing notes are equally useful. When a planet's energy feels excessive,
+      stagnant, or unbalanced in your life, other planetary energies can help regulate it.
+      These relationships are worth knowing — especially when a planet is prominently
+      placed in your solar return.
+    </p>
+
+    <div class="planet-nourish-list">
+
+      <!-- SUN -->
+      <div class="planet-nourish-entry">
+        <div class="planet-nourish-header">
+          <span class="planet-nourish-symbol">☉</span>
+          <h3 class="planet-nourish-name">Sun</h3>
+        </div>
+        <div class="planet-nourish-row">
+          <span class="planet-nourish-row-label foods">Foods ✦</span>
+          <span class="planet-nourish-row-text foods">yellow and orange bell peppers · carrots · citrus · coconut · dried fruit (especially dates and raisins) · plantains · sunchokes · peanuts · sunflower seeds · bay leaves · lemongrass · saffron · cane sugar</span>
+        </div>
+        <div class="planet-nourish-row">
+          <span class="planet-nourish-row-label balance">Balance ✦</span>
+          <span class="planet-nourish-row-text balance">in most cases, it is not recommended to reduce the Sun — it is your life force ♡</span>
+        </div>
+      </div>
+
+      <!-- MOON -->
+      <div class="planet-nourish-entry">
+        <div class="planet-nourish-header">
+          <span class="planet-nourish-symbol">☽</span>
+          <h3 class="planet-nourish-name">Moon</h3>
+        </div>
+        <div class="planet-nourish-row">
+          <span class="planet-nourish-row-label foods">Foods ✦</span>
+          <span class="planet-nourish-row-text foods">bok choy · broccoli · cucumbers · okra · squashes · truffles · watercress · general ruler of all seeds and seafood · veal · soft cheeses · yogurt</span>
+        </div>
+        <div class="planet-nourish-row">
+          <span class="planet-nourish-row-label balance">Balance ✦</span>
+          <div class="planet-nourish-row-text balance">
+            <ul>
+              <li>Mars enlivens a sleepy Moon</li>
+              <li>Saturn stabilizes and dries an inconsistent, boggy Moon</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- MERCURY -->
+      <div class="planet-nourish-entry">
+        <div class="planet-nourish-header">
+          <span class="planet-nourish-symbol">☿</span>
+          <h3 class="planet-nourish-name">Mercury</h3>
+        </div>
+        <div class="planet-nourish-row">
+          <span class="planet-nourish-row-label foods">Foods ✦</span>
+          <span class="planet-nourish-row-text foods">bananas · carrots · celery · mushrooms · zucchini · general ruler of grains · barley · corn · couscous · quinoa · oregano · tarragon · walnuts · chicken · game birds · turkey</span>
+        </div>
+        <div class="planet-nourish-row">
+          <span class="planet-nourish-row-label balance">Balance ✦</span>
+          <div class="planet-nourish-row-text balance">
+            <ul>
+              <li>Jupiter expands a detailed Mercury</li>
+              <li>Venus calms a wound-up Mercury</li>
+              <li>Saturn anchors a spacey Mercury</li>
+              <li>Neptune sedates an anxious Mercury</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- VENUS -->
+      <div class="planet-nourish-entry">
+        <div class="planet-nourish-header">
+          <span class="planet-nourish-symbol">♀</span>
+          <h3 class="planet-nourish-name">Venus</h3>
+        </div>
+        <div class="planet-nourish-row">
+          <span class="planet-nourish-row-label foods">Foods ✦</span>
+          <span class="planet-nourish-row-text foods">general ruler of all fruit, especially stone fruit · avocados · mangoes · dates · peaches · pears · plums</span>
+        </div>
+        <div class="planet-nourish-row">
+          <span class="planet-nourish-row-label balance">Balance ✦</span>
+          <div class="planet-nourish-row-text balance">
+            <ul>
+              <li>Mars tones a lazy Venus</li>
+              <li>Mercury quickens a sluggish Venus</li>
+              <li>Saturn dries, disciplines, and gives Venus structure</li>
+              <li>Uranus shakes up a sleepy or bored Venus</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- MARS -->
+      <div class="planet-nourish-entry">
+        <div class="planet-nourish-header">
+          <span class="planet-nourish-symbol">♂</span>
+          <h3 class="planet-nourish-name">Mars</h3>
+        </div>
+        <div class="planet-nourish-row">
+          <span class="planet-nourish-row-label foods">Foods ✦</span>
+          <span class="planet-nourish-row-text foods">artichokes · arugula · daikon · dragon fruit · hot peppers · oats · red beans · black pepper · cardamom · mustard · turmeric · black tea or coffee</span>
+        </div>
+        <div class="planet-nourish-row">
+          <span class="planet-nourish-row-label balance">Balance ✦</span>
+          <div class="planet-nourish-row-text balance">
+            <ul>
+              <li>Venus calms an upset Mars</li>
+              <li>Moon cools a hot Mars</li>
+              <li>Saturn contains an overactive Mars</li>
+              <li>Neptune sedates an inflamed Mars</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- JUPITER -->
+      <div class="planet-nourish-entry">
+        <div class="planet-nourish-header">
+          <span class="planet-nourish-symbol">♃</span>
+          <h3 class="planet-nourish-name">Jupiter</h3>
+        </div>
+        <div class="planet-nourish-row">
+          <span class="planet-nourish-row-label foods">Foods ✦</span>
+          <span class="planet-nourish-row-text foods">apples · apricots · asparagus · Brussels sprouts · figs · kale · turnips · almonds · cacao · maple sugar · maple syrup · sage · thyme</span>
+        </div>
+        <div class="planet-nourish-row">
+          <span class="planet-nourish-row-label balance">Balance ✦</span>
+          <div class="planet-nourish-row-text balance">
+            <ul>
+              <li>Mercury focuses an overexuberant Jupiter</li>
+              <li>Saturn anchors a floating, excessive Jupiter</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- SATURN -->
+      <div class="planet-nourish-entry">
+        <div class="planet-nourish-header">
+          <span class="planet-nourish-symbol">♄</span>
+          <h3 class="planet-nourish-name">Saturn</h3>
+        </div>
+        <div class="planet-nourish-row">
+          <span class="planet-nourish-row-label foods">Foods ✦</span>
+          <span class="planet-nourish-row-text foods">root vegetables · beets · blackberries · black cherries · durian · olives · onions · spinach · bone broth · vinegars · black beans · black lentils</span>
+        </div>
+        <div class="planet-nourish-row">
+          <span class="planet-nourish-row-label balance">Balance ✦</span>
+          <div class="planet-nourish-row-text balance">
+            <ul>
+              <li>Sun brightens a sad Saturn</li>
+              <li>Mercury quickens a slow Saturn</li>
+              <li>Moon softens a rigid Saturn</li>
+              <li>Mars warms and wakes up a tired Saturn</li>
+              <li>Venus moistens a stiff Saturn</li>
+              <li>Jupiter expands a pessimistic Saturn</li>
+              <li>Uranus liberates a chained Saturn</li>
+              <li>Neptune opens a shut-down Saturn</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- URANUS -->
+      <div class="planet-nourish-entry">
+        <div class="planet-nourish-header">
+          <span class="planet-nourish-symbol">♅</span>
+          <h3 class="planet-nourish-name">Uranus</h3>
+        </div>
+        <div class="planet-nourish-row">
+          <span class="planet-nourish-row-label foods">Foods ✦</span>
+          <span class="planet-nourish-row-text foods">no traditional rulership — Uranian foods have a distinct appearance or disruptive effect. Any food or manner of eating that's outside of your comfort zone is Uranian for you.</span>
+        </div>
+        <div class="planet-nourish-row">
+          <span class="planet-nourish-row-label balance">Balance ✦</span>
+          <div class="planet-nourish-row-text balance">
+            <ul>
+              <li>Venus soothes a fitful Uranus</li>
+              <li>Saturn grounds excess Uranus electricity</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- NEPTUNE -->
+      <div class="planet-nourish-entry">
+        <div class="planet-nourish-header">
+          <span class="planet-nourish-symbol">♆</span>
+          <h3 class="planet-nourish-name">Neptune</h3>
+        </div>
+        <div class="planet-nourish-row">
+          <span class="planet-nourish-row-label foods">Foods ✦</span>
+          <span class="planet-nourish-row-text foods">no traditional rulership — Neptunian foods may come from the sea, grow in a damp environment, or be water-rich and sticky sweet. Neptune doesn't use food to ground, but to transcend.</span>
+        </div>
+        <div class="planet-nourish-row">
+          <span class="planet-nourish-row-label balance">Balance ✦</span>
+          <div class="planet-nourish-row-text balance">
+            <ul>
+              <li>Mercury awakens a confused Neptune</li>
+              <li>Mars pierces Neptune's fatiguing fog</li>
+              <li>Saturn forces Neptune to embody</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- PLUTO -->
+      <div class="planet-nourish-entry">
+        <div class="planet-nourish-header">
+          <span class="planet-nourish-symbol">♇</span>
+          <h3 class="planet-nourish-name">Pluto</h3>
+        </div>
+        <div class="planet-nourish-row">
+          <span class="planet-nourish-row-label foods">Foods ✦</span>
+          <span class="planet-nourish-row-text foods">Plutonian foods carry an extreme flavor, odor, or effect — foods that detox the body or assist in waste removal by being very fiber rich.</span>
+        </div>
+        <div class="planet-nourish-row">
+          <span class="planet-nourish-row-label balance">Balance ✦</span>
+          <div class="planet-nourish-row-text balance">
+            <ul>
+              <li>The Sun helps resurrect Pluto</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="aside-note">
+      <p>Some planetary foods overlap across multiple planets — that's intentional and actually useful. An overlap means that food carries layered energy, and you can work with it on multiple levels at once.</p>
+    </div>
+  </section>
+
+  <!-- SECTION 7: Putting it together -->
   <section class="module-section">
     <h2 class="section-heading">Putting it all together</h2>
     <p>

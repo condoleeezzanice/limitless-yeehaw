@@ -115,6 +115,44 @@
     color: var(--blush);
   }
 
+  /* Planet item lists in concept cards */
+  .planet-item-list {
+    list-style: none;
+    padding: 0;
+    margin: 0.5rem 0 0.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+  .planet-item-list li {
+    font-size: 0.93rem;
+    color: rgba(255, 240, 248, 0.85);
+    line-height: 1.5;
+  }
+
+  /* Sign nourishment */
+  .sign-nourishment {
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+    flex-wrap: wrap;
+  }
+  .sign-nourish-label {
+    font-family: system-ui, sans-serif;
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--magenta);
+    flex-shrink: 0;
+  }
+  .sign-nourish-list {
+    font-size: 0.88rem;
+    color: rgba(248, 128, 192, 0.75);
+    font-style: italic;
+    line-height: 1.5;
+  }
+
   @media (max-width: 600px) {
     .rulership-grid { grid-template-columns: 1fr 1fr; }
   }
@@ -232,6 +270,11 @@
       Work with them however resonates — in tea, as incense, on an altar, or just
       as a reference point. Use what calls to you. Leave the rest.
     </p>
+    <p>
+      Below each sign's herbs you'll also find a nourishment theme — food and eating
+      approaches that support that sign's energy through the year. These come from a
+      nutritional astrology framework and are offered as orientation, not prescription.
+    </p>
 
     <div class="sign-list">
 
@@ -256,6 +299,10 @@
           <span class="sign-herbs-label">Herbs ✦</span>
           <span class="sign-herbs-list">betony (wood), blackberry, blessed thistle, chili powder, cowslips, juniper, loosestrife, marjoram, mushrooms</span>
         </div>
+        <div class="sign-nourishment">
+          <span class="sign-nourish-label">Nourishment ✦</span>
+          <span class="sign-nourish-list">carry snacks and water · hydrate · moderate caffeine · plan ahead · prioritize protein · slow down to eat</span>
+        </div>
       </div>
 
       <!-- TAURUS -->
@@ -278,6 +325,10 @@
         <div class="sign-herbs">
           <span class="sign-herbs-label">Herbs ✦</span>
           <span class="sign-herbs-list">apple blossom, cumin, fig-wort, lovage</span>
+        </div>
+        <div class="sign-nourishment">
+          <span class="sign-nourish-label">Nourishment ✦</span>
+          <span class="sign-nourish-list">allow satisfaction · carb curiosity · high fiber, protein, and healthy fat · support steady energy · warm liquids</span>
         </div>
       </div>
 
@@ -302,6 +353,10 @@
           <span class="sign-herbs-label">Herbs ✦</span>
           <span class="sign-herbs-list">dragon's blood reeds, meadowsweet</span>
         </div>
+        <div class="sign-nourishment">
+          <span class="sign-nourish-label">Nourishment ✦</span>
+          <span class="sign-nourish-list">nervous system support · listen to subtle body signals · embrace your food mood · create an adaptable pantry</span>
+        </div>
       </div>
 
       <!-- CANCER -->
@@ -324,6 +379,10 @@
         <div class="sign-herbs">
           <span class="sign-herbs-label">Herbs ✦</span>
           <span class="sign-herbs-list">adder's tongue, alder (black), agrimony, balm, betony (water), daisies, duckweed, honeysuckle, hyssop, liverwort</span>
+        </div>
+        <div class="sign-nourishment">
+          <span class="sign-nourish-label">Nourishment ✦</span>
+          <span class="sign-nourish-list">calm eating environment · comfort food · digest your emotions · nurturing food voice · protect digestive fire · soft, warm food</span>
         </div>
       </div>
 
@@ -348,6 +407,10 @@
           <span class="sign-herbs-label">Herbs ✦</span>
           <span class="sign-herbs-list">agaric, angelica, bay tree, borage, goat's rue, oats, peony, rue, rye, saffron, sage, st. john's wort, wheat</span>
         </div>
+        <div class="sign-nourishment">
+          <span class="sign-nourish-label">Nourishment ✦</span>
+          <span class="sign-nourish-list">colorful veggies · daily decadence · heart opening, heart protecting · solar nutrient focus (magnesium, vit A, vit D)</span>
+        </div>
       </div>
 
       <!-- VIRGO -->
@@ -371,6 +434,10 @@
           <span class="sign-herbs-label">Herbs ✦</span>
           <span class="sign-herbs-list">lavender, maidenhair</span>
         </div>
+        <div class="sign-nourishment">
+          <span class="sign-nourish-label">Nourishment ✦</span>
+          <span class="sign-nourish-list">easy to digest · food as information · focus on feeling rather than numbers · keep it simple · well-cooked and warm food</span>
+        </div>
       </div>
 
       <!-- LIBRA -->
@@ -393,6 +460,10 @@
         <div class="sign-herbs">
           <span class="sign-herbs-label">Herbs ✦</span>
           <span class="sign-herbs-list">geranium (rose), horse-tongue, verbena, vervain</span>
+        </div>
+        <div class="sign-nourishment">
+          <span class="sign-nourish-label">Nourishment ✦</span>
+          <span class="sign-nourish-list">balance blood sugar · consistent mealtimes · cultivate neutral food talk · define balance for yourself · harmonious surroundings · pair carbs with protein and/or fat · watch for endocrine disruptors</span>
         </div>
       </div>
 
@@ -418,6 +489,10 @@
           <span class="sign-herbs-label">Herbs ✦</span>
           <span class="sign-herbs-list">basil, bloodroot, dwarf elder</span>
         </div>
+        <div class="sign-nourishment">
+          <span class="sign-nourish-label">Nourishment ✦</span>
+          <span class="sign-nourish-list">know your fibers · pre- and probiotic foods · prioritize protein · remember the gut-hormone relationship · support detox organs</span>
+        </div>
       </div>
 
       <!-- SAGITTARIUS -->
@@ -441,6 +516,10 @@
           <span class="sign-herbs-label">Herbs ✦</span>
           <span class="sign-herbs-list">alexander, dandelion</span>
         </div>
+        <div class="sign-nourishment">
+          <span class="sign-nourish-label">Nourishment ✦</span>
+          <span class="sign-nourish-list">denser fats and proteins · food as adventure · lower body connection at meals · jupiter nutrient focus (vits A, B6, D, E, K) · stimulating/soothing food lens</span>
+        </div>
       </div>
 
       <!-- CAPRICORN -->
@@ -463,6 +542,10 @@
         <div class="sign-herbs">
           <span class="sign-herbs-label">Herbs ✦</span>
           <span class="sign-herbs-list">comfrey, moss</span>
+        </div>
+        <div class="sign-nourishment">
+          <span class="sign-nourish-label">Nourishment ✦</span>
+          <span class="sign-nourish-list">bone building · nutrient dense · saturn nutrient focus (protein, minerals, vit C) · skin supporting · warming and grounding</span>
         </div>
       </div>
 
@@ -488,6 +571,10 @@
           <span class="sign-herbs-label">Herbs ✦</span>
           <span class="sign-herbs-list">anise (star), curry, spikenard, wisteria</span>
         </div>
+        <div class="sign-nourishment">
+          <span class="sign-nourish-label">Nourishment ✦</span>
+          <span class="sign-nourish-list">be your own expert · explore electronics-free meals · feed your genius · internal and external salt · question food thoughts and rules · thoroughly wash produce</span>
+        </div>
       </div>
 
       <!-- PISCES -->
@@ -512,6 +599,10 @@
         <div class="sign-herbs">
           <span class="sign-herbs-label">Herbs ✦</span>
           <span class="sign-herbs-list">alder (common), hemp, moss, sphagnum</span>
+        </div>
+        <div class="sign-nourishment">
+          <span class="sign-nourish-label">Nourishment ✦</span>
+          <span class="sign-nourish-list">eat for immunity · explore the root cause · food permission and allowance · honor sensitivity · iron-rich foods · support sleep</span>
         </div>
       </div>
 
@@ -638,19 +729,26 @@
       <div class="concept-card">
         <p class="concept-card-label">Personal planets</p>
         <p class="concept-card-title">The inner ones</p>
-        <p>
-          ☉ Sun · ☽ Moon · ☿ Mercury · ♀ Venus · ♂ Mars.
-          These move faster, so they're more personal in their effects.
-        </p>
+        <ul class="planet-item-list">
+          <li>☉ Sun</li>
+          <li>☽ Moon</li>
+          <li>☿ Mercury</li>
+          <li>♀ Venus</li>
+          <li>♂ Mars</li>
+        </ul>
+        <p>These move faster, so they're more personal in their effects.</p>
       </div>
       <div class="concept-card">
         <p class="concept-card-label">Social &amp; outer planets</p>
         <p class="concept-card-title">The slower ones</p>
-        <p>
-          ♃ Jupiter · ♄ Saturn · ♅ Uranus · ♆ Neptune · ♇ Pluto.
-          These move slowly and shape longer cycles. Uranus, Neptune, and Pluto are
-          often small and close together on the chart — look carefully.
-        </p>
+        <ul class="planet-item-list">
+          <li>♃ Jupiter</li>
+          <li>♄ Saturn</li>
+          <li>♅ Uranus</li>
+          <li>♆ Neptune</li>
+          <li>♇ Pluto</li>
+        </ul>
+        <p>These move slowly and shape longer cycles. Uranus, Neptune, and Pluto are often small and close together on the chart — look carefully.</p>
       </div>
     </div>
 
