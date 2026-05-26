@@ -8,7 +8,7 @@
 ## Course: "Your Year Ahead"
 
 **Price**: $27 · one-time · yours forever  
-**Format**: Written + audio (Staley records audio)  
+**Format**: Written (currently live). Audio blocks exist in all 8 modules but are commented out pending Staley's recordings — scripts are in `course/scripts/`.  
 **Audience**: Total beginners — no prior astrology knowledge assumed  
 **Tone**: Warm, grounded, accessible. Mystical but not precious. Plain English first, astrology terms explained as introduced.
 
@@ -291,3 +291,8 @@ Every day of the week has a planetary ruler. Every hour within that day has its 
 | 2026-05 | Stripe live, Payment Link wired to index.html, thank-you.html built |
 | 2026-05 | About section rewritten (18 years astrology, 10 years witchcraft, BPI, whimsy line) |
 | 2026-05 | Kit form moved from below course CTA to below About section |
+| 2026-05 | Landing page course section expanded — outcomes block, who-it's-for block, top CTA added |
+| 2026-05 | Audio blocks commented out in all 8 modules pending recording; "Written & audio" copy updated to "Written" sitewide |
+| 2026-05 | Modalities (cardinal/fixed/mutable) added — section in Module 01, aside-note callback in Module 03 |
+| 2026-05 | Birth time accuracy corrected in Module 02 (house placements unreliable without birth time) and Module 03 (ruling planet also uncertain when rising is uncertain) |
+| 2026-05 | Sign Modalities and Sign Nourishment sections added to COURSE-KNOWLEDGE.md |

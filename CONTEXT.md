@@ -86,7 +86,15 @@ Free offerings listed:
 1. **The Clear Eyes, Full Hearts Ritual** → `https://limitless-yeehaw.notion.site/the-clear-eyes-full-hearts-ritual`
 2. **The Self-Care Priority Map** → `https://limitless-yeehaw.notion.site/self-care-priority-map`
 
-Course section: "Your Year Ahead" — $27. Primary CTA "Get the Course — $27 →" links to live Stripe Payment Link. Kit email form is in its own section between About and Footer (moved from below the course CTA).
+Course section: "Your Year Ahead" — $27. Expanded section structure (top to bottom):
+1. Eyebrow + heading + description
+2. "What you'll walk away with" — 4-item outcomes block (2-col grid with ✦ markers)
+3. "This is for you if" — 4-item self-selection list (→ markers, bordered rows)
+4. **Top CTA** — "Get the Course — $27 →" → Stripe Payment Link
+5. Section separator + "What's inside" label + 8 module grid + capstone row
+6. Details row ($27 · Self-paced · Written · Every year)
+7. **Bottom CTA** — same Stripe link
+Note: details row reads "Written" (not "Written & audio") — audio commented out pending recording.
 
 Module grid on landing page: lists all 8 modules + capstone (updated).
 
@@ -115,6 +123,8 @@ Interactive solar return reading tool — also serves as the course capstone. Fr
 ### Course — All Eight Modules Complete
 The full "Your Year Ahead" course is built and in the repo. All modules link sequentially: 01 → 02 → 03 → 04 → 05 → 06 → 07 → 08 → capstone (year-ahead-snapshot.html). All nav labels read "Module X of 08". See COURSE-KNOWLEDGE.md for full course content details.
 
+**Format**: Written only (currently). Audio blocks exist in all 8 modules but are commented out (`<!-- ... -->`) pending Staley's recordings. To restore a module's audio: remove the `<!--` and `-->` lines wrapping that module's `.audio-block` div. Scripts are in `course/scripts/`.
+
 **Access model**: course is not in public nav. Users purchase via Stripe → redirected to thank-you.html → thank-you.html contains the course link. course/index.html is the entry point inside the course.
 
 ---
@@ -134,13 +144,12 @@ The full "Your Year Ahead" course is built and in the repo. All modules link seq
 
 ## What's Next (priority order)
 
-1. **Audio recording** — Staley records from scripts in `course/scripts/`. All 8 scripts exist. Audio blocks are already stubbed as "audio coming soon" in each module. Once recorded, embed audio player in the `.audio-block` in each module HTML.
+1. **Audio recording** — Staley records from scripts in `course/scripts/`. All 8 scripts exist. Audio blocks are commented out in all 8 modules — to restore after recording, remove the `<!--` / `-->` wrapping each module's `.audio-block`. Also update the "Written" references in `index.html`, `course/index.html` back to "Written & audio" once recordings are live.
 2. **Snapshot: additional features (deferred)** — ideas discussed: (a) a question to carry all year (Sun-house, one open question to hold, not answer); (b) a release phrase (what to put down, 12th-house-based); (c) "this year asks you to trust..." (rising or Sun-house, one-line completion); (d) a color/element/texture for the year (rising or Sun sign based); (e) an archetype for the year (named role + one line, rising-based); (f) a body invitation (sign body correspondence, one gentle line). All deferred — implement in future session.
 3. **Snapshot: Sun/Moon interplay note** — the `getInterplayPrompt()` "other" case is generic; a richer version would be more specific. Deferred.
 4. **Pluto plant list for Module 08** — the Planetary Magic module lists 9 planets of plants (no Pluto). Need to ask Staley or research.
 5. **Copy nitpicking** — Staley noted wanting to review and edit copy across modules; no specific modules flagged yet.
 6. **Sign nourishment — finish remaining 5 signs** — Taurus, Gemini, Leo, Virgo, Libra, Aquarius, Sagittarius are done (in COURSE-KNOWLEDGE.md). Still needed: **Aries, Cancer, Scorpio, Capricorn, Pisces**. Once all 12 are complete, weave into course content (likely Module 03, alongside each sign's herb entry).
-7. **Modalities section in Module 01** — brief cardinal/fixed/mutable overview added after signs intro. Callback added to Module 03 rising sign section.
 
 ---
 
@@ -157,6 +166,11 @@ The full "Your Year Ahead" course is built and in the repo. All modules link seq
 - ✓ **Stripe payment integration** — live account, $27 product, Payment Link wired into `index.html` CTA, `thank-you.html` built (post-purchase access page with course link + next steps), course URL removed from public nav
 - ✓ **About section** — updated bio across `index.html` and `course/index.html`: 18 years astrology / 10 years witchcraft / BPI / whimsy is antidote to attempted conformity
 - ✓ **Kit email form** — moved from below course CTA to dedicated section between About and Footer
+- ✓ **Landing page course section expanded** — added "What you'll walk away with" (4-item outcomes grid) and "This is for you if" (4-item self-selection list); CTA now appears at top and bottom of section; "personalized reading" language enforced (not "full personalized reading")
+- ✓ **Audio blocks commented out** — all 8 modules; `.audio-block` divs wrapped in HTML comments pending Staley's recordings; all "Written & audio" text references updated to "Written" across `index.html` and `course/index.html`
+- ✓ **Modalities added to course** — Module 01: new "One more layer: the modes" section (cardinal/fixed/mutable, concept-card format); Module 03: aside-note callback referencing all three modes in context of SR rising sign
+- ✓ **Birth time accuracy fixes** — Module 02: corrected aside-note to clarify that planetary signs + aspects are reliable without birth time, but SR Rising and all house placements are not; Module 03: corrected "ruling planet house placement still applies" — ruling planet is also uncertain when rising sign is uncertain
+- ✓ **COURSE-KNOWLEDGE.md updated** — Sign Modalities section added; Sign Nourishment section added (7 of 12 signs: Taurus, Gemini, Leo, Virgo, Libra, Aquarius, Sagittarius)
 - ✓ **Stale file cleanup** — deleted `course/06-aspects.html` (orphaned duplicate from renumbering)
 
 ---
