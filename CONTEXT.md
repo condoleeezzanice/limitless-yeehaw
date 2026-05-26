@@ -149,7 +149,8 @@ The full "Your Year Ahead" course is built and in the repo. All modules link seq
 3. **Snapshot: Sun/Moon interplay note** — the `getInterplayPrompt()` "other" case is generic; a richer version would be more specific. Deferred.
 4. **Pluto plant list for Module 08** — the Planetary Magic module lists 9 planets of plants (no Pluto). Need to ask Staley or research.
 5. **Copy nitpicking** — Staley noted wanting to review and edit copy across modules; no specific modules flagged yet.
-6. **Sign nourishment — weave into course content** — All 12 signs complete in COURSE-KNOWLEDGE.md. Next step: weave into course content (likely Module 03, alongside each sign's herb entry).
+6. **Sign nourishment — weave into course content** — All 12 signs complete in COURSE-KNOWLEDGE.md. Next step: weave into Module 03, alongside each sign's herb entry.
+7. **Planetary nourishment — weave into course content** — All 10 planets complete in COURSE-KNOWLEDGE.md (foods + planetary balancing relationships). Next step: weave into Module 08 (Planetary Magic), one section per planet.
 
 ---
 

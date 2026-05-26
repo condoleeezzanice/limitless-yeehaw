@@ -247,6 +247,109 @@ Every day of the week has a planetary ruler. Every hour within that day has its 
 
 ---
 
+## Planetary Nourishment
+*(Staley's — to be woven into Module 08 (Planetary Magic), one section per planet. All 10 planets complete. Note: some planetary foods overlap — that's intentional and useful for practitioners.)*
+
+### ☉ Sun
+**Balance the Sun with:** in most cases it is not recommended to reduce the Sun because it is your life force ♡
+
+**Solar foods:** yellow and orange bell peppers · carrots · citrus · coconut · dried fruit (especially dates and raisins) · plantains · sunchokes · peanuts · sunflower seeds · bay leaves · lemongrass · saffron · cane sugar
+
+---
+
+### ☽ Moon
+**Balance the Moon with:**
+- Mars enlivens a sleepy Moon
+- Saturn stabilizes and dries an inconsistent, boggy Moon
+
+**Lunar foods:** bok choy · broccoli · cucumbers · okra · squashes · truffles · watercress · general ruler of all seeds and seafood · veal · soft cheeses · yogurt
+
+---
+
+### ☿ Mercury
+**Balance Mercury with:**
+- Jupiter expands a detailed Mercury
+- Venus calms a wound-up Mercury
+- Saturn anchors a spacey Mercury
+- Neptune sedates an anxious Mercury
+
+**Mercurial foods:** bananas · carrots · celery · mushrooms · zucchini · general ruler of grains · barley · corn · couscous · quinoa · oregano · tarragon · walnuts · chicken · game birds · turkey
+
+---
+
+### ♀ Venus
+**Balance Venus with:**
+- Mars tones a lazy Venus
+- Mercury quickens a sluggish Venus
+- Saturn dries, disciplines, and gives Venus structure
+- Uranus shakes up a sleepy or bored Venus
+
+**Venetian foods:** general ruler of all fruit, especially stone fruit · avocados · mangoes · dates · peaches · pears · plums
+
+---
+
+### ♂ Mars
+**Balance Mars with:**
+- Venus calms an upset Mars
+- Moon cools a hot Mars
+- Saturn contains an overactive Mars
+- Neptune sedates an inflamed Mars
+
+**Martian foods:** artichokes · arugula · daikon · dragon fruit · hot peppers · oats · red beans · black pepper · cardamom · mustard · turmeric · black tea or coffee
+
+---
+
+### ♃ Jupiter
+**Balance Jupiter with:**
+- Mercury focuses an overexuberant Jupiter
+- Saturn anchors a floating, excessive Jupiter
+
+**Jupiterian foods:** apples · apricots · asparagus · Brussels sprouts · figs · kale · turnips · almonds · cacao · maple sugar · maple syrup · sage · thyme
+
+---
+
+### ♄ Saturn
+**Balance Saturn with:**
+- Sun brightens a sad Saturn
+- Mercury quickens a slow Saturn
+- Moon softens a rigid Saturn
+- Mars warms and wakes up a tired Saturn
+- Venus moistens a stiff Saturn
+- Jupiter expands a pessimistic Saturn
+- Uranus liberates a chained Saturn
+- Neptune opens a shut-down Saturn
+
+**Saturnian foods:** root vegetables · beets · blackberries · black cherries · durian · olives · onions · spinach · bone broth · vinegars · black beans · black lentils
+
+---
+
+### ♅ Uranus
+**Balance Uranus with:**
+- Venus soothes a fitful Uranus
+- Saturn grounds excess Uranus electricity
+
+**Uranian foods:** no traditional food rulership. Uranus' foods have a distinct appearance or disruptive effect. Any food or manner of eating that's outside of your comfort zone is Uranian for you.
+
+---
+
+### ♆ Neptune
+**Balance Neptune with:**
+- Mercury awakens a confused Neptune
+- Mars pierces Neptune's fatiguing fog
+- Saturn forces Neptune to embody
+
+**Neptunian foods:** no traditional food rulership of its own. Neptunian foods may come from the sea, grow in a damp environment, or be water-rich and sticky sweet. Neptune doesn't use food to ground, but to transcend.
+
+---
+
+### ♇ Pluto
+**Balance Pluto with:**
+- The Sun helps resurrect Pluto
+
+**Plutonian foods:** carry an extreme flavor, odor, or effect. Pluto foods may help detox the body or assist in waste removal by being very fiber rich.
+
+---
+
 ## Writing Guidelines
 
 - Explain astrology terms the first time they appear, every time (don't assume the reader remembered from an earlier module)
