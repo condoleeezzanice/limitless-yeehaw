@@ -89,6 +89,24 @@
   - 12th: the hidden, the unconscious, solitude, endings, spirituality
   *(Full house descriptions written in Staley's voice across Modules 04 and 05)*
 
+### Sign Modalities (Modes)
+
+Three modes describe the *style* of how a sign expresses its energy. Every four signs share a mode — one of each element pairing.
+
+**Cardinal** — moves directly or forcefully; initiating energy
+- Signs: Aries, Cancer, Libra, Capricorn
+- SR context: a cardinal rising/Sun/Moon signals a year oriented around starting, launching, or initiating something new
+
+**Fixed** — moves consistently; sustaining energy
+- Signs: Taurus, Leo, Scorpio, Aquarius
+- SR context: a fixed placement signals a year of building, consolidating, holding ground, seeing things through
+
+**Mutable** — moves flexibly or adaptably; transitional energy
+- Signs: Gemini, Virgo, Sagittarius, Pisces
+- SR context: a mutable placement signals a year of adapting, pivoting, and transitioning
+
+*Where in course*: Brief section in Module 01 after the signs intro. Callback in Module 03 when reading the SR rising sign — note mode as a layer of context on top of the sign itself.
+
 ### Aspects
 **Ease / Flow:**
 - Sextiles, trines — the energies work together well and have access to support from each other
@@ -208,6 +226,19 @@ Every day of the week has a planetary ruler. Every hour within that day has its 
 
 ### Staley's Closing Line for This Content
 "You may use any of these plants with the intention of harnessing that planet's energy to aid in your endeavors. Welcome to witchcraft, baby."
+
+---
+
+## Sign Nourishment
+*(Staley's — to be woven into course content in a future session. Still needed before this can be used: Aries, Cancer, Scorpio, Capricorn, Pisces.)*
+
+- **Taurus**: allow satisfaction · carb curiosity · high fiber, protein, and healthy fat · support steady energy · warm liquids
+- **Gemini**: nervous system support · listen to subtle body signals · embrace your food mood · create an adaptable pantry
+- **Leo**: colorful veggies · daily decadence · heart opening, heart protecting · solar nutrient focus (magnesium, vit A, vit D)
+- **Virgo**: easy to digest · food as information · focus on feeling rather than numbers · keep it simple · well-cooked and warm food
+- **Libra**: balance blood sugar · consistent mealtimes · cultivate neutral food talk · define balance for yourself · harmonious surroundings · pair carbs with protein and/or fat · watch for endocrine disruptors
+- **Aquarius**: be your own expert · explore electronics-free meals · feed your genius · internal and external salt · question food thoughts and rules · thoroughly wash produce
+- **Sagittarius**: denser fats and proteins · food as adventure · lower body connection at meals · jupiter nutrient focus (vits A, B6, D, E, K) · stimulating/soothing food lens
 
 ---
 

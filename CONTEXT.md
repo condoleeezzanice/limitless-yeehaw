@@ -139,6 +139,8 @@ The full "Your Year Ahead" course is built and in the repo. All modules link seq
 3. **Snapshot: Sun/Moon interplay note** — the `getInterplayPrompt()` "other" case is generic; a richer version would be more specific. Deferred.
 4. **Pluto plant list for Module 08** — the Planetary Magic module lists 9 planets of plants (no Pluto). Need to ask Staley or research.
 5. **Copy nitpicking** — Staley noted wanting to review and edit copy across modules; no specific modules flagged yet.
+6. **Sign nourishment — finish remaining 5 signs** — Taurus, Gemini, Leo, Virgo, Libra, Aquarius, Sagittarius are done (in COURSE-KNOWLEDGE.md). Still needed: **Aries, Cancer, Scorpio, Capricorn, Pisces**. Once all 12 are complete, weave into course content (likely Module 03, alongside each sign's herb entry).
+7. **Modalities section in Module 01** — brief cardinal/fixed/mutable overview added after signs intro. Callback added to Module 03 rising sign section.
 
 ---
 
