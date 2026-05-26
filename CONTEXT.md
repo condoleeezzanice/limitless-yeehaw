@@ -11,7 +11,7 @@
 - GitHub repo: `condoleeezzanice/limitless-yeehaw` (public, deployed via GitHub Pages)
 - Local folder: `/Users/staleystidhamlusk/limitless-yeehaw/`
 - Staley's email: staley.stidham@tracegains.com
-- Staley is based in Oklahoma, is a UX designer by day, astrologer by passion
+- Staley is based in Oklahoma, is a UX designer by day, astrologer and witch by passion
 
 ---
 
@@ -35,7 +35,7 @@ CSS variables: `--plum`, `--violet`, `--magenta`, `--pink`, `--sky`, `--blush`, 
 - **UI/Labels**: system-ui, sans-serif
 
 ### Voice
-Warm, mystical, Oklahoma-rooted. Not overly precious — grounded woo. Second-person ("you"), present tense, confident.
+Warm, mystical, Oklahoma-rooted. Not overly precious — grounded woo. Second-person ("you"), present tense, confident. "Whimsy is my antidote to attempted conformity."
 
 ---
 
@@ -45,6 +45,9 @@ Warm, mystical, Oklahoma-rooted. Not overly precious — grounded woo. Second-pe
 limitless-yeehaw/
 ├── index.html                    ← Landing page (live, complete)
 ├── year-ahead-snapshot.html      ← Free interactive tool / course capstone (live, complete)
+├── thank-you.html                ← Post-purchase access page (Stripe redirect target)
+├── stripe-card.png               ← Stripe product thumbnail (800×800 branded PNG)
+├── favicon.svg                   ← ✦ glyph, magenta-to-pink gradient
 ├── CONTEXT.md                    ← This file
 ├── COURSE-KNOWLEDGE.md           ← Course content knowledge base
 ├── css/
@@ -52,20 +55,24 @@ limitless-yeehaw/
 │   ├── snapshot.css              ← Snapshot tool styles
 │   └── course.css                ← All course module styles (shared)
 └── course/
-    ├── index.html                ← Course sales/intro page ✓
+    ├── index.html                ← Course intro/sales page (post-purchase entry point)
     ├── 01-primer.html            ← Module 01: The Beginner Primer ✓
     ├── 02-cast-your-chart.html   ← Module 02: Cast Your Chart ✓
     ├── 03-rising-sign.html       ← Module 03: Your Rising Sign & Ruling Planet ✓
     ├── 04-sun-and-moon.html      ← Module 04: Sun & Moon ✓
     ├── 05-houses.html            ← Module 05: Reading the Houses ✓
-    ├── 06-aspects.html           ← Module 06: Aspects: Lines on the Chart ✓
+    ├── 06-planets.html           ← Module 06: The Planets ✓
+    ├── 07-aspects.html           ← Module 07: Aspects: Lines on the Chart ✓
+    ├── 08-planetary-magic.html   ← Module 08: Planetary Magic ✓
     └── scripts/                  ← Audio scripts (Staley records from these)
         ├── 01-primer-audio-script.md
         ├── 02-cast-your-chart-audio-script.md
         ├── 03-rising-sign-audio-script.md
         ├── 04-sun-and-moon-audio-script.md
         ├── 05-houses-audio-script.md
-        └── 06-aspects-audio-script.md
+        ├── 06-planets-audio-script.md
+        ├── 07-aspects-audio-script.md
+        └── 08-planetary-magic-audio-script.md
 ```
 
 ---
@@ -73,14 +80,17 @@ limitless-yeehaw/
 ## What's Live
 
 ### Landing Page (`index.html`)
-Sections: Hero → Free Offerings → Course Waitlist → About → Footer
+Sections: Hero → Free Offerings → Course → About → Email List (Kit form) → Footer
 
 Free offerings listed:
-1. **Year Ahead Snapshot Tool** → `year-ahead-snapshot.html`
-2. **The Clear Eyes, Full Hearts Ritual** → `https://limitless-yeehaw.notion.site/the-clear-eyes-full-hearts-ritual`
-3. **The Self-Care Priority Map** → `https://limitless-yeehaw.notion.site/self-care-priority-map`
+1. **The Clear Eyes, Full Hearts Ritual** → `https://limitless-yeehaw.notion.site/the-clear-eyes-full-hearts-ritual`
+2. **The Self-Care Priority Map** → `https://limitless-yeehaw.notion.site/self-care-priority-map`
 
-Course section: "Your Year Ahead" — $27 course. Buy Now CTA links to live Stripe Payment Link. Kit email form kept as secondary "stay in the loop" element below CTA.
+Course section: "Your Year Ahead" — $27. Primary CTA "Get the Course — $27 →" links to live Stripe Payment Link. Kit email form is in its own section between About and Footer (moved from below the course CTA).
+
+Module grid on landing page: lists all 8 modules + capstone (updated).
+
+About section: updated bio — "Eighteen years of astrology. Ten years of witchcraft. Several very illuminating conversations with animals — and a few with people who were no longer technically here. I'm a UX designer by day and a full-time practitioner of the mystical by everything else. Trained at the Boulder Psychic Institute. Whimsy is my antidote to attempted conformity."
 
 ### Snapshot Tool (`year-ahead-snapshot.html`)
 Interactive solar return reading tool — also serves as the course capstone. Free, no login required.
@@ -102,18 +112,12 @@ Interactive solar return reading tool — also serves as the course capstone. Fr
 - Moon label reads "emotional focus" — NOT "emotional needs" (Staley's preference)
 - All copy lives in JS data objects: `risingCopy`, `sunCopy`, `moonCopy`, `sunHouseShort`, `moonHouseShort`, `rulingPlanet`, `sunHouseMantra`, `moonHouseMantra`, `signHerbs`, `sunJournalPrompts`, `moonJournalPrompts`, `getInterplayPrompt()`, `house7Copy`, `house12Copy`, `anchorPhrase`, `permissionPhrase`
 
-### Course — All Six Modules Complete
-The full "Your Year Ahead" course is built and in the repo. All modules link to each other sequentially. The capstone (`year-ahead-snapshot.html`) is already live. See COURSE-KNOWLEDGE.md for full course details.
+### Course — All Eight Modules Complete
+The full "Your Year Ahead" course is built and in the repo. All modules link sequentially: 01 → 02 → 03 → 04 → 05 → 06 → 07 → 08 → capstone (year-ahead-snapshot.html). All nav labels read "Module X of 08". See COURSE-KNOWLEDGE.md for full course content details.
+
+**Access model**: course is not in public nav. Users purchase via Stripe → redirected to thank-you.html → thank-you.html contains the course link. course/index.html is the entry point inside the course.
 
 ---
-
-## What's Next (priority order)
-
-1. **Audio recording** — Staley records from scripts in `course/scripts/` and embeds in each module (audio blocks are already stubbed as "audio coming soon")
-2. **Notion template blurbs** — add a Limitless Yeehaw brand blurb + link to limitlessyeehaw.com at the bottom of both free Notion templates (Clear Eyes Full Hearts Ritual + Self-Care Priority Map). ~50 downloads so far, good conversion opportunity.
-3. **Snapshot: additional features brainstormed** — ideas discussed: (a) a question to carry all year (Sun-house, one open question to hold, not answer); (b) a release phrase (what to put down, 12th-house-based); (c) "this year asks you to trust..." (rising or Sun-house, one-line completion); (d) a color/element/texture for the year (rising or Sun sign based, tangible correspondence); (e) an archetype for the year (named role + one line, rising-based); (f) a body invitation (sign body correspondence, one gentle line). All deferred — implement in future session.
-4. **Snapshot: Sun/Moon interplay note** — the `getInterplayPrompt()` "other" case is generic; a richer version would be more specific. Deferred.
-5. **Copy nitpicking across course modules** — Staley noted wanting to review and edit copy; no specific modules flagged yet.
 
 ## Stripe Setup (completed 2026-05-25)
 
@@ -124,35 +128,51 @@ The full "Your Year Ahead" course is built and in the repo. All modules link to 
 - **Stripe brand settings**: button color `#E040A8` (magenta), background `#ffffff`
 - **Statement descriptor**: LIMITLESS YEEHAW
 - **Tax collection**: skipped for now (revisit when revenue warrants)
-- **Stripe Climate**: skipped
 - **Product image**: `stripe-card.png` in repo root — 800×800 branded PNG (purple/magenta gradient, four-pointed star, "Your Year Ahead" serif title)
 
-## Completed
+---
 
-- ✓ **Course index page** — `course/index.html` — built 2026-05; sales/intro page linking into Module 01
-- ✓ **Notion template links** — both live in `index.html`: Self-Care Priority Map + Clear Eyes, Full Hearts Ritual
-- ✓ **HTTPS enforcement** — enabled in GitHub Pages settings
-- ✓ **Module 02 edit** — added whole sign house system explanation (aside-note style, after the three landmarks section)
-- ✓ **Module 04 edit** — added Sun herb reminder callout between the Sun and Moon halves, so each planet section has its own herb moment
-- ✓ **Snapshot major rebuild** — theme word, house calculation, house descriptions, ruling planet, herbal allies, journal prompts, chart wheel direction fix, house number labels
-- ✓ **Snapshot: 7th house, 12th house, year label** — relationship theme (7th, sign-keyed), background note (12th, sign-keyed), solar return year in footer
-- ✓ **Snapshot: anchor phrase** — Moon-house-based grounding section with two parts: anchor sentence (remember + reframe blend) + "give yourself permission to..." line
-- ✓ **Landing page linked to course** — "Coming Soon" eyebrow removed; primary CTA button ("Start the Course →") added linking to `course/index.html`; Kit email form kept as secondary "stay in the loop" element; eyebrow updated to "$27 · Yours Forever"
-- ✓ **Landing page copy fixed** — removed all "no astrologer" framing across `index.html` (×2) and `course/index.html` (×2); hero subhead replaced with Option D ("personal cosmic intelligence...permanent access to your own map"); feature list item updated to "A skill you can use every year, starting now"
-- ✓ **Landing page module list corrected** — fixed order (Primer is 01, Cast Your Chart is 02) and rewrote all descriptions to match actual module content; capstone description updated to reflect current snapshot features
-- ✓ **Favicon** — `favicon.svg` created (✦ glyph, magenta-to-pink gradient, deep plum background); wired into all HTML files across root and `course/`
-- ✓ **Stripe payment integration** — live Stripe account, $27 product, Payment Link wired into `index.html` CTA, thank-you page built at `/thank-you.html` (post-purchase access page with course link + next steps), course URL removed from public nav
-- ✓ **File structure update** — `thank-you.html` and `stripe-card.png` added to repo root
+## What's Next (priority order)
 
-## Context Files — Feed These at the Start of Every Session
+1. **Audio recording** — Staley records from scripts in `course/scripts/`. All 8 scripts exist. Audio blocks are already stubbed as "audio coming soon" in each module. Once recorded, embed audio player in the `.audio-block` in each module HTML.
+2. **Snapshot: additional features (deferred)** — ideas discussed: (a) a question to carry all year (Sun-house, one open question to hold, not answer); (b) a release phrase (what to put down, 12th-house-based); (c) "this year asks you to trust..." (rising or Sun-house, one-line completion); (d) a color/element/texture for the year (rising or Sun sign based); (e) an archetype for the year (named role + one line, rising-based); (f) a body invitation (sign body correspondence, one gentle line). All deferred — implement in future session.
+3. **Snapshot: Sun/Moon interplay note** — the `getInterplayPrompt()` "other" case is generic; a richer version would be more specific. Deferred.
+4. **Pluto plant list for Module 08** — the Planetary Magic module lists 9 planets of plants (no Pluto). Need to ask Staley or research.
+5. **Copy nitpicking** — Staley noted wanting to review and edit copy across modules; no specific modules flagged yet.
 
-| File | When to include |
-|---|---|
-| `CONTEXT.md` | Always |
-| `COURSE-KNOWLEDGE.md` | Any course-writing or course-editing session |
-| `Personal_Woo_Context.md` | Any session involving voice, tone, astrology philosophy, or Staley's personal chart/worldview |
+---
 
-All three live in `/Users/staleystidhamlusk/limitless-yeehaw/`.
+## Completed (full log)
+
+- ✓ **Site launched** — `limitlessyeehaw.com` live via GitHub Pages + custom domain
+- ✓ **Favicon** — `favicon.svg` created (✦ glyph, magenta-to-pink gradient, deep plum background); wired into all HTML files
+- ✓ **Snapshot tool** — built and live; major rebuild (house calculation, theme word, chart wheel, journal prompts, herbal allies, ruling planet, 7th/12th house blocks, anchor phrase)
+- ✓ **Course index page** — `course/index.html` — course intro/sales page linking into Module 01; updated to reflect 8 modules
+- ✓ **All 8 course modules** — built, linked sequentially, nav labels all "of 08"
+  - 01 Beginner Primer, 02 Cast Your Chart, 03 Rising Sign & Ruling Planet, 04 Sun & Moon, 05 Houses, 06 The Planets, 07 Aspects, 08 Planetary Magic
+- ✓ **All 8 audio scripts** — `course/scripts/01` through `08`, ready for Staley to record
+- ✓ **Notion template links** — both live in `index.html`: Self-Care Priority Map + Clear Eyes, Full Hearts Ritual; Limitless Yeehaw blurbs added to both Notion templates
+- ✓ **Stripe payment integration** — live account, $27 product, Payment Link wired into `index.html` CTA, `thank-you.html` built (post-purchase access page with course link + next steps), course URL removed from public nav
+- ✓ **About section** — updated bio across `index.html` and `course/index.html`: 18 years astrology / 10 years witchcraft / BPI / whimsy is antidote to attempted conformity
+- ✓ **Kit email form** — moved from below course CTA to dedicated section between About and Footer
+- ✓ **Stale file cleanup** — deleted `course/06-aspects.html` (orphaned duplicate from renumbering)
+
+---
+
+## git push workflow
+
+Claude cannot push to GitHub directly (network restriction in sandbox). Staley pushes manually.
+
+**Standard push**:
+```bash
+git add -A && git commit -m "message" && git push origin main
+```
+
+**If index.lock error**:
+```bash
+rm .git/index.lock
+git add -A && git commit -m "message" && git push origin main
+```
 
 ---
 
@@ -168,7 +188,17 @@ All three live in `/Users/staleystidhamlusk/limitless-yeehaw/`.
   - 4 × A records → 185.199.108.153, .109.153, .110.153, .111.153
   - CNAME `www` → `condoleeezzanice.github.io`
 
-**To deploy changes**: `git add . && git commit -m "message" && git push origin main`
+---
+
+## Context Files — Feed These at the Start of Every Session
+
+| File | When to include |
+|---|---|
+| `CONTEXT.md` | Always |
+| `COURSE-KNOWLEDGE.md` | Any course-writing or course-editing session |
+| `Personal_Woo_Context.md` | Any session involving voice, tone, astrology philosophy, or Staley's personal chart/worldview |
+
+All three live in `/Users/staleystidhamlusk/limitless-yeehaw/`.
 
 ---
 

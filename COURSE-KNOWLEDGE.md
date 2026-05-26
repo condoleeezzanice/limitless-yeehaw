@@ -252,6 +252,11 @@ Every day of the week has a planetary ruler. Every hour within that day has its 
 | 2026-05 | All module nav labels updated to "of 08" — modules 01–07 |
 | 2026-05 | Module 07 next link updated → 08-planetary-magic.html; closing text updated |
 | 2026-05 | index.html updated — Module 08 entry added to course grid |
+| 2026-05 | course/index.html updated — module count "Six" → "Eight", full module list corrected, About bio updated to current version, price features deduplicated |
+| 2026-05 | course/06-aspects.html deleted — stale orphan from renumbering |
+| 2026-05 | course/scripts/06-aspects-audio-script.md renamed to 07-aspects-audio-script.md |
+| 2026-05 | course/scripts/06-planets-audio-script.md created — Module 06 (The Planets) now has all deliverables |
+| 2026-05 | All 8 modules complete with audio scripts — course is fully built |
 | 2026-05 | Stripe live, Payment Link wired to index.html, thank-you.html built |
 | 2026-05 | About section rewritten (18 years astrology, 10 years witchcraft, BPI, whimsy line) |
 | 2026-05 | Kit form moved from below course CTA to below About section |
