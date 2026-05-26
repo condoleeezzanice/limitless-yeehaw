@@ -230,15 +230,20 @@ Every day of the week has a planetary ruler. Every hour within that day has its 
 ---
 
 ## Sign Nourishment
-*(Staley's — to be woven into course content in a future session. Still needed before this can be used: Aries, Cancer, Scorpio, Capricorn, Pisces.)*
+*(Staley's — to be woven into course content in a future session. All 12 signs complete.)*
 
+- **Aries**: carry snacks and water · hydrate · moderate caffeine · plan ahead · prioritize protein · slow down to eat
 - **Taurus**: allow satisfaction · carb curiosity · high fiber, protein, and healthy fat · support steady energy · warm liquids
 - **Gemini**: nervous system support · listen to subtle body signals · embrace your food mood · create an adaptable pantry
+- **Cancer**: calm eating environment · comfort food · digest your emotions · nurturing food voice · protect digestive fire · soft, warm food
 - **Leo**: colorful veggies · daily decadence · heart opening, heart protecting · solar nutrient focus (magnesium, vit A, vit D)
 - **Virgo**: easy to digest · food as information · focus on feeling rather than numbers · keep it simple · well-cooked and warm food
 - **Libra**: balance blood sugar · consistent mealtimes · cultivate neutral food talk · define balance for yourself · harmonious surroundings · pair carbs with protein and/or fat · watch for endocrine disruptors
-- **Aquarius**: be your own expert · explore electronics-free meals · feed your genius · internal and external salt · question food thoughts and rules · thoroughly wash produce
+- **Scorpio**: know your fibers · pre- and probiotic foods · prioritize protein · remember the gut-hormone relationship · support detox organs
 - **Sagittarius**: denser fats and proteins · food as adventure · lower body connection at meals · jupiter nutrient focus (vits A, B6, D, E, K) · stimulating/soothing food lens
+- **Capricorn**: bone building · nutrient dense · saturn nutrient focus (protein, minerals, vit C) · skin supporting · warming and grounding
+- **Aquarius**: be your own expert · explore electronics-free meals · feed your genius · internal and external salt · question food thoughts and rules · thoroughly wash produce
+- **Pisces**: eat for immunity · explore the root cause · food permission and allowance · honor sensitivity · iron-rich foods · support sleep
 
 ---
 
