@@ -340,23 +340,25 @@
           <!-- Center glyph -->
           <text x="250" y="250" text-anchor="middle" font-family="Georgia,serif" font-size="13" fill="rgba(152,120,232,0.35)">✦</text>
 
-          <!-- All 12 cusp lines (dim violet) — ASC and featured cusp drawn separately below -->
+          <!-- All 12 cusp lines (dim violet) — featured cusp drawn separately below -->
           <g stroke="rgba(152,120,232,0.3)" stroke-width="1.2" stroke-linecap="round">
             <line x1="214" y1="307" x2="158" y2="405"/><!-- 3rd 120° -->
-            <line x1="250" y1="317" x2="250" y2="430"/><!-- 4th/IC 90° -->
             <line x1="286" y1="307" x2="342" y2="405"/><!-- 5th 60° -->
             <line x1="312" y1="281" x2="410" y2="338"/><!-- 6th 30° -->
-            <line x1="322" y1="245" x2="435" y2="245"/><!-- 7th/DSC 0° -->
             <line x1="312" y1="209" x2="410" y2="153"/><!-- 8th 330° -->
             <line x1="286" y1="183" x2="342" y2="85"/> <!-- 9th 300° -->
-            <line x1="250" y1="173" x2="250" y2="60"/> <!-- 10th/MC 270° -->
             <line x1="214" y1="183" x2="158" y2="85"/> <!-- 11th 240° -->
             <line x1="188" y1="209" x2="90"  y2="153"/><!-- 12th 210° -->
           </g>
 
-          <!-- ASC / 1st house cusp — highlighted violet -->
-          <line x1="178" y1="245" x2="65" y2="245" stroke="#9878E8" stroke-width="2.5" stroke-linecap="round" filter="url(#cg-v)"/>
-          <circle cx="65" cy="245" r="4" fill="#9878E8"/>
+          <!-- Axis lines: ASC / IC / DSC / MC — all styled consistently -->
+          <g stroke="rgba(152,120,232,0.55)" stroke-width="1.5" stroke-linecap="round">
+            <line x1="178" y1="245" x2="65"  y2="245"/><!-- ASC/1st 180° -->
+            <line x1="250" y1="317" x2="250" y2="430"/><!-- IC/4th 90° -->
+            <line x1="322" y1="245" x2="435" y2="245"/><!-- DSC/7th 0° -->
+            <line x1="250" y1="173" x2="250" y2="60"/> <!-- MC/10th 270° -->
+          </g>
+          <circle cx="65" cy="245" r="3.5" fill="rgba(152,120,232,0.55)"/>
 
           <!-- Featured cusp callout: 2nd house cusp at 150° — magenta -->
           <line x1="188" y1="281" x2="90" y2="338" stroke="#E040A8" stroke-width="2.5" stroke-linecap="round" filter="url(#cg-m)"/>
@@ -386,8 +388,8 @@
           </g>
 
           <!-- Axis labels -->
-          <text x="44" y="237" text-anchor="middle" font-family="system-ui,sans-serif" font-size="9.5" fill="#9878E8" font-weight="700">ASC</text>
-          <text x="44" y="249" text-anchor="middle" font-family="system-ui,sans-serif" font-size="8" fill="rgba(152,120,232,0.6)">1st cusp</text>
+          <text x="44" y="237" text-anchor="middle" font-family="system-ui,sans-serif" font-size="9.5" fill="rgba(152,120,232,0.85)" font-weight="700">ASC</text>
+          <text x="44" y="249" text-anchor="middle" font-family="system-ui,sans-serif" font-size="8" fill="rgba(152,120,232,0.55)">1st cusp</text>
           <text x="451" y="242" text-anchor="start" font-family="system-ui,sans-serif" font-size="9.5" fill="rgba(255,240,248,0.32)">DSC</text>
           <text x="250" y="51" text-anchor="middle" font-family="system-ui,sans-serif" font-size="9.5" fill="rgba(255,240,248,0.32)">MC</text>
           <text x="250" y="448" text-anchor="middle" font-family="system-ui,sans-serif" font-size="9.5" fill="rgba(255,240,248,0.32)">IC</text>
