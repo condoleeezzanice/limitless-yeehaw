@@ -52,7 +52,7 @@ body {
 .nav-back:hover { opacity: 1; }
 .nav-module-label {
   font-size: 0.78rem;
-  color: rgba(255,240,248,0.4);
+  color: rgba(255,240,248,0.55); /* bumped from 0.4 for WCAG AA contrast */
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
@@ -125,7 +125,7 @@ body {
 .audio-placeholder {
   margin-left: auto;
   font-size: 0.78rem;
-  color: rgba(255,240,248,0.35);
+  color: rgba(255,240,248,0.55); /* bumped from 0.35 for WCAG AA contrast */
   font-style: italic;
 }
 
@@ -267,4 +267,40 @@ body {
   font-family: var(--serif);
   font-size: 1rem;
   color: var(--blush);
+}
+
+/* ── ACCESSIBILITY ── */
+
+/* Skip-to-content — visible only on keyboard focus */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  z-index: 9999;
+}
+.skip-link:focus {
+  position: fixed;
+  top: 0.75rem;
+  left: 0.75rem;
+  width: auto;
+  height: auto;
+  padding: 0.6rem 1.25rem;
+  background: var(--violet);
+  color: var(--blush);
+  font-size: 0.85rem;
+  font-family: var(--body);
+  text-decoration: none;
+  border-radius: 6px;
+  border: 1px solid rgba(255,240,248,0.25);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.45);
+}
+
+/* Global keyboard focus ring (does not affect mouse clicks) */
+:focus-visible {
+  outline: 2px solid var(--violet);
+  outline-offset: 3px;
+  border-radius: 3px;
 }

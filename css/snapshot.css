@@ -133,7 +133,12 @@ body {
 }
 
 .field select:focus {
-  outline: none;
+  outline: none; /* suppress browser default for mouse clicks */
+  border-color: rgba(152,120,232,0.7);
+}
+.field select:focus-visible {
+  outline: 2px solid #9878E8; /* keyboard focus — overrides the none above */
+  outline-offset: 0;
   border-color: rgba(152,120,232,0.7);
 }
 

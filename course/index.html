@@ -410,7 +410,12 @@
   transition: border-color 0.2s;
 }
 .gate-field input:focus {
-  outline: none;
+  outline: none; /* suppress browser default for mouse clicks */
+  border-color: rgba(152,120,232,0.7);
+}
+.gate-field input:focus-visible {
+  outline: 2px solid var(--violet); /* keyboard focus — overrides the none above */
+  outline-offset: 0;
   border-color: rgba(152,120,232,0.7);
 }
 .gate-field input::placeholder {
@@ -460,8 +465,10 @@
 </head>
 <body>
 
+<a class="skip-link" href="#main-content">Skip to content</a>
+
 <!-- ── NAV ── -->
-<nav class="nav">
+<nav class="nav" aria-label="Site">
   <a class="nav-brand" href="../index.html">Limitless Yeehaw</a>
   <div class="nav-right">
     <a class="nav-cta" href="01-primer.html">Begin the course →</a>
@@ -488,7 +495,7 @@
     </div>
     <button type="submit" class="gate-btn">Enter the Course →</button>
   </form>
-  <p id="gate-error" class="gate-error"></p>
+  <p id="gate-error" class="gate-error" role="alert" aria-live="polite" aria-atomic="true"></p>
   <p class="gate-help">
     Can't find your token? Email <a href="mailto:hi@limitlessyeehaw.com">hi@limitlessyeehaw.com</a>
   </p>
@@ -496,6 +503,7 @@
 
 <!-- ── COURSE CONTENT ── -->
 <div id="course-content" style="display:none;">
+<a id="main-content" tabindex="-1" style="position:absolute;"></a>
 
 <!-- ── HERO ── -->
 <div class="course-hero">
@@ -701,6 +709,7 @@
     errEl.textContent = '';
     btn.textContent = 'Checking…';
     btn.disabled = true;
+    btn.setAttribute('aria-busy', 'true');
 
     try {
       const res = await fetch('/.netlify/functions/validate-token', {
@@ -718,11 +727,13 @@
         errEl.textContent = "That email and token didn't match — check your purchase confirmation email and try again.";
         btn.textContent = 'Enter the Course →';
         btn.disabled = false;
+        btn.removeAttribute('aria-busy');
       }
     } catch (err) {
       errEl.textContent = 'Something went wrong — please try again in a moment.';
       btn.textContent = 'Enter the Course →';
       btn.disabled = false;
+      btn.removeAttribute('aria-busy');
     }
   }
 </script>
