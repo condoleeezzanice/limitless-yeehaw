@@ -200,6 +200,13 @@ The full "Your Year Ahead" course is built and in the repo. All modules link seq
 - ✓ **Netlify env vars set** — STRIPE_SECRET_KEY, RESEND_API_KEY, STRIPE_WEBHOOK_SECRET
 - ✓ **Admin bypass added** — `course/index.html?admin=YEEHAW` for manually onboarding pre-gate buyers
 - ✓ **Monetization strategy brainstormed** — $99 1-2-1 session agreed upon; tiered community pricing discussed (not yet built)
+- ✓ **Module 05 course copy edits** (2026-05-27):
+  - 7th house copy updated to clarify it's the house of **longterm, committed** relationships (not casual or early-stage); added "this is not the house of casual connections or early-stage dating"
+  - Knowledge base internal reference fixed — "full list in course knowledge base" replaced with forward reference to remaining modules introducing planet herbs
+  - End-of-module transition paragraph fixed: removed "last module before the capstone" (wrong), corrected Module 06 description (it's The Planets, not Aspects)
+- ✓ **Module 07 copy fix** — "this is the last module before the capstone" corrected; Module 08 now properly referenced as the final module
+- ✓ **Module 04 SR Sun clarification** — Added two paragraphs to "A note on the SR Sun sign" section explaining that the SR Sun is **always the same sign as the natal Sun** (the Sun completes one full year cycle); what changes each year is the **house** it lands in. This is a key concept for users new to solar returns.
+- ✓ **Cusp definition + diagram added to Module 05** — inline SVG chart wheel diagram showing all 12 house cusps as dividing lines, with one cusp highlighted in magenta and labeled "cusp / dividing line", ASC labeled as "1st house cusp". Placed right before the first use of the word "cusp" in the empty houses section. Copy clarifies that in whole sign houses, each cusp is also where a zodiac sign begins (house boundary = sign boundary, same line).
 
 ---
 

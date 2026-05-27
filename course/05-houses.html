@@ -14,6 +14,23 @@
 <style>
   /* ── Module 05 extras ── */
 
+  /* Cusp explainer diagram */
+  .cusp-explainer {
+    margin: 1.75rem 0;
+  }
+  .cusp-figure {
+    margin: 1.25rem 0 0;
+  }
+  .cusp-caption {
+    font-family: system-ui, sans-serif;
+    font-size: 0.78rem;
+    color: rgba(255, 240, 248, 0.4);
+    text-align: center;
+    margin-top: 0.55rem;
+    font-style: italic;
+    line-height: 1.5;
+  }
+
   /* House reference entries — broader than Mod 04, no planet number circles */
   .house-ref-list {
     display: flex;
@@ -287,6 +304,104 @@
       Start with the houses that are occupied — those are where the year's main
       energy is concentrated. But empty houses still have something to say.
     </p>
+    <div class="cusp-explainer">
+      <p>
+        A quick definition before we go deeper: a <strong>cusp</strong> is the dividing
+        line that opens a house — the boundary where one house ends and the next begins.
+        There are twelve houses, so there are twelve cusps. Because this course uses whole sign
+        houses, each cusp is also where a zodiac sign begins: the house and the sign start at
+        exactly the same line. You've already been working with one — your Ascendant is
+        your 1st house cusp.
+      </p>
+      <figure class="cusp-figure">
+        <svg viewBox="0 0 520 490" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Chart wheel showing the twelve house cusps as dividing lines" style="width:100%;max-width:520px;display:block;margin:0 auto;">
+          <defs>
+            <filter id="cg-m" x="-40%" y="-40%" width="180%" height="180%">
+              <feGaussianBlur stdDeviation="3" in="SourceGraphic" result="b"/>
+              <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+            </filter>
+            <filter id="cg-v" x="-40%" y="-40%" width="180%" height="180%">
+              <feGaussianBlur stdDeviation="2" in="SourceGraphic" result="b"/>
+              <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+            </filter>
+          </defs>
+
+          <!-- Background -->
+          <rect width="520" height="490" fill="#0C0428" rx="10"/>
+
+          <!-- cx=250 cy=245 R_outer=185 R_inner=72 -->
+
+          <!-- Outer circle -->
+          <circle cx="250" cy="245" r="185" fill="rgba(152,120,232,0.04)" stroke="rgba(152,120,232,0.28)" stroke-width="1.5"/>
+
+          <!-- Inner circle (house number ring) -->
+          <circle cx="250" cy="245" r="72" fill="rgba(12,4,40,0.9)" stroke="rgba(152,120,232,0.2)" stroke-width="1"/>
+
+          <!-- Center glyph -->
+          <text x="250" y="250" text-anchor="middle" font-family="Georgia,serif" font-size="13" fill="rgba(152,120,232,0.35)">✦</text>
+
+          <!-- All 12 cusp lines (dim violet) — ASC and featured cusp drawn separately below -->
+          <g stroke="rgba(152,120,232,0.3)" stroke-width="1.2" stroke-linecap="round">
+            <line x1="214" y1="307" x2="158" y2="405"/><!-- 3rd 120° -->
+            <line x1="250" y1="317" x2="250" y2="430"/><!-- 4th/IC 90° -->
+            <line x1="286" y1="307" x2="342" y2="405"/><!-- 5th 60° -->
+            <line x1="312" y1="281" x2="410" y2="338"/><!-- 6th 30° -->
+            <line x1="322" y1="245" x2="435" y2="245"/><!-- 7th/DSC 0° -->
+            <line x1="312" y1="209" x2="410" y2="153"/><!-- 8th 330° -->
+            <line x1="286" y1="183" x2="342" y2="85"/> <!-- 9th 300° -->
+            <line x1="250" y1="173" x2="250" y2="60"/> <!-- 10th/MC 270° -->
+            <line x1="214" y1="183" x2="158" y2="85"/> <!-- 11th 240° -->
+            <line x1="188" y1="209" x2="90"  y2="153"/><!-- 12th 210° -->
+          </g>
+
+          <!-- ASC / 1st house cusp — highlighted violet -->
+          <line x1="178" y1="245" x2="65" y2="245" stroke="#9878E8" stroke-width="2.5" stroke-linecap="round" filter="url(#cg-v)"/>
+          <circle cx="65" cy="245" r="4" fill="#9878E8"/>
+
+          <!-- Featured cusp callout: 2nd house cusp at 150° — magenta -->
+          <line x1="188" y1="281" x2="90" y2="338" stroke="#E040A8" stroke-width="2.5" stroke-linecap="round" filter="url(#cg-m)"/>
+          <circle cx="90" cy="338" r="4.5" fill="#E040A8"/>
+          <!-- Dashed callout line from midpoint (139,309) to label -->
+          <line x1="139" y1="309" x2="52" y2="380" stroke="#E040A8" stroke-width="1" stroke-dasharray="5,4" opacity="0.6"/>
+          <polygon points="48,382 57,373 61,384" fill="#E040A8" opacity="0.65"/>
+          <!-- Label box -->
+          <rect x="7" y="384" width="54" height="32" fill="rgba(224,64,168,0.1)" rx="4" stroke="rgba(224,64,168,0.32)" stroke-width="1"/>
+          <text x="34" y="397" text-anchor="middle" font-family="system-ui,sans-serif" font-size="11" fill="#E040A8" font-weight="700">cusp</text>
+          <text x="34" y="409" text-anchor="middle" font-family="system-ui,sans-serif" font-size="8.5" fill="rgba(248,128,192,0.7)">dividing line</text>
+
+          <!-- House numbers 1–12 at midpoint of each segment, R=128 -->
+          <g font-family="Georgia,serif" font-size="12.5" fill="rgba(255,240,248,0.42)" text-anchor="middle" dominant-baseline="middle">
+            <text x="126" y="278">1</text>
+            <text x="160" y="336">2</text>
+            <text x="217" y="369">3</text>
+            <text x="283" y="369">4</text>
+            <text x="341" y="336">5</text>
+            <text x="374" y="278">6</text>
+            <text x="374" y="212">7</text>
+            <text x="341" y="155">8</text>
+            <text x="283" y="121">9</text>
+            <text x="217" y="121">10</text>
+            <text x="160" y="155">11</text>
+            <text x="126" y="212">12</text>
+          </g>
+
+          <!-- Axis labels -->
+          <text x="44" y="237" text-anchor="middle" font-family="system-ui,sans-serif" font-size="9.5" fill="#9878E8" font-weight="700">ASC</text>
+          <text x="44" y="249" text-anchor="middle" font-family="system-ui,sans-serif" font-size="8" fill="rgba(152,120,232,0.6)">1st cusp</text>
+          <text x="451" y="242" text-anchor="start" font-family="system-ui,sans-serif" font-size="9.5" fill="rgba(255,240,248,0.32)">DSC</text>
+          <text x="250" y="51" text-anchor="middle" font-family="system-ui,sans-serif" font-size="9.5" fill="rgba(255,240,248,0.32)">MC</text>
+          <text x="250" y="448" text-anchor="middle" font-family="system-ui,sans-serif" font-size="9.5" fill="rgba(255,240,248,0.32)">IC</text>
+
+          <!-- Bottom rule + note -->
+          <line x1="30" y1="463" x2="490" y2="463" stroke="rgba(152,120,232,0.12)" stroke-width="1"/>
+          <text x="260" y="477" text-anchor="middle" font-family="system-ui,sans-serif" font-size="9.5" fill="rgba(255,240,248,0.28)">12 houses · 12 cusps · in whole sign houses, each cusp is also where a new sign begins</text>
+        </svg>
+        <figcaption class="cusp-caption">
+          Every line dividing the wheel is a cusp. In whole sign houses, it's also where a zodiac sign begins — house boundary and sign boundary are the same line.
+        </figcaption>
+      </figure>
+    </div>
+
     <p>
       Every house has a sign on its cusp, and that sign tells you the flavor of
       that area of life for the year. An empty 7th house with Capricorn on the
