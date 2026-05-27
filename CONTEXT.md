@@ -8,7 +8,7 @@
 
 **Limitless Yeehaw** is Staley Stidham's astrology side hustle and brand.
 - Live site: [limitlessyeehaw.com](https://limitlessyeehaw.com)
-- GitHub repo: `condoleeezzanice/limitless-yeehaw` (public, deployed via GitHub Pages)
+- GitHub repo: `condoleeezzanice/limitless-yeehaw` (public, deployed via **Netlify** — NOT GitHub Pages anymore)
 - Local folder: `/Users/staleystidhamlusk/limitless-yeehaw/`
 - Staley's email: staley.stidham@tracegains.com
 - Staley is based in Oklahoma, is a UX designer by day, astrologer and witch by passion
@@ -45,17 +45,25 @@ Warm, mystical, Oklahoma-rooted. Not overly precious — grounded woo. Second-pe
 limitless-yeehaw/
 ├── index.html                    ← Landing page (live, complete)
 ├── year-ahead-snapshot.html      ← Free interactive tool / course capstone (live, complete)
-├── thank-you.html                ← Post-purchase access page (Stripe redirect target)
+├── thank-you.html                ← Post-purchase page — tells buyer to check email for token
 ├── stripe-card.png               ← Stripe product thumbnail (800×800 branded PNG)
 ├── favicon.svg                   ← ✦ glyph, magenta-to-pink gradient
+├── netlify.toml                  ← Netlify build config (functions dir + esbuild)
+├── package.json                  ← Dependencies: stripe, @netlify/blobs, resend
+├── .gitignore                    ← Excludes node_modules/, .env
 ├── CONTEXT.md                    ← This file
 ├── COURSE-KNOWLEDGE.md           ← Course content knowledge base
+├── COURSE_ACCESS_SPEC.md         ← Implementation spec for the access gate (already built)
+├── netlify/
+│   └── functions/
+│       ├── stripe-webhook.js     ← Stripe payment → generates token → stores in Blobs → emails buyer
+│       └── validate-token.js     ← Validates email + token at the course gate
 ├── css/
 │   ├── main.css                  ← Landing page styles
 │   ├── snapshot.css              ← Snapshot tool styles
 │   └── course.css                ← All course module styles (shared)
 └── course/
-    ├── index.html                ← Course intro/sales page (post-purchase entry point)
+    ├── index.html                ← Course gate (email + token form); shows content once authenticated
     ├── 01-primer.html            ← Module 01: The Beginner Primer ✓
     ├── 02-cast-your-chart.html   ← Module 02: Cast Your Chart ✓
     ├── 03-rising-sign.html       ← Module 03: Your Rising Sign & Ruling Planet ✓
@@ -125,7 +133,13 @@ The full "Your Year Ahead" course is built and in the repo. All modules link seq
 
 **Format**: Written only (currently). Audio blocks exist in all 8 modules but are commented out (`<!-- ... -->`) pending Staley's recordings. To restore a module's audio: remove the `<!--` and `-->` lines wrapping that module's `.audio-block` div. Scripts are in `course/scripts/`.
 
-**Access model**: course is not in public nav. Users purchase via Stripe → redirected to thank-you.html → thank-you.html contains the course link. course/index.html is the entry point inside the course.
+**Access model**: Token-gated. Users purchase via Stripe → webhook fires → unique token generated → email sent via Resend → buyer enters email + token at `course/index.html` gate → `localStorage` set → all module pages pass through silently. Tokens stored in Netlify Blobs (`course-access` store, key = lowercase email).
+
+**Admin bypass**: `course/index.html?admin=YEEHAW` sets `localStorage` and bypasses the gate — for manually onboarding pre-gate buyers. Remove this eventually once all early buyers are properly in Blobs.
+
+**Early buyers manually onboarded** (pre-gate, added via admin bypass):
+- Grace Gordon — thegracegordon@gmail.com
+- Lauren Sabolich — lsabolich@gmail.com
 
 ---
 
@@ -144,13 +158,13 @@ The full "Your Year Ahead" course is built and in the repo. All modules link seq
 
 ## What's Next (priority order)
 
-1. **Audio recording** — Staley records from scripts in `course/scripts/`. All 8 scripts exist. Audio blocks are commented out in all 8 modules — to restore after recording, remove the `<!--` / `-->` wrapping each module's `.audio-block`. Also update the "Written" references in `index.html`, `course/index.html` back to "Written & audio" once recordings are live.
-2. **Snapshot: additional features (deferred)** — ideas discussed: (a) a question to carry all year (Sun-house, one open question to hold, not answer); (b) a release phrase (what to put down, 12th-house-based); (c) "this year asks you to trust..." (rising or Sun-house, one-line completion); (d) a color/element/texture for the year (rising or Sun sign based); (e) an archetype for the year (named role + one line, rising-based); (f) a body invitation (sign body correspondence, one gentle line). All deferred — implement in future session.
-3. **Snapshot: Sun/Moon interplay note** — the `getInterplayPrompt()` "other" case is generic; a richer version would be more specific. Deferred.
-4. **Pluto plant list for Module 08** — the Planetary Magic module lists 9 planets of plants (no Pluto). Need to ask Staley or research.
+1. **$99 1-2-1 session** — Add a section to `index.html` offering a 1-hour personal chart walkthrough for $99. Needs a Calendly (or Cal.com) booking link with payment. Discussed and agreed upon — not yet built on the site.
+2. **Admin bypass cleanup** — Remove or secure the `?admin=YEEHAW` bypass in `course/index.html` once all early buyers are properly onboarded.
+3. **Audio recording** — Staley records from scripts in `course/scripts/`. All 8 scripts exist. Audio blocks are commented out in all 8 modules — to restore after recording, remove the `<!--` / `-->` wrapping each module's `.audio-block`. Also update the "Written" references in `index.html`, `course/index.html` back to "Written & audio" once recordings are live.
+4. **Pluto plant list for Module 08** — the Planetary Magic module's plant grid lists 9 planets (no Pluto card). Need Staley's Pluto plant list to add it.
 5. **Copy nitpicking** — Staley noted wanting to review and edit copy across modules; no specific modules flagged yet.
-6. **Sign nourishment — weave into course content** — All 12 signs complete in COURSE-KNOWLEDGE.md. Next step: weave into Module 03, alongside each sign's herb entry.
-7. **Planetary nourishment — weave into course content** — All 10 planets complete in COURSE-KNOWLEDGE.md (foods + planetary balancing relationships). Next step: weave into Module 08 (Planetary Magic), one section per planet.
+6. **Snapshot: additional features (deferred)** — ideas discussed: (a) a question to carry all year (Sun-house, one open question to hold, not answer); (b) a release phrase (what to put down, 12th-house-based); (c) "this year asks you to trust..." (rising or Sun-house, one-line completion); (d) a color/element/texture for the year (rising or Sun sign based); (e) an archetype for the year (named role + one line, rising-based); (f) a body invitation (sign body correspondence, one gentle line). All deferred — implement in future session.
+7. **Snapshot: Sun/Moon interplay note** — the `getInterplayPrompt()` "other" case is generic; a richer version would be more specific. Deferred.
 
 ---
 
@@ -173,6 +187,19 @@ The full "Your Year Ahead" course is built and in the repo. All modules link seq
 - ✓ **Birth time accuracy fixes** — Module 02: corrected aside-note to clarify that planetary signs + aspects are reliable without birth time, but SR Rising and all house placements are not; Module 03: corrected "ruling planet house placement still applies" — ruling planet is also uncertain when rising sign is uncertain
 - ✓ **COURSE-KNOWLEDGE.md updated** — Sign Modalities section added; Sign Nourishment section added (7 of 12 signs: Taurus, Gemini, Leo, Virgo, Libra, Aquarius, Sagittarius)
 - ✓ **Stale file cleanup** — deleted `course/06-aspects.html` (orphaned duplicate from renumbering)
+- ✓ **Sign nourishment completed** — All 12 signs added to COURSE-KNOWLEDGE.md (Aries, Cancer, Scorpio, Capricorn, Pisces added to complete the set)
+- ✓ **Sign nourishment integrated into Module 03** — nourishment line added under each sign's herb entry; styled in magenta to distinguish from herb entries (sky blue); intro paragraph updated
+- ✓ **Planetary nourishment completed** — All 10 planets added to COURSE-KNOWLEDGE.md (foods + planetary balancing relationships)
+- ✓ **Planetary nourishment integrated into Module 08** — new Section 6 "Planetary nourishment & balancing" added before "Putting it all together"; one entry per planet with foods + balancing notes as line-by-line lists; module-sub updated
+- ✓ **Module 05 empty houses expanded** — replaced "Focus on occupied houses" with a fuller explanation: sign on cusp gives flavor, planetary ruler technique (e.g. Gemini on 11th → find Mercury) shows where the energy is sourced; birth time caveat included
+- ✓ **Module 03 planet lists fixed** — concept cards ("Personal planets" / "Social & outer planets") now list each planet on its own line instead of comma-separated inline
+- ✓ **Migrated from GitHub Pages to Netlify** — site now deploys from GitHub → Netlify; SiteGround DNS updated (removed 4 GitHub Pages A records, added Netlify A record 75.2.60.5 + www CNAME → limitlessyeehaw.netlify.app); SSL provisioned
+- ✓ **Token-gated course access built** — Netlify Functions + Stripe webhook + Resend email + Netlify Blobs; buyers receive unique token by email after purchase; gate on course/index.html; all 8 module pages have silent auth check
+- ✓ **Resend domain verified** — limitlessyeehaw.com verified in Resend; DKIM + SPF (including amazonses.com) added to SiteGround DNS
+- ✓ **Stripe webhook configured** — endpoint `https://limitlessyeehaw.com/.netlify/functions/stripe-webhook` listening for `checkout.session.completed`
+- ✓ **Netlify env vars set** — STRIPE_SECRET_KEY, RESEND_API_KEY, STRIPE_WEBHOOK_SECRET
+- ✓ **Admin bypass added** — `course/index.html?admin=YEEHAW` for manually onboarding pre-gate buyers
+- ✓ **Monetization strategy brainstormed** — $99 1-2-1 session agreed upon; tiered community pricing discussed (not yet built)
 
 ---
 
@@ -198,12 +225,17 @@ git add -A && git commit -m "message" && git push origin main
 - **GitHub username**: condoleeezzanice
 - **Repo**: `condoleeezzanice/limitless-yeehaw`
 - **Branch**: `main`
-- **Pages source**: root of main branch
-- **Custom domain**: limitlessyeehaw.com (configured in GitHub Pages settings)
+- **Hosting**: Netlify (NOT GitHub Pages — migrated 2026-05-26)
+- **Netlify site**: `limitlessyeehaw.netlify.app` (also accessible at custom domain)
+- **Custom domain**: limitlessyeehaw.com
 - **DNS host**: SiteGround
-- **DNS records**:
-  - 4 × A records → 185.199.108.153, .109.153, .110.153, .111.153
-  - CNAME `www` → `condoleeezzanice.github.io`
+- **DNS records (current)**:
+  - A record `limitlessyeehaw.com` → `75.2.60.5` (Netlify)
+  - CNAME `www` → `limitlessyeehaw.netlify.app`
+  - TXT `resend._domainkey` → DKIM value (Resend domain verification)
+  - TXT `limitlessyeehaw.com` → `v=spf1 include:spf.improvmx.com include:amazonses.com ~all`
+  - MX records → ImprovMX (email forwarding: hi@limitlessyeehaw.com → hi@staleystidham.info)
+  - DMARC record
 
 ---
 
