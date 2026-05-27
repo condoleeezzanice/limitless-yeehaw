@@ -243,8 +243,13 @@ body {
   border-top: 1px solid rgba(255,240,248,0.1);
   padding-top: 2.5rem;
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
 }
+/* Module 01 has no prev button — keep next pushed to the right */
+.next-module-btn:only-child { margin-left: auto; }
+
 .next-module-btn {
   display: inline-flex;
   flex-direction: column;
@@ -268,6 +273,18 @@ body {
   font-size: 1rem;
   color: var(--blush);
 }
+
+/* ── PREV MODULE ── */
+.prev-module-btn {
+  font-size: 0.82rem;
+  color: var(--violet);
+  text-decoration: none;
+  letter-spacing: 0.05em;
+  opacity: 0.85;
+  transition: opacity 0.2s;
+  flex-shrink: 0;
+}
+.prev-module-btn:hover { opacity: 1; }
 
 /* ── ACCESSIBILITY ── */
 
