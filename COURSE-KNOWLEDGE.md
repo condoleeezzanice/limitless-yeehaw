@@ -408,3 +408,5 @@ Every day of the week has a planetary ruler. Every hour within that day has its 
 | 2026-05 | Modalities (cardinal/fixed/mutable) added — section in Module 01, aside-note callback in Module 03 |
 | 2026-05 | Birth time accuracy corrected in Module 02 (house placements unreliable without birth time) and Module 03 (ruling planet also uncertain when rising is uncertain) |
 | 2026-05 | Sign Modalities and Sign Nourishment sections added to COURSE-KNOWLEDGE.md |
+| 2026-05-27 | Accessibility fixes applied to all course pages — skip links, nav aria-labels, focus indicators, aria-live gate error, aria-busy button, contrast bumps. See CONTEXT.md Completed log for full details. |
+| 2026-05-27 | Previous module navigation added — modules 02–08 now have "← Back to Module 0X" link at bottom left, styled like nav-back. Module 01 unchanged. |
