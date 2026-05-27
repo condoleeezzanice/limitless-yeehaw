@@ -1,5 +1,11 @@
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
+:focus-visible {
+  outline: 2px solid #9878E8;
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
 body {
   background: #060120;
   font-family: Georgia, serif;
