@@ -36,6 +36,10 @@
 
 > **House system**: This course uses **whole sign houses**. This is now explicitly stated in Module 02 (aside-note after the three landmarks section). In whole sign houses, the rising sign = the entire 1st house, the next sign = the entire 2nd house, etc. The natural zodiac order follows house order: Aries→1st, Taurus→2nd, Gemini→3rd, Cancer→4th, Leo→5th, Virgo→6th, Libra→7th, Scorpio→8th, Sagittarius→9th, Capricorn→10th, Aquarius→11th, Pisces→12th. Astro.com defaults to Placidus — Module 02 notes that students can switch to whole signs in Extended Chart Selection settings.
 
+> **Cusps**: A cusp is the dividing line that opens a house — the boundary where one house ends and the next begins. There are 12 houses and 12 cusps. Because this course uses whole sign houses, each cusp is also where a zodiac sign begins: the house boundary and sign boundary are the same line. (In non-whole-sign systems, house cusps and sign cusps can fall at different points — but we don't go there.) The Ascendant is the 1st house cusp. This is now explicitly defined and illustrated with an inline SVG diagram in Module 05 (Reading the Houses), placed right before the first use of the word "cusp" in the empty houses section.
+
+> **SR Sun sign = natal Sun sign**: The Sun takes exactly one year to complete its cycle through the zodiac, so at every solar return it arrives back at the same degree — and same sign — it was in at birth. The SR Sun sign is always the user's natal Sun sign. What changes year to year is the **house** the Sun lands in (determined by the SR Rising), which is the primary reading. This is now explicitly explained in Module 04 (Sun & Moon), in the "A note on the SR Sun sign" section. When writing course content, never imply the SR Sun sign will be different from the natal Sun sign.
+
 ### What Is a Solar Return Chart?
 *(Staley's words — use this language in the course)*
 
@@ -81,7 +85,7 @@
   - 4th: home, family, roots, private life
   - 5th: creativity, romance, pleasure, children
   - 6th: health, daily routines, work habits, service
-  - 7th: partnerships, one-on-one relationships, open enemies
+  - 7th: **longterm, committed** partnerships — committed romantic partners, established business partnerships, close collaborators you're in it with for the long game, contracts. Also open opposition (people who actively challenge you). **Not** casual connections or early-stage dating — this house requires weight, duration, and mutual stake.
   - 8th: transformation, other people's resources, mental health, power, death/rebirth
   - 9th: philosophy, higher learning, travel, belief systems
   - 10th: career, public reputation, legacy, authority

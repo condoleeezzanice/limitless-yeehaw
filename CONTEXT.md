@@ -206,7 +206,7 @@ The full "Your Year Ahead" course is built and in the repo. All modules link seq
   - End-of-module transition paragraph fixed: removed "last module before the capstone" (wrong), corrected Module 06 description (it's The Planets, not Aspects)
 - ✓ **Module 07 copy fix** — "this is the last module before the capstone" corrected; Module 08 now properly referenced as the final module
 - ✓ **Module 04 SR Sun clarification** — Added two paragraphs to "A note on the SR Sun sign" section explaining that the SR Sun is **always the same sign as the natal Sun** (the Sun completes one full year cycle); what changes each year is the **house** it lands in. This is a key concept for users new to solar returns.
-- ✓ **Cusp definition + diagram added to Module 05** — inline SVG chart wheel diagram showing all 12 house cusps as dividing lines, with one cusp highlighted in magenta and labeled "cusp / dividing line", ASC labeled as "1st house cusp". Placed right before the first use of the word "cusp" in the empty houses section. Copy clarifies that in whole sign houses, each cusp is also where a zodiac sign begins (house boundary = sign boundary, same line).
+- ✓ **Cusp definition + diagram added to Module 05** — inline SVG chart wheel diagram showing all 12 house cusps as dividing lines, with one cusp highlighted in magenta and labeled "cusp / dividing line", ASC labeled as "1st house cusp". Placed right before the first use of the word "cusp" in the empty houses section. Copy clarifies that in whole sign houses, each cusp is also where a zodiac sign begins (house boundary = sign boundary, same line). All four axis lines (ASC/IC/DSC/MC) styled consistently in the same purple — no glow filter on ASC.
 
 ---
 
