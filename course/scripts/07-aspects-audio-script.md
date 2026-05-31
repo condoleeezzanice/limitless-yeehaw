@@ -1,13 +1,13 @@
-# Module 06: Aspects — Lines on the Chart
+# Module 07: Aspects — Lines on the Chart
 ## Audio Script — Limitless Yeehaw
 
-> **Recording notes:** This is the final content module — let it feel like a completion, not just an ending. The aspect descriptions should feel deliberate and grounded. The malefic conjunction section is important — let those three planets each land before moving to the next. The closing section ("You have what you need") is the emotional payoff of the whole course. Slow down there. Let it land.
+> **Recording notes:** This is the second-to-last content module — let it feel like things are clicking into place. The aspect descriptions should feel deliberate and grounded. The malefic conjunction section is important — let those three planets each land before moving to the next. The closing ("You have what you need") wraps up the chart-reading toolkit. Keep the tone confident but not conclusive — there's one more module ahead before the capstone.
 
 ---
 
-Welcome to Module 06. The last one.
+Welcome to Module 07.
 
-You've built a lot of knowledge over these modules. Today we add the final piece: aspects. Once you have this, you'll be able to read your entire solar return chart — not just the individual placements, but the relationships between them. The conversations the planets are having with each other. That's where the chart becomes a story.
+You've built a lot of knowledge over these modules. Today we add a crucial piece: aspects. Once you have this, you'll be able to read your entire solar return chart — not just the individual placements, but the relationships between them. The conversations the planets are having with each other. That's where the chart becomes a story.
 
 Let's go.
 
@@ -145,19 +145,11 @@ Find the planets that are doing significant work in your chart this year. Look u
 
 ### You have what you need
 
-That's the sixth and final module.
+That's Module 07.
 
-Let's take stock of what you've built.
+You now have the full chart-reading toolkit. You know what a solar return chart is and why it matters. You've cast your own. You've read your SR Rising sign, your SR Sun, your SR Moon, your ruling planet, all twelve houses, and now the aspects — the conversations between planets, the ease and friction that shape how the year moves.
 
-You know what a solar return chart is and why it matters. You've cast your own. You've read your SR Rising sign — the tone and costume of the year. You've read your SR Sun — where your energy is going. Your SR Moon — where your growth is happening. Your ruling planet — the second key to the year's theme. You understand the houses and how any planet activates any area of life. And now you can read the aspects — the conversations between planets, the ease and friction that shape how the year moves.
-
-You're not reading your fate. You're reviewing the available ingredients before you create with them.
-
-The chart is yours. The year is yours. The potion is yours to make.
-
-The capstone brings it all together — your Year Ahead Snapshot. Take everything you've learned and apply it to your own chart. That's what it's for. That's where all of this lands.
-
-I'm proud of you for doing this work. Go make something beautiful with it.
+There's one module left before the capstone: Module 08, Planetary Magic. That's where you stop just reading the chart and start working with it — timing, herbs, the body, the full practice. I'll see you there.
 
 ---
 

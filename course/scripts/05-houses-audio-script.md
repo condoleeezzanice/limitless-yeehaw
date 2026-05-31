@@ -5,7 +5,7 @@
 
 ---
 
-Welcome to Module 05. We're in the home stretch now — this is module five of six, and by the end of this one you'll have the tools to read every planet on your chart, not just the Sun and Moon.
+Welcome to Module 05. We're in the home stretch now — this is module five of eight, and by the end of this one you'll have the tools to read every planet on your chart, not just the Sun and Moon.
 
 We're going deep on the houses. Let's get into it.
 
@@ -47,11 +47,11 @@ That's how it works. What does this planet bring, and where is it bringing it? L
 
 Most houses in your solar return chart will have no planets in them. That's completely normal — there are ten planets and twelve houses, so at minimum two will always be empty. Often six or seven are.
 
-An empty house doesn't mean that area of life is shut down. It means it's not a primary site of activation this year. Life continues there — it just isn't where the year's main energy is concentrated.
+An empty house isn't absent — it just won't be a main focus of effort. It quietly carries the texture of its sign without demanding anything from you.
 
-Where the planets are is where the year is happening. Empty houses are simply where it isn't — not where something is wrong.
+Planets show you where the year asks for your attention. Empty houses aren't voids — they're still present, still flavored by their sign, just not asking for your direct focus.
 
-Focus on the occupied houses. Those are the rooms where the year is actually unfolding.
+Start with the houses that are occupied — those are where the year's main energy lives. The empty ones are still part of the picture.
 
 ---
 
@@ -209,7 +209,7 @@ These are loose patterns, not rigid rules. But they give you a sense of the year
 
 The chart is a whole sentence, not a collection of separate words. The planets, signs, and houses all speak to each other. You're learning to hear the conversation.
 
-In Module 06 — the last module before the capstone — we look at aspects: the lines drawn between planets, and what they mean for how those energies relate to each other. That's where the chart really comes alive as a story. I'll see you there.
+In Module 06, we go deep on the planets themselves — what each one governs and how to read them in your chart. I'll see you there.
 
 ---
 
