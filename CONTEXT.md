@@ -160,14 +160,13 @@ The full "Your Year Ahead" course is built and in the repo. All modules link seq
 
 ### Existing priorities
 
-1. **Kit email form copy** — Updated HTML label to "Want to be first to know what's next?" (done). Still need Staley to update the Kit form itself: heading → "Join the list", subtext → "New work, early access, and the occasional astrology thought I couldn't keep to myself.", button → "Subscribe" (or "I'm in").
+1. **Kit email form copy** — Updated HTML label to "Want to be first to know what's next?" (done). Staley to update the Kit form dashboard separately: heading → "Join the list", subtext → "New work, early access, and the occasional astrology thought I couldn't keep to myself.", button → "Subscribe" (or "I'm in"). *(Kit dashboard update also noted as done by Staley — 2026-05-31)*
 2. **$99 1-2-1 session** — Add a section to `index.html` offering a 1-hour personal chart walkthrough for $99. Needs a Calendly (or Cal.com) booking link with payment. Discussed and agreed upon — not yet built on the site.
-3. **Admin bypass cleanup** — Remove or secure the `?admin=YEEHAW` bypass in `course/index.html` once all early buyers are properly onboarded.
-4. **Audio recording** — Staley records from scripts in `course/scripts/`. All 8 scripts exist. Audio blocks are commented out in all 8 modules — to restore after recording, remove the `<!--` / `-->` wrapping each module's `.audio-block`. Also update the "Written" references in `index.html`, `course/index.html` back to "Written & audio" once recordings are live.
-5. **Pluto plant list for Module 08** — the Planetary Magic module's plant grid lists 9 planets (no Pluto card). Need Staley's Pluto plant list to add it.
-6. **Copy nitpicking** — Staley noted wanting to review and edit copy across modules; no specific modules flagged yet.
-7. **Snapshot: additional features (deferred)** — ideas discussed: (a) a question to carry all year (Sun-house, one open question to hold, not answer); (b) a release phrase (what to put down, 12th-house-based); (c) "this year asks you to trust..." (rising or Sun-house, one-line completion); (d) a color/element/texture for the year (rising or Sun sign based); (e) an archetype for the year (named role + one line, rising-based); (f) a body invitation (sign body correspondence, one gentle line). All deferred — implement in future session.
-8. **Snapshot: Sun/Moon interplay note** — the `getInterplayPrompt()` "other" case is generic; a richer version would be more specific. Deferred.
+3. **Audio recording** — Staley records from scripts in `course/scripts/`. All 8 scripts exist. Audio blocks are commented out in all 8 modules — to restore after recording, remove the `<!--` / `-->` wrapping each module's `.audio-block`. Also update the "Written" references in `index.html`, `course/index.html` back to "Written & audio" once recordings are live.
+4. **Pluto plant list for Module 08** — the Planetary Magic module's plant grid lists 9 planets (no Pluto card). Need Staley's Pluto plant list to add it.
+5. **Copy nitpicking** — Staley noted wanting to review and edit copy across modules; no specific modules flagged yet.
+6. **Snapshot: additional features (deferred)** — ideas discussed: (a) a question to carry all year (Sun-house, one open question to hold, not answer); (b) a release phrase (what to put down, 12th-house-based); (c) "this year asks you to trust..." (rising or Sun-house, one-line completion); (d) a color/element/texture for the year (rising or Sun sign based); (e) an archetype for the year (named role + one line, rising-based); (f) a body invitation (sign body correspondence, one gentle line). All deferred — implement in future session.
+7. **Snapshot: Sun/Moon interplay note** — the `getInterplayPrompt()` "other" case is generic; a richer version would be more specific. Deferred.
 
 ---
 
@@ -224,6 +223,9 @@ The full "Your Year Ahead" course is built and in the repo. All modules link seq
   - **Serif font halation**: `body` in `css/course.css` gets `-webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale`; `.module-title` and `.section-heading` changed from `font-weight: normal` to `font-weight: 500`.
   - **About section contrast**: `css/main.css` gradient endpoint darkened from `#E03880` to `#B02860` — brings text contrast above 4.5:1 AA.
   - **Decorative stars aria-hidden**: `aria-hidden="true"` added to `<svg class="stars">` in `index.html` hero.
+- ✓ **Module 05 copy edits** (2026-05-31) — Removed "dormant" framing from empty houses section; pullquote and surrounding paragraphs rewritten. House keywords layout fixed (`width: 100%` on `.house-ref-keywords`) so keywords always sit on their own row. Module 08 "The table" → "The plate" in module sub copy.
+- ✓ **Audio scripts synced** (2026-05-31) — Module 05 script updated (module count, empty houses language, closing transition). Module 07 script fixed (was labelled "Module 06 / the last one" — corrected to Module 07, closing now sends to Module 08 instead of wrapping the course).
+- ✓ **Gift access system built** (2026-05-31) — `?admin=YEEHAW` bypass removed from `course/index.html`. Replaced with: `netlify/functions/gift-access.js` (validates `ADMIN_SECRET_KEY` env var, generates token, stores in Blobs, sends welcome email via Resend) + `admin.html` (password-gated gift form, not linked from anywhere on the site). To gift access: go to `limitlessyeehaw.com/admin.html`, enter recipient email + admin key. **Setup required**: add `ADMIN_SECRET_KEY` to Netlify environment variables (Netlify → Site Settings → Environment Variables).
 
 ---
 

@@ -682,13 +682,6 @@
 <script>
   // ── Gate access control ──
   document.addEventListener('DOMContentLoaded', function () {
-    // Admin bypass: ?admin=YEEHAW silently grants access and cleans the URL
-    const params = new URLSearchParams(window.location.search);
-    if (params.get('admin') === 'YEEHAW') {
-      localStorage.setItem('ly_access', 'granted');
-      window.history.replaceState({}, '', window.location.pathname);
-    }
-
     const access = localStorage.getItem('ly_access');
     if (access === 'granted') {
       document.getElementById('gate').style.display = 'none';

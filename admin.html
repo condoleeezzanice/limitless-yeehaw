@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gift Access — Limitless Yeehaw</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --plum:    #0E0530;
+      --violet:  #9878E8;
+      --magenta: #E040A8;
+      --pink:    #F880C0;
+      --sky:     #5ABCF0;
+      --blush:   #FFF0F8;
+      --serif:   'Palatino Linotype', Palatino, Georgia, serif;
+      --body:    Georgia, serif;
+    }
+
+    html { font-size: 18px; }
+    body {
+      background: var(--plum);
+      color: var(--blush);
+      font-family: var(--body);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    .card {
+      width: 100%;
+      max-width: 480px;
+      background: rgba(255, 240, 248, 0.04);
+      border: 1px solid rgba(152, 120, 232, 0.25);
+      border-radius: 8px;
+      padding: 2.5rem;
+    }
+
+    .eyebrow {
+      font-family: system-ui, sans-serif;
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--sky);
+      margin-bottom: 0.75rem;
+    }
+
+    h1 {
+      font-family: var(--serif);
+      font-size: 1.6rem;
+      font-weight: 500;
+      color: var(--blush);
+      margin-bottom: 0.5rem;
+      line-height: 1.25;
+    }
+
+    .subtitle {
+      font-size: 0.88rem;
+      color: rgba(255, 240, 248, 0.55);
+      margin-bottom: 2rem;
+      line-height: 1.6;
+    }
+
+    .field {
+      margin-bottom: 1.25rem;
+    }
+
+    label {
+      display: block;
+      font-family: system-ui, sans-serif;
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--violet);
+      margin-bottom: 0.4rem;
+    }
+
+    input {
+      width: 100%;
+      background: rgba(255, 240, 248, 0.06);
+      border: 1px solid rgba(152, 120, 232, 0.3);
+      border-radius: 4px;
+      color: var(--blush);
+      font-family: var(--body);
+      font-size: 0.95rem;
+      padding: 0.7rem 0.9rem;
+      transition: border-color 0.2s;
+      outline: none;
+    }
+
+    input:focus-visible {
+      border-color: var(--violet);
+      box-shadow: 0 0 0 2px rgba(152, 120, 232, 0.25);
+    }
+
+    input::placeholder { color: rgba(255, 240, 248, 0.3); }
+
+    button {
+      width: 100%;
+      background: var(--magenta);
+      color: var(--blush);
+      border: none;
+      border-radius: 4px;
+      font-family: var(--serif);
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.85rem 1.5rem;
+      cursor: pointer;
+      margin-top: 0.5rem;
+      transition: opacity 0.2s;
+    }
+
+    button:hover:not(:disabled) { opacity: 0.85; }
+    button:disabled { opacity: 0.5; cursor: not-allowed; }
+
+    .message {
+      margin-top: 1.25rem;
+      padding: 0.85rem 1rem;
+      border-radius: 4px;
+      font-size: 0.88rem;
+      line-height: 1.5;
+      display: none;
+    }
+
+    .message.success {
+      background: rgba(90, 188, 240, 0.1);
+      border: 1px solid rgba(90, 188, 240, 0.3);
+      color: var(--sky);
+    }
+
+    .message.error {
+      background: rgba(248, 128, 192, 0.1);
+      border: 1px solid rgba(248, 128, 192, 0.3);
+      color: var(--pink);
+    }
+
+    .divider {
+      border: none;
+      border-top: 1px solid rgba(152, 120, 232, 0.15);
+      margin: 2rem 0 1.5rem;
+    }
+
+    .note {
+      font-size: 0.78rem;
+      color: rgba(255, 240, 248, 0.35);
+      line-height: 1.6;
+    }
+  </style>
+</head>
+<body>
+
+<div class="card">
+  <p class="eyebrow">Limitless Yeehaw · Admin</p>
+  <h1>Gift Course Access</h1>
+  <p class="subtitle">Enter the recipient's email and your admin key. They'll receive the welcome email with their access token immediately.</p>
+
+  <form id="gift-form" novalidate>
+    <div class="field">
+      <label for="email">Recipient Email</label>
+      <input
+        id="email"
+        type="email"
+        placeholder="their@email.com"
+        autocomplete="off"
+        required
+      >
+    </div>
+    <div class="field">
+      <label for="admin-key">Admin Key</label>
+      <input
+        id="admin-key"
+        type="password"
+        placeholder="••••••••••••"
+        autocomplete="current-password"
+        required
+      >
+    </div>
+    <button type="submit" id="submit-btn">Send Gift Access →</button>
+  </form>
+
+  <div class="message" id="message" role="alert" aria-live="polite" aria-atomic="true"></div>
+
+  <hr class="divider">
+  <p class="note">Access is tied to the recipient's email address. They'll get the same welcome email as paying customers. This page is not linked from anywhere on the site — keep the URL private.</p>
+</div>
+
+<script>
+  const form = document.getElementById('gift-form');
+  const btn = document.getElementById('submit-btn');
+  const msg = document.getElementById('message');
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const email = document.getElementById('email').value.trim();
+    const adminKey = document.getElementById('admin-key').value;
+
+    if (!email || !adminKey) return;
+
+    btn.disabled = true;
+    btn.textContent = 'Sending…';
+    msg.style.display = 'none';
+    msg.className = 'message';
+
+    try {
+      const res = await fetch('/.netlify/functions/gift-access', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, adminKey }),
+      });
+
+      const data = await res.json();
+
+      if (data.success) {
+        msg.textContent = `✦ Access granted and welcome email sent to ${email}.`;
+        msg.classList.add('success');
+        form.reset();
+      } else {
+        msg.textContent = data.error || 'Something went wrong. Try again.';
+        msg.classList.add('error');
+      }
+    } catch {
+      msg.textContent = 'Network error — check your connection and try again.';
+      msg.classList.add('error');
+    } finally {
+      msg.style.display = 'block';
+      btn.disabled = false;
+      btn.textContent = 'Send Gift Access →';
+    }
+  });
+</script>
+
+</body>
+</html>
