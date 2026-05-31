@@ -46,6 +46,7 @@ limitless-yeehaw/
 ├── index.html                    ← Landing page (live, complete)
 ├── year-ahead-snapshot.html      ← Free interactive tool / course capstone (live, complete)
 ├── thank-you.html                ← Post-purchase page — tells buyer to check email for token
+├── admin.html                    ← Gift access page (not linked publicly) — enter email + admin key to gift course access
 ├── stripe-card.png               ← Stripe product thumbnail (800×800 branded PNG)
 ├── favicon.svg                   ← ✦ glyph, magenta-to-pink gradient
 ├── netlify.toml                  ← Netlify build config (functions dir + esbuild)
@@ -57,7 +58,8 @@ limitless-yeehaw/
 ├── netlify/
 │   └── functions/
 │       ├── stripe-webhook.js     ← Stripe payment → generates token → stores in Blobs → emails buyer
-│       └── validate-token.js     ← Validates email + token at the course gate
+│       ├── validate-token.js     ← Validates email + token at the course gate
+│       └── gift-access.js        ← Admin-keyed endpoint to gift course access + send welcome email
 ├── css/
 │   ├── main.css                  ← Landing page styles
 │   ├── snapshot.css              ← Snapshot tool styles
@@ -160,8 +162,7 @@ The full "Your Year Ahead" course is built and in the repo. All modules link seq
 
 ### Existing priorities
 
-1. **Kit email form copy** — Updated HTML label to "Want to be first to know what's next?" (done). Staley to update the Kit form dashboard separately: heading → "Join the list", subtext → "New work, early access, and the occasional astrology thought I couldn't keep to myself.", button → "Subscribe" (or "I'm in"). *(Kit dashboard update also noted as done by Staley — 2026-05-31)*
-2. **$99 1-2-1 session** — Add a section to `index.html` offering a 1-hour personal chart walkthrough for $99. Needs a Calendly (or Cal.com) booking link with payment. Discussed and agreed upon — not yet built on the site.
+1. **$99 1-2-1 session** — Add a section to `index.html` offering a 1-hour personal chart walkthrough for $99. Needs a Calendly (or Cal.com) booking link with payment. Discussed and agreed upon — not yet built on the site.
 3. **Audio recording** — Staley records from scripts in `course/scripts/`. All 8 scripts exist. Audio blocks are commented out in all 8 modules — to restore after recording, remove the `<!--` / `-->` wrapping each module's `.audio-block`. Also update the "Written" references in `index.html`, `course/index.html` back to "Written & audio" once recordings are live.
 4. **Pluto plant list for Module 08** — the Planetary Magic module's plant grid lists 9 planets (no Pluto card). Need Staley's Pluto plant list to add it.
 5. **Copy nitpicking** — Staley noted wanting to review and edit copy across modules; no specific modules flagged yet.
@@ -200,7 +201,7 @@ The full "Your Year Ahead" course is built and in the repo. All modules link seq
 - ✓ **Resend domain verified** — limitlessyeehaw.com verified in Resend; DKIM + SPF (including amazonses.com) added to SiteGround DNS
 - ✓ **Stripe webhook configured** — endpoint `https://limitlessyeehaw.com/.netlify/functions/stripe-webhook` listening for `checkout.session.completed`
 - ✓ **Netlify env vars set** — STRIPE_SECRET_KEY, RESEND_API_KEY, STRIPE_WEBHOOK_SECRET
-- ✓ **Admin bypass added** — `course/index.html?admin=YEEHAW` for manually onboarding pre-gate buyers
+- ✓ **Admin bypass added then replaced** — `course/index.html?admin=YEEHAW` used initially for manually onboarding pre-gate buyers; removed 2026-05-31 and replaced with gift access system (see below)
 - ✓ **Monetization strategy brainstormed** — $99 1-2-1 session agreed upon; tiered community pricing discussed (not yet built)
 - ✓ **Module 05 course copy edits** (2026-05-27):
   - 7th house copy updated to clarify it's the house of **longterm, committed** relationships (not casual or early-stage); added "this is not the house of casual connections or early-stage dating"
@@ -209,7 +210,7 @@ The full "Your Year Ahead" course is built and in the repo. All modules link seq
 - ✓ **Module 07 copy fix** — "this is the last module before the capstone" corrected; Module 08 now properly referenced as the final module
 - ✓ **Module 04 SR Sun clarification** — Added two paragraphs to "A note on the SR Sun sign" section explaining that the SR Sun is **always the same sign as the natal Sun** (the Sun completes one full year cycle); what changes each year is the **house** it lands in. This is a key concept for users new to solar returns.
 - ✓ **Cusp definition + diagram added to Module 05** — inline SVG chart wheel diagram showing all 12 house cusps as dividing lines, with one cusp highlighted in magenta and labeled "cusp / dividing line", ASC labeled as "1st house cusp". Placed right before the first use of the word "cusp" in the empty houses section. Copy clarifies that in whole sign houses, each cusp is also where a zodiac sign begins (house boundary = sign boundary, same line). All four axis lines (ASC/IC/DSC/MC) styled consistently in the same purple — no glow filter on ASC.
-- ✓ **Kit email form label updated** — HTML label in `index.html` changed from "Want updates and early access to what's next?" to "Want to be first to know what's next?". Staley still needs to update the Kit form dashboard separately: heading → "Join the list", subtext → "New work, early access, and the occasional astrology thought I couldn't keep to myself."
+- ✓ **Kit email form fully updated** — HTML label in `index.html` updated; Kit form dashboard updated by Staley (2026-05-31): heading → "Join the list", subtext → "New work, early access, and the occasional astrology thought I couldn't keep to myself."
 - ✓ **Accessibility audit completed** (2026-05-27) — Full WCAG 2.1 AA audit run. 6 issues found. 4 fixed same session (see below). 3 remain in "What's Next".
 - ✓ **Accessibility fixes applied** (2026-05-27) — All critical and major course-page issues resolved:
   - **Focus indicators**: `outline: none` removed from gate inputs (`course/index.html`) and snapshot select (`css/snapshot.css`). Pattern used everywhere: `{focus}` suppresses browser default for mouse, `:focus-visible` adds violet outline for keyboard-only. Global `:focus-visible` rule added to `css/course.css`.
