@@ -158,43 +158,16 @@ The full "Your Year Ahead" course is built and in the repo. All modules link seq
 
 ## What's Next (priority order)
 
-### Remaining accessibility items (from 2026-05-27 audit — WCAG 2.1 AA)
-Most accessibility work is now done (see Completed). Three items remain:
+### Existing priorities
 
-**1. Serif font halation — 🟡 MAJOR, the coworker feedback, quick CSS fix**
-Palatino at `font-weight: normal` on dark backgrounds creates a glowing/blurry irradiation effect on thin strokes. High contrast (17.6:1) but perceptually hard to read. Not a WCAG contrast failure — a rendering issue.
-Fix — add to `css/course.css`:
-```css
-body {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-.section-heading, .module-title {
-  font-weight: 500; /* or 600 */
-}
-```
-
-**2. About section contrast at gradient pink end — 🟡 MAJOR**
-About section gradient ends at `#E03880`. Text at 15–16px in that region: 3.78:1, fails AA (needs 4.5:1).
-Fix option A: darken gradient endpoint in `css/main.css` from `#E03880` to approx `#B02860`
-Fix option B: add `text-shadow: 0 0 20px rgba(0,0,0,0.3)` to `.about-opener` and `.about-body-text`
-
-**3. Decorative stars SVG missing aria-hidden — 🟢 MINOR**
-`<svg class="stars">` in `index.html` hero has no `aria-hidden="true"` — screen readers may read it as unlabeled graphic.
-Fix: add `aria-hidden="true"` to the stars SVG opening tag.
-
----
-
-### Other existing priorities
-
-4. **Kit email form copy** — Updated HTML label to "Want to be first to know what's next?" (done). Still need Staley to update the Kit form itself: heading → "Join the list", subtext → "New work, early access, and the occasional astrology thought I couldn't keep to myself.", button → "Subscribe" (or "I'm in").
-5. **$99 1-2-1 session** — Add a section to `index.html` offering a 1-hour personal chart walkthrough for $99. Needs a Calendly (or Cal.com) booking link with payment. Discussed and agreed upon — not yet built on the site.
-6. **Admin bypass cleanup** — Remove or secure the `?admin=YEEHAW` bypass in `course/index.html` once all early buyers are properly onboarded.
-7. **Audio recording** — Staley records from scripts in `course/scripts/`. All 8 scripts exist. Audio blocks are commented out in all 8 modules — to restore after recording, remove the `<!--` / `-->` wrapping each module's `.audio-block`. Also update the "Written" references in `index.html`, `course/index.html` back to "Written & audio" once recordings are live.
-8. **Pluto plant list for Module 08** — the Planetary Magic module's plant grid lists 9 planets (no Pluto card). Need Staley's Pluto plant list to add it.
-9. **Copy nitpicking** — Staley noted wanting to review and edit copy across modules; no specific modules flagged yet.
-10. **Snapshot: additional features (deferred)** — ideas discussed: (a) a question to carry all year (Sun-house, one open question to hold, not answer); (b) a release phrase (what to put down, 12th-house-based); (c) "this year asks you to trust..." (rising or Sun-house, one-line completion); (d) a color/element/texture for the year (rising or Sun sign based); (e) an archetype for the year (named role + one line, rising-based); (f) a body invitation (sign body correspondence, one gentle line). All deferred — implement in future session.
-11. **Snapshot: Sun/Moon interplay note** — the `getInterplayPrompt()` "other" case is generic; a richer version would be more specific. Deferred.
+1. **Kit email form copy** — Updated HTML label to "Want to be first to know what's next?" (done). Still need Staley to update the Kit form itself: heading → "Join the list", subtext → "New work, early access, and the occasional astrology thought I couldn't keep to myself.", button → "Subscribe" (or "I'm in").
+2. **$99 1-2-1 session** — Add a section to `index.html` offering a 1-hour personal chart walkthrough for $99. Needs a Calendly (or Cal.com) booking link with payment. Discussed and agreed upon — not yet built on the site.
+3. **Admin bypass cleanup** — Remove or secure the `?admin=YEEHAW` bypass in `course/index.html` once all early buyers are properly onboarded.
+4. **Audio recording** — Staley records from scripts in `course/scripts/`. All 8 scripts exist. Audio blocks are commented out in all 8 modules — to restore after recording, remove the `<!--` / `-->` wrapping each module's `.audio-block`. Also update the "Written" references in `index.html`, `course/index.html` back to "Written & audio" once recordings are live.
+5. **Pluto plant list for Module 08** — the Planetary Magic module's plant grid lists 9 planets (no Pluto card). Need Staley's Pluto plant list to add it.
+6. **Copy nitpicking** — Staley noted wanting to review and edit copy across modules; no specific modules flagged yet.
+7. **Snapshot: additional features (deferred)** — ideas discussed: (a) a question to carry all year (Sun-house, one open question to hold, not answer); (b) a release phrase (what to put down, 12th-house-based); (c) "this year asks you to trust..." (rising or Sun-house, one-line completion); (d) a color/element/texture for the year (rising or Sun sign based); (e) an archetype for the year (named role + one line, rising-based); (f) a body invitation (sign body correspondence, one gentle line). All deferred — implement in future session.
+8. **Snapshot: Sun/Moon interplay note** — the `getInterplayPrompt()` "other" case is generic; a richer version would be more specific. Deferred.
 
 ---
 
@@ -247,6 +220,10 @@ Fix: add `aria-hidden="true"` to the stars SVG opening tag.
   - **Gate button loading state**: `aria-busy="true"` set on submit button during fetch; removed on both success and error paths.
   - **Contrast bumps**: `.nav-module-label` opacity raised from `0.4` → `0.55`; `.audio-placeholder` from `0.35` → `0.55` — both in `css/course.css`.
 - ✓ **Previous module navigation added** (2026-05-27) — Modules 02–08 now have a "← Back to Module 0X" link at the bottom left, styled to match the nav's "← Back to course" link (`.prev-module-btn` class, violet, opacity 0.85, no box/gradient). Module 01 has no back button. Layout: `.module-nav` changed to `space-between`; `.next-module-btn:only-child { margin-left: auto; }` keeps the next button right-aligned when no prev button exists.
+- ✓ **Remaining accessibility fixes applied** (2026-05-31) — All 3 outstanding items from the 2026-05-27 audit resolved:
+  - **Serif font halation**: `body` in `css/course.css` gets `-webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale`; `.module-title` and `.section-heading` changed from `font-weight: normal` to `font-weight: 500`.
+  - **About section contrast**: `css/main.css` gradient endpoint darkened from `#E03880` to `#B02860` — brings text contrast above 4.5:1 AA.
+  - **Decorative stars aria-hidden**: `aria-hidden="true"` added to `<svg class="stars">` in `index.html` hero.
 
 ---
 
