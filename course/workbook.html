@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Year Ahead Workbook — Limitless Yeehaw</title>
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<link rel="stylesheet" href="../css/course.css">
+<style>
+
+/* ══════════════════════════════
+   WORKBOOK — page-specific styles
+   ══════════════════════════════ */
+
+/* ── LAYOUT ── */
+.wb-page {
+  max-width: 740px;
+  margin: 0 auto;
+  padding: 0 2rem 6rem;
+}
+
+/* ── HERO ── */
+.wb-hero {
+  margin: 4rem 0 3.5rem;
+  text-align: center;
+}
+.wb-eyebrow {
+  font-size: 0.75rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--violet);
+  margin-bottom: 1rem;
+}
+.wb-title {
+  font-family: var(--serif);
+  font-size: clamp(2rem, 5vw, 2.8rem);
+  font-weight: normal;
+  color: var(--blush);
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+.wb-sub {
+  font-size: 0.95rem;
+  color: rgba(255,240,248,0.6);
+  line-height: 1.7;
+  max-width: 520px;
+  margin: 0 auto 1.5rem;
+}
+.wb-print-btn {
+  display: inline-block;
+  background: transparent;
+  border: 1px solid rgba(152,120,232,0.5);
+  color: var(--violet);
+  font-family: system-ui, sans-serif;
+  font-size: 0.82rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.55rem 1.4rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s;
+}
+.wb-print-btn:hover { background: rgba(152,120,232,0.1); border-color: var(--violet); }
+
+/* ── SECTIONS ── */
+.wb-section {
+  margin-bottom: 3.5rem;
+  padding-bottom: 3rem;
+  border-bottom: 1px solid rgba(255,240,248,0.1);
+}
+.wb-section:last-child { border-bottom: none; }
+
+.wb-section-heading {
+  font-family: var(--serif);
+  font-size: 1.4rem;
+  font-weight: normal;
+  color: var(--blush);
+  margin-bottom: 0.4rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 1px solid rgba(152,120,232,0.3);
+}
+.wb-section-sub {
+  font-size: 0.88rem;
+  color: rgba(255,240,248,0.5);
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+/* ── FILL-IN FIELDS ── */
+.wb-fields {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem 2rem;
+}
+.wb-fields.single { grid-template-columns: 1fr; }
+.wb-fields.triple { grid-template-columns: 1fr 1fr 1fr; }
+
+.wb-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+.wb-field label {
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--violet);
+  font-family: system-ui, sans-serif;
+}
+.wb-field input,
+.wb-field select,
+.wb-field textarea {
+  background: rgba(6,1,32,0.6);
+  border: none;
+  border-bottom: 1px solid rgba(152,120,232,0.4);
+  color: var(--blush);
+  font-family: var(--body);
+  font-size: 0.95rem;
+  padding: 0.4rem 0.1rem;
+  transition: border-color 0.2s;
+  width: 100%;
+  border-radius: 0;
+  -webkit-appearance: none;
+}
+.wb-field select {
+  cursor: pointer;
+  padding-right: 1rem;
+}
+.wb-field textarea {
+  resize: vertical;
+  min-height: 5rem;
+  border: 1px solid rgba(152,120,232,0.25);
+  border-radius: 4px;
+  padding: 0.6rem 0.75rem;
+  line-height: 1.65;
+  background: rgba(6,1,32,0.5);
+}
+.wb-field input:focus,
+.wb-field select:focus,
+.wb-field textarea:focus {
+  outline: none;
+  border-bottom-color: var(--violet);
+}
+.wb-field input:focus-visible,
+.wb-field select:focus-visible,
+.wb-field textarea:focus-visible {
+  outline: 2px solid var(--violet);
+  outline-offset: 2px;
+}
+.wb-field select option { background: #0E0530; color: var(--blush); }
+
+/* ── PLANET GLYPH TABLE ── */
+.wb-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+.wb-table th {
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--violet);
+  font-family: system-ui, sans-serif;
+  font-weight: normal;
+  padding: 0.5rem 0.75rem;
+  text-align: left;
+  border-bottom: 1px solid rgba(152,120,232,0.3);
+}
+.wb-table td {
+  padding: 0.55rem 0.75rem;
+  border-bottom: 1px solid rgba(255,240,248,0.06);
+  vertical-align: middle;
+  color: rgba(255,240,248,0.85);
+  line-height: 1.5;
+}
+.wb-table tr:last-child td { border-bottom: none; }
+.wb-table tr:hover td { background: rgba(152,120,232,0.05); }
+
+.glyph-cell {
+  font-size: 1.3rem;
+  color: var(--magenta);
+  text-align: center;
+  width: 2.5rem;
+}
+.planet-name { font-family: var(--serif); color: var(--blush); }
+.planet-keywords { color: rgba(255,240,248,0.55); font-size: 0.82rem; }
+
+.wb-table input.house-input {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(152,120,232,0.35);
+  color: var(--blush);
+  font-family: var(--body);
+  font-size: 0.9rem;
+  width: 3rem;
+  padding: 0.2rem 0.1rem;
+  text-align: center;
+}
+.wb-table input.house-input:focus { outline: none; border-bottom-color: var(--violet); }
+.wb-table input.house-input:focus-visible { outline: 2px solid var(--violet); outline-offset: 2px; }
+
+/* ── SIGN REFERENCE TABLE ── */
+.sign-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.5rem;
+}
+.sign-cell {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255,240,248,0.03);
+  border: 1px solid rgba(255,240,248,0.08);
+  border-radius: 6px;
+  padding: 0.45rem 0.65rem;
+  font-size: 0.85rem;
+}
+.sign-glyph { font-size: 1.1rem; color: var(--violet); }
+.sign-name { color: rgba(255,240,248,0.75); }
+
+/* ── HERB DISPLAY ── */
+.herb-display {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-top: 1.25rem;
+}
+.herb-block {
+  background: rgba(255,240,248,0.03);
+  border: 1px solid rgba(152,120,232,0.18);
+  border-radius: 8px;
+  padding: 1rem 1.1rem;
+}
+.herb-block-label {
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--violet);
+  font-family: system-ui, sans-serif;
+  margin-bottom: 0.45rem;
+}
+.herb-block-text {
+  font-size: 0.88rem;
+  color: rgba(255,240,248,0.7);
+  line-height: 1.6;
+}
+.herb-block-text.unset {
+  color: rgba(255,240,248,0.3);
+  font-style: italic;
+}
+.herb-planet-glyph {
+  font-size: 1.1rem;
+  margin-right: 0.3rem;
+  color: var(--magenta);
+}
+
+/* ── MODULE NOTE CARDS ── */
+.module-note {
+  background: rgba(255,240,248,0.03);
+  border: 1px solid rgba(152,120,232,0.15);
+  border-radius: 8px;
+  padding: 1.25rem 1.4rem;
+  margin-bottom: 1rem;
+}
+.module-note-header {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+.module-note-num {
+  font-family: var(--serif);
+  font-size: 0.95rem;
+  color: var(--magenta);
+  min-width: 1.5rem;
+}
+.module-note-title {
+  font-family: var(--serif);
+  font-size: 1rem;
+  color: var(--blush);
+  font-weight: normal;
+}
+.module-note-prompt {
+  font-size: 0.82rem;
+  color: rgba(255,240,248,0.45);
+  line-height: 1.6;
+  margin-bottom: 0.75rem;
+  font-style: italic;
+}
+
+/* ── SAVE STATUS ── */
+.wb-save-status {
+  font-size: 0.72rem;
+  font-family: system-ui, sans-serif;
+  color: rgba(255,240,248,0.35);
+  text-align: right;
+  margin-top: 0.5rem;
+  letter-spacing: 0.04em;
+  min-height: 1em;
+}
+
+/* ══════════════════════════════
+   PRINT STYLES
+   ══════════════════════════════ */
+@media print {
+  body { background: white; color: #111; }
+  .nav, .wb-print-btn, .wb-save-status { display: none !important; }
+  .wb-page { padding: 0 0 2rem; max-width: 100%; }
+  .wb-section { break-inside: avoid; page-break-inside: avoid; }
+  .module-note { break-inside: avoid; page-break-inside: avoid; }
+  .wb-field input,
+  .wb-field select,
+  .wb-field textarea {
+    background: transparent;
+    color: #111;
+    border-color: #aaa;
+  }
+  .wb-field label { color: #555; }
+  .wb-section-heading { color: #111; border-color: #ccc; }
+  .wb-section-sub { color: #555; }
+  .wb-eyebrow { color: #6644aa; }
+  .wb-title { color: #111; }
+  .wb-sub { color: #555; }
+  .glyph-cell { color: #9944cc; }
+  .planet-name { color: #111; }
+  .planet-keywords { color: #666; }
+  .wb-table th { color: #6644aa; }
+  .wb-table td { color: #111; border-color: #ddd; }
+  .sign-cell { border-color: #ddd; background: transparent; }
+  .sign-glyph { color: #6644aa; }
+  .sign-name { color: #333; }
+  .herb-block { background: transparent; border-color: #ddd; }
+  .herb-block-label { color: #6644aa; }
+  .herb-block-text { color: #333; }
+  .module-note { background: transparent; border-color: #ddd; }
+  .module-note-num { color: #9944cc; }
+  .module-note-title { color: #111; }
+  .module-note-prompt { color: #888; }
+  .wb-table input.house-input { color: #111; border-color: #aaa; }
+  .wb-field select option { color: #111; }
+}
+
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to content</a>
+
+<nav class="nav" aria-label="Course">
+  <a class="nav-brand" href="../index.html">Limitless Yeehaw</a>
+  <div class="nav-right">
+    <a class="nav-back" href="contents.html">← Back to course</a>
+  </div>
+</nav>
+
+<main id="main-content">
+<div class="wb-page">
+
+  <!-- HERO -->
+  <div class="wb-hero">
+    <p class="wb-eyebrow">Your Year Ahead · Companion</p>
+    <h1 class="wb-title">My Year Ahead Workbook</h1>
+    <p class="wb-sub">Fill this in as you move through the course. Your answers save automatically in your browser — or print it and keep it next to your chart.</p>
+    <button class="wb-print-btn" onclick="window.print()">Print / Save as PDF</button>
+  </div>
+
+  <!-- ═══════════════════════════
+       SECTION 1: MY PLACEMENTS
+       ═══════════════════════════ -->
+  <section class="wb-section" aria-labelledby="placements-heading">
+    <h2 class="wb-section-heading" id="placements-heading">My Solar Return Placements</h2>
+    <p class="wb-section-sub">Fill these in after you've cast your solar return chart (Module 02). Come back and update each year.</p>
+
+    <div class="wb-fields triple">
+      <div class="wb-field">
+        <label for="sr-year">Solar Return Year</label>
+        <input type="text" id="sr-year" placeholder="e.g. 2026" maxlength="4" data-wb-key="sr-year">
+      </div>
+      <div class="wb-field">
+        <label for="sr-birthday">Birthday</label>
+        <input type="text" id="sr-birthday" placeholder="Month Day" data-wb-key="sr-birthday">
+      </div>
+      <div class="wb-field">
+        <label for="sr-location">SR Location</label>
+        <input type="text" id="sr-location" placeholder="Where you'll be" data-wb-key="sr-location">
+      </div>
+    </div>
+
+    <div style="height: 1.25rem;"></div>
+
+    <div class="wb-fields">
+      <div class="wb-field">
+        <label for="sr-rising">SR Rising Sign</label>
+        <select id="sr-rising" data-wb-key="sr-rising">
+          <option value="">— select —</option>
+          <option>Aries</option><option>Taurus</option><option>Gemini</option>
+          <option>Cancer</option><option>Leo</option><option>Virgo</option>
+          <option>Libra</option><option>Scorpio</option><option>Sagittarius</option>
+          <option>Capricorn</option><option>Aquarius</option><option>Pisces</option>
+        </select>
+      </div>
+      <div class="wb-field">
+        <label for="sr-ruling-planet">Ruling Planet</label>
+        <input type="text" id="sr-ruling-planet" placeholder="e.g. Venus" data-wb-key="sr-ruling-planet">
+      </div>
+      <div class="wb-field">
+        <label for="sr-sun-sign">SR Sun Sign</label>
+        <select id="sr-sun-sign" data-wb-key="sr-sun-sign">
+          <option value="">— select —</option>
+          <option>Aries</option><option>Taurus</option><option>Gemini</option>
+          <option>Cancer</option><option>Leo</option><option>Virgo</option>
+          <option>Libra</option><option>Scorpio</option><option>Sagittarius</option>
+          <option>Capricorn</option><option>Aquarius</option><option>Pisces</option>
+        </select>
+      </div>
+      <div class="wb-field">
+        <label for="sr-sun-house">SR Sun House</label>
+        <input type="text" id="sr-sun-house" placeholder="e.g. 7" maxlength="2" data-wb-key="sr-sun-house">
+      </div>
+      <div class="wb-field">
+        <label for="sr-moon-sign">SR Moon Sign</label>
+        <select id="sr-moon-sign" data-wb-key="sr-moon-sign">
+          <option value="">— select —</option>
+          <option>Aries</option><option>Taurus</option><option>Gemini</option>
+          <option>Cancer</option><option>Leo</option><option>Virgo</option>
+          <option>Libra</option><option>Scorpio</option><option>Sagittarius</option>
+          <option>Capricorn</option><option>Aquarius</option><option>Pisces</option>
+        </select>
+      </div>
+      <div class="wb-field">
+        <label for="sr-moon-house">SR Moon House</label>
+        <input type="text" id="sr-moon-house" placeholder="e.g. 4" maxlength="2" data-wb-key="sr-moon-house">
+      </div>
+    </div>
+
+    <div style="height: 1.25rem;"></div>
+
+    <div class="wb-fields single">
+      <div class="wb-field">
+        <label for="sr-theme">My Year's Theme Word</label>
+        <input type="text" id="sr-theme" placeholder="From the Snapshot tool — based on your SR Rising" data-wb-key="sr-theme">
+      </div>
+    </div>
+
+    <p class="wb-save-status" id="save-status-1" aria-live="polite"></p>
+  </section>
+
+  <!-- ═══════════════════════════
+       SECTION 2: SIGN REFERENCE
+       ══════════════════════════= -->
+  <section class="wb-section" aria-labelledby="signs-heading">
+    <h2 class="wb-section-heading" id="signs-heading">Zodiac Sign Reference</h2>
+    <p class="wb-section-sub">The twelve signs and their glyphs. Use this when you're reading your chart.</p>
+
+    <div class="sign-grid" role="list">
+      <div class="sign-cell" role="listitem"><span class="sign-glyph" aria-hidden="true">♈</span><span class="sign-name">Aries</span></div>
+      <div class="sign-cell" role="listitem"><span class="sign-glyph" aria-hidden="true">♉</span><span class="sign-name">Taurus</span></div>
+      <div class="sign-cell" role="listitem"><span class="sign-glyph" aria-hidden="true">♊</span><span class="sign-name">Gemini</span></div>
+      <div class="sign-cell" role="listitem"><span class="sign-glyph" aria-hidden="true">♋</span><span class="sign-name">Cancer</span></div>
+      <div class="sign-cell" role="listitem"><span class="sign-glyph" aria-hidden="true">♌</span><span class="sign-name">Leo</span></div>
+      <div class="sign-cell" role="listitem"><span class="sign-glyph" aria-hidden="true">♍</span><span class="sign-name">Virgo</span></div>
+      <div class="sign-cell" role="listitem"><span class="sign-glyph" aria-hidden="true">♎</span><span class="sign-name">Libra</span></div>
+      <div class="sign-cell" role="listitem"><span class="sign-glyph" aria-hidden="true">♏</span><span class="sign-name">Scorpio</span></div>
+      <div class="sign-cell" role="listitem"><span class="sign-glyph" aria-hidden="true">♐</span><span class="sign-name">Sagittarius</span></div>
+      <div class="sign-cell" role="listitem"><span class="sign-glyph" aria-hidden="true">♑</span><span class="sign-name">Capricorn</span></div>
+      <div class="sign-cell" role="listitem"><span class="sign-glyph" aria-hidden="true">♒</span><span class="sign-name">Aquarius</span></div>
+      <div class="sign-cell" role="listitem"><span class="sign-glyph" aria-hidden="true">♓</span><span class="sign-name">Pisces</span></div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════
+       SECTION 3: PLANET REFERENCE
+       ══════════════════════════= -->
+  <section class="wb-section" aria-labelledby="planets-heading">
+    <h2 class="wb-section-heading" id="planets-heading">Planet Glyph Reference</h2>
+    <p class="wb-section-sub">Fill in the "My SR House" column as you work through Module 05 (Houses). The house a planet occupies tells you where that energy is active this year.</p>
+
+    <table class="wb-table" aria-label="Planet glyphs and keywords">
+      <thead>
+        <tr>
+          <th scope="col">Glyph</th>
+          <th scope="col">Planet</th>
+          <th scope="col">Keywords</th>
+          <th scope="col">My SR House</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="glyph-cell" aria-label="Sun glyph">☉</td>
+          <td class="planet-name">Sun</td>
+          <td class="planet-keywords">Identity, purpose, vitality, ego</td>
+          <td><input class="house-input" type="text" maxlength="2" aria-label="Sun SR house" data-wb-key="house-sun"></td>
+        </tr>
+        <tr>
+          <td class="glyph-cell" aria-label="Moon glyph">☽</td>
+          <td class="planet-name">Moon</td>
+          <td class="planet-keywords">Emotions, instinct, comfort, memory</td>
+          <td><input class="house-input" type="text" maxlength="2" aria-label="Moon SR house" data-wb-key="house-moon"></td>
+        </tr>
+        <tr>
+          <td class="glyph-cell" aria-label="Mercury glyph">☿</td>
+          <td class="planet-name">Mercury</td>
+          <td class="planet-keywords">Mind, communication, learning, movement</td>
+          <td><input class="house-input" type="text" maxlength="2" aria-label="Mercury SR house" data-wb-key="house-mercury"></td>
+        </tr>
+        <tr>
+          <td class="glyph-cell" aria-label="Venus glyph">♀</td>
+          <td class="planet-name">Venus</td>
+          <td class="planet-keywords">Love, beauty, values, pleasure</td>
+          <td><input class="house-input" type="text" maxlength="2" aria-label="Venus SR house" data-wb-key="house-venus"></td>
+        </tr>
+        <tr>
+          <td class="glyph-cell" aria-label="Mars glyph">♂</td>
+          <td class="planet-name">Mars</td>
+          <td class="planet-keywords">Drive, action, desire, courage</td>
+          <td><input class="house-input" type="text" maxlength="2" aria-label="Mars SR house" data-wb-key="house-mars"></td>
+        </tr>
+        <tr>
+          <td class="glyph-cell" aria-label="Jupiter glyph">♃</td>
+          <td class="planet-name">Jupiter</td>
+          <td class="planet-keywords">Expansion, luck, belief, abundance</td>
+          <td><input class="house-input" type="text" maxlength="2" aria-label="Jupiter SR house" data-wb-key="house-jupiter"></td>
+        </tr>
+        <tr>
+          <td class="glyph-cell" aria-label="Saturn glyph">♄</td>
+          <td class="planet-name">Saturn</td>
+          <td class="planet-keywords">Structure, discipline, limitation, mastery</td>
+          <td><input class="house-input" type="text" maxlength="2" aria-label="Saturn SR house" data-wb-key="house-saturn"></td>
+        </tr>
+        <tr>
+          <td class="glyph-cell" aria-label="Uranus glyph">♅</td>
+          <td class="planet-name">Uranus</td>
+          <td class="planet-keywords">Disruption, innovation, freedom, the unexpected</td>
+          <td><input class="house-input" type="text" maxlength="2" aria-label="Uranus SR house" data-wb-key="house-uranus"></td>
+        </tr>
+        <tr>
+          <td class="glyph-cell" aria-label="Neptune glyph">♆</td>
+          <td class="planet-name">Neptune</td>
+          <td class="planet-keywords">Dreams, spirituality, illusion, dissolution</td>
+          <td><input class="house-input" type="text" maxlength="2" aria-label="Neptune SR house" data-wb-key="house-neptune"></td>
+        </tr>
+        <tr>
+          <td class="glyph-cell" aria-label="Pluto glyph">♇</td>
+          <td class="planet-name">Pluto</td>
+          <td class="planet-keywords">Transformation, power, depth, endings & beginnings</td>
+          <td><input class="house-input" type="text" maxlength="2" aria-label="Pluto SR house" data-wb-key="house-pluto"></td>
+        </tr>
+        <tr>
+          <td class="glyph-cell" aria-label="Ascendant">ASC</td>
+          <td class="planet-name">Ascendant / Rising</td>
+          <td class="planet-keywords">How you show up, the year's lens, your body</td>
+          <td><input class="house-input" type="text" maxlength="2" aria-label="Ascendant SR house" placeholder="1" disabled style="opacity:0.35;" title="Rising is always in the 1st house"></td>
+        </tr>
+        <tr>
+          <td class="glyph-cell" aria-label="Midheaven">MC</td>
+          <td class="planet-name">Midheaven</td>
+          <td class="planet-keywords">Public life, career, reputation, authority</td>
+          <td><input class="house-input" type="text" maxlength="2" aria-label="Midheaven SR house" placeholder="10" disabled style="opacity:0.35;" title="MC is always in the 10th house"></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p class="wb-save-status" id="save-status-3" aria-live="polite"></p>
+  </section>
+
+  <!-- ═══════════════════════════
+       SECTION 4: MY HERBS
+       ══════════════════════════= -->
+  <section class="wb-section" aria-labelledby="herbs-heading">
+    <h2 class="wb-section-heading" id="herbs-heading">My Plant Allies This Year</h2>
+    <p class="wb-section-sub">Select your placements above and these fill in automatically. From Module 03 (sign herbs) and Module 08 (planet allies). These are correspondences — not prescriptions.</p>
+
+    <div class="herb-display" id="herb-display">
+      <div class="herb-block">
+        <p class="herb-block-label">Rising sign herbs</p>
+        <p class="herb-block-text unset" id="herb-rising">Select your SR Rising above.</p>
+      </div>
+      <div class="herb-block">
+        <p class="herb-block-label">Sun sign herbs</p>
+        <p class="herb-block-text unset" id="herb-sun-sign">Select your SR Sun sign above.</p>
+      </div>
+      <div class="herb-block">
+        <p class="herb-block-label">Moon sign herbs</p>
+        <p class="herb-block-text unset" id="herb-moon-sign">Select your SR Moon sign above.</p>
+      </div>
+      <div class="herb-block">
+        <p class="herb-block-label"><span class="herb-planet-glyph" aria-hidden="true">☉</span> Sun planet allies</p>
+        <p class="herb-block-text">Bay tree, calendula, chamomile, dandelion, eyebright, marigold, sunflower, St. John's wort.</p>
+      </div>
+      <div class="herb-block">
+        <p class="herb-block-label"><span class="herb-planet-glyph" aria-hidden="true">☽</span> Moon planet allies</p>
+        <p class="herb-block-text">Cabbage, chickweed, clary sage, cucumber, lettuce, white roses, willow tree.</p>
+      </div>
+      <div class="herb-block">
+        <p class="herb-block-label">My intentions for working with plants</p>
+        <textarea class="herb-block-text" id="herb-intentions" placeholder="What feels calling to you this year…" rows="3" data-wb-key="herb-intentions" style="width:100%;background:transparent;border:none;border-bottom:1px solid rgba(152,120,232,0.3);color:var(--blush);font-family:var(--body);font-size:0.88rem;resize:none;padding:0.25rem 0;"></textarea>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════
+       SECTION 5: MODULE NOTES
+       ══════════════════════════= -->
+  <section class="wb-section" aria-labelledby="notes-heading">
+    <h2 class="wb-section-heading" id="notes-heading">Module Notes</h2>
+    <p class="wb-section-sub">One question to sit with per module. Take notes as you go — or come back after you've had time to sit with the material.</p>
+
+    <div class="module-note">
+      <div class="module-note-header">
+        <span class="module-note-num">01</span>
+        <span class="module-note-title">The Beginner Primer</span>
+      </div>
+      <p class="module-note-prompt">Which of the four pieces (signs, planets, houses, aspects) feels most unfamiliar — and most interesting?</p>
+      <div class="wb-field">
+        <textarea rows="4" placeholder="Your notes…" data-wb-key="notes-01" aria-label="Module 01 notes"></textarea>
+      </div>
+    </div>
+
+    <div class="module-note">
+      <div class="module-note-header">
+        <span class="module-note-num">02</span>
+        <span class="module-note-title">Cast Your Chart</span>
+      </div>
+      <p class="module-note-prompt">What's your first reaction when you look at your chart? What draws your eye?</p>
+      <div class="wb-field">
+        <textarea rows="4" placeholder="Your notes…" data-wb-key="notes-02" aria-label="Module 02 notes"></textarea>
+      </div>
+    </div>
+
+    <div class="module-note">
+      <div class="module-note-header">
+        <span class="module-note-num">03</span>
+        <span class="module-note-title">Rising Sign & Ruling Planet</span>
+      </div>
+      <p class="module-note-prompt">What does your SR Rising sign say about the energy of this year? Does the ruling planet's house placement feel accurate?</p>
+      <div class="wb-field">
+        <textarea rows="4" placeholder="Your notes…" data-wb-key="notes-03" aria-label="Module 03 notes"></textarea>
+      </div>
+    </div>
+
+    <div class="module-note">
+      <div class="module-note-header">
+        <span class="module-note-num">04</span>
+        <span class="module-note-title">Sun & Moon</span>
+      </div>
+      <p class="module-note-prompt">Where is your Sun going this year — and does that feel like relief or resistance? What about your Moon's emotional home?</p>
+      <div class="wb-field">
+        <textarea rows="4" placeholder="Your notes…" data-wb-key="notes-04" aria-label="Module 04 notes"></textarea>
+      </div>
+    </div>
+
+    <div class="module-note">
+      <div class="module-note-header">
+        <span class="module-note-num">05</span>
+        <span class="module-note-title">Reading the Houses</span>
+      </div>
+      <p class="module-note-prompt">Which house is most crowded this year? Which is empty — and what sign sits on that cusp?</p>
+      <div class="wb-field">
+        <textarea rows="4" placeholder="Your notes…" data-wb-key="notes-05" aria-label="Module 05 notes"></textarea>
+      </div>
+    </div>
+
+    <div class="module-note">
+      <div class="module-note-header">
+        <span class="module-note-num">06</span>
+        <span class="module-note-title">The Planets</span>
+      </div>
+      <p class="module-note-prompt">Which planet feels most prominent in your chart this year? What does that planet want?</p>
+      <div class="wb-field">
+        <textarea rows="4" placeholder="Your notes…" data-wb-key="notes-06" aria-label="Module 06 notes"></textarea>
+      </div>
+    </div>
+
+    <div class="module-note">
+      <div class="module-note-header">
+        <span class="module-note-num">07</span>
+        <span class="module-note-title">Aspects: Lines on the Chart</span>
+      </div>
+      <p class="module-note-prompt">What are the dominant lines you see — blue (ease) or red (friction)? What are they connecting?</p>
+      <div class="wb-field">
+        <textarea rows="4" placeholder="Your notes…" data-wb-key="notes-07" aria-label="Module 07 notes"></textarea>
+      </div>
+    </div>
+
+    <div class="module-note">
+      <div class="module-note-header">
+        <span class="module-note-num">08</span>
+        <span class="module-note-title">Planetary Magic</span>
+      </div>
+      <p class="module-note-prompt">Which planet's magic feels most accessible to work with this year — and how might you bring it in?</p>
+      <div class="wb-field">
+        <textarea rows="4" placeholder="Your notes…" data-wb-key="notes-08" aria-label="Module 08 notes"></textarea>
+      </div>
+    </div>
+
+    <p class="wb-save-status" id="save-status-5" aria-live="polite"></p>
+  </section>
+
+  <!-- ═══════════════════════════
+       SECTION 6: MY YEAR IN A LINE
+       ══════════════════════════= -->
+  <section class="wb-section" aria-labelledby="synthesis-heading">
+    <h2 class="wb-section-heading" id="synthesis-heading">My Year, In a Few Lines</h2>
+    <p class="wb-section-sub">After you've run the Snapshot tool and worked through the modules — use this space to synthesize what you know.</p>
+
+    <div class="wb-fields single" style="gap:1.25rem;">
+      <div class="wb-field">
+        <label for="synth-anchor">My anchor phrase this year</label>
+        <input type="text" id="synth-anchor" placeholder="From the Snapshot tool" data-wb-key="synth-anchor">
+      </div>
+      <div class="wb-field">
+        <label for="synth-permission">Give myself permission to…</label>
+        <input type="text" id="synth-permission" placeholder="From the Snapshot tool" data-wb-key="synth-permission">
+      </div>
+      <div class="wb-field">
+        <label for="synth-word">One word for this year</label>
+        <input type="text" id="synth-word" placeholder="Not necessarily the theme word — yours" data-wb-key="synth-word">
+      </div>
+      <div class="wb-field">
+        <label for="synth-intention">What I want to come back to</label>
+        <textarea id="synth-intention" rows="4" placeholder="The thing you want to remember when you open this mid-year…" data-wb-key="synth-intention"></textarea>
+      </div>
+    </div>
+
+    <p class="wb-save-status" id="save-status-6" aria-live="polite"></p>
+  </section>
+
+</div><!-- /.wb-page -->
+</main>
+
+<footer class="course-footer">
+  <a class="course-footer-brand" href="../index.html">Limitless Yeehaw</a>
+  <p class="course-footer-copy">© 2026 Limitless Yeehaw · All rights reserved</p>
+</footer>
+
+<script>
+// ── Auth check ──
+if (localStorage.getItem('ly_access') !== 'granted') {
+  window.location.replace('index.html');
+}
+
+// ── Sign herb data ──
+const signHerbs = {
+  Aries:       'Betony, blackberry, blessed thistle, chili powder, cowslips, juniper, loosestrife, marjoram, mushrooms.',
+  Taurus:      'Apple blossom, cumin, fig-wort, lovage.',
+  Gemini:      "Dragon's blood reeds, meadowsweet.",
+  Cancer:      "Adder's tongue, alder, agrimony, balm, betony, daisies, duckweed, honeysuckle, hyssop, liverwort.",
+  Leo:         "Agaric, angelica, bay tree, borage, goat's rue, oats, peony, rue, saffron, sage, St. John's wort, wheat.",
+  Virgo:       'Lavender, maidenhair.',
+  Libra:       'Geranium, horse-tongue, verbena, vervain.',
+  Scorpio:     'Basil, bloodroot, dwarf elder.',
+  Sagittarius: 'Alexander, dandelion.',
+  Capricorn:   'Comfrey, moss.',
+  Aquarius:    'Star anise, curry, spikenard, wisteria.',
+  Pisces:      'Alder, hemp, moss, sphagnum.'
+};
+
+// ── LocalStorage save/restore ──
+const WB_KEY = 'ly_workbook';
+
+function loadWorkbook() {
+  let data = {};
+  try { data = JSON.parse(localStorage.getItem(WB_KEY) || '{}'); } catch(e) {}
+  document.querySelectorAll('[data-wb-key]').forEach(el => {
+    const key = el.dataset.wbKey;
+    if (data[key] !== undefined) {
+      if (el.tagName === 'SELECT' || el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+        el.value = data[key];
+      }
+    }
+  });
+  updateHerbs();
+}
+
+function saveWorkbook(el) {
+  let data = {};
+  try { data = JSON.parse(localStorage.getItem(WB_KEY) || '{}'); } catch(e) {}
+  const key = el.dataset.wbKey;
+  data[key] = el.value;
+  localStorage.setItem(WB_KEY, JSON.stringify(data));
+
+  // Show brief save confirmation near the field's section
+  const nearestStatus = el.closest('section')?.querySelector('.wb-save-status');
+  if (nearestStatus) {
+    nearestStatus.textContent = 'Saved ✓';
+    clearTimeout(nearestStatus._t);
+    nearestStatus._t = setTimeout(() => { nearestStatus.textContent = ''; }, 2000);
+  }
+}
+
+function updateHerbs() {
+  const rising = document.getElementById('sr-rising')?.value;
+  const sunSign = document.getElementById('sr-sun-sign')?.value;
+  const moonSign = document.getElementById('sr-moon-sign')?.value;
+
+  const risingEl = document.getElementById('herb-rising');
+  const sunSignEl = document.getElementById('herb-sun-sign');
+  const moonSignEl = document.getElementById('herb-moon-sign');
+
+  if (risingEl) {
+    if (rising && signHerbs[rising]) {
+      risingEl.textContent = signHerbs[rising];
+      risingEl.classList.remove('unset');
+    } else {
+      risingEl.textContent = 'Select your SR Rising above.';
+      risingEl.classList.add('unset');
+    }
+  }
+  if (sunSignEl) {
+    if (sunSign && signHerbs[sunSign]) {
+      sunSignEl.textContent = signHerbs[sunSign];
+      sunSignEl.classList.remove('unset');
+    } else {
+      sunSignEl.textContent = 'Select your SR Sun sign above.';
+      sunSignEl.classList.add('unset');
+    }
+  }
+  if (moonSignEl) {
+    if (moonSign && signHerbs[moonSign]) {
+      moonSignEl.textContent = signHerbs[moonSign];
+      moonSignEl.classList.remove('unset');
+    } else {
+      moonSignEl.textContent = 'Select your SR Moon sign above.';
+      moonSignEl.classList.add('unset');
+    }
+  }
+}
+
+// ── Wire up all fields ──
+document.querySelectorAll('[data-wb-key]').forEach(el => {
+  const evt = (el.tagName === 'TEXTAREA' || el.tagName === 'INPUT') ? 'input' : 'change';
+  el.addEventListener(evt, () => {
+    saveWorkbook(el);
+    // Update herbs when sign dropdowns change
+    if (['sr-rising','sr-sun-sign','sr-moon-sign'].includes(el.dataset.wbKey)) {
+      updateHerbs();
+    }
+  });
+});
+
+// ── Load on start ──
+loadWorkbook();
+</script>
+
+</body>
+</html>

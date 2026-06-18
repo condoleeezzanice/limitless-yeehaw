@@ -65,7 +65,9 @@ limitless-yeehaw/
 │   ├── snapshot.css              ← Snapshot tool styles
 │   └── course.css                ← All course module styles (shared)
 └── course/
-    ├── index.html                ← Course gate (email + token form); shows content once authenticated
+    ├── index.html                ← Course gate (email + token form); if already authenticated, redirects to contents.html
+    ├── contents.html             ← Auth-gated course table of contents — 8 module cards + capstone + workbook links; "Back to course" in all modules links here
+    ├── workbook.html             ← Auth-gated printable workbook — placements fill-in, sign/planet glyph reference tables, dynamic herb display (updates from dropdowns), module notes (8 prompts), synthesis section; saves to localStorage automatically
     ├── 01-primer.html            ← Module 01: The Beginner Primer ✓
     ├── 02-cast-your-chart.html   ← Module 02: Cast Your Chart ✓
     ├── 03-rising-sign.html       ← Module 03: Your Rising Sign & Ruling Planet ✓
@@ -172,6 +174,13 @@ The full "Your Year Ahead" course is built and in the repo. All modules link seq
 ---
 
 ## Completed (full log)
+
+- ✓ **Course navigation overhaul** (2026-06-18) — Three new pages + nav fixes based on user feedback (Anya):
+  - `course/contents.html` — auth-gated table of contents; 8 module cards + capstone + workbook, all clickable; auth check redirects to gate if not logged in
+  - `course/workbook.html` — printable fill-in-the-blanks companion; SR placements, sign + planet glyph reference tables, dynamic herb display (auto-fills from sign dropdowns), module notes (8 guided prompts), synthesis section; saves to localStorage automatically
+  - `course/index.html` updated — authenticated users now redirect straight to `contents.html` instead of seeing sales content
+  - All 8 module "← Back to course" links now go to `contents.html` (was going to main homepage — bug)
+  - All 8 modules now have "My Workbook" link in nav-right alongside "← Back to course"
 
 - ✓ **Site launched** — `limitlessyeehaw.com` live via GitHub Pages + custom domain
 - ✓ **Favicon** — `favicon.svg` created (✦ glyph, magenta-to-pink gradient, deep plum background); wired into all HTML files

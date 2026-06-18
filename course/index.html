@@ -684,8 +684,8 @@
   document.addEventListener('DOMContentLoaded', function () {
     const access = localStorage.getItem('ly_access');
     if (access === 'granted') {
-      document.getElementById('gate').style.display = 'none';
-      document.getElementById('course-content').style.display = 'block';
+      window.location.replace('contents.html');
+      return;
     } else {
       document.getElementById('gate').style.display = 'block';
       document.getElementById('course-content').style.display = 'none';
@@ -714,8 +714,7 @@
 
       if (data.valid) {
         localStorage.setItem('ly_access', 'granted');
-        document.getElementById('gate').style.display = 'none';
-        document.getElementById('course-content').style.display = 'block';
+        window.location.replace('contents.html');
       } else {
         errEl.textContent = "That email and token didn't match — check your purchase confirmation email and try again.";
         btn.textContent = 'Enter the Course →';
