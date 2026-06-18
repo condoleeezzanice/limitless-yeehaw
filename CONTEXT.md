@@ -65,8 +65,9 @@ limitless-yeehaw/
 │   ├── snapshot.css              ← Snapshot tool styles
 │   └── course.css                ← All course module styles (shared)
 └── course/
-    ├── index.html                ← Course gate (email + token form); if already authenticated, redirects to contents.html
-    ├── contents.html             ← Auth-gated course table of contents — 8 module cards + capstone + workbook links; "Back to course" in all modules links here
+    ├── index.html                ← Course gate (email + token form); if already authenticated: first-timers → welcome.html, returning users → contents.html (checks ly_welcomed flag)
+    ├── welcome.html              ← First-time-only welcome/intro page (shown once on first login, never again); has hero, intro copy + pullquote, module overview list, about Staley, two CTAs (Start Module 01 / Browse all modules). Returning users who land here are redirected to contents.html. Sets ly_welcomed = 'true' in localStorage.
+    ├── contents.html             ← Auth-gated course table of contents — 8 module cards + capstone + workbook links; "Back to course" in all modules links here; returning-user nav hub
     ├── workbook.html             ← Auth-gated printable workbook — placements fill-in, sign/planet glyph reference tables, dynamic herb display (updates from dropdowns), module notes (8 prompts), synthesis section; saves to localStorage automatically
     ├── 01-primer.html            ← Module 01: The Beginner Primer ✓
     ├── 02-cast-your-chart.html   ← Module 02: Cast Your Chart ✓

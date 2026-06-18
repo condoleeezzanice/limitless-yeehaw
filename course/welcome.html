@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Welcome — Your Year Ahead</title>
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<link rel="stylesheet" href="../css/course.css">
+<style>
+
+/* ══════════════════════════════
+   WELCOME PAGE — page-specific styles
+   ══════════════════════════════ */
+
+/* ── HERO ── */
+.course-hero {
+  max-width: 760px;
+  margin: 5rem auto 4rem;
+  padding: 0 2rem;
+  text-align: center;
+}
+.course-hero-eyebrow {
+  font-size: 0.75rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--violet);
+  margin-bottom: 1.25rem;
+}
+.course-hero-title {
+  font-family: var(--serif);
+  font-size: clamp(2.4rem, 6vw, 3.8rem);
+  font-weight: normal;
+  line-height: 1.15;
+  color: var(--blush);
+  margin-bottom: 1.5rem;
+}
+.course-hero-divider {
+  width: 56px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--violet), var(--magenta));
+  border-radius: 2px;
+  margin: 0 auto 1.5rem;
+}
+.course-hero-sub {
+  font-size: 1.1rem;
+  color: rgba(255,240,248,0.75);
+  line-height: 1.75;
+  max-width: 580px;
+  margin: 0 auto 2.25rem;
+}
+.course-hero-cta {
+  display: inline-block;
+  background: linear-gradient(135deg, var(--violet), var(--magenta));
+  color: var(--blush);
+  text-decoration: none;
+  font-size: 1rem;
+  letter-spacing: 0.04em;
+  padding: 0.9rem 2.25rem;
+  border-radius: 8px;
+  transition: opacity 0.2s, transform 0.2s;
+}
+.course-hero-cta:hover { opacity: 0.88; transform: translateY(-1px); }
+.course-hero-cta:focus-visible { outline: 2px solid var(--blush); outline-offset: 3px; }
+.course-hero-micro {
+  margin-top: 0.85rem;
+  font-size: 0.8rem;
+  color: rgba(255,240,248,0.35);
+  letter-spacing: 0.05em;
+}
+
+/* ── INTRO SECTION ── */
+.course-intro {
+  max-width: 660px;
+  margin: 0 auto 5rem;
+  padding: 0 2rem;
+}
+.course-intro p {
+  font-size: 1.05rem;
+  color: rgba(255,240,248,0.82);
+  line-height: 1.8;
+  margin-bottom: 1.25rem;
+}
+.course-intro p:last-child { margin-bottom: 0; }
+.course-intro em { color: var(--pink); font-style: italic; }
+.course-intro .pullquote {
+  border-left: 3px solid var(--violet);
+  margin: 2rem 0;
+  padding: 0.75rem 1.5rem;
+  background: rgba(152,120,232,0.08);
+  border-radius: 0 8px 8px 0;
+}
+.course-intro .pullquote p {
+  font-family: var(--serif);
+  font-size: 1.2rem;
+  line-height: 1.55;
+  color: var(--blush) !important;
+  margin: 0 !important;
+}
+
+/* ── WHAT'S INSIDE ── */
+.inside-section {
+  max-width: 720px;
+  margin: 0 auto 5rem;
+  padding: 0 2rem;
+}
+.inside-eyebrow {
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--violet);
+  margin-bottom: 1rem;
+}
+.inside-heading {
+  font-family: var(--serif);
+  font-size: clamp(1.6rem, 4vw, 2.25rem);
+  font-weight: normal;
+  color: var(--blush);
+  margin-bottom: 0.75rem;
+}
+.inside-sub {
+  font-size: 0.95rem;
+  color: rgba(255,240,248,0.6);
+  line-height: 1.7;
+  margin-bottom: 2.5rem;
+  max-width: 520px;
+}
+.module-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border: 1px solid rgba(152,120,232,0.2);
+  border-radius: 12px;
+  overflow: hidden;
+}
+.module-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.25rem;
+  padding: 1.5rem;
+  border-bottom: 1px solid rgba(255,240,248,0.07);
+}
+.module-item:last-child { border-bottom: none; }
+.module-item.capstone-item {
+  background: rgba(224,64,168,0.06);
+  border-top: 1px solid rgba(224,64,168,0.2);
+}
+.module-item-num {
+  font-family: var(--serif);
+  font-size: 1.1rem;
+  color: var(--violet);
+  min-width: 2rem;
+  text-align: center;
+  padding-top: 0.1rem;
+  flex-shrink: 0;
+}
+.capstone-item .module-item-num { color: var(--magenta); font-size: 1.2rem; }
+.module-item-body { flex: 1; }
+.module-item-title {
+  font-family: var(--serif);
+  font-size: 1.1rem;
+  color: var(--blush);
+  margin-bottom: 0.35rem;
+}
+.module-item-desc {
+  font-size: 0.88rem;
+  color: rgba(255,240,248,0.6);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ── ABOUT ── */
+.about-strip {
+  max-width: 660px;
+  margin: 0 auto 5rem;
+  padding: 2rem;
+  border-top: 1px solid rgba(255,240,248,0.08);
+  border-bottom: 1px solid rgba(255,240,248,0.08);
+  text-align: center;
+}
+.about-strip-eyebrow {
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--violet);
+  margin-bottom: 1rem;
+}
+.about-strip p {
+  font-size: 0.95rem;
+  color: rgba(255,240,248,0.72);
+  line-height: 1.8;
+  margin-bottom: 0.75rem;
+}
+.about-strip p:last-child { margin-bottom: 0; }
+.about-strip em { color: var(--pink); font-style: italic; }
+
+/* ── BOTTOM CTA ── */
+.welcome-cta {
+  max-width: 560px;
+  margin: 0 auto 6rem;
+  padding: 0 2rem;
+  text-align: center;
+}
+.welcome-cta-primary {
+  display: inline-block;
+  background: linear-gradient(135deg, var(--violet), var(--magenta));
+  color: var(--blush);
+  text-decoration: none;
+  font-size: 1.05rem;
+  letter-spacing: 0.04em;
+  padding: 1rem 2.5rem;
+  border-radius: 8px;
+  transition: opacity 0.2s, transform 0.2s;
+  margin-bottom: 1rem;
+}
+.welcome-cta-primary:hover { opacity: 0.88; transform: translateY(-1px); }
+.welcome-cta-primary:focus-visible { outline: 2px solid var(--blush); outline-offset: 3px; }
+.welcome-cta-secondary {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--violet);
+  text-decoration: none;
+  opacity: 0.8;
+  letter-spacing: 0.04em;
+  transition: opacity 0.2s;
+}
+.welcome-cta-secondary:hover { opacity: 1; }
+.welcome-cta-secondary:focus-visible { outline: 2px solid var(--violet); outline-offset: 2px; }
+
+/* ── FOOTER ── */
+.course-footer {
+  text-align: center;
+  padding: 2.5rem 2rem 3.5rem;
+  border-top: 1px solid rgba(255,240,248,0.08);
+}
+.course-footer-brand {
+  font-family: var(--serif);
+  font-size: 1rem;
+  color: rgba(255,240,248,0.5);
+  text-decoration: none;
+  display: block;
+  margin-bottom: 0.5rem;
+  transition: color 0.2s;
+}
+.course-footer-brand:hover { color: var(--blush); }
+.course-footer-copy {
+  font-size: 0.78rem;
+  color: rgba(255,240,248,0.3);
+  font-family: system-ui, sans-serif;
+}
+
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to content</a>
+
+<nav class="nav" aria-label="Course">
+  <a class="nav-brand" href="../index.html">Limitless Yeehaw</a>
+  <div class="nav-right">
+    <a class="nav-back" href="contents.html">Browse all modules →</a>
+  </div>
+</nav>
+
+<main id="main-content">
+
+  <!-- ── HERO ── -->
+  <div class="course-hero">
+    <p class="course-hero-eyebrow">Your Year Ahead &nbsp;·&nbsp; A Self-Paced Course</p>
+    <h1 class="course-hero-title">Your birthday gives you<br>a new map every year.<br>Learn to read it.</h1>
+    <div class="course-hero-divider" aria-hidden="true"></div>
+    <p class="course-hero-sub">
+      A solar return chart resets on your birthday — a snapshot of the sky that maps
+      the year ahead. This course teaches you to cast it yourself, read the placements
+      that matter most, and walk away with a framework you'll use for the rest of your life.
+    </p>
+    <a class="course-hero-cta" href="01-primer.html">Start Module 01 →</a>
+    <p class="course-hero-micro">Self-paced · Written · Return every birthday</p>
+  </div>
+
+  <!-- ── INTRO ── -->
+  <div class="course-intro">
+    <p>
+      You've probably had your chart read by someone else — or Googled a placement and gotten
+      a paragraph that felt close but not quite right. That's because no one knows your life
+      like you do.
+    </p>
+
+    <div class="pullquote">
+      <p>This course is going to show you the ingredients you have.
+      You're the one who makes the potion.</p>
+    </div>
+
+    <p>
+      The solar return chart isn't a prediction. It's a map of available energy —
+      which areas of your life are lit up, where the ease is, where the friction is,
+      what themes are likely to shape the year. <em>What you do with that is yours.</em>
+    </p>
+    <p>
+      This course gives you the framework to read that map for yourself, every year,
+      for the rest of your life.
+    </p>
+  </div>
+
+  <!-- ── WHAT'S INSIDE ── -->
+  <div class="inside-section">
+    <p class="inside-eyebrow">What's inside</p>
+    <h2 class="inside-heading">Eight modules + a capstone tool.</h2>
+    <p class="inside-sub">Work through them in order — each one builds on the last. You can always browse and jump around from the module menu.</p>
+
+    <div class="module-list" role="list">
+      <div class="module-item" role="listitem">
+        <span class="module-item-num" aria-hidden="true">01</span>
+        <div class="module-item-body">
+          <p class="module-item-title">The Beginner Primer</p>
+          <p class="module-item-desc">Signs, planets, houses, aspects — the four pieces of the chart. Plain-language foundation, no prior astrology knowledge assumed.</p>
+        </div>
+      </div>
+      <div class="module-item" role="listitem">
+        <span class="module-item-num" aria-hidden="true">02</span>
+        <div class="module-item-body">
+          <p class="module-item-title">Cast Your Chart</p>
+          <p class="module-item-desc">Step-by-step walkthrough on astro.com. No math, no guesswork — just your birth data, your birthday location, and fifteen minutes.</p>
+        </div>
+      </div>
+      <div class="module-item" role="listitem">
+        <span class="module-item-num" aria-hidden="true">03</span>
+        <div class="module-item-body">
+          <p class="module-item-title">Your Rising Sign & Ruling Planet</p>
+          <p class="module-item-desc">The solar return rising sets the tone for the entire year. Find yours, find its ruling planet, understand what they're saying together.</p>
+        </div>
+      </div>
+      <div class="module-item" role="listitem">
+        <span class="module-item-num" aria-hidden="true">04</span>
+        <div class="module-item-body">
+          <p class="module-item-title">Sun & Moon</p>
+          <p class="module-item-desc">Where your energy wants to go and where your emotional world will live this year. Two placements that tell you how the year will feel from the inside.</p>
+        </div>
+      </div>
+      <div class="module-item" role="listitem">
+        <span class="module-item-num" aria-hidden="true">05</span>
+        <div class="module-item-body">
+          <p class="module-item-title">Reading the Houses</p>
+          <p class="module-item-desc">Which areas of life are activated — and which are asking for rest. Crowded houses and empty ones both mean something. We cover both.</p>
+        </div>
+      </div>
+      <div class="module-item" role="listitem">
+        <span class="module-item-num" aria-hidden="true">06</span>
+        <div class="module-item-body">
+          <p class="module-item-title">The Planets</p>
+          <p class="module-item-desc">Ten planets, ten kinds of energy. Know who they are before you read the relationships between them.</p>
+        </div>
+      </div>
+      <div class="module-item" role="listitem">
+        <span class="module-item-num" aria-hidden="true">07</span>
+        <div class="module-item-body">
+          <p class="module-item-title">Aspects: Lines on the Chart</p>
+          <p class="module-item-desc">Blue lines are ease. Red lines are friction. Neither is bad — both are useful. This module shows you how to read what's happening between the planets.</p>
+        </div>
+      </div>
+      <div class="module-item" role="listitem">
+        <span class="module-item-num" aria-hidden="true">08</span>
+        <div class="module-item-body">
+          <p class="module-item-title">Planetary Magic</p>
+          <p class="module-item-desc">The chart isn't just for reading — it's for working with. Day and hour rulers for timing your intentions, body correspondences, plant allies for each planet. Welcome to witchcraft, baby.</p>
+        </div>
+      </div>
+      <div class="module-item capstone-item" role="listitem">
+        <span class="module-item-num" aria-hidden="true">✦</span>
+        <div class="module-item-body">
+          <p class="module-item-title">Your Year Ahead Snapshot</p>
+          <p class="module-item-desc">The capstone. An interactive tool that generates a personalized reading from your three key placements. Print it, save it, return to it all year long.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── ABOUT ── -->
+  <div class="about-strip">
+    <p class="about-strip-eyebrow">About Staley</p>
+    <p>
+      Eighteen years of astrology. Ten years of witchcraft.
+      Several very illuminating conversations with animals —
+      and a few with people who were no longer technically here.
+    </p>
+    <p>
+      I'm a UX designer by day and a full-time practitioner of the mystical by everything else.
+      I trained at the Boulder Psychic Institute — learning to read, release, and renew my own
+      energy and the energy of others. Whimsy is my antidote to attempted conformity.
+      My goal is to give you tools that take the mystical and bring it into the mundane,
+      because the deep belief that holds all of this together is simple:
+      <em>knowledge is the least scary thing in the world.</em>
+    </p>
+    <p>I'm glad you're here. ♡</p>
+  </div>
+
+  <!-- ── BOTTOM CTA ── -->
+  <div class="welcome-cta">
+    <a class="welcome-cta-primary" href="01-primer.html">Start Module 01 →</a>
+    <a class="welcome-cta-secondary" href="contents.html">Or browse all modules ↗</a>
+  </div>
+
+</main>
+
+<footer class="course-footer">
+  <a class="course-footer-brand" href="../index.html">Limitless Yeehaw</a>
+  <p class="course-footer-copy">© 2026 Limitless Yeehaw · All rights reserved</p>
+</footer>
+
+<script>
+  // ── Auth + welcome logic ──
+  const isAuthenticated = localStorage.getItem('ly_access') === 'granted';
+  const hasSeenWelcome  = localStorage.getItem('ly_welcomed') === 'true';
+
+  if (!isAuthenticated) {
+    // Not logged in — back to gate
+    window.location.replace('index.html');
+  } else if (hasSeenWelcome) {
+    // Returning user landed here directly — send to contents
+    window.location.replace('contents.html');
+  } else {
+    // First time — mark as welcomed so they don't see this again
+    localStorage.setItem('ly_welcomed', 'true');
+  }
+</script>
+
+</body>
+</html>
