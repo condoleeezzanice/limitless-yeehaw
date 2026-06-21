@@ -11,8 +11,13 @@
 
 <nav class="nav">
   <a class="nav-brand" href="index.html">Limitless Yeehaw</a>
-  <a class="nav-back" href="index.html">← Back</a>
+  <a class="nav-back" id="nav-back" href="index.html">← Back</a>
 </nav>
+<script>
+  if (localStorage.getItem('ly_access') === 'granted') {
+    document.getElementById('nav-back').href = 'course/contents.html';
+  }
+</script>
 
 <div class="tool-wrap">
 
