@@ -68,6 +68,7 @@ limitless-yeehaw/
     ├── index.html                ← Course gate (email + token form); if already authenticated: first-timers → welcome.html, returning users → contents.html (checks ly_welcomed flag)
     ├── welcome.html              ← First-time-only welcome/intro page (shown once on first login, never again); has hero, intro copy + pullquote, module overview list, about Staley, two CTAs (Start Module 01 / Browse all modules). Returning users who land here are redirected to contents.html. Sets ly_welcomed = 'true' in localStorage.
     ├── contents.html             ← Auth-gated course table of contents — 8 module cards + capstone + workbook links; "Back to course" in all modules links here; returning-user nav hub
+    ├── cheatsheet.html           ← Auth-gated printable reference card — all 12 signs (element/mode/keywords), modalities, all 10 planets, all 12 houses, aspects; two-column print layout; linked from contents.html and workbook nav
     ├── workbook.html             ← Auth-gated printable workbook — placements fill-in, sign/planet glyph reference tables, dynamic herb display (updates from dropdowns), module notes (8 prompts), synthesis section; saves to localStorage automatically
     ├── 01-primer.html            ← Module 01: The Beginner Primer ✓
     ├── 02-cast-your-chart.html   ← Module 02: Cast Your Chart ✓
@@ -176,6 +177,8 @@ The full "Your Year Ahead" course is built and in the repo. All modules link seq
 
 ## Completed (full log)
 
+- ✓ **Cheat sheet + module reference cards** (2026-06-21) — `course/cheatsheet.html`: printable single-page reference covering all 12 signs (glyph, element, mode, keywords), modalities, all 10 planets, all 12 houses, and aspects. Auth-gated, print-optimized, linked from `contents.html` and workbook nav. Quick reference cards added to end of Module 01 (signs + planets + houses compact summary), Module 05 (houses), and Module 06 (planets) — each with "Full cheat sheet →" link.
+- ✓ **Welcome page** (2026-06-21) — `course/welcome.html`: first-time-only intro page shown once after first login. Has hero, intro copy + pullquote ("you're the one who makes the potion"), module overview list, about Staley, two CTAs. Sets `ly_welcomed = 'true'` in localStorage; returning users who land here are redirected to `contents.html`.
 - ✓ **Course navigation overhaul** (2026-06-18) — Three new pages + nav fixes based on user feedback (Anya):
   - `course/contents.html` — auth-gated table of contents; 8 module cards + capstone + workbook, all clickable; auth check redirects to gate if not logged in
   - `course/workbook.html` — printable fill-in-the-blanks companion; SR placements, sign + planet glyph reference tables, dynamic herb display (auto-fills from sign dropdowns), module notes (8 guided prompts), synthesis section; saves to localStorage automatically

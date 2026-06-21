@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Astrology Cheat Sheet — Your Year Ahead</title>
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<link rel="stylesheet" href="../css/course.css">
+<style>
+
+/* ══════════════════════════════
+   CHEAT SHEET — page-specific styles
+   ══════════════════════════════ */
+
+.cs-page {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 0 2rem 5rem;
+}
+
+/* ── HERO ── */
+.cs-hero {
+  margin: 3.5rem 0 2.5rem;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid rgba(152,120,232,0.3);
+}
+.cs-title {
+  font-family: var(--serif);
+  font-size: clamp(1.6rem, 4vw, 2.2rem);
+  font-weight: normal;
+  color: var(--blush);
+}
+.cs-eyebrow {
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--violet);
+  margin-bottom: 0.4rem;
+}
+.cs-print-btn {
+  background: transparent;
+  border: 1px solid rgba(152,120,232,0.45);
+  color: var(--violet);
+  font-family: system-ui, sans-serif;
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.45rem 1.1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.2s;
+  flex-shrink: 0;
+}
+.cs-print-btn:hover { background: rgba(152,120,232,0.1); }
+
+/* ── SECTION HEADERS ── */
+.cs-section {
+  margin-bottom: 2.75rem;
+}
+.cs-section-heading {
+  font-size: 0.7rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--magenta);
+  margin-bottom: 0.9rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid rgba(224,64,168,0.2);
+}
+
+/* ══════════════════════════════
+   SIGNS GRID
+   ══════════════════════════════ */
+.signs-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.6rem;
+}
+.sign-card {
+  background: rgba(255,240,248,0.03);
+  border: 1px solid rgba(152,120,232,0.15);
+  border-radius: 7px;
+  padding: 0.7rem 0.8rem;
+}
+.sign-card-top {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.3rem;
+}
+.sign-card-glyph {
+  font-size: 1.1rem;
+  color: var(--violet);
+  min-width: 1.2rem;
+}
+.sign-card-name {
+  font-family: var(--serif);
+  font-size: 0.92rem;
+  color: var(--blush);
+}
+.sign-card-meta {
+  font-size: 0.68rem;
+  letter-spacing: 0.06em;
+  color: rgba(255,240,248,0.4);
+  font-family: system-ui, sans-serif;
+  text-transform: uppercase;
+  margin-bottom: 0.35rem;
+}
+.sign-card-keywords {
+  font-size: 0.78rem;
+  color: rgba(255,240,248,0.65);
+  line-height: 1.5;
+}
+
+/* element color accents */
+.sign-card.fire  { border-left: 2px solid #E04040; }
+.sign-card.earth { border-left: 2px solid #78A850; }
+.sign-card.air   { border-left: 2px solid var(--sky); }
+.sign-card.water { border-left: 2px solid #6080E8; }
+
+/* ══════════════════════════════
+   PLANETS + HOUSES — two-col layout
+   ══════════════════════════════ */
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+/* ── PLANET LIST ── */
+.planet-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border: 1px solid rgba(152,120,232,0.18);
+  border-radius: 8px;
+  overflow: hidden;
+}
+.planet-row {
+  display: grid;
+  grid-template-columns: 2rem 5.5rem 1fr;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.6rem 0.85rem;
+  border-bottom: 1px solid rgba(255,240,248,0.06);
+}
+.planet-row:last-child { border-bottom: none; }
+.planet-glyph {
+  font-size: 1.15rem;
+  color: var(--magenta);
+  text-align: center;
+}
+.planet-name {
+  font-family: var(--serif);
+  font-size: 0.88rem;
+  color: var(--blush);
+}
+.planet-keys {
+  font-size: 0.75rem;
+  color: rgba(255,240,248,0.55);
+  line-height: 1.45;
+}
+
+/* ── HOUSE LIST ── */
+.house-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border: 1px solid rgba(152,120,232,0.18);
+  border-radius: 8px;
+  overflow: hidden;
+}
+.house-row {
+  display: grid;
+  grid-template-columns: 2.25rem 1fr;
+  align-items: baseline;
+  gap: 0.75rem;
+  padding: 0.6rem 0.85rem;
+  border-bottom: 1px solid rgba(255,240,248,0.06);
+}
+.house-row:last-child { border-bottom: none; }
+.house-num {
+  font-family: var(--serif);
+  font-size: 0.88rem;
+  color: var(--violet);
+  text-align: right;
+}
+.house-body {}
+.house-area {
+  font-family: var(--serif);
+  font-size: 0.88rem;
+  color: var(--blush);
+  margin-bottom: 0.1rem;
+}
+.house-keys {
+  font-size: 0.75rem;
+  color: rgba(255,240,248,0.55);
+  line-height: 1.45;
+}
+
+/* ── ASPECTS ROW ── */
+.aspects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.6rem;
+}
+.aspect-card {
+  background: rgba(255,240,248,0.03);
+  border: 1px solid rgba(152,120,232,0.15);
+  border-radius: 7px;
+  padding: 0.7rem 0.85rem;
+}
+.aspect-name {
+  font-family: var(--serif);
+  font-size: 0.9rem;
+  color: var(--blush);
+  margin-bottom: 0.2rem;
+}
+.aspect-angle {
+  font-size: 0.68rem;
+  color: var(--violet);
+  letter-spacing: 0.06em;
+  font-family: system-ui, sans-serif;
+  text-transform: uppercase;
+  margin-bottom: 0.3rem;
+}
+.aspect-desc {
+  font-size: 0.75rem;
+  color: rgba(255,240,248,0.55);
+  line-height: 1.5;
+}
+.aspect-card.ease  { border-left: 2px solid var(--sky); }
+.aspect-card.ease .aspect-name { color: var(--sky); }
+.aspect-card.friction { border-left: 2px solid #E05050; }
+.aspect-card.friction .aspect-name { color: #E07070; }
+.aspect-card.blend { border-left: 2px solid var(--violet); }
+
+/* ── MODES QUICK REF ── */
+.modes-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.6rem;
+  margin-top: 0.6rem;
+}
+.mode-card {
+  background: rgba(255,240,248,0.03);
+  border: 1px solid rgba(152,120,232,0.15);
+  border-radius: 7px;
+  padding: 0.65rem 0.8rem;
+}
+.mode-name {
+  font-family: var(--serif);
+  font-size: 0.9rem;
+  color: var(--blush);
+  margin-bottom: 0.2rem;
+}
+.mode-desc {
+  font-size: 0.75rem;
+  color: rgba(255,240,248,0.55);
+  line-height: 1.5;
+  margin-bottom: 0.3rem;
+}
+.mode-signs {
+  font-size: 0.7rem;
+  color: var(--violet);
+  letter-spacing: 0.04em;
+  font-family: system-ui, sans-serif;
+}
+
+/* ── FOOTER ── */
+.course-footer {
+  text-align: center;
+  padding: 2.5rem 2rem 3.5rem;
+  border-top: 1px solid rgba(255,240,248,0.08);
+}
+.course-footer-brand {
+  font-family: var(--serif);
+  font-size: 1rem;
+  color: rgba(255,240,248,0.5);
+  text-decoration: none;
+  display: block;
+  margin-bottom: 0.5rem;
+  transition: color 0.2s;
+}
+.course-footer-brand:hover { color: var(--blush); }
+.course-footer-copy {
+  font-size: 0.78rem;
+  color: rgba(255,240,248,0.3);
+  font-family: system-ui, sans-serif;
+}
+
+/* ══════════════════════════════
+   PRINT STYLES
+   ══════════════════════════════ */
+@media print {
+  body { background: white; color: #111; font-size: 14px; }
+  .nav, .cs-print-btn, .course-footer { display: none !important; }
+  .cs-page { padding: 0; max-width: 100%; }
+  .cs-hero { border-color: #ccc; margin-top: 0; }
+  .cs-title { color: #111; }
+  .cs-eyebrow { color: #6644aa; }
+  .cs-section-heading { color: #c040a0; border-color: #e0c0e0; }
+
+  .sign-card { background: transparent; border-color: #ddd; }
+  .sign-card.fire  { border-left-color: #cc3030; }
+  .sign-card.earth { border-left-color: #558830; }
+  .sign-card.air   { border-left-color: #3080bb; }
+  .sign-card.water { border-left-color: #4060cc; }
+  .sign-card-glyph { color: #6644aa; }
+  .sign-card-name { color: #111; }
+  .sign-card-meta { color: #888; }
+  .sign-card-keywords { color: #444; }
+
+  .planet-list, .house-list { border-color: #ddd; }
+  .planet-row, .house-row { border-color: #eee; }
+  .planet-glyph { color: #c040a0; }
+  .planet-name, .house-area { color: #111; }
+  .planet-keys, .house-keys { color: #555; }
+  .house-num { color: #6644aa; }
+
+  .aspect-card { background: transparent; border-color: #ddd; }
+  .aspect-card.ease { border-left-color: #3090bb; }
+  .aspect-card.ease .aspect-name { color: #3090bb; }
+  .aspect-card.friction { border-left-color: #cc3030; }
+  .aspect-card.friction .aspect-name { color: #cc3030; }
+  .aspect-card.blend { border-left-color: #6644aa; }
+  .aspect-name { color: #111; }
+  .aspect-angle { color: #6644aa; }
+  .aspect-desc { color: #555; }
+
+  .mode-card { background: transparent; border-color: #ddd; }
+  .mode-name { color: #111; }
+  .mode-desc { color: #555; }
+  .mode-signs { color: #6644aa; }
+
+  /* Fit to page */
+  .signs-grid { grid-template-columns: repeat(4, 1fr); gap: 0.4rem; }
+  .two-col { gap: 1rem; }
+  .cs-section { margin-bottom: 1.5rem; }
+  .aspects-grid, .modes-grid { gap: 0.4rem; }
+}
+
+@media (max-width: 640px) {
+  .signs-grid { grid-template-columns: repeat(2, 1fr); }
+  .two-col { grid-template-columns: 1fr; }
+  .aspects-grid, .modes-grid { grid-template-columns: 1fr; }
+}
+
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to content</a>
+
+<nav class="nav" aria-label="Course">
+  <a class="nav-brand" href="../index.html">Limitless Yeehaw</a>
+  <div class="nav-right">
+    <a class="nav-back" href="workbook.html">My Workbook</a>
+    <a class="nav-back" href="contents.html">← Back to course</a>
+  </div>
+</nav>
+
+<main id="main-content">
+<div class="cs-page">
+
+  <div class="cs-hero">
+    <div>
+      <p class="cs-eyebrow">Your Year Ahead · Reference</p>
+      <h1 class="cs-title">Astrology Cheat Sheet</h1>
+    </div>
+    <button class="cs-print-btn" onclick="window.print()">Print / Save as PDF</button>
+  </div>
+
+  <!-- ══ SIGNS ══ -->
+  <section class="cs-section" aria-labelledby="signs-heading">
+    <h2 class="cs-section-heading" id="signs-heading">The 12 Signs</h2>
+    <div class="signs-grid" role="list">
+
+      <div class="sign-card fire" role="listitem">
+        <div class="sign-card-top">
+          <span class="sign-card-glyph" aria-hidden="true">♈</span>
+          <span class="sign-card-name">Aries</span>
+        </div>
+        <p class="sign-card-meta">Fire · Cardinal</p>
+        <p class="sign-card-keywords">Initiative, courage, action, the self</p>
+      </div>
+
+      <div class="sign-card earth" role="listitem">
+        <div class="sign-card-top">
+          <span class="sign-card-glyph" aria-hidden="true">♉</span>
+          <span class="sign-card-name">Taurus</span>
+        </div>
+        <p class="sign-card-meta">Earth · Fixed</p>
+        <p class="sign-card-keywords">Stability, pleasure, values, persistence</p>
+      </div>
+
+      <div class="sign-card air" role="listitem">
+        <div class="sign-card-top">
+          <span class="sign-card-glyph" aria-hidden="true">♊</span>
+          <span class="sign-card-name">Gemini</span>
+        </div>
+        <p class="sign-card-meta">Air · Mutable</p>
+        <p class="sign-card-keywords">Communication, curiosity, duality, adaptability</p>
+      </div>
+
+      <div class="sign-card water" role="listitem">
+        <div class="sign-card-top">
+          <span class="sign-card-glyph" aria-hidden="true">♋</span>
+          <span class="sign-card-name">Cancer</span>
+        </div>
+        <p class="sign-card-meta">Water · Cardinal</p>
+        <p class="sign-card-keywords">Home, nurturing, memory, roots</p>
+      </div>
+
+      <div class="sign-card fire" role="listitem">
+        <div class="sign-card-top">
+          <span class="sign-card-glyph" aria-hidden="true">♌</span>
+          <span class="sign-card-name">Leo</span>
+        </div>
+        <p class="sign-card-meta">Fire · Fixed</p>
+        <p class="sign-card-keywords">Creativity, self-expression, pride, generosity</p>
+      </div>
+
+      <div class="sign-card earth" role="listitem">
+        <div class="sign-card-top">
+          <span class="sign-card-glyph" aria-hidden="true">♍</span>
+          <span class="sign-card-name">Virgo</span>
+        </div>
+        <p class="sign-card-meta">Earth · Mutable</p>
+        <p class="sign-card-keywords">Service, analysis, health, precision</p>
+      </div>
+
+      <div class="sign-card air" role="listitem">
+        <div class="sign-card-top">
+          <span class="sign-card-glyph" aria-hidden="true">♎</span>
+          <span class="sign-card-name">Libra</span>
+        </div>
+        <p class="sign-card-meta">Air · Cardinal</p>
+        <p class="sign-card-keywords">Balance, relationships, beauty, justice</p>
+      </div>
+
+      <div class="sign-card water" role="listitem">
+        <div class="sign-card-top">
+          <span class="sign-card-glyph" aria-hidden="true">♏</span>
+          <span class="sign-card-name">Scorpio</span>
+        </div>
+        <p class="sign-card-meta">Water · Fixed</p>
+        <p class="sign-card-keywords">Depth, transformation, power, mystery</p>
+      </div>
+
+      <div class="sign-card fire" role="listitem">
+        <div class="sign-card-top">
+          <span class="sign-card-glyph" aria-hidden="true">♐</span>
+          <span class="sign-card-name">Sagittarius</span>
+        </div>
+        <p class="sign-card-meta">Fire · Mutable</p>
+        <p class="sign-card-keywords">Expansion, freedom, philosophy, truth</p>
+      </div>
+
+      <div class="sign-card earth" role="listitem">
+        <div class="sign-card-top">
+          <span class="sign-card-glyph" aria-hidden="true">♑</span>
+          <span class="sign-card-name">Capricorn</span>
+        </div>
+        <p class="sign-card-meta">Earth · Cardinal</p>
+        <p class="sign-card-keywords">Ambition, discipline, structure, authority</p>
+      </div>
+
+      <div class="sign-card air" role="listitem">
+        <div class="sign-card-top">
+          <span class="sign-card-glyph" aria-hidden="true">♒</span>
+          <span class="sign-card-name">Aquarius</span>
+        </div>
+        <p class="sign-card-meta">Air · Fixed</p>
+        <p class="sign-card-keywords">Innovation, community, rebellion, vision</p>
+      </div>
+
+      <div class="sign-card water" role="listitem">
+        <div class="sign-card-top">
+          <span class="sign-card-glyph" aria-hidden="true">♓</span>
+          <span class="sign-card-name">Pisces</span>
+        </div>
+        <p class="sign-card-meta">Water · Mutable</p>
+        <p class="sign-card-keywords">Intuition, compassion, dissolution, dreams</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══ MODES ══ -->
+  <section class="cs-section" aria-labelledby="modes-heading">
+    <h2 class="cs-section-heading" id="modes-heading">Modalities</h2>
+    <div class="modes-grid" role="list">
+      <div class="mode-card" role="listitem">
+        <p class="mode-name">Cardinal</p>
+        <p class="mode-desc">Initiating energy — a year of starting, launching, beginning</p>
+        <p class="mode-signs">Aries · Cancer · Libra · Capricorn</p>
+      </div>
+      <div class="mode-card" role="listitem">
+        <p class="mode-name">Fixed</p>
+        <p class="mode-desc">Sustaining energy — a year of building, consolidating, seeing things through</p>
+        <p class="mode-signs">Taurus · Leo · Scorpio · Aquarius</p>
+      </div>
+      <div class="mode-card" role="listitem">
+        <p class="mode-name">Mutable</p>
+        <p class="mode-desc">Transitional energy — a year of adapting, pivoting, shifting</p>
+        <p class="mode-signs">Gemini · Virgo · Sagittarius · Pisces</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ PLANETS + HOUSES ══ -->
+  <section class="cs-section" aria-labelledby="planets-houses-heading">
+    <h2 class="cs-section-heading" id="planets-houses-heading">Planets &amp; Houses</h2>
+    <div class="two-col">
+
+      <!-- PLANETS -->
+      <div>
+        <div class="planet-list" role="list" aria-label="Planets">
+          <div class="planet-row" role="listitem">
+            <span class="planet-glyph" aria-label="Sun">☉</span>
+            <span class="planet-name">Sun</span>
+            <span class="planet-keys">Identity, purpose, vitality, ego</span>
+          </div>
+          <div class="planet-row" role="listitem">
+            <span class="planet-glyph" aria-label="Moon">☽</span>
+            <span class="planet-name">Moon</span>
+            <span class="planet-keys">Emotional focus, instinct, comfort, memory</span>
+          </div>
+          <div class="planet-row" role="listitem">
+            <span class="planet-glyph" aria-label="Mercury">☿</span>
+            <span class="planet-name">Mercury</span>
+            <span class="planet-keys">Mind, communication, learning, movement</span>
+          </div>
+          <div class="planet-row" role="listitem">
+            <span class="planet-glyph" aria-label="Venus">♀</span>
+            <span class="planet-name">Venus</span>
+            <span class="planet-keys">Love, beauty, values, pleasure</span>
+          </div>
+          <div class="planet-row" role="listitem">
+            <span class="planet-glyph" aria-label="Mars">♂</span>
+            <span class="planet-name">Mars</span>
+            <span class="planet-keys">Drive, action, desire, courage</span>
+          </div>
+          <div class="planet-row" role="listitem">
+            <span class="planet-glyph" aria-label="Jupiter">♃</span>
+            <span class="planet-name">Jupiter</span>
+            <span class="planet-keys">Expansion, luck, belief, abundance</span>
+          </div>
+          <div class="planet-row" role="listitem">
+            <span class="planet-glyph" aria-label="Saturn">♄</span>
+            <span class="planet-name">Saturn</span>
+            <span class="planet-keys">Structure, discipline, limitation, mastery</span>
+          </div>
+          <div class="planet-row" role="listitem">
+            <span class="planet-glyph" aria-label="Uranus">♅</span>
+            <span class="planet-name">Uranus</span>
+            <span class="planet-keys">Disruption, innovation, freedom, the unexpected</span>
+          </div>
+          <div class="planet-row" role="listitem">
+            <span class="planet-glyph" aria-label="Neptune">♆</span>
+            <span class="planet-name">Neptune</span>
+            <span class="planet-keys">Dreams, spirituality, illusion, dissolution</span>
+          </div>
+          <div class="planet-row" role="listitem">
+            <span class="planet-glyph" aria-label="Pluto">♇</span>
+            <span class="planet-name">Pluto</span>
+            <span class="planet-keys">Transformation, power, depth, endings &amp; beginnings</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- HOUSES -->
+      <div>
+        <div class="house-list" role="list" aria-label="Houses">
+          <div class="house-row" role="listitem">
+            <span class="house-num">1st</span>
+            <div class="house-body">
+              <p class="house-area">The Self</p>
+              <p class="house-keys">Identity, body, how you show up, the year's lens</p>
+            </div>
+          </div>
+          <div class="house-row" role="listitem">
+            <span class="house-num">2nd</span>
+            <div class="house-body">
+              <p class="house-area">Resources</p>
+              <p class="house-keys">Money, possessions, self-worth, values</p>
+            </div>
+          </div>
+          <div class="house-row" role="listitem">
+            <span class="house-num">3rd</span>
+            <div class="house-body">
+              <p class="house-area">The Mind</p>
+              <p class="house-keys">Communication, learning, siblings, local travel</p>
+            </div>
+          </div>
+          <div class="house-row" role="listitem">
+            <span class="house-num">4th</span>
+            <div class="house-body">
+              <p class="house-area">Foundations</p>
+              <p class="house-keys">Home, family, roots, private life</p>
+            </div>
+          </div>
+          <div class="house-row" role="listitem">
+            <span class="house-num">5th</span>
+            <div class="house-body">
+              <p class="house-area">Joy</p>
+              <p class="house-keys">Creativity, romance, pleasure, play, children</p>
+            </div>
+          </div>
+          <div class="house-row" role="listitem">
+            <span class="house-num">6th</span>
+            <div class="house-body">
+              <p class="house-area">Daily Life</p>
+              <p class="house-keys">Health, routines, work habits, service</p>
+            </div>
+          </div>
+          <div class="house-row" role="listitem">
+            <span class="house-num">7th</span>
+            <div class="house-body">
+              <p class="house-area">Partnership</p>
+              <p class="house-keys">Longterm committed relationships, contracts, collaborators</p>
+            </div>
+          </div>
+          <div class="house-row" role="listitem">
+            <span class="house-num">8th</span>
+            <div class="house-body">
+              <p class="house-area">Transformation</p>
+              <p class="house-keys">Shared resources, power, depth, mental health, death &amp; rebirth</p>
+            </div>
+          </div>
+          <div class="house-row" role="listitem">
+            <span class="house-num">9th</span>
+            <div class="house-body">
+              <p class="house-area">Expansion</p>
+              <p class="house-keys">Philosophy, higher learning, travel, belief systems</p>
+            </div>
+          </div>
+          <div class="house-row" role="listitem">
+            <span class="house-num">10th</span>
+            <div class="house-body">
+              <p class="house-area">Legacy</p>
+              <p class="house-keys">Career, public reputation, authority, what you build</p>
+            </div>
+          </div>
+          <div class="house-row" role="listitem">
+            <span class="house-num">11th</span>
+            <div class="house-body">
+              <p class="house-area">Collective</p>
+              <p class="house-keys">Friends, community, hopes, causes, social vision</p>
+            </div>
+          </div>
+          <div class="house-row" role="listitem">
+            <span class="house-num">12th</span>
+            <div class="house-body">
+              <p class="house-area">The Hidden</p>
+              <p class="house-keys">Solitude, the unconscious, endings, spirituality, retreat</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══ ASPECTS ══ -->
+  <section class="cs-section" aria-labelledby="aspects-heading">
+    <h2 class="cs-section-heading" id="aspects-heading">Aspects</h2>
+    <div class="aspects-grid" role="list">
+      <div class="aspect-card ease" role="listitem">
+        <p class="aspect-name">Trine</p>
+        <p class="aspect-angle">120° · Blue lines</p>
+        <p class="aspect-desc">Ease and flow. The energies support each other naturally.</p>
+      </div>
+      <div class="aspect-card ease" role="listitem">
+        <p class="aspect-name">Sextile</p>
+        <p class="aspect-angle">60° · Blue lines</p>
+        <p class="aspect-desc">Ease with some effort. Opportunity that rewards a nudge.</p>
+      </div>
+      <div class="aspect-card blend" role="listitem">
+        <p class="aspect-name">Conjunction</p>
+        <p class="aspect-angle">0° · Same point</p>
+        <p class="aspect-desc">Blending. The two planets merge into one energy, operating as one.</p>
+      </div>
+      <div class="aspect-card friction" role="listitem">
+        <p class="aspect-name">Square</p>
+        <p class="aspect-angle">90° · Red lines</p>
+        <p class="aspect-desc">Friction for growth. Tension that forces mastery or a workaround.</p>
+      </div>
+      <div class="aspect-card friction" role="listitem">
+        <p class="aspect-name">Opposition</p>
+        <p class="aspect-angle">180° · Red lines</p>
+        <p class="aspect-desc">Push-pull between two areas of life. Integration is the work.</p>
+      </div>
+      <div class="aspect-card blend" role="listitem">
+        <p class="aspect-name">A note on friction</p>
+        <p class="aspect-angle">Squares &amp; oppositions</p>
+        <p class="aspect-desc">Neither is bad. Friction aspects show where the real growth is happening.</p>
+      </div>
+    </div>
+  </section>
+
+</div><!-- /.cs-page -->
+</main>
+
+<footer class="course-footer">
+  <a class="course-footer-brand" href="../index.html">Limitless Yeehaw</a>
+  <p class="course-footer-copy">© 2026 Limitless Yeehaw · All rights reserved</p>
+</footer>
+
+<script>
+  if (localStorage.getItem('ly_access') !== 'granted') {
+    window.location.replace('index.html');
+  }
+</script>
+
+</body>
+</html>
