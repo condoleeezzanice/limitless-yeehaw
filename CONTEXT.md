@@ -177,7 +177,8 @@ The full "Your Year Ahead" course is built and in the repo. All modules link seq
 
 ## Completed (full log)
 
-- ✓ **Cheat sheet + module reference cards** (2026-06-21) — `course/cheatsheet.html`: printable single-page reference covering all 12 signs (glyph, element, mode, keywords), modalities, all 10 planets, all 12 houses, and aspects. Auth-gated, print-optimized, linked from `contents.html` and workbook nav. Quick reference cards added to end of Module 01 (signs + planets + houses compact summary), Module 05 (houses), and Module 06 (planets) — each with "Full cheat sheet →" link.
+- ✓ **Snapshot back button context-aware** (2026-06-21) — `year-ahead-snapshot.html`: `← Back` link now checks `localStorage.getItem('ly_access')` on page load; authenticated users are sent to `course/contents.html`, unauthenticated users go to `index.html` (homepage). ID `nav-back` added to the link element; small inline `<script>` after the `<nav>` handles the swap.
+- ✓ **Cheat sheet + module reference cards** (2026-06-21) — `course/cheatsheet.html`: printable single-page reference covering all 12 signs (glyph, element, mode, keywords), modalities, all 10 planets, all 12 houses, and aspects. Auth-gated, print-optimized, linked from `contents.html` and workbook nav. Quick reference cards added to end of Module 05 (houses) and Module 06 (planets) — each with "Full cheat sheet →" link. Reference card was also added to Module 01 but then removed — too much too soon for a primer page.
 - ✓ **Welcome page** (2026-06-21) — `course/welcome.html`: first-time-only intro page shown once after first login. Has hero, intro copy + pullquote ("you're the one who makes the potion"), module overview list, about Staley, two CTAs. Sets `ly_welcomed = 'true'` in localStorage; returning users who land here are redirected to `contents.html`.
 - ✓ **Course navigation overhaul** (2026-06-18) — Three new pages + nav fixes based on user feedback (Anya):
   - `course/contents.html` — auth-gated table of contents; 8 module cards + capstone + workbook, all clickable; auth check redirects to gate if not logged in
@@ -240,6 +241,7 @@ The full "Your Year Ahead" course is built and in the repo. All modules link seq
 - ✓ **Module 05 copy edits** (2026-05-31) — Removed "dormant" framing from empty houses section; pullquote and surrounding paragraphs rewritten. House keywords layout fixed (`width: 100%` on `.house-ref-keywords`) so keywords always sit on their own row. Module 08 "The table" → "The plate" in module sub copy.
 - ✓ **Audio scripts synced** (2026-05-31) — Module 05 script updated (module count, empty houses language, closing transition). Module 07 script fixed (was labelled "Module 06 / the last one" — corrected to Module 07, closing now sends to Module 08 instead of wrapping the course).
 - ✓ **Gift access system built** (2026-05-31) — `?admin=YEEHAW` bypass removed from `course/index.html`. Replaced with: `netlify/functions/gift-access.js` (validates `ADMIN_SECRET_KEY` env var, generates token, stores in Blobs, sends welcome email via Resend) + `admin.html` (password-gated gift form, not linked from anywhere on the site). To gift access: go to `limitlessyeehaw.com/admin.html`, enter recipient email + admin key. **Setup required**: add `ADMIN_SECRET_KEY` to Netlify environment variables (Netlify → Site Settings → Environment Variables).
+- ✓ **Admin key stored securely** (2026-06-21) — Admin key `YEEHAW_ADMIN_GIDDY-UP` stored in `.env` as `ADMIN_SECRET_KEY=YEEHAW_ADMIN_GIDDY-UP`. `.env` is in `.gitignore` and never committed to the repo.
 
 ---
 
