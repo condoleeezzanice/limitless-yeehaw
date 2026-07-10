@@ -554,6 +554,81 @@ body {
 .kit-form-wrap { max-width: 420px; margin: 0 auto; }
 
 /* ══════════════════════════════
+   1-ON-1 SESSION
+══════════════════════════════ */
+.session-section {
+  background: linear-gradient(180deg, #5A1488 0%, #6A1888 50%, #5A1488 100%);
+  padding: 7rem 2rem;
+  border-top: 1px solid rgba(224, 64, 168, 0.18);
+}
+
+.session-inner {
+  max-width: 640px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.session-eyebrow {
+  font-family: Georgia, serif;
+  font-size: 10px;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: #5ABCF0;
+  margin-bottom: 1.1rem;
+}
+
+.session-heading {
+  font-family: 'Palatino Linotype', Palatino, 'Book Antiqua', Georgia, serif;
+  font-size: clamp(28px, 4.5vw, 44px);
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.15;
+  margin-bottom: 1rem;
+}
+
+.session-divider {
+  width: 40px;
+  height: 1px;
+  background: #E040A8;
+  opacity: .5;
+  margin: 0 auto 1.4rem;
+}
+
+.session-sub {
+  font-size: 16px;
+  line-height: 1.85;
+  color: #F8D8F0;
+  max-width: 540px;
+  margin: 0 auto 3.5rem;
+}
+
+.session-sub em { color: #5ABCF0; font-style: italic; }
+
+.session-card {
+  background: rgba(14, 5, 48, 0.55);
+  border: 1px solid rgba(152, 120, 232, 0.22);
+  border-radius: 4px;
+  padding: 2.6rem 2.4rem 2.2rem;
+  margin-bottom: 3rem;
+  text-align: left;
+}
+
+.session-list {
+  list-style: none;
+  display: grid;
+  gap: 1rem;
+}
+
+.session-list li {
+  display: flex;
+  gap: 0.85rem;
+  align-items: flex-start;
+  font-size: 15px;
+  line-height: 1.7;
+  color: #F8D8F0;
+}
+
+/* ══════════════════════════════
    ABOUT
 ══════════════════════════════ */
 .about-section {
